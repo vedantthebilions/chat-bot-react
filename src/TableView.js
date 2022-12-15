@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
 
-function TableView(props) {
-    
+function TableView(props) {   
   return (
     <div>
       <center>
