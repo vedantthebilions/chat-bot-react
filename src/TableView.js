@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 function TableView(props) {
+    
   return (
     <div>
       <center>
