@@ -38,11 +38,13 @@ tr:nth-child(even) {
 
 .section {
   flex: 1; /*grow*/
-  /* border: 1px solid; */
+  border: 1px solid;
+  font-size: 11px;
+    font-family: sans-serif;
 }
 
 @media (max-width: 768px) { /*breakpoint*/
   .container {
-    flex-direction: column;
+    flex-direction: row;
   }
 }

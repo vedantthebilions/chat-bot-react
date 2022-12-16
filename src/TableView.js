@@ -1,151 +1,172 @@
 import React from "react";
 import "./App.css";
+import Contreras from './image/logo.png'
 
-function TableView(props) {   
+function TableView(props) {
   return (
     <div>
+       <div class="row">
+          <div class="logo-row">
+            <img src={Contreras} alt="Contreraslogo" class="logo"/>
+          </div>
+        </div>
       <center>
-        <h2>
-          {props.state.clientType?.value} -{props.state.caseType?.value}
-        </h2>
+        <h4>
+          {props.state.clientType?.value}  {props.state.clientName?.value}  {props.state.caseType?.value}
+        </h4>
       </center>
 
       <center>
-        <h2>
-          {props.state.clientName?.value}
-        </h2>
+        <h4>{props.state.clientName?.value}</h4>
       </center>
-
 
       <div className="margin-left-5">
         <div class="container">
           <div class="section">
-            Are you a New Client, Former Client, or Current client? &nbsp;&nbsp;
+          (1)  Are you a New Client, Former Client, or Current client? &nbsp;&nbsp;
             <u>{props.state.clientType?.value}</u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            Case Type(Immigration, Criminal, Family, other): &nbsp;&nbsp;
-            <u>{props.state.caseType?.value}</u>
+          (2)  Case Type(Immigration, Criminal, Family, other): &nbsp;&nbsp;
+            <u>{props.state.caseType?.value ? props.state.caseType?.value : 'NA'}</u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            Are you currently outside the US? yes/no, if so, where? &nbsp;&nbsp;
-            <u>{props.state.inus?.value ? props.state.inus?.value : "NA"}</u>
+          (3)  Are you currently outside the US? yes/no, if so, where? &nbsp;&nbsp;
+            <u>
+              {props.state.currentInUs?.value
+                ? props.state.currentInUs?.value +
+                  " " +
+                  " in " +
+                  " " +
+                  props.state.usLocation?.value
+                : "NA"}
+            </u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            Client Name: &nbsp;&nbsp;
+          (4)  Client Name: &nbsp;&nbsp;
             {props.state.clientName?.value
               ? props.state.clientName?.value
               : "NA"}
           </div>
           <div class="section">
-            Date of birth:&nbsp;&nbsp;{" "}
-            <u>{props.state.dob?.value ? props.state.dob?.value : "NA"}</u>
+          (5)  Date of birth:&nbsp;&nbsp;{" "}
+            <u>
+              {props.state.clientDOB?.value
+                ? props.state.clientDOB?.value
+                : "NA"}
+            </u>
           </div>
           <div class="section">
-            A File:&nbsp;&nbsp;{" "}
-            <u>{props.state.afile?.value ? props.state.afile?.value : "NA"}</u>
+          (6)  A File:&nbsp;&nbsp;{" "}
+            <u>{props.state.aFile?.value ? props.state.aFile?.value : "NA"}</u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            Country of birth &nbsp;&nbsp;{" "}
+          (7)  Country of birth &nbsp;&nbsp;{" "}
             <u>
-              {props.state.country?.value ? props.state.country?.value : "NA"}{" "}
+              {props.state.birthCountry?.value
+                ? props.state.birthCountry?.value
+                : "NA"}{" "}
             </u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            Street Address (within the US): &nbsp;&nbsp;{" "}
-            <u>{props.state.address?.value}</u>
+          (8)  Street Address (within the US): &nbsp;&nbsp;{" "}
+            <u>{props.state.streetAddress?.value ? props.state.streetAddress?.value : 'NA'}</u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            City: &nbsp;&nbsp;
+          (9)  City: &nbsp;&nbsp;
             {props.state.city?.value ? props.state.city?.value : "NA"}
           </div>
           <div class="section">
-            State:&nbsp;&nbsp;{" "}
+          (10)  State:&nbsp;&nbsp;{" "}
             <u>{props.state.state?.value ? props.state.state?.value : "NA"}</u>
           </div>
           <div class="section">
-            Zip:&nbsp;&nbsp;{" "}
+          (11)  Zip:&nbsp;&nbsp;{" "}
             <u>{props.state.zip?.value ? props.state.zip?.value : "NA"}</u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            Phone: &nbsp;&nbsp; <u>{props.state.tele?.value}</u>
+          (12)  Phone: &nbsp;&nbsp; <u>{props.state.telephone?.value ? props.state.telephone?.value : 'NA'}</u>
           </div>
           <div class="section">
-            Current immigration status: &nbsp;&nbsp;{" "}
-            <u>{props.state.status?.value}</u>
+          (13)  Current immigration status: &nbsp;&nbsp;{" "}
+            <u>{props.state.immigrationStatus?.value ? props.state.immigrationStatus?.value : 'NA'}</u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            Briefly describe your legal problem or tell me why you need a
-            lawyer: &nbsp;&nbsp; <br />
+           (14) Briefly describe your legal problem or tell me why you need a lawyer: &nbsp;&nbsp; <br />
             <u>
               {props.state.problem?.value
                 ? props.state.problem?.value
-                : "Not Defined"}
+                : "NA"}
             </u>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            1. Are you in removal proceedings now? &nbsp;&nbsp; <br />
+            15. Are you in removal proceedings now? &nbsp;&nbsp; <br />
             <ol type="a">
               <li>
-                Upcoming Hearing date & Location:&nbsp;&nbsp;{" "}
-                {props.state.dateLocation?.value
-                  ? props.state.dateLocation?.value
-                  : "NA"}
+               Upcoming Hearing date & Location:&nbsp;&nbsp;{" "}
+                <u>{props.state.dateOfHearing?.value
+                  ? props.state.dateOfHearing?.value +
+                    " " +
+                    " at " +
+                    " " +
+                    props.state.locationOfHearing?.value
+                  : "NA"}</u>
               </li>
               <li>
-                Type of hearing: &nbsp;&nbsp; {props.state.hearingType?.value}
+                Type of hearing: &nbsp;&nbsp;<u> {props.state.typeOfHearing?.value}</u>
               </li>
               <li>
                 Were you given immigration paperwork? &nbsp;&nbsp;{" "}
-                {props.state.immigration?.value
-                  ? props.state.immigration?.value
-                  : "NA"}
+                <u>{props.state.immigrationPaper?.value
+                  ? props.state.immigrationPaper?.value
+                  : "NA"}</u>
               </li>
             </ol>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            2. Are you married? Yes/No, if yes, Immigration Status of spouse:
+            (16). Are you married? Yes/No, if yes, Immigration Status of spouse:
             <br />
-            {props.state.marriedstatus?.value
-              ? props.state.marriedstatus?.value
+            {props.state.maritialStatus?.value
+              ? props.state.maritialStatus?.value +
+                props.state.spouseImmigration?.value
               : "NA"}
             &nbsp;&nbsp;
           </div>
         </div>
         <div className="container">
           <div class="section">
-            spouse Name:&nbsp;&nbsp;{" "}
+           (16 - a) spouse Name:&nbsp;&nbsp;{" "}
             <u>
-              {props.state.spousename?.value
-                ? props.state.spousename?.value
+              {props.state.spouseName?.value
+                ? props.state.spouseName?.value
                 : "NA"}
             </u>
           </div>
           <div class="section">
-            spouse DOB:&nbsp;&nbsp;{" "}
+          (16 - b) spouse DOB:&nbsp;&nbsp;{" "}
             <u>
-              {props.state.spousedob?.value
-                ? props.state.spousedob?.value
+              {props.state.spouseDOB?.value
+                ? props.state.spouseDOB?.value
                 : "NA"}
             </u>
           </div>
@@ -157,36 +178,46 @@ function TableView(props) {
                 Have you ever been the victim of a crime? Yes/No Where were you
                 a victim of crime?&nbsp;&nbsp;
                 <u>
-                  {props.state.victim?.value ? props.state.victim?.value : "NA"}
+                  {props.state.victimOfCrime?.value ? props.state.victimOfCrime?.value + ' ' + props.state.victimOfCrimeLocation?.value : "NA"}
                 </u>{" "}
-                &nbsp; Do you have a police report? Yes/no&nbsp;&nbsp;
-                <u>{props.state.policereport?.value
-                  ? props.state.policereport?.value
-                  : "NA"}</u>
+              </li>
+              <li>
+              Do you have a police report? Yes/no&nbsp;&nbsp;
+                <u>
+                  {props.state.policeReport?.value
+                    ? props.state.policeReport?.value
+                    : "NA"}
+                </u>
               </li>
               <li>
                 Have you ever had contact with the police for any reason at all
                 in the US?If yes describe why you had contact &nbsp;&nbsp;
-                <u>{props.state.policecontact?.value
-                  ? props.state.policecontact?.value
-                  : "NA"}</u>
+                <u>
+                  {props.state.contactWithPolice?.value
+                    ? props.state.contactWithPolice?.value + ' ' +props.state.contactReason?.value
+                    : "NA"}
+                </u>
               </li>
               <li>
                 Do you have any reason to fear going back to your country?
                 &nbsp;&nbsp;{" "}
-                <u>{props.state.fear?.value ? props.state.fear?.value : "NA"}</u>
+                <u>
+                  {props.state.fear?.value ? props.state.fear?.value + ' ' + props.state.fearReason?.value : "NA"}
+                </u>
               </li>
             </ol>
           </div>
         </div>
         <div className="container">
           <div class="section">
-            6. Have you ever applied for any immigration benefit? (Examples:
-                {" "}Permanent residency, asylum, amnesty, TPS, cancellation, suspension,
-                {" "}Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant
-                {" "}Juvenile Status, or any other immigration benefit). If so, please
-                {" "}tell me what type of benefit and when did you apply <br />
-            <u>{props.state.applied?.value ? props.state.applied?.value : "NA"}</u>
+            (17) Have you ever applied for any immigration benefit? (Examples:
+            Permanent residency, asylum, amnesty, TPS, cancellation, suspension,
+            Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant
+            Juvenile Status, or any other immigration benefit). If so, please
+            tell me what type of benefit and when did you apply <br />
+            <u>
+              {props.state.appiledImmigration?.value ? props.state.appiledImmigration?.value : "NA"}
+            </u>
           </div>
         </div>
       </div>

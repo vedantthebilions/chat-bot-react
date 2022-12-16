@@ -1,3 +1,7 @@
+body {
+  color: rgb(20,30, 1);
+}
+
 .App {
   text-align: center;
 }
@@ -29,12 +33,17 @@
 }
 
 .Main_Page{
-  text-align:"-webkit-center" !important;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
 }
 
+.ijcYgp{
+  width: auto;
+}
 .margin-left-5{
-  margin-left: 5%;
-  
+  margin-left: none; 
 }
 
 .section{
@@ -59,6 +68,26 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.parent-element .element-for-print {
+  width: 600px;
+  min-height: 840px;
+}
+.jKLQUD{
+  display: block;
+}
+
+.logo-row {
+  width: 250px;
+  margin: 0 auto;
+  text-align-last: center;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  text-align: center;
 }
 @keyframes App-logo-spin {
   from {

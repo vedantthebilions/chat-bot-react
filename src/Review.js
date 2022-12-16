@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ChatBot from "react-simple-chatbot";
 import Pdf from "react-to-pdf";
+import { pdfFromReact } from "generate-pdf-from-react-html";
 import TableView from "./TableView";
-import './App.css'
+import "./App.css";
+
 class Review extends Component {
   constructor(props) {
     super(props);
@@ -20,41 +21,69 @@ class Review extends Component {
     const {
       clientType,
       caseType,
-      inus,
+      currentInUs,
+      usLocation,
       clientName,
-      dob,
-      afile,
-      country,
-      address,
+      clientDOB,
+      aFile,
+      birthCountry,
+      streetAddress,
       city,
       state,
       zip,
-      tele,
-      status,
+      telephone,
+      immigrationStatus,
       problem,
-      removalpro,
-      dateLocation,
-      hearingType,
+      dateOfHearing,
+      locationOfHearing,
+      typeOfHearing,
+      immigrationPaper,
+      maritialStatus,
+      spouseImmigration,
+      spouseName,
+      spouseDOB,
+      victimOfCrime,
+      victimOfCrimeLocation,
+      policeReport,
+      contactWithPolice,
+      contactReason,
+      fear,
+      fearReason,
+      appiledImmigration,
     } = steps;
 
     this.setState({
       clientType,
       caseType,
-      inus,
+      currentInUs,
+      usLocation,
       clientName,
-      dob,
-      afile,
-      country,
-      address,
+      clientDOB,
+      aFile,
+      birthCountry,
+      streetAddress,
       city,
       state,
       zip,
-      tele,
-      status,
+      telephone,
+      immigrationStatus,
       problem,
-      removalpro,
-      dateLocation,
-      hearingType,
+      dateOfHearing,
+      locationOfHearing,
+      typeOfHearing,
+      immigrationPaper,
+      maritialStatus,
+      spouseImmigration,
+      spouseName,
+      spouseDOB,
+      victimOfCrime,
+      victimOfCrimeLocation,
+      policeReport,
+      contactWithPolice,
+      contactReason,
+      fear,
+      fearReason,
+      appiledImmigration,
     });
   }
 
@@ -62,101 +91,46 @@ class Review extends Component {
     console.log("clicked");
   }
   render() {
-    const {
-      clientType,
-      caseType,
-      inus,
-      clientName,
-      dob,
-      afile,
-      country,
-      address,
-      city,
-      state,
-      zip,
-      tele,
-      status,
-      problem,
-      removalpro,
-      dateLocation,
-      hearingType,
-    } = this.state;
-
     const ref = React.createRef();
-
+    console.log(this.state);
     return (
-      <div style={{ width: "100%" }}>
-        <div ref={ref}>
+      <>
+        {/* <div ref={ref}>
           <TableView state={this.state} />
-          {/* <table>
-            <tbody>
-              <tr>
-                <td>First Name:</td>
-                <td>{name.value}</td>
-              </tr>
-              <tr>
-                <td>Middle Name:</td>
-                <td>{middleName.value}</td>
-              </tr> */}
-          {/* <tr>
-                <td>Last Name:</td>
-                <td>{lastname.value}</td>
-              </tr> */}
-          {/* <tr>
-                <td>othername Name</td>
-                <td>{othername.value}</td>
-              </tr>
-              <tr>
-                <td>Home address</td>
-                <td>{address.value}</td>
-              </tr>
-              <tr>
-                <td>City</td>
-                <td>{city.value}</td>
-              </tr>
-              <tr>
-                <td>Zip</td>
-                <td>{zip.value}</td>
-              </tr>
-              <tr>
-                <td>Care of: Attorney or Friend</td>
-                <td>{careof.value}</td>
-              </tr>
-              <tr>
-                <td>Home Telephone</td>
-                <td>{tele.value}</td>
-              </tr>
-              <tr>
-                <td>Safe Telephone</td>
-                <td>{safetele.value}</td>
-              </tr>
-              <tr>
-                <td>Email </td>
-                <td>{email.value}</td>
-              </tr>
-              <tr>
-                <td>Email </td>
-                <td>{email.value}</td>
-              </tr> */}
-          {/* </tbody>
-          </table> */}
+        </div>
+        <div style={{ width: "100%" }}>
+          <div className="btn-div">
+            <Pdf targetRef={ref} filename="File_Legal.pdf">
+              {({ toPdf }) => (
+                <button onClick={toPdf} class="btn">
+                  Download Pdf
+                </button>
+              )}
+            </Pdf>
+          </div>
+        </div> */}
+        <div className="element-to-print">
+          <TableView state={this.state} />
         </div>
         <div className="btn-div">
-        <Pdf targetRef={ref} filename="File_Legal.pdf">
-            {({ toPdf }) => (
-              <button onClick={toPdf} class="btn">
-                Download Pdf
-              </button>
-            )}
-          </Pdf>
+          <button
+            class="btn"
+            onClick={
+              () =>
+                pdfFromReact(".element-to-print", "My-file", "p", true, false) //resize true
+            }
+          >
+            Download as Pdf
+          </button>
         </div>
-      </div>
+      </>
     );
   }
 }
 
 Review.propTypes = {
   steps: PropTypes.object,
+  // botAvatar: PropTypes.string
 };
 
 Review.defaultProps = {
