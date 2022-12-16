@@ -16,17 +16,17 @@ export const steps = [
       {
         value: "New Client",
         label: "New Client",
-        trigger: "end-message",
+        trigger: "4",
       },
       {
         value: "Former Client",
         label: "Former Client",
-        trigger: "end-message",
+        trigger: "4",
       },
       {
         value: "Current Client",
         label: "Current Client",
-        trigger: "end-message",
+        trigger: "4",
       },
     ],
   },
