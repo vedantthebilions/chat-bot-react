@@ -42,8 +42,8 @@ body {
 .ijcYgp{
   width: 600px !important;
 }
-.margin-left-5{
-  margin-left: none; 
+.margin-2{
+  margin: 2% 2%; 
 }
 
 .section{
@@ -100,6 +100,24 @@ body {
 .d-block{
   display: block;
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #fff;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
