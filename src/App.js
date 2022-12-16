@@ -28,6 +28,7 @@ class App extends Component {
         <ChatBot
           steps={steps}
           botAvatar= {Contreras}
+          headerTitle=" "
         />
       </div>
       </ThemeProvider>

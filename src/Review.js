@@ -118,7 +118,7 @@ class Review extends Component {
               class="btn"
               onClick={
                 () =>
-                  pdfFromReact(".element-to-print", "My-file", "p", true, false) //resize true
+                  pdfFromReact(".element-to-print", "legal_form", "p", true, false) //resize true
               }
             >
               Download as Pdf

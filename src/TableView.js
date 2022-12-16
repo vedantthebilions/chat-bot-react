@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Contreras from './image/logo.png'
+import Contreras from './image/logo_doc_black.jpg'
 
 function TableView(props) {
   return (
