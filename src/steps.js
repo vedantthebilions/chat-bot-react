@@ -8,7 +8,7 @@ export const steps = [
   {
     id: "2",
     message: "Are you a New Client, Former Client, or Current client?",
-    trigger: "end-message",
+    trigger: "clientType",
   },
   {
     id: "clientType",
