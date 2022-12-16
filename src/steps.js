@@ -407,11 +407,20 @@ export const steps = [
     id: "22-i",
     message:"Have you ever had contact with the police for any reason at all in the US?",
     trigger: "contactWithPolice",
-  },
-  {
+  },{
     id: "contactWithPolice",
-    user: true,
-    trigger: "22-1-i",
+    options: [
+      {
+        value: "Yes",
+        label: "Yes",
+        trigger: "22-1-i",
+      },
+      {
+        value: "No",
+        label: "No",
+        trigger: "23-i",
+      },
+    ],
   },{
     id: "22-1-i",
     message:"Describe why you had contact?",
@@ -437,7 +446,7 @@ export const steps = [
       {
         value: "No",
         label: "No",
-        trigger: "22-i",
+        trigger: "24-i",
       },
     ],
   },
