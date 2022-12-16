@@ -109,19 +109,21 @@ class Review extends Component {
             </Pdf>
           </div>
         </div> */}
-        <div className="element-to-print">
-          <TableView state={this.state} />
-        </div>
-        <div className="btn-div">
-          <button
-            class="btn"
-            onClick={
-              () =>
-                pdfFromReact(".element-to-print", "My-file", "p", true, false) //resize true
-            }
-          >
-            Download as Pdf
-          </button>
+        <div className="d-block">
+          <div className="element-to-print">
+            <TableView state={this.state} />
+          </div>
+          <div className="btn-div">
+            <button
+              class="btn"
+              onClick={
+                () =>
+                  pdfFromReact(".element-to-print", "My-file", "p", true, false) //resize true
+              }
+            >
+              Download as Pdf
+            </button>
+          </div>
         </div>
       </>
     );

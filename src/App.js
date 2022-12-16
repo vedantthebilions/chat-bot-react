@@ -19,8 +19,7 @@ class App extends Component {
       botBubbleColor: '#EF6C00',
       botFontColor: '#fff',
       userBubbleColor: '#fff',
-      userFontColor: '#4a4a4a',
-      
+      userFontColor: '#4a4a4a'
     };
     
     return (

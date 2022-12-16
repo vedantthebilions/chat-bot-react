@@ -40,7 +40,7 @@ body {
 }
 
 .ijcYgp{
-  width: 600px;
+  width: 600px !important;
 }
 .margin-left-5{
   margin-left: none; 
@@ -95,6 +95,10 @@ body {
     flex-direction: row;
     width: 100%;
     justify-content: center;
+}
+
+.d-block{
+  display: block;
 }
 @keyframes App-logo-spin {
   from {
