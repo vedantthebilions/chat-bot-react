@@ -39,6 +39,7 @@ body {
   justify-content: center;
 }
 
+
 .ijcYgp{
   width: 600px !important;
 }
@@ -117,7 +118,47 @@ tr:nth-child(even) {
   background-color: #fff;
 }
 
+.learning-options-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 
+.learning-option-button {
+  padding: 3px;
+  border-radius: 25px;
+  background: orange;
+  border: 1px solid orange;
+  margin: 3px;
+  font-size: 15px;
+  color: white;
+}
+
+.idBkdM{
+  background: rgb(239, 108, 0);
+  border: 0px;
+  border-radius: 22px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 1px 2px 0px;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  font-size: 14px;
+  padding: 12px;
+  margin: 1%;
+}
+.list-view{
+  /* animation: 0.3s ease 0s 1 normal forwards running; */
+  cursor: pointer;
+  display: inline-block;
+  margin: 2px;
+  transform: scale(0);
+}
+.react-chatbot-kit-chat-container {
+  width: 380px !important;
+}
+
+.react-chatbot-kit-chat-bot-message{
+  margin-left: 2%  !important;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

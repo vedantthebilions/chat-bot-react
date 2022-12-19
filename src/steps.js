@@ -2,12 +2,12 @@ import Review from "./Review";
 export const steps = [
   {
     id: "1",
-    message: "Hello, Welcome. Please help me with few answers",
+    message: "Hello, Welcome. Please help me with few questions.",
     trigger: "2",
   },
   {
     id: "2",
-    message: "Are you a New Client, Former Client, or Current client?",
+    message: "Are you a New Client, Former Client, or Current client ? ",
     trigger: "clientType",
   },
   {
@@ -77,12 +77,21 @@ export const steps = [
   },
   {
     id: "6-i",
-    message: "Where are you in US",
+    message: "Where are you in the US ? ",
     trigger: "usLocation",
   },
   {
     id: "usLocation",
     user: true,
+    validator: (value) => {
+      if (isNaN(value) == false) {
+        return 'oops place cannot be a number !';
+      }else if(value == ''){
+        return 'Please enter a place !';
+      }else{
+        return true;
+      }
+    },
     trigger: "7-i",
   },
   {
@@ -93,6 +102,15 @@ export const steps = [
   {
     id: "clientName",
     user: true,
+    validator: (value) => {
+      if (isNaN(value) == false) {
+        return 'oops name cannot be a number !';
+      }else if(value == ''){
+        return 'Please enter client name !';
+      }else{
+        return true;
+      }
+    },
     trigger: "8-i",
   },
   {
@@ -103,6 +121,15 @@ export const steps = [
   {
     id: "clientDOB",
     user: true,
+    validator: (value) => {
+      if (isNaN(value) == false) {
+        return 'oops place cannot be a number !';
+      }else if(value == ''){
+        return 'Please enter a place !';
+      }else{
+        return true;
+      }
+    },
     trigger: "9-i",
   },
   {
