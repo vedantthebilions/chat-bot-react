@@ -3,6 +3,7 @@ import "./App.css";
 import Contreras from "./image/logo_doc_black.jpg";
 
 function TableView(props) {
+  console.log(props)
   return (
     <div>
       <div class="row">
@@ -10,7 +11,8 @@ function TableView(props) {
           <img src={Contreras} alt="Contreraslogo" class="logo" />
         </div>
       </div>
-      <center>
+      
+      {/* <center>
         <h4>
           {props.state.clientType?.value} {props.state.clientName?.value}{" "}
           {props.state.caseType?.value}
@@ -274,7 +276,7 @@ function TableView(props) {
             </td>
           </tr>
         </table>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,20 +1,22 @@
 // in MessageParser.jsx
 import React from 'react';
 
-const MessageParser = ({ children, actions }) => {
+const MessageParser = ({ children, actions,props }) => {
+  
+
+  console.log(actions)
   const parse = (message) => {
     if (message.includes('hello')) {
       actions.handleHello();
     }else if(message.includes('hi')) {
       actions.handleHello();
-    }
-
-    if (message.includes('dog')) {
+    }else if (message.includes('dog')) {
       actions.handleDog();
-    } 
-    if (message.includes('Okay, what is your case type?')) {
+    }else if (message.includes('Okay, what is your case type?')) {
       actions.handleClientType();
-    } 
+    }else{
+      actions.handleUserMessage();
+    }
   };
 
   return (

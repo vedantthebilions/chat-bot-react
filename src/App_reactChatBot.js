@@ -7,7 +7,7 @@ import config from './components/config';
 
 const saveMessages = (messages, HTMLString) => {
   console.log('in')
-  localStorage.setItem('chat_messages', JSON.stringify(messages));
+  // localStorage.setItem('chat_messages', JSON.stringify(messages));
 };
 
 const loadMessages = () => {
@@ -17,9 +17,10 @@ const loadMessages = () => {
 
 const AppReactBot =()=> {
   return (
+    
     <div className="App">
       <header className="App-header">
-        <Chatbot config={config} actionProvider={ActionProvider}  messageHistory={loadMessages()} saveMessages={saveMessages}  messageParser={MessageParser} />
+        <Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser} />
       </header>
     </div>
   );
