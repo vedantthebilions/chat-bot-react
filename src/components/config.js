@@ -2,7 +2,9 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import DogPicture from "./DogPicture";
 import "../App.css";
 import Contreras from "../image/logo.png";
+import ContrerasBlack from "../image/logo_doc_black.jpg";
 import TableView from "../TableView";
+import Review from '../Review';
 const botName = "Contreras & Metelska,PA";
 
 const config = {
@@ -20,17 +22,24 @@ const config = {
       }
     ),
   ],
-  customStyles: {
-    botMessageBox: {
-      backgroundColor: "#ef6c00",
-    },
-    chatButton: {
-      backgroundColor: "#5ccc9d",
-    },
-  },
   customComponents: {
     // Replaces the default bot avatar
     botAvatar: (props) => <img src={Contreras} alt="Avatar" class="avatar" />,
+    header: () => (
+      <span className="react-chatbot-kit-chat-header">
+        <img
+          src={ContrerasBlack}
+          alt="Avatar"
+          style={{
+            width: "50px",
+          }}
+        />
+        <span className="header-support">
+          <h4 className="header-main">Support Chatbot</h4>
+          <p></p>
+        </span>
+      </span>
+    ),
   },
   state: {
     getInUSA: "",
@@ -44,6 +53,18 @@ const config = {
     Phone: "",
     ImmigrationStatus: "",
     LegalProblem: "",
+    HearingDate: "",
+    HearingLocation: "",
+    HearingType: "",
+    ImmigrationPaperwork: "",
+    MarriedStatus:"",
+    SpouseName: "",
+    SpouseDOB:"",
+    CrimeLocation:"",
+    PoliceContact:"",
+    ContactReason:"",
+    FearStatus:"",
+    BenefitStatus:""
   },
   widgets: [
     {
@@ -60,13 +81,17 @@ const config = {
           },
           {
             text: "Former Client",
-            handler: () => {},
+            handler: (e) => {
+              props.actionProvider.handleClientType(e);
+            },
             id: 2,
             value: "formerClient",
           },
           {
             text: "Current Client",
-            handler: () => {},
+            handler: (e) => {
+              props.actionProvider.handleClientType(e);
+            },
             id: 3,
             value: "currntClient",
           },
@@ -248,7 +273,7 @@ const config = {
           {
             text: "Recent Entry",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             value: "recentEntry",
             id: 1,
@@ -256,7 +281,7 @@ const config = {
           {
             text: "Asylum Seeker",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 2,
             value: "asylumSeeker",
@@ -264,7 +289,7 @@ const config = {
           {
             text: "No Status",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 3,
             value: "noStatus",
@@ -272,7 +297,7 @@ const config = {
           {
             text: "F-1",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 4,
             value: "f1",
@@ -280,7 +305,7 @@ const config = {
           {
             text: "J-1",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 5,
             value: "j1",
@@ -288,7 +313,7 @@ const config = {
           {
             text: "USC",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 6,
             value: "usc",
@@ -296,7 +321,7 @@ const config = {
           {
             text: "LPR",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 7,
             value: "lpr",
@@ -304,7 +329,7 @@ const config = {
           {
             text: "DACA",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 8,
             value: "daca",
@@ -312,7 +337,7 @@ const config = {
           {
             text: "I don't Know",
             handler: (e) => {
-              props.actionProvider.handleLocation(e);
+              props.actionProvider.handleImmigrationStatus(e);
             },
             id: 9,
             value: "dontKnow",
@@ -343,16 +368,348 @@ const config = {
       widgetFunc: (props) => {
         return <div className="learning-options-container"></div>;
       },
-      // widgetFunc: (props) => {
-      //   return (
-      //     <div className="learning-options-container">
-      //       <TableView state={props.state.state}/>
-      //     </div>
-      //   );
-      // },
       mapStateToProps: ["LegalProblem"],
     },
+    {
+      widgetName: "getRemovalProceedingStatus",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+    },
+    {
+      widgetName: "getHearingDate",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["HearingDate"],
+    },{
+      widgetName: "getHearingLocation",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["HearingLocation"],
+    },
+    {
+      widgetName: "getHearingType",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "MCH",
+            handler: (e) => {
+              props.actionProvider.handleHearingType(e);
+            },
+            value: "mch",
+            id: 1,
+          },
+          {
+            text: "IH",
+            handler: (e) => {
+              props.actionProvider.handleHearingType(e);
+            },
+            id: 2,
+            value: "ig",
+          },
+          {
+            text: "Don't Know",
+            handler: (e) => {
+              props.actionProvider.handleHearingType(e);
+            },
+            id: 3,
+            value: "dontknow",
+          }
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+      mapStateToProps: ["HearingType"],
+    },{
+      widgetName: "getImmigrationPaperwork",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleImmigrationPaperwork(e);
+            },
+            value: "yes",
+            id: 1,
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleImmigrationPaperwork(e);
+            },
+            id: 2,
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+      mapStateToProps: ["ImmigrationPaperwork"],
+    },{
+      widgetName: "getMarriedStatus",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleMarriedStatus(e);
+            },
+            value: "yes",
+            id: 1,
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleMarriedStatus(e);
+            },
+            id: 2,
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+      mapStateToProps: ["MarriedStatus"],
+    },{
+      widgetName: "getSpouseDOB",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["HearingLocation"],
+    },{
+      widgetName: "getVictimOfCrime",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleVictimeStatus(e);
+            },
+            value: "yes",
+            id: 1,
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleMarriedStatus(e);
+            },
+            id: 2,
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getCrimeLocation",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["CrimeLocation"],
+    },{
+      widgetName: "getPoliceReport",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handlePoliceReportStatus(e);
+            },
+            value: "yes",
+            id: 1,
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handlePoliceReportStatus(e);
+            },
+            id: 2,
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+      mapStateToProps: ["MarriedStatus"],
+    },
+    {
+      widgetName: "getPoliceContact",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handlePoliceContactStatus(e);
+            },
+            value: "yes",
+            id: 1,
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handlePoliceContactStatus(e);
+            },
+            id: 2,
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+      mapStateToProps: ["PoliceContact"],
+    },
+    {
+      widgetName: "getContactReason",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["ContactReason"],
+    },
+    {
+      widgetName: "getFearStatus",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleFearStatus(e);
+            },
+            value: "yes",
+            id: 1,
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleFearStatus(e);
+            },
+            id: 2,
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+      mapStateToProps: ["FearStatus"],
+    },{
+      widgetName: "getBenefitStatus",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["BenefitStatus"],
+    },{
+      widgetName: "end-message",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"><Review/></div>;
+      },
+    },
   ],
-  
 };
 export default config;

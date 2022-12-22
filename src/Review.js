@@ -18,6 +18,8 @@ class Review extends Component {
 
   componentWillMount() {
     const { steps } = this.props;
+    const { steps_2 } = this.props;
+
     const {
       clientType,
       caseType,
@@ -51,7 +53,30 @@ class Review extends Component {
       fearReason,
       appiledImmigration,
     } = steps;
-
+    const {
+      getInUSA,
+      ClientDob,
+      Afile,
+      CountryOfBirth,
+      StreetAddress,
+      City,
+      Zip,
+      Phone,
+      ImmigrationStatus,
+      LegalProblem,
+      HearingDate,
+      HearingLocation,
+      HearingType,
+      ImmigrationPaperwork,
+      MarriedStatus,
+      SpouseName,
+      SpouseDOB,
+      CrimeLocation,
+      PoliceContact,
+      ContactReason,
+      FearStatus,
+      BenefitStatus,
+    } = steps_2;
     this.setState({
       clientType,
       caseType,
@@ -84,6 +109,30 @@ class Review extends Component {
       fear,
       fearReason,
       appiledImmigration,
+
+      getInUSA,
+      ClientDob,
+      Afile,
+      CountryOfBirth,
+      StreetAddress,
+      City,
+      Zip,
+      Phone,
+      ImmigrationStatus,
+      LegalProblem,
+      HearingDate,
+      HearingLocation,
+      HearingType,
+      ImmigrationPaperwork,
+      MarriedStatus,
+      SpouseName,
+      SpouseDOB,
+      CrimeLocation,
+      PoliceContact,
+      ContactReason,
+      FearStatus,
+      BenefitStatus
+      
     });
   }
 
@@ -118,7 +167,13 @@ class Review extends Component {
               class="btn"
               onClick={
                 () =>
-                  pdfFromReact(".element-to-print", "legal_form", "p", true, false) //resize true
+                  pdfFromReact(
+                    ".element-to-print",
+                    "legal_form",
+                    "p",
+                    true,
+                    false
+                  ) //resize true
               }
             >
               Download as Pdf

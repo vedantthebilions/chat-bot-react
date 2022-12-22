@@ -12,7 +12,7 @@ function TableView(props) {
         </div>
       </div>
       
-      {/* <center>
+      <center>
         <h4>
           {props.state.clientType?.value} {props.state.clientName?.value}{" "}
           {props.state.caseType?.value}
@@ -23,7 +23,7 @@ function TableView(props) {
         <h4>{props.state.clientName?.value}</h4>
       </center>
 
-      <div className="margin-2">
+      {/* <div className="margin-2">
         <table>
           <tr>
             <td className='section' colSpan={3}>

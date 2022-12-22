@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 body {
   color: rgb(20,30, 1);
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
 }
 
 .App {
@@ -125,26 +128,37 @@ tr:nth-child(even) {
 }
 
 .learning-option-button {
-  padding: 3px;
-  border-radius: 25px;
-  background: orange;
-  border: 1px solid orange;
-  margin: 3px;
-  font-size: 15px;
-  color: white;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.idBkdM{
-  background: rgb(239, 108, 0);
-  border: 0px;
-  border-radius: 22px;
+/* Orange */
+.idBkdM {
+  border: 1px solid #F15B47;
+  border-radius: 25px;
   box-shadow: rgb(0 0 0 / 15%) 0px 1px 2px 0px;
-  color: rgb(255, 255, 255);
   display: inline-block;
   font-size: 14px;
   padding: 12px;
   margin: 1%;
+  border-color: #F15B47;
+  color: #F15B47;
+  background: transparent;
+  font-weight: 800;
 }
+
+.idBkdM:hover {
+  background: #F15B47;
+  color: white;
+}
+
+/* .idBkdM{
+  
+} */
 .list-view{
   /* animation: 0.3s ease 0s 1 normal forwards running; */
   cursor: pointer;
@@ -174,6 +188,59 @@ tr:nth-child(even) {
   border-radius: 50%;
 }
 
+.react-chatbot-kit-chat-header {
+  background-color: #F15B47 !important;
+}
+
+.react-chatbot-kit-chat-btn-send{
+  background-color: #EEE !important;
+}
+
+.react-chatbot-kit-chat-btn-send-icon{
+  fill: #F15B47 !important;
+}
+
+.header-support{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+
+}
+
+.header-main{
+  margin-left: 1%;
+  color: white;
+}
+
+.react-chatbot-kit-chat-bot-message {
+  background-color: #F15B47 !important;
+  color: #000 !important;
+  border-radius: 25px;
+}
+
+.react-chatbot-kit-chat-bot-message-arrow {
+  border-right: 8px solid #F15B47 !important
+}
+
+.react-chatbot-kit-user-chat-message{
+  background-color: #F15B47 !important;
+  color: #000 !important;
+  border-radius: 25px;
+}
+
+.react-chatbot-kit-user-chat-message-arrow{
+  border-left: 8px solid #F15B47 !important
+}
+
+.react-chatbot-kit-chat-message-container{
+  overflow-y: scroll !important;
+  height: 75% !important;
+  overflow-x: clip!important;
+}
+
+.react-chatbot-kit-chat-btn-send{
+
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
