@@ -78,6 +78,8 @@ const config = {
             },
             value: "newClient",
             id: 1,
+            isClicked: 'false',
+            optionId: '',
           },
           {
             text: "Former Client",
@@ -86,6 +88,7 @@ const config = {
             },
             id: 2,
             value: "formerClient",
+            isClicked: 'false',
           },
           {
             text: "Current Client",
@@ -94,18 +97,34 @@ const config = {
             },
             id: 3,
             value: "currntClient",
+            isClicked: 'false',
+            
           },
         ];
         const optionsMarkup = options.map((option, index) => (
+          
           <button
             className="idBkdM"
             onClick={(e) => {
-              option.handler(e);
+              console.log(option.id, index);
+              if(option.id === index + 1)
+              {
+                console.log('available...');
+                option.isClicked = true;
+                option.optionId = option.id;
+                option.handler(e);
+                console.log('id value : ', option.id);
+                console.log('is clicked value : ', option.isClicked);
+              }
+              
             }}
             key={index}
             value={option.value}
             id={option.id}
             name={option.text}
+            disabled={ (option.id === index) ? console.log('option id : ', option.optionId) : false  }
+            
+            
           >
             {option.text}
           </button>
