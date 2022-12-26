@@ -6,7 +6,7 @@ body {
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -25,10 +25,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: end;
+  justify-content: end;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
+  padding-right: 30px;
+  padding-bottom: 80px;
 }
 
 .App-link {
@@ -236,6 +239,24 @@ tr:nth-child(even) {
   overflow-y: scroll !important;
   height: 75% !important;
   overflow-x: clip!important;
+}
+
+.app-chatbot-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #F15B47;
+  border: none;
+  position: fixed;
+  bottom: 15px;
+  z-index: 9999;
+  right: 40px;
+}
+
+.app-chatbot-button-icon {
+  width: 25px;
+  height: 25px;
+  fill: #fff;
 }
 
 .react-chatbot-kit-chat-btn-send{
