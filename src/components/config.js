@@ -1,11 +1,23 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-import DogPicture from "./DogPicture";
+// import DogPicture from "./DogPicture";
 import "../App.css";
 import Contreras from "../image/logo.png";
 import ContrerasBlack from "../image/logo_doc_black.jpg";
-import TableView from "../TableView";
+// import TableView from "../TableView";
 import Review from '../Review';
-const botName = "Contreras & Metelska,PA";
+import { steps } from "../steps";
+
+
+const botName = "Contreras & Metelska,PA"; 
+
+
+function disableOption(id) {
+  console.log('id is : ', id);
+  if( document.getElementById('clientType').value.length > 0 ) {
+    console.log('here..');
+    // document.getElementById('clientType').disabled = true;
+  }
+}
 
 const config = {
   initialMessages: [
@@ -75,30 +87,28 @@ const config = {
             text: "New Client",
             handler: (e) => {
               props.actionProvider.handleClientType(e);
+              // disableOption(e.target.id);
             },
             value: "newClient",
-            id: 1,
-            isClicked: 'false',
-            optionId: '',
+            id:'clientType',
           },
           {
             text: "Former Client",
             handler: (e) => {
               props.actionProvider.handleClientType(e);
+              // disableOption(e.target.id);
             },
-            id: 2,
+            id:'clientType',
             value: "formerClient",
-            isClicked: 'false',
           },
           {
             text: "Current Client",
             handler: (e) => {
               props.actionProvider.handleClientType(e);
+              // disableOption(e.target.id);
             },
-            id: 3,
+            id:'clientType',
             value: "currntClient",
-            isClicked: 'false',
-            
           },
         ];
         const optionsMarkup = options.map((option, index) => (
@@ -106,31 +116,18 @@ const config = {
           <button
             className="idBkdM"
             onClick={(e) => {
-              console.log(option.id, index);
-              if(option.id === index + 1)
-              {
-                console.log('available...');
-                option.isClicked = true;
-                option.optionId = option.id;
-                option.handler(e);
-                console.log('id value : ', option.id);
-                console.log('is clicked value : ', option.isClicked);
-              }
-              
+              option.handler(e);
             }}
             key={index}
             value={option.value}
-            id={option.id}
+            id={option.id}            
             name={option.text}
-            disabled={ (option.id === index) ? console.log('option id : ', option.optionId) : false  }
-            
-            
           >
             {option.text}
           </button>
         ));
         return (
-          <div className="learning-options-container">{optionsMarkup}</div>
+          <div id='getClientType' className="learning-options-container">{optionsMarkup}</div>
         );
       },
     },
@@ -142,16 +139,17 @@ const config = {
             text: "Immigration",
             handler: (e) => {
               props.actionProvider.handleCaseType(e);
+              // disableOption('clientType');
             },
             value: "immigrationCase",
-            id: 1,
+            id: 'caseType',
           },
           {
             text: "Criminal",
             handler: (e) => {
               props.actionProvider.handleCaseType(e);
             },
-            id: 2,
+            id: 'caseType',
             value: "criminalCase",
           },
           {
@@ -159,7 +157,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleCaseType(e);
             },
-            id: 3,
+            id: 'caseType',
             value: "familyCase",
           },
         ];
@@ -192,14 +190,14 @@ const config = {
               props.actionProvider.handleLocation(e);
             },
             value: "yes",
-            id: 1,
+            id: 'inUSA',
           },
           {
             text: "No",
             handler: (e) => {
               props.actionProvider.handleLocation(e);
             },
-            id: 2,
+            id: 'inUSA',
             value: "no",
           },
         ];
@@ -295,14 +293,14 @@ const config = {
               props.actionProvider.handleImmigrationStatus(e);
             },
             value: "recentEntry",
-            id: 1,
+            id: 'immigrationStatus',
           },
           {
             text: "Asylum Seeker",
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 2,
+            id: 'immigrationStatus',
             value: "asylumSeeker",
           },
           {
@@ -310,7 +308,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 3,
+            id: 'immigrationStatus',
             value: "noStatus",
           },
           {
@@ -318,7 +316,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 4,
+            id: 'immigrationStatus',
             value: "f1",
           },
           {
@@ -326,7 +324,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 5,
+            id: 'immigrationStatus',
             value: "j1",
           },
           {
@@ -334,7 +332,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 6,
+            id: 'immigrationStatus',
             value: "usc",
           },
           {
@@ -342,7 +340,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 7,
+            id: 'immigrationStatus',
             value: "lpr",
           },
           {
@@ -350,7 +348,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 8,
+            id: 'immigrationStatus',
             value: "daca",
           },
           {
@@ -358,7 +356,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleImmigrationStatus(e);
             },
-            id: 9,
+            id: 'immigrationStatus',
             value: "dontKnow",
           },
         ];
@@ -418,14 +416,14 @@ const config = {
               props.actionProvider.handleHearingType(e);
             },
             value: "mch",
-            id: 1,
+            id: 'hearingType',
           },
           {
             text: "IH",
             handler: (e) => {
               props.actionProvider.handleHearingType(e);
             },
-            id: 2,
+            id: 'hearingType',
             value: "ig",
           },
           {
@@ -433,7 +431,7 @@ const config = {
             handler: (e) => {
               props.actionProvider.handleHearingType(e);
             },
-            id: 3,
+            id: 'hearingType',
             value: "dontknow",
           }
         ];
@@ -466,14 +464,14 @@ const config = {
               props.actionProvider.handleImmigrationPaperwork(e);
             },
             value: "yes",
-            id: 1,
+            id: 'immigrationPaperwork',
           },
           {
             text: "No",
             handler: (e) => {
               props.actionProvider.handleImmigrationPaperwork(e);
             },
-            id: 2,
+            id: 'immigrationPaperwork',
             value: "no",
           },
         ];
@@ -506,14 +504,14 @@ const config = {
               props.actionProvider.handleMarriedStatus(e);
             },
             value: "yes",
-            id: 1,
+            id: 'marriedStatus',
           },
           {
             text: "No",
             handler: (e) => {
               props.actionProvider.handleMarriedStatus(e);
             },
-            id: 2,
+            id: 'marriedStatus',
             value: "no",
           },
         ];
@@ -552,14 +550,14 @@ const config = {
               props.actionProvider.handleVictimeStatus(e);
             },
             value: "yes",
-            id: 1,
+            id: 'victimOfCrime',
           },
           {
             text: "No",
             handler: (e) => {
               props.actionProvider.handleMarriedStatus(e);
             },
-            id: 2,
+            id: 'victimOfCrime',
             value: "no",
           },
         ];
@@ -598,14 +596,14 @@ const config = {
               props.actionProvider.handlePoliceReportStatus(e);
             },
             value: "yes",
-            id: 1,
+            id: 'policeReport',
           },
           {
             text: "No",
             handler: (e) => {
               props.actionProvider.handlePoliceReportStatus(e);
             },
-            id: 2,
+            id: 'policeReport',
             value: "no",
           },
         ];
@@ -639,14 +637,14 @@ const config = {
               props.actionProvider.handlePoliceContactStatus(e);
             },
             value: "yes",
-            id: 1,
+            id: 'policeContact',
           },
           {
             text: "No",
             handler: (e) => {
               props.actionProvider.handlePoliceContactStatus(e);
             },
-            id: 2,
+            id: 'policeContact',
             value: "no",
           },
         ];
@@ -687,14 +685,14 @@ const config = {
               props.actionProvider.handleFearStatus(e);
             },
             value: "yes",
-            id: 1,
+            id: 'fearStatus',
           },
           {
             text: "No",
             handler: (e) => {
               props.actionProvider.handleFearStatus(e);
             },
-            id: 2,
+            id: 'fearStatus',
             value: "no",
           },
         ];
@@ -726,7 +724,7 @@ const config = {
     },{
       widgetName: "end-message",
       widgetFunc: (props) => {
-        return <div className="learning-options-container"><Review/></div>;
+        return <div className="learning-options-container"><Review steps={{steps}} steps_2={{steps}} /></div>;
       },
     },
   ],

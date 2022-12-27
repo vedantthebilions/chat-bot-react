@@ -41,8 +41,25 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
+  const disableOption = (name, buttonType) => {
+
+    let button = document.getElementsByClassName(name);
+    
+    for(var i=0; i<button.length; i++){
+      if(button[i].id === buttonType)
+      {
+        button[i].disabled = true;
+      }
+    }
+
+  }
+
   const handleCaseType = (value) => {
+
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'clientType');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -62,6 +79,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleLocation = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'caseType');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -87,6 +107,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleMarriedStatus = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'immigrationPaperwork');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -126,6 +149,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleImmigrationStatus = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'inUSA');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -145,6 +171,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleHearingType = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'immigrationStatus');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -164,6 +193,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleImmigrationPaperwork = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'hearingType');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -180,6 +212,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleVictimeStatus = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'marriedStatus');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -208,6 +243,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handlePoliceReportStatus = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'victimOfCrime');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -226,6 +264,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handlePoliceContactStatus = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'policeReport');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -254,6 +295,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleFearStatus = (value) => {
     const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'policeContact');
+
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],

@@ -17,6 +17,7 @@ class Review extends Component {
   }
 
   componentWillMount() {
+    console.log('props are : ', this.props);
     const { steps } = this.props;
     const { steps_2 } = this.props;
 
@@ -53,6 +54,7 @@ class Review extends Component {
       fearReason,
       appiledImmigration,
     } = steps;
+    
     const {
       getInUSA,
       ClientDob,
@@ -77,6 +79,7 @@ class Review extends Component {
       FearStatus,
       BenefitStatus,
     } = steps_2;
+
     this.setState({
       clientType,
       caseType,
