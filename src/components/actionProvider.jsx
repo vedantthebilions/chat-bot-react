@@ -326,6 +326,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     let lastInd;
     let botMessage;
 
+    disableOption('idBkdM', 'inUSA');
+
     setState(
       (prev) => (
         (ind = prev.messages.length - 2),
@@ -404,14 +406,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             })
           : prev.messages[ind]["widget"] === "getPhone"
           ? ((botMessage = createChatBotMessage("Phone", {
-              widget: "getnextImmigration",
+              widget: "getLegalProblem",
             })),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
               Phone: prev.messages[lastInd].message,
             })
-          : prev.messages[ind]["widget"] === "getnextImmigration"
+          : prev.messages[ind]["widget"] === "getLegalProblem"
           ? ((botMessage = createChatBotMessage("Current immigration status", {
               widget: "getImmigrationStatus",
             })),
@@ -436,7 +438,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               "1.	Are you in removal proceedings now?\n 	-Upcoming Hearing date",
               {
                 widget: "getHearingLocation",
-              }
+              },
+              disableOption('idBkdM', 'immigrationStatus')
             )),
             {
               ...prev,
@@ -473,7 +476,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getSpouseStatus"
           ? ((botMessage = createChatBotMessage("Spouse Name", {
               widget: "getSpouseDOB",
-            })),
+            },
+            disableOption('idBkdM', 'marriedStatus'))),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -514,7 +518,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               "Do you have a police report?",
               {
                 widget: "getPoliceReport",
-              }
+              },
+              disableOption('idBkdM', 'victimOfCrime')
             )),
             {
               ...prev,
@@ -526,7 +531,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               "5.	Do you have any reason to fear going back to your country?",
               {
                 widget: "getFearStatus",
-              }
+              },
+              disableOption('idBkdM', 'policeContact')
             )),
             {
               ...prev,
@@ -538,7 +544,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               "6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:",
               {
                 widget: "getBenefitStatus",
-              }
+              },
+              disableOption('idBkdM', 'fearStatus')
             )),
             {
               ...prev,
