@@ -54,29 +54,60 @@ const config = {
     ),
   },
   state: {
-    getInUSA: "",
+    clientType: '',
+    caseType: '',
+    inUSA: "",
+    inUSLocation: "",
     clientName: "",
-    ClientDob: "",
-    Afile: "",
-    CountryOfBirth: "",
-    StreetAddress: "",
-    City: "",
-    Zip: "",
-    Phone: "",
-    ImmigrationStatus: "",
-    LegalProblem: "",
-    HearingDate: "",
-    HearingLocation: "",
-    HearingType: "",
-    ImmigrationPaperwork: "",
-    MarriedStatus:"",
-    SpouseName: "",
-    SpouseDOB:"",
-    CrimeLocation:"",
-    PoliceContact:"",
-    ContactReason:"",
-    FearStatus:"",
-    BenefitStatus:""
+    clientDob: "",
+    aFile: "",
+    countryOfBirth: "",
+    streetAddress: "",
+    city: "",
+    state: '',
+    zip: "",
+    phone: "",
+    immigrationStatus: "",
+    legalProblem: "",
+    hearingDate: "",
+    hearingLocation: "",
+    hearingType: "",
+    immigrationPaperwork: "",
+    marriedStatus:"",
+    spouseName: "",
+    spouseDOB:"",
+    crimeLocation:"",
+    policeContact:"",
+    contactReason:"",
+    fearStatus:"",
+    benefitStatus:""
+
+    /* clientType: 'hea',
+    caseType: 'tga',
+    getInUSA: "asdf",
+    clientName: "test",
+    clientDob: "gafs",
+    aFile: "fsah",
+    countryOfBirth: "ewe",
+    streetAddress: "hha",
+    city: "xyz",
+    state: 'eafd',
+    zip: "gea",
+    phone: "84948",
+    immigrationStatus: "rga",
+    legalProblem: "saarg",
+    hearingDate: "aarg",
+    hearingLocation: "fses",
+    hearingType: "gaer",
+    immigrationPaperwork: "gaweg",
+    marriedStatus:"grad",
+    spouseName: "ewga",
+    spouseDOB:"gaydf",
+    crimeLocation:"asdga",
+    policeContact:"fwha",
+    contactReason:"faha",
+    fearStatus:"gwg",
+    benefitStatus:"hadgs" */
   },
   widgets: [
     {
@@ -399,7 +430,8 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["HearingDate"],
-    },{
+    },
+    {
       widgetName: "getHearingLocation",
       widgetFunc: (props) => {
         return <div className="learning-options-container"></div>;
@@ -454,7 +486,8 @@ const config = {
         );
       },
       mapStateToProps: ["HearingType"],
-    },{
+    },
+    {
       widgetName: "getImmigrationPaperwork",
       widgetFunc: (props) => {
         const options = [
@@ -494,7 +527,8 @@ const config = {
         );
       },
       mapStateToProps: ["ImmigrationPaperwork"],
-    },{
+    },
+    {
       widgetName: "getMarriedStatus",
       widgetFunc: (props) => {
         const options = [
@@ -534,13 +568,15 @@ const config = {
         );
       },
       mapStateToProps: ["MarriedStatus"],
-    },{
+    },
+    {
       widgetName: "getSpouseDOB",
       widgetFunc: (props) => {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["HearingLocation"],
-    },{
+    },
+    {
       widgetName: "getVictimOfCrime",
       widgetFunc: (props) => {
         const options = [
@@ -586,7 +622,8 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["CrimeLocation"],
-    },{
+    },
+    {
       widgetName: "getPoliceReport",
       widgetFunc: (props) => {
         const options = [
@@ -715,16 +752,18 @@ const config = {
         );
       },
       mapStateToProps: ["FearStatus"],
-    },{
+    },
+    {
       widgetName: "getBenefitStatus",
       widgetFunc: (props) => {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["BenefitStatus"],
-    },{
+    },
+    {
       widgetName: "end-message",
       widgetFunc: (props) => {
-        return <div className="learning-options-container"><Review steps={{steps}} steps_2={{steps}} /></div>;
+        return <div className="learning-options-container"><Review steps_2={props.state} /></div>;
       },
     },
   ],

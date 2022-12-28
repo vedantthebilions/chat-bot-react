@@ -17,11 +17,13 @@ class Review extends Component {
   }
 
   componentWillMount() {
-    console.log('props are : ', this.props);
-    const { steps } = this.props;
+    // console.log('props are : ', this.props);
+    // const { steps } = this.props;
+    
     const { steps_2 } = this.props;
+    this.setState(steps_2);
 
-    const {
+    /* const {
       clientType,
       caseType,
       currentInUs,
@@ -53,90 +55,59 @@ class Review extends Component {
       fear,
       fearReason,
       appiledImmigration,
-    } = steps;
+    } = steps; */
     
-    const {
+    /* const {
       getInUSA,
-      ClientDob,
-      Afile,
-      CountryOfBirth,
-      StreetAddress,
-      City,
-      Zip,
-      Phone,
-      ImmigrationStatus,
-      LegalProblem,
-      HearingDate,
-      HearingLocation,
-      HearingType,
-      ImmigrationPaperwork,
-      MarriedStatus,
-      SpouseName,
-      SpouseDOB,
-      CrimeLocation,
-      PoliceContact,
-      ContactReason,
-      FearStatus,
-      BenefitStatus,
+      clientDob,
+      afile,
+      countryOfBirth,
+      streetAddress,
+      city,
+      zip,
+      phone,
+      immigrationStatus,
+      legalProblem,
+      hearingDate,
+      hearingLocation,
+      hearingType,
+      immigrationPaperwork,
+      marriedStatus,
+      spouseName,
+      spouseDOB,
+      crimeLocation,
+      policeContact,
+      contactReason,
+      fearStatus,
+      benefitStatus,
     } = steps_2;
 
     this.setState({
-      clientType,
-      caseType,
-      currentInUs,
-      usLocation,
-      clientName,
-      clientDOB,
-      aFile,
-      birthCountry,
-      streetAddress,
-      city,
-      state,
-      zip,
-      telephone,
-      immigrationStatus,
-      problem,
-      dateOfHearing,
-      locationOfHearing,
-      typeOfHearing,
-      immigrationPaper,
-      maritialStatus,
-      spouseImmigration,
-      spouseName,
-      spouseDOB,
-      victimOfCrime,
-      victimOfCrimeLocation,
-      policeReport,
-      contactWithPolice,
-      contactReason,
-      fear,
-      fearReason,
-      appiledImmigration,
 
       getInUSA,
-      ClientDob,
-      Afile,
-      CountryOfBirth,
-      StreetAddress,
-      City,
-      Zip,
-      Phone,
-      ImmigrationStatus,
-      LegalProblem,
-      HearingDate,
-      HearingLocation,
-      HearingType,
-      ImmigrationPaperwork,
-      MarriedStatus,
-      SpouseName,
-      SpouseDOB,
-      CrimeLocation,
-      PoliceContact,
-      ContactReason,
-      FearStatus,
-      BenefitStatus
+      clientDob,
+      afile,
+      countryOfBirth,
+      streetAddress,
+      city,
+      zip,
+      phone,
+      immigrationStatus,
+      legalProblem,
+      hearingDate,
+      hearingLocation,
+      hearingType,
+      immigrationPaperwork,
+      marriedStatus,
+      spouseName,
+      spouseDOB,
+      crimeLocation,
+      policeContact,
+      contactReason,
+      fearStatus,
+      benefitStatus,
       
-    });
+    }); */
   }
 
   activateLasers() {
@@ -144,7 +115,7 @@ class Review extends Component {
   }
   render() {
     const ref = React.createRef();
-    console.log(this.state);
+    console.log('in review : ', this.state);
     return (
       <>
         {/* <div ref={ref}>
@@ -189,12 +160,12 @@ class Review extends Component {
 }
 
 Review.propTypes = {
-  steps: PropTypes.object,
+  steps_2: PropTypes.object,
   // botAvatar: PropTypes.string
 };
 
 Review.defaultProps = {
-  steps: undefined,
+  steps_2: undefined,
 };
 
 export default Review;

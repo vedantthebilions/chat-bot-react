@@ -30,6 +30,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
+      clientType: value.target.value
     }));
 
     const botMessage = createChatBotMessage("Okay, what is your case type?", {
@@ -63,6 +64,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
+      caseType: value.target.value,
     }));
 
     const botMessage = createChatBotMessage(
@@ -85,6 +87,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
+      inUSA: value.target.value
     }));
     if (value.target.name == "Yes") {
       const botMessage = createChatBotMessage("Where are you currently ?", {
@@ -101,6 +104,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       setState((prev) => ({
         ...prev,
         messages: [...prev.messages, botMessage],
+        clientName: value.target.value
       }));
     }
   };
@@ -340,6 +344,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               ...prev,
               messages: [...prev.messages, botMessage],
               clientName: prev.messages[lastInd].message,
+              
             })
           : prev.messages[ind]["widget"] === "getClientName"
           ? ((botMessage = createChatBotMessage("Date of Birth", {

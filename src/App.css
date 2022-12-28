@@ -28,7 +28,7 @@ body {
   align-items: end;
   justify-content: end;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
   position: relative;
   padding-right: 30px;
   padding-bottom: 80px;
