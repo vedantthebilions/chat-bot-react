@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/chat-bot-react/static/css/main.1656fa13.css",
-    "main.js": "/chat-bot-react/static/js/main.39348afd.js",
+    "main.css": "/chat-bot-react/static/css/main.62b508bf.css",
+    "main.js": "/chat-bot-react/static/js/main.aae630b7.js",
     "static/js/236.3b15ef4a.chunk.js": "/chat-bot-react/static/js/236.3b15ef4a.chunk.js",
     "static/js/703.7dca7228.chunk.js": "/chat-bot-react/static/js/703.7dca7228.chunk.js",
-    "static/js/896.d516e392.chunk.js": "/chat-bot-react/static/js/896.d516e392.chunk.js",
+    "static/js/635.b18b852b.chunk.js": "/chat-bot-react/static/js/635.b18b852b.chunk.js",
     "static/js/787.ddd31fbe.chunk.js": "/chat-bot-react/static/js/787.ddd31fbe.chunk.js",
     "static/media/logo_doc_black.jpg": "/chat-bot-react/static/media/logo_doc_black.bd996f894ea63c58f27a.jpg",
     "static/media/logo.png": "/chat-bot-react/static/media/logo.368e7800f2bfebea6530.png",
     "index.html": "/chat-bot-react/index.html",
-    "main.1656fa13.css.map": "/chat-bot-react/static/css/main.1656fa13.css.map",
-    "main.39348afd.js.map": "/chat-bot-react/static/js/main.39348afd.js.map",
+    "static/media/robot.svg": "/chat-bot-react/static/media/robot.62307f18a2bb6c1c73b9b60aea32a1d8.svg",
+    "main.62b508bf.css.map": "/chat-bot-react/static/css/main.62b508bf.css.map",
+    "main.aae630b7.js.map": "/chat-bot-react/static/js/main.aae630b7.js.map",
     "236.3b15ef4a.chunk.js.map": "/chat-bot-react/static/js/236.3b15ef4a.chunk.js.map",
     "703.7dca7228.chunk.js.map": "/chat-bot-react/static/js/703.7dca7228.chunk.js.map",
-    "896.d516e392.chunk.js.map": "/chat-bot-react/static/js/896.d516e392.chunk.js.map",
+    "635.b18b852b.chunk.js.map": "/chat-bot-react/static/js/635.b18b852b.chunk.js.map",
     "787.ddd31fbe.chunk.js.map": "/chat-bot-react/static/js/787.ddd31fbe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1656fa13.css",
-    "static/js/main.39348afd.js"
+    "static/css/main.62b508bf.css",
+    "static/js/main.aae630b7.js"
   ]
 }
