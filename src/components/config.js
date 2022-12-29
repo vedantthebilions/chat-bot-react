@@ -54,13 +54,13 @@ const config = {
     ),
   },
   state: {
-    clientType: '',
-    caseType: '',
-    inUSA: "",
-    inUSLocation: "",
-    clientName: "",
-    clientDob: "",
-    aFile: "",
+    clientType: '', // yes
+    caseType: '', // yes
+    inUSA: "", // yes
+    inUSLocation: "", // yes
+    clientName: "", // yes
+    clientDob: "", // no
+    aFile: "", // dont know
     countryOfBirth: "",
     streetAddress: "",
     city: "",
@@ -73,13 +73,17 @@ const config = {
     hearingLocation: "",
     hearingType: "",
     immigrationPaperwork: "",
+    immigrationSpouseStatus: "",
     marriedStatus:"",
     spouseName: "",
     spouseDOB:"",
-    crimeLocation:"",
-    policeContact:"",
+    victimOfCrime:"",
+    victimOfCrimeLocation:"",
+    policeReport:"",
+    contactWithPolice:"",
     contactReason:"",
     fearStatus:"",
+    appiledImmigration:"",
     benefitStatus:""
 
     /* clientType: 'hea',

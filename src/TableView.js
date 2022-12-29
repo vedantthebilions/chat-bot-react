@@ -9,8 +9,8 @@ function TableView(props) {
   const clientName = props.state?.clientName;
   const clientType = props.state?.clientType;
   const caseType = props.state?.caseType;
-  const currentInUs = props.state?.getInUSA;
-  const usLocation = props.state?.getInUSLocation;
+  const currentInUs = props.state?.inUSA;
+  const usLocation = props.state?.inUSLocation;
   const clientDOB = props.state?.clientDob;
   const aFile = props.state?.aFile;
   const birthCountry = props.state?.countryOfBirth;
@@ -20,13 +20,13 @@ function TableView(props) {
   const zip = props.state?.zip;
   const telephone = props.state?.phone;
   const immigrationStatus = props.state?.immigrationStatus;
+  const immigrationSpouseStatus = props.state?.immigrationSpouseStatus;
   const problem = props.state?.legalProblem;
   const dateOfHearing = props.state?.hearingDate;
   const locationOfHearing = props.state?.hearingLocation;
   const typeOfHearing = props.state?.typeOfHearing;
   const immigrationPaper = props.state?.immigrationPaper;
   const maritialStatus = props.state?.maritialStatus;
-  const spouseImmigration = props.state?.spouseImmigration;
   const spouseName = props.state?.spouseName;
   const spouseDOB = props.state?.spouseDOB;
   const victimOfCrime = props.state?.victimOfCrime;
@@ -34,7 +34,7 @@ function TableView(props) {
   const policeReport = props.state?.policeReport;
   const contactWithPolice = props.state?.contactWithPolice;
   const contactReason = props.state?.contactReason;
-  const fear = props.state?.fear;
+  const fear = props.state?.fearStatus;
   const fearReason = props.state?.fearReason;
   const appiledImmigration = props.state?.appiledImmigration;
 
@@ -50,7 +50,7 @@ function TableView(props) {
         </div>
       </div>
 
-      <center>
+      {/* <center>
         <h4>
           {clientType} {clientName}{" "}
           {caseType}
@@ -59,7 +59,7 @@ function TableView(props) {
 
       <center>
         <h4>{clientName}</h4>
-      </center>
+      </center> */}
 
       <div className="margin-2">
         <table>
@@ -230,7 +230,7 @@ function TableView(props) {
                 <br />
                 {maritialStatus
                   ? maritialStatus +
-                  spouseImmigration
+                  immigrationSpouseStatus
                   : "NA"}
               </td>
             </tr>
