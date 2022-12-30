@@ -265,6 +265,7 @@ const config = {
     {
       widgetName: "getClientName",
       widgetFunc: (props) => {
+        // console.log('props value client name ', props.clientName);
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["clientName"],

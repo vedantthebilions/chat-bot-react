@@ -30,8 +30,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      clientType: value.target.value,
-    }), console.log('client type ', value.target.value));
+      clientType: value.target.name,
+    }), console.log('client type ', value.target.name));
 
     const botMessage = createChatBotMessage("Okay, what is your case type?", {
       widget: "getCaseType",
@@ -64,13 +64,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      caseType: value.target.value,
-    }), console.log('case type ', value.target.value));
+      caseType: value.target.name,
+    }), console.log('case type ', value.target.name));
 
     const botMessage = createChatBotMessage(
       "Are you currently outside the US?",
       {
         widget: "getInUSA",
+        // widget: "end-message",
       }
     );
     setState((prev) => ({
@@ -81,14 +82,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleLocation = (value) => {
     const message = createClientMessage(value.target.name);
-    console.log('get in usa : ', value.target.value);
+    console.log('get in usa : ', value.target.name);
 
     disableOption('idBkdM', 'caseType');
 
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      inUSA: value.target.value
+      inUSA: value.target.name
     }));
     if (value.target.name == "Yes") {
       const botMessage = createChatBotMessage("Where are you currently ?", {
@@ -105,7 +106,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       setState((prev) => ({
         ...prev,
         messages: [...prev.messages, botMessage],
-        clientName: value.target.value
+        clientName: value.target.name
       }));
     }
   };
@@ -118,8 +119,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      marriedStatus: value.target.value,
-    }), console.log('married status ', value.target.value));
+      marriedStatus: value.target.name,
+    }), console.log('married status ', value.target.name));
     if (value.target.name == "Yes") {
       const botMessage = createChatBotMessage(
         "Immigration Status of spouse ?",
@@ -162,8 +163,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      immigrationStatus: value.target.value,
-    }), console.log('immigrationStatus : ', value.target.value));
+      immigrationStatus: value.target.name,
+    }), console.log('immigrationStatus : ', value.target.name));
 
     const botMessage = createChatBotMessage(
       "Briefly describe your legal problem or tell me why you need a lawyer?",
@@ -185,8 +186,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      hearingType: value.target.value,
-    }), console.log('hearing type : ', value.target.value));
+      hearingType: value.target.name,
+    }), console.log('hearing type : ', value.target.name));
 
     const botMessage = createChatBotMessage(
       "c.	Were you given immigration paperwork?",
@@ -208,8 +209,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      immigrationPaperwork: value.target.value,
-    }), console.log('immigration paperwork ', value.target.value));
+      immigrationPaperwork: value.target.name,
+    }), console.log('immigration paperwork ', value.target.name));
 
     const botMessage = createChatBotMessage("2	Are you married ?", {
       widget: "getMarriedStatus",
@@ -229,8 +230,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      victimOfCrime: value.target.value
-    }), console.log('victim of crime ', value.target.value));
+      victimOfCrime: value.target.name
+    }), console.log('victim of crime ', value.target.name));
     if (value.target.name == "Yes") {
       const botMessage = createChatBotMessage(
         "Where were you a victim of crime ?",
@@ -241,7 +242,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       setState((prev) => ({
         ...prev,
         messages: [...prev.messages, botMessage],
-        victimOfCrimeLocation: value.target.value,
+        victimOfCrimeLocation: value.target.name,
       }));
     } else {
       const botMessage = createChatBotMessage("Client’s Name", {
@@ -262,8 +263,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      policeReport: value.target.value,
-    }), console.log('police report ', value.target.value));
+      policeReport: value.target.name,
+    }), console.log('police report ', value.target.name));
     const botMessage = createChatBotMessage(
       "4.	Have you ever had contact with the police for any reason at all in the US?",
       {
@@ -284,8 +285,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      contactWithPolice: value.target.value,
-    }), console.log(' contact with police ', value.target.value));
+      contactWithPolice: value.target.name,
+    }), console.log(' contact with police ', value.target.name));
     if (value.target.name == "Yes") {
       const botMessage = createChatBotMessage(
         "Please describe why you had contact",
@@ -316,8 +317,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      fearStatus: value.target.value,
-    }), console.log('reason to fear ', value.target.value));
+      fearStatus: value.target.name,
+    }), console.log('reason to fear ', value.target.name));
     if (value.target.name == "Yes") {
       const botMessage = createChatBotMessage("a.	What do you fear and why", {
         widget: "getFearReason",
@@ -333,7 +334,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       setState((prev) => ({
         ...prev,
         messages: [...prev.messages, botMessage],
-        clientName: value.target.value,
+        clientName: value.target.name,
       }));
     }
   };

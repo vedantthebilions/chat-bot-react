@@ -4,7 +4,7 @@ import Contreras from "./image/logo_doc_black.jpg";
 
 function TableView(props) {
   console.log('table view props : ', props.state);
-  console.log('city value : ', props.state.zip);
+  console.log('case type : ', props.state.caseType);
 
   const clientName = props.state?.clientName;
   const clientType = props.state?.clientType;
