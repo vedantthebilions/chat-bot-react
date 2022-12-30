@@ -24,9 +24,9 @@ function TableView(props) {
   const problem = props.state?.legalProblem;
   const dateOfHearing = props.state?.hearingDate;
   const locationOfHearing = props.state?.hearingLocation;
-  const typeOfHearing = props.state?.typeOfHearing;
-  const immigrationPaper = props.state?.immigrationPaper;
-  const maritialStatus = props.state?.maritialStatus;
+  const typeOfHearing = props.state?.hearingType;
+  const immigrationPaper = props.state?.immigrationPaperwork;
+  const maritialStatus = props.state?.marriedStatus;
   const spouseName = props.state?.spouseName;
   const spouseDOB = props.state?.spouseDOB;
   const victimOfCrime = props.state?.victimOfCrime;
