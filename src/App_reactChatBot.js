@@ -6,6 +6,7 @@ import MessageParser from './components/messageParser';
 import config from './components/config';
 import { useState } from 'react';
 import { ReactComponent as ButtonIcon } from "./image/robot.svg";
+import validateInput from './components/validateInput';
 
 const saveMessages = (messages, HTMLString) => {
   console.log('in')
@@ -26,7 +27,7 @@ const AppReactBot =()=> {
     <div className="App">
       <div className="App-header">
         {showChatbot && (
-          <Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser} />
+          <Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser} validator={validateInput} />
         ) }
 
         <button

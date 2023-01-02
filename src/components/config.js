@@ -31,6 +31,7 @@ const config = {
       {
         delay: 1000,
         widget: "getClientType",
+        // widget: "getClientName",
       }
     ),
   ],
@@ -86,32 +87,6 @@ const config = {
     appiledImmigration:"",
     benefitStatus:""
 
-    /* clientType: 'hea',
-    caseType: 'tga',
-    getInUSA: "asdf",
-    clientName: "test",
-    clientDob: "gafs",
-    aFile: "fsah",
-    countryOfBirth: "ewe",
-    streetAddress: "hha",
-    city: "xyz",
-    state: 'eafd',
-    zip: "gea",
-    phone: "84948",
-    immigrationStatus: "rga",
-    legalProblem: "saarg",
-    hearingDate: "aarg",
-    hearingLocation: "fses",
-    hearingType: "gaer",
-    immigrationPaperwork: "gaweg",
-    marriedStatus:"grad",
-    spouseName: "ewga",
-    spouseDOB:"gaydf",
-    crimeLocation:"asdga",
-    policeContact:"fwha",
-    contactReason:"faha",
-    fearStatus:"gwg",
-    benefitStatus:"hadgs" */
   },
   widgets: [
     {
@@ -265,7 +240,6 @@ const config = {
     {
       widgetName: "getClientName",
       widgetFunc: (props) => {
-        // console.log('props value client name ', props.clientName);
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["clientName"],
