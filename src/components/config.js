@@ -32,6 +32,7 @@ const config = {
         delay: 1000,
         widget: "getClientType",
         // widget: "getClientName",
+        // widget: "getPhone",
       }
     ),
   ],
@@ -85,7 +86,8 @@ const config = {
     contactReason:"",
     fearStatus:"",
     appiledImmigration:"",
-    benefitStatus:""
+    benefitStatus:"",
+    isValid : false,
 
   },
   widgets: [
@@ -240,6 +242,14 @@ const config = {
     {
       widgetName: "getClientName",
       widgetFunc: (props) => {
+        const value= props.clientName;
+        const id= 'clientNm';
+        const success = props.actionProvider.handleClientNameError(value, id);
+        console.log('success : ', success);
+        if (!success) {
+          props.actionProvider.setMessage("getClientName", "Client’s Name")
+        }
+        
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["clientName"],
@@ -289,9 +299,12 @@ const config = {
     {
       widgetName: "getPhone",
       widgetFunc: (props) => {
+        const value= props.phone;
+        const id= 'phone';
+        props.actionProvider.handleClientNameError(value, id);
         return <div className="learning-options-container"></div>;
       },
-      mapStateToProps: ["Phone"],
+      mapStateToProps: ["phone"],
     },
     {
       widgetName: "getImmigrationStatus",

@@ -42,6 +42,51 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
+  const handleClientNameError = (value, id) => {
+    // console.log('value : ', value, '   id : ', id);
+    
+    const name = /^[A-Za-z]+$/;
+    const num = /^[0-9]+$/;
+
+    if(!value.length)
+    {
+      console.log('cannot empty..');
+    }
+    else if(!value.match(name) && id == 'clientNm')
+    {
+      console.log('should be string..');
+      return false;
+    }
+    else if(value.length < 4 && id == 'clientNm')
+    {
+      /* const message = createChatBotMessage(
+        "Please enter a name of minimum length 4",
+        {
+          delay: 500,
+          widget: "getClientName",
+          withAvatar: true
+        }
+      );
+      // setState((prev) => ({
+      //   ...prev,
+      //   messages: [...prev.messages, message],
+      // })); */
+      console.log('minimum 4 characters..');
+      return false;
+    }
+    else if(!value.match(num) && id == 'phone')
+    {
+      console.log('should be number..');
+      return false;
+    }
+    else if(value.length < 10 && id == 'phone')
+    {
+      console.log('minimum 10 digits..');
+      return false;
+    }
+    return true;
+  }
+
   const disableOption = (name, buttonType) => {
 
     let button = document.getElementsByClassName(name);
@@ -340,7 +385,21 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
   };
 
+  const setMessage = (widgetName, message) => {
+    let botMessage = createChatBotMessage(
+      message, 
+      {
+        widget: widgetName,
+      }
+      );
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+  }
+
   const handleUserMessage = () => {
+    alert('here');
     let ind;
     let lastInd;
     let botMessage;
@@ -361,7 +420,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               inUSLocation: prev.messages[lastInd].message,
               
             })
-          : prev.messages[ind]["widget"] === "getClientName"
+          : prev.messages[ind]["widget"] === "getClientName" /* ((prev.messages[ind]["widget"] === "getClientName") && (prev.isValid == true)) */
           ? ((botMessage = createChatBotMessage("Date of Birth", {
               widget: "getClientDOB",
             }), console.log('client name : ', prev.messages[lastInd].message)),
@@ -591,6 +650,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handlePoliceReportStatus,
             handlePoliceContactStatus,
             handleFearStatus,
+            handleClientNameError,
+            setMessage
           },
         });
       })}
