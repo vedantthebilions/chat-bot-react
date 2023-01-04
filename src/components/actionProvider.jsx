@@ -42,7 +42,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const handleClientNameError = (value, id) => {
+  const handleClientNameError = (value, id, vald) => {
     // console.log('value : ', value, '   id : ', id);
     
     const name = /^[A-Za-z]+$/;
@@ -54,8 +54,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
     else if(!value.match(name) && id == 'clientNm')
     {
-      console.log('should be string..');
-      return false;
+      vald = true;
+      console.log('should be string..', ' invalid value : ', vald);
+      /* setState((prev) => ({
+        ...prev,
+        isInValid: true,
+      })); */
+     /*  setState({
+        isInValid: true,
+      }); */
+      
     }
     else if(value.length < 4 && id == 'clientNm')
     {
@@ -71,20 +79,35 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       //   ...prev,
       //   messages: [...prev.messages, message],
       // })); */
-      console.log('minimum 4 characters..');
-      return false;
+      vald = true;
+      console.log('minimum 4 characters..', ' invalid value : ', vald);
+      /* setState({
+        isInValid: true,
+      }); */
+      /* setState((prev) => ({
+        ...prev,
+        isInValid: true,
+      })); */
     }
     else if(!value.match(num) && id == 'phone')
     {
       console.log('should be number..');
-      return false;
     }
     else if(value.length < 10 && id == 'phone')
     {
       console.log('minimum 10 digits..');
-      return false;
     }
-    return true;
+    else {
+      vald = false;
+      console.log(' invalid value : ', vald);
+      /* setState({
+        isInValid: true,
+      }); */
+      /* setState((prev) => ({
+        ...prev,
+        isInValid: false,
+      })); */
+    }
   }
 
   const disableOption = (name, buttonType) => {
@@ -399,7 +422,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   }
 
   const handleUserMessage = () => {
-    alert('here');
+    // alert('here');
     let ind;
     let lastInd;
     let botMessage;
@@ -408,8 +431,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
     setState(
       (prev) => (
+        console.log('invalid value 123 : ', prev.isInValid),
+
         (ind = prev.messages.length - 2),
         (lastInd = prev.messages.length - 1),
+        console.log('current widget : ', prev.messages[ind]["widget"]),
         prev.messages[ind]["widget"] === "getInUSALocation"
           ? ((botMessage = createChatBotMessage("Client’s Name", {
               widget: "getClientName",
@@ -420,10 +446,29 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               inUSLocation: prev.messages[lastInd].message,
               
             })
-          : prev.messages[ind]["widget"] === "getClientName" /* ((prev.messages[ind]["widget"] === "getClientName") && (prev.isValid == true)) */
-          ? ((botMessage = createChatBotMessage("Date of Birth", {
+          /* prev.messages[ind]["widget"] === "getInUSALocation"
+          ? (( (prev.isInValid == true)) ? botMessage = createChatBotMessage("Client’s Name", {
+              widget: "getClientName",
+            })
+            : botMessage = createChatBotMessage("Client’s Name", {
+              widget: "getClientName",
+            }
+            , console.log('in us location : ', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              inUSLocation: prev.messages[lastInd].message,
+              
+            }) */
+          : prev.messages[ind]["widget"] === "getClientName" /* ((prev.messages[ind]["widget"] === "getClientName") && (prev.isInValid == true)) */
+          ? (( (prev.isInValid == true)) ? botMessage = createChatBotMessage("Date of Birth", {
+              widget: "getClientName",
+            }) : botMessage = createChatBotMessage("Client’s Name", {
               widget: "getClientDOB",
-            }), console.log('client name : ', prev.messages[lastInd].message)),
+            }
+            ),
+            // prev.isInValid = false, 
+            console.log('client name : ', prev.messages[lastInd].message, '   vald value : ', prev.isInValid),
             {
               ...prev,
               messages: [...prev.messages, botMessage],

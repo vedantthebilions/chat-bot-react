@@ -32,7 +32,7 @@ const config = {
         delay: 1000,
         widget: "getClientType",
         // widget: "getClientName",
-        // widget: "getPhone",
+        // widget: "getInUSALocation",
       }
     ),
   ],
@@ -87,7 +87,7 @@ const config = {
     fearStatus:"",
     appiledImmigration:"",
     benefitStatus:"",
-    isValid : false,
+    isInValid : false,
 
   },
   widgets: [
@@ -244,11 +244,11 @@ const config = {
       widgetFunc: (props) => {
         const value= props.clientName;
         const id= 'clientNm';
-        const success = props.actionProvider.handleClientNameError(value, id);
-        console.log('success : ', success);
-        if (!success) {
-          props.actionProvider.setMessage("getClientName", "Client’s Name")
-        }
+        let vald = props.isInValid;
+        props.actionProvider.handleClientNameError(value, id, vald);
+        /* if (!success) {
+          // props.actionProvider.setMessage("getClientName", "Client’s Name")
+        } */
         
         return <div className="learning-options-container"></div>;
       },
