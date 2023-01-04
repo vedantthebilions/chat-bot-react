@@ -242,16 +242,24 @@ const config = {
     {
       widgetName: "getClientName",
       widgetFunc: (props) => {
-        const value= props.clientName;
+        // console.log('props are : ', props);
+       /*  const value= props.clientName;
         const id= 'clientNm';
-        let vald = props.isInValid;
-        props.actionProvider.handleClientNameError(value, id, vald);
-        /* if (!success) {
-          // props.actionProvider.setMessage("getClientName", "Client’s Name")
-        } */
+        props.actionProvider.handleClientNameError(value, id); */
         
         return <div className="learning-options-container"></div>;
       },
+      validator: (value) => {
+        console.log('val is : ', value);
+        if (/^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*/.test(value))
+          {
+            return true;
+          }
+        else
+          {
+            return 'Please input alphabet characters only.';
+          }
+     },
       mapStateToProps: ["clientName"],
     },
     {

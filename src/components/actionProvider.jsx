@@ -2,6 +2,7 @@ import React from "react";
 import { createClientMessage } from "react-chatbot-kit";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
+  let check = children.props.children.props.state.isInValid;
   const handleHello = () => {
     const botMessage = createChatBotMessage("Hello. Nice to meet you.");
 
@@ -42,11 +43,12 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const handleClientNameError = (value, id, vald) => {
+  const handleClientNameError = (value, id) => {
     // console.log('value : ', value, '   id : ', id);
     
     const name = /^[A-Za-z]+$/;
     const num = /^[0-9]+$/;
+    
 
     if(!value.length)
     {
@@ -54,40 +56,13 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
     else if(!value.match(name) && id == 'clientNm')
     {
-      vald = true;
-      console.log('should be string..', ' invalid value : ', vald);
-      /* setState((prev) => ({
-        ...prev,
-        isInValid: true,
-      })); */
-     /*  setState({
-        isInValid: true,
-      }); */
-      
+      check = true;
+      console.log('should be string..', ' invalid value check : ', check);      
     }
     else if(value.length < 4 && id == 'clientNm')
     {
-      /* const message = createChatBotMessage(
-        "Please enter a name of minimum length 4",
-        {
-          delay: 500,
-          widget: "getClientName",
-          withAvatar: true
-        }
-      );
-      // setState((prev) => ({
-      //   ...prev,
-      //   messages: [...prev.messages, message],
-      // })); */
-      vald = true;
-      console.log('minimum 4 characters..', ' invalid value : ', vald);
-      /* setState({
-        isInValid: true,
-      }); */
-      /* setState((prev) => ({
-        ...prev,
-        isInValid: true,
-      })); */
+      check = true;
+      console.log('minimum 4 characters..', ' invalid value : ', check);
     }
     else if(!value.match(num) && id == 'phone')
     {
@@ -98,15 +73,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       console.log('minimum 10 digits..');
     }
     else {
-      vald = false;
-      console.log(' invalid value : ', vald);
-      /* setState({
-        isInValid: true,
-      }); */
-      /* setState((prev) => ({
-        ...prev,
-        isInValid: false,
-      })); */
+      check = false;
+      console.log(' invalid value else : ', check);
     }
   }
 
@@ -431,11 +399,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
     setState(
       (prev) => (
-        console.log('invalid value 123 : ', prev.isInValid),
+        // console.log('invalid value 123 : ', check),
 
         (ind = prev.messages.length - 2),
         (lastInd = prev.messages.length - 1),
-        console.log('current widget : ', prev.messages[ind]["widget"]),
+        // console.log('current widget : ', prev.messages[ind]["widget"]),
         prev.messages[ind]["widget"] === "getInUSALocation"
           ? ((botMessage = createChatBotMessage("Client’s Name", {
               widget: "getClientName",
@@ -460,15 +428,26 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               inUSLocation: prev.messages[lastInd].message,
               
             }) */
-          : prev.messages[ind]["widget"] === "getClientName" /* ((prev.messages[ind]["widget"] === "getClientName") && (prev.isInValid == true)) */
-          ? (( (prev.isInValid == true)) ? botMessage = createChatBotMessage("Date of Birth", {
+          /* : prev.messages[ind]["widget"] === "getClientName"
+          ? (( (check == false)) ? botMessage = createChatBotMessage("Date of Birth", {
               widget: "getClientName",
-            }) : botMessage = createChatBotMessage("Client’s Name", {
+            }) : botMessage = createChatBotMessage("Client’s Name from client name", {
               widget: "getClientDOB",
             }
             ),
             // prev.isInValid = false, 
-            console.log('client name : ', prev.messages[lastInd].message, '   vald value : ', prev.isInValid),
+            console.log('client name : ', prev.messages[lastInd].message, '   check value : ', check),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              clientName: prev.messages[lastInd].message,
+            }) */
+          : prev.messages[ind]["widget"] === "getClientName"
+          ? ((botMessage = createChatBotMessage("Date of Birth", {
+              widget: "getClientDOB",
+            })
+            ),
+            console.log('client name : ', prev.messages[lastInd].message),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
