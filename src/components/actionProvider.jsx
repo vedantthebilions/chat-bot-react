@@ -43,7 +43,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const handleClientNameError = (value, id) => {
+  /* const handleClientNameError = (value, id) => {
     // console.log('value : ', value, '   id : ', id);
     
     const name = /^[A-Za-z]+$/;
@@ -73,10 +73,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       console.log('minimum 10 digits..');
     }
     else {
-      check = false;
+      // check = false;
       console.log(' invalid value else : ', check);
     }
-  }
+  } */
 
   const disableOption = (name, buttonType) => {
 
@@ -143,7 +143,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       setState((prev) => ({
         ...prev,
         messages: [...prev.messages, botMessage],
-        clientName: value.target.name
+        // clientName: value.target.name
       }));
     }
   };
@@ -376,14 +376,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
   };
 
-  const setMessage = (widgetName, message) => {
+  const setMessage = (widgetName, message, prev) => {
+    console.log('set msg..', widgetName, '   msg...', message, '   prev value...', prev);
+
     let botMessage = createChatBotMessage(
       message, 
       {
         widget: widgetName,
       }
       );
-      setState((prev) => ({
+      setState(() => ({
         ...prev,
         messages: [...prev.messages, botMessage],
       }));
@@ -399,11 +401,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
     setState(
       (prev) => (
-        // console.log('invalid value 123 : ', check),
 
         (ind = prev.messages.length - 2),
         (lastInd = prev.messages.length - 1),
-        // console.log('current widget : ', prev.messages[ind]["widget"]),
         prev.messages[ind]["widget"] === "getInUSALocation"
           ? ((botMessage = createChatBotMessage("Client’s Name", {
               widget: "getClientName",
@@ -414,54 +414,48 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               inUSLocation: prev.messages[lastInd].message,
               
             })
-          /* prev.messages[ind]["widget"] === "getInUSALocation"
-          ? (( (prev.isInValid == true)) ? botMessage = createChatBotMessage("Client’s Name", {
-              widget: "getClientName",
-            })
-            : botMessage = createChatBotMessage("Client’s Name", {
-              widget: "getClientName",
-            }
-            , console.log('in us location : ', prev.messages[lastInd].message)),
-            {
-              ...prev,
-              messages: [...prev.messages, botMessage],
-              inUSLocation: prev.messages[lastInd].message,
-              
-            }) */
-          /* : prev.messages[ind]["widget"] === "getClientName"
-          ? (( (check == false)) ? botMessage = createChatBotMessage("Date of Birth", {
-              widget: "getClientName",
-            }) : botMessage = createChatBotMessage("Client’s Name from client name", {
-              widget: "getClientDOB",
-            }
-            ),
-            // prev.isInValid = false, 
-            console.log('client name : ', prev.messages[lastInd].message, '   check value : ', check),
-            {
-              ...prev,
-              messages: [...prev.messages, botMessage],
-              clientName: prev.messages[lastInd].message,
-            }) */
           : prev.messages[ind]["widget"] === "getClientName"
-          ? ((botMessage = createChatBotMessage("Date of Birth", {
-              widget: "getClientDOB",
-            })
-            ),
-            console.log('client name : ', prev.messages[lastInd].message),
-            {
-              ...prev,
-              messages: [...prev.messages, botMessage],
-              clientName: prev.messages[lastInd].message,
-            })
+          ? (((/^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)$/.test(prev.messages[lastInd].message))
+              &&
+              (prev.messages[lastInd].message.length != 3 || prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("Date of Birth", {
+                widget: "getClientDOB",
+              })),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                clientName: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("Please enter valid name", {
+                widget: "getClientName",
+              })),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                clientName: prev.messages[lastInd].message,
+              })
+            )
           : prev.messages[ind]["widget"] === "getClientDOB"
-          ? ((botMessage = createChatBotMessage("A-File", {
-              widget: "getAfile",
-            }), console.log('Date of Birth : ', prev.messages[lastInd].message)),
-            {
-              ...prev,
-              messages: [...prev.messages, botMessage],
-              clientDob: prev.messages[lastInd].message,
-            })
+          ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+              &&
+              (prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("A-File", {
+                widget: "getAfile",
+              }), console.log('clientDob : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                clientDob: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                widget: "getClientDOB",
+              }), console.log('clientDob : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                clientDob: prev.messages[lastInd].message,
+              })
+            )
           : prev.messages[ind]["widget"] === "getAfile"
           ? ((botMessage = createChatBotMessage("Country of Birth", {
               widget: "getCountryOfBirth",
@@ -510,7 +504,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               messages: [...prev.messages, botMessage],
               state: prev.messages[lastInd].message,
             })
-          : prev.messages[ind]["widget"] === "getZip"
+          /* : prev.messages[ind]["widget"] === "getZip"
           ? ((botMessage = createChatBotMessage("Phone", {
               widget: "getPhone",
             }), console.log('zip : ', prev.messages[lastInd].message)),
@@ -518,16 +512,49 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               ...prev,
               messages: [...prev.messages, botMessage],
               zip: prev.messages[lastInd].message,
-            })
+            }) */
+          : prev.messages[ind]["widget"] === "getZip"
+          ? (((/^[0-9]+$/.test(prev.messages[lastInd].message))
+            &&
+            (prev.messages[lastInd].message.length == 6 && prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("Phone", {
+                widget: "getPhone",
+              }), console.log('zip : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                zip: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("enter valid zip code", {
+                widget: "getZip",
+              }), console.log('zip : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                zip: prev.messages[lastInd].message,
+              })
+            )
           : prev.messages[ind]["widget"] === "getPhone"
-          ? ((botMessage = createChatBotMessage("Current immigration status", {
-              widget: "getImmigrationStatus",
-            }), console.log('phone : ', prev.messages[lastInd].message)),
-            {
-              ...prev,
-              messages: [...prev.messages, botMessage],
-              phone: prev.messages[lastInd].message,
-            })
+          ? (((/^[0-9]+$/.test(prev.messages[lastInd].message))
+              &&
+              (prev.messages[lastInd].message.length >= 10 && prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("Current immigration status", {
+                widget: "getImmigrationStatus",
+              }), console.log('phone : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                phone: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("phone error", {
+                widget: "getPhone",
+              }), console.log('phone : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                phone: prev.messages[lastInd].message,
+              })
+            )
           : prev.messages[ind]["widget"] === "getImmigrationStatus"
           ? ((botMessage = createChatBotMessage("1.	Are you in removal proceedings now?", {
               widget: "getHearingDate",
@@ -589,6 +616,28 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               spouseName: prev.messages[lastInd].message,
             })
           : prev.messages[ind]["widget"] === "getnextVictim"
+          ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+              &&
+              (prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("3.	Have you ever been the victim of a crime",
+            {
+              widget: "getVictimOfCrime",
+            }), console.log('spouseDOB : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                spouseDOB: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                widget: "getnextVictim",
+              }), console.log('spouseDOB : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                spouseDOB: prev.messages[lastInd].message,
+              })
+            )
+          /* : prev.messages[ind]["widget"] === "getnextVictim"
           ? ((botMessage = createChatBotMessage(
               "3.	Have you ever been the victim of a crime",
               {
@@ -599,7 +648,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               ...prev,
               messages: [...prev.messages, botMessage],
               spouseDOB: prev.messages[lastInd].message,
-            })
+            }) */
           : prev.messages[ind]["widget"] === "getCrimeLocation"
           ? ((botMessage = createChatBotMessage(
               "Do you have a police report?",
@@ -674,7 +723,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handlePoliceReportStatus,
             handlePoliceContactStatus,
             handleFearStatus,
-            handleClientNameError,
             setMessage
           },
         });

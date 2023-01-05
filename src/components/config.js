@@ -32,7 +32,7 @@ const config = {
         delay: 1000,
         widget: "getClientType",
         // widget: "getClientName",
-        // widget: "getInUSALocation",
+        // widget: "getZip",
       }
     ),
   ],
@@ -241,25 +241,9 @@ const config = {
     },
     {
       widgetName: "getClientName",
-      widgetFunc: (props) => {
-        // console.log('props are : ', props);
-       /*  const value= props.clientName;
-        const id= 'clientNm';
-        props.actionProvider.handleClientNameError(value, id); */
-        
+      widgetFunc: (props) => {        
         return <div className="learning-options-container"></div>;
       },
-      validator: (value) => {
-        console.log('val is : ', value);
-        if (/^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*/.test(value))
-          {
-            return true;
-          }
-        else
-          {
-            return 'Please input alphabet characters only.';
-          }
-     },
       mapStateToProps: ["clientName"],
     },
     {
@@ -307,9 +291,6 @@ const config = {
     {
       widgetName: "getPhone",
       widgetFunc: (props) => {
-        const value= props.phone;
-        const id= 'phone';
-        props.actionProvider.handleClientNameError(value, id);
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["phone"],

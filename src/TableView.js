@@ -229,7 +229,7 @@ function TableView(props) {
                 spouse:
                 <br />
                 {maritialStatus
-                  ? maritialStatus +
+                  ? maritialStatus + " " +
                   immigrationSpouseStatus
                   : "NA"}
               </td>
