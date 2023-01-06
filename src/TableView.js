@@ -3,8 +3,6 @@ import "./App.css";
 import Contreras from "./image/logo_doc_black.jpg";
 
 function TableView(props) {
-  console.log('table view props : ', props.state);
-  console.log('case type : ', props.state.caseType);
 
   const clientName = props.state?.clientName;
   const clientType = props.state?.clientType;
@@ -37,10 +35,6 @@ function TableView(props) {
   const fear = props.state?.fearStatus;
   const fearReason = props.state?.fearReason;
   const appiledImmigration = props.state?.appiledImmigration;
-
-  /* console.log('city value : ', city);
-  console.log('city value : ', props.state.city.value); */
-
 
   return (
     <div>

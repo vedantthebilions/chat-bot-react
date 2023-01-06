@@ -1,11 +1,8 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-// import DogPicture from "./DogPicture";
 import "../App.css";
 import Contreras from "../image/logo.png";
 import ContrerasBlack from "../image/logo_doc_black.jpg";
-// import TableView from "../TableView";
 import Review from '../Review';
-import { steps } from "../steps";
 
 
 const botName = "Contreras & Metelska,PA"; 
@@ -85,6 +82,7 @@ const config = {
     contactWithPolice:"",
     contactReason:"",
     fearStatus:"",
+    fearReason: '',
     appiledImmigration:"",
     benefitStatus:"",
     isInValid : false,
