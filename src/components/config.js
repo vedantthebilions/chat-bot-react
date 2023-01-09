@@ -27,8 +27,8 @@ const config = {
       `Are you a New Client, Former Client, or Current client?`,
       {
         delay: 1000,
-        widget: "getClientType",
-        // widget: "getClientName",
+        // widget: "getClientType",
+        widget: "getCountryOfOrigin",
         // widget: "getZip",
       }
     ),
@@ -86,6 +86,17 @@ const config = {
     appiledImmigration:"",
     benefitStatus:"",
     isInValid : false,
+    completeLegalName: '',
+    otherNameUsed: '',
+    currentMailingAddress: '',
+    currentAddressYouLive: '',
+    countryOfOrigin: '',
+    birthDate: '',
+    socialSecurityNumber: '',
+    alienNumber: '',
+    hadSecurityNumber: '',
+    getSecurityNumber: '',
+    arrivalIntoUS: '',
 
   },
   widgets: [
@@ -738,6 +749,116 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["BenefitStatus"],
+    },
+    {
+      widgetName: "getLegalName",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["completeLegalName"],
+    },
+    {
+      widgetName: "getOtherNameUsed",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["otherNameUsed"],
+    },
+    {
+      widgetName: "getCurrentMailingAddress",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentAddressYouLive"],
+    },
+    {
+      widgetName: "getAddressYouLive",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentAddressYouLive"],
+    },
+    {
+      widgetName: "getCountryOfOrigin",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["countryOfOrigin"],
+    },
+    {
+      widgetName: "getBirthDate",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["birthDate"],
+    },
+    {
+      widgetName: "getSocialSecurityNumber",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["socialSecurityNumber"],
+    },
+    {
+      widgetName: "getAlienNumber",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["alienNumber"],
+    },
+    {
+      widgetName: "getHadSecurityNumber",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleHadSecurityNumber(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleHadSecurityNumber(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getSecurityNumber",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["getSecurityNumber"],
+    },
+    {
+      widgetName: "getArrivalIntoUS",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["arrivalIntoUS"],
     },
     {
       widgetName: "end-message",
