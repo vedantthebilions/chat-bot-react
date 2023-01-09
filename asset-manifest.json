@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chat-bot-react/static/css/main.62b508bf.css",
-    "main.js": "/chat-bot-react/static/js/main.aae630b7.js",
+    "main.js": "/chat-bot-react/static/js/main.927cf6d3.js",
     "static/js/236.3b15ef4a.chunk.js": "/chat-bot-react/static/js/236.3b15ef4a.chunk.js",
     "static/js/703.7dca7228.chunk.js": "/chat-bot-react/static/js/703.7dca7228.chunk.js",
     "static/js/635.b18b852b.chunk.js": "/chat-bot-react/static/js/635.b18b852b.chunk.js",
@@ -11,7 +11,7 @@
     "index.html": "/chat-bot-react/index.html",
     "static/media/robot.svg": "/chat-bot-react/static/media/robot.62307f18a2bb6c1c73b9b60aea32a1d8.svg",
     "main.62b508bf.css.map": "/chat-bot-react/static/css/main.62b508bf.css.map",
-    "main.aae630b7.js.map": "/chat-bot-react/static/js/main.aae630b7.js.map",
+    "main.927cf6d3.js.map": "/chat-bot-react/static/js/main.927cf6d3.js.map",
     "236.3b15ef4a.chunk.js.map": "/chat-bot-react/static/js/236.3b15ef4a.chunk.js.map",
     "703.7dca7228.chunk.js.map": "/chat-bot-react/static/js/703.7dca7228.chunk.js.map",
     "635.b18b852b.chunk.js.map": "/chat-bot-react/static/js/635.b18b852b.chunk.js.map",
@@ -19,6 +19,6 @@
   },
   "entrypoints": [
     "static/css/main.62b508bf.css",
-    "static/js/main.aae630b7.js"
+    "static/js/main.927cf6d3.js"
   ]
 }
