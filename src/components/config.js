@@ -28,7 +28,7 @@ const config = {
       {
         delay: 1000,
         // widget: "getClientType",
-        widget: "getAddressYouLive",
+        widget: "getMotherCompleteName",
         // widget: "getZip",
       }
     ),
@@ -105,6 +105,14 @@ const config = {
     passportExpirationDate: '',
     countryThatIssuedPassport: '',
     motherCompleteName: '',
+    fatherCompleteName: '',
+    inspectedImmigrationOficial: '',
+    nonimmigrantVisaNumber: '',
+    nameOnNonimmigrantVisa: '',
+    dateOfApprovalNonImmigrant: '',
+    sxStatus: '',
+    maritalStatus: '',
+    totalMarriages: '',
 
   },
   widgets: [
@@ -923,6 +931,128 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["motherCompleteName"],
+    },
+    {
+      widgetName: "getFatherCompleteName",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["fatherCompleteName"],
+    },
+    {
+      widgetName: "getInspectedImmigrationOficial",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["inspectedImmigrationOficial"],
+    },
+    {
+      widgetName: "getNonimmigrantVisaNumber",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["nonimmigrantVisaNumber"],
+    },
+    {
+      widgetName: "getNameOnNonimmigrantVisa",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["nameOnNonimmigrantVisa"],
+    },
+    {
+      widgetName: "getDateOfApprovalNonImmigrant",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["dateOfApprovalNonImmigrant"],
+    },
+    {
+      widgetName: "getSxStatus",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Male",
+            handler: (e) => {
+              props.actionProvider.handleSxStatus(e);
+            },
+            value: "male",
+            id: 'inUSA',
+          },
+          {
+            text: "Female",
+            handler: (e) => {
+              props.actionProvider.handleSxStatus(e);
+            },
+            id: 'inUSA',
+            value: "female",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getMaritalStatus",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Married",
+            handler: (e) => {
+              props.actionProvider.handleMaritalStatus(e);
+            },
+            value: "married",
+            id: 'marriedStatus',
+          },
+          {
+            text: "Unmarried",
+            handler: (e) => {
+              props.actionProvider.handleMaritalStatus(e);
+            },
+            id: 'unmarried',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getTotalMarriages",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["totalMarriages"],
     },
     {
       widgetName: "end-message",

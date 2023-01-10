@@ -203,7 +203,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const handleImmigrationPaperwork = (value) => {
+  const handleSxStatus = (value) => {
     const message = createClientMessage(value.target.name);
 
     disableOption('idBkdM', 'hearingType');
@@ -211,11 +211,32 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-      immigrationPaperwork: value.target.name,
-    }), console.log('immigration paperwork ', value.target.name));
+      sxStatus: value.target.name,
+    }), console.log('Sex status ', value.target.name));
 
-    const botMessage = createChatBotMessage("2	Are you married ?", {
-      widget: "getMarriedStatus",
+    const botMessage = createChatBotMessage("Marital Status", {
+      widget: "getMaritalStatus",
+    });
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+      // marriedStatus: value.target.value,
+    }));
+  };
+
+  const handleMaritalStatus = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'hearingType');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      maritalStatus: value.target.name,
+    }), console.log('Marital status ', value.target.name));
+
+    const botMessage = createChatBotMessage("Total number of marriages", {
+      widget: "getTotalMarriages",
     });
     setState((prev) => ({
       ...prev,
@@ -375,6 +396,27 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         // clientName: value.target.name,
       }), /* console.log('client name fear else.. ', value.target.name) */);
     }
+  };
+
+  const handleImmigrationPaperwork = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'hearingType');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      immigrationPaperwork: value.target.name,
+    }), console.log('immigration paperwork ', value.target.name));
+
+    const botMessage = createChatBotMessage("2	Are you married ?", {
+      widget: "getMarriedStatus",
+    });
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+      // marriedStatus: value.target.value,
+    }));
   };
 
   const setMessage = (widgetName, message, prev) => {
@@ -870,13 +912,76 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             )
           : prev.messages[ind]["widget"] === "getMotherCompleteName"
           ? ((botMessage = createChatBotMessage("Mother’s complete name, City and country of birth, City and country of residence (if living)", {
-              widget: "getFearReason",
+              widget: "getFatherCompleteName",
             }), console.log('Country That Issued Passport :', prev.messages[lastInd].message)),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
               countryThatIssuedPassport: prev.messages[lastInd].message,
             })
+          : prev.messages[ind]["widget"] === "getFatherCompleteName"
+          ? ((botMessage = createChatBotMessage("Father’s complete name, City and country of birth, City and country of residence (if living)", {
+              widget: "getInspectedImmigrationOficial",
+            }), console.log('Mother complete name :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              motherCompleteName: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getInspectedImmigrationOficial"
+          ? ((botMessage = createChatBotMessage("Were you inspected and admitted by an immigration oficial?", {
+              widget: "getNonimmigrantVisaNumber",
+            }), console.log('Father complete name :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              fatherCompleteName: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getNonimmigrantVisaNumber"
+          ? ((botMessage = createChatBotMessage("Non-immigrant visa number (if any)", {
+              widget: "getNameOnNonimmigrantVisa",
+            }), console.log('Inspected immigration oficial :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              inspectedImmigrationOficial: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getNameOnNonimmigrantVisa"
+          ? ((botMessage = createChatBotMessage("Name and location of consult that issued your non-immigrant visa", {
+              widget: "getDateOfApprovalNonImmigrant",
+            }), console.log('Non-immigrant Visa Number :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              nonimmigrantVisaNumber: prev.messages[lastInd].message,
+            })
+            : prev.messages[ind]["widget"] === "getDateOfApprovalNonImmigrant"
+            ? ((botMessage = createChatBotMessage("Date of approval for non-immigrant visa", {
+                widget: "getNextSxStatus",
+              }), console.log('Name of your non-immigrant visa :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                nameOnNonimmigrantVisa: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getNextSxStatus"
+            ? ((botMessage = createChatBotMessage("Sex status", {
+                widget: "getSxStatus",
+              }), console.log('Approval date :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getTotalMarriages"
+            ? ((botMessage = createChatBotMessage("next question", {
+                widget: "getFearReason",
+              }), console.log('Total marriages :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                totalMarriages: prev.messages[lastInd].message,
+              })
           : prev.messages[ind]["widget"] === "getFearReason"
           ? ((botMessage = createChatBotMessage(
               "6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:",
@@ -884,11 +989,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 widget: "getBenefitStatus",
               },
               disableOption('idBkdM', 'fearStatus')
-            ), console.log('Mother complete name : ', prev.messages[lastInd].message)),
+            ), console.log('Date of approval of your non immigrant visa : ', prev.messages[lastInd].message)),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
-              motherCompleteName: prev.messages[lastInd].message,
+              dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
               // completeLegalName: prev.messages[lastInd].message,
             })
           : ((botMessage = createChatBotMessage(
@@ -927,6 +1032,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleFearStatus,
             setMessage,
             handleHadSecurityNumber,
+            handleSxStatus,
+            handleMaritalStatus,
           },
         });
       })}
