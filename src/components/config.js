@@ -28,7 +28,7 @@ const config = {
       {
         delay: 1000,
         // widget: "getClientType",
-        widget: "getCountryOfOrigin",
+        widget: "getAddressYouLive",
         // widget: "getZip",
       }
     ),
@@ -97,6 +97,14 @@ const config = {
     hadSecurityNumber: '',
     getSecurityNumber: '',
     arrivalIntoUS: '',
+    i94CardNumber: '',
+    cardCurrentStatus: '',
+    cardExpirationDate: '',
+    ctStateCountryOfBirth: '',
+    passportNumOnArrival: '',
+    passportExpirationDate: '',
+    countryThatIssuedPassport: '',
+    motherCompleteName: '',
 
   },
   widgets: [
@@ -859,6 +867,62 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["arrivalIntoUS"],
+    },
+    {
+      widgetName: "getI94CardNumber",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["i94CardNumber"],
+    },
+    {
+      widgetName: "getCardCurrentStatus",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["cardCurrentStatus"],
+    },
+    {
+      widgetName: "getCardExpirationDate",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["cardExpirationDate"],
+    },
+    {
+      widgetName: "getCtStateCountryOfBirth",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["ctStateCountryOfBirth"],
+    },
+    {
+      widgetName: "getPassportNumOnArrival",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["passportNumOnArrival"],
+    },
+    {
+      widgetName: "getPassportExpirationDate",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["passportExpirationDate"],
+    },
+    {
+      widgetName: "getCountryThatIssuedPassport",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["countryThatIssuedPassport"],
+    },
+    {
+      widgetName: "getMotherCompleteName",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["motherCompleteName"],
     },
     {
       widgetName: "end-message",

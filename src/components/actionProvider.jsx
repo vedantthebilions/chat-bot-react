@@ -734,14 +734,26 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               countryOfOrigin: prev.messages[lastInd].message,
             })
           : prev.messages[ind]["widget"] === "getSocialSecurityNumber"
-          ? ((botMessage = createChatBotMessage("Social Security Number (if any)", {
-              widget: "getAlienNumber",
-            }), console.log('Birth Date :', prev.messages[lastInd].message)),
-            {
-              ...prev,
-              messages: [...prev.messages, botMessage],
-              birthDate: prev.messages[lastInd].message,
-            })
+          ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+              &&
+              (prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("Social Security Number (if any)", {
+                widget: "getAlienNumber",
+              }), console.log('Birth Date : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                birthDate: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                widget: "getSocialSecurityNumber",
+              }), console.log('Birth Date : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                birthDate: prev.messages[lastInd].message,
+              })
+            )
           : prev.messages[ind]["widget"] === "getAlienNumber"
           ? ((botMessage = createChatBotMessage("Alien Number (if any)", {
               widget: "getNextHadSecurityNumber",
@@ -762,12 +774,108 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             })
           : prev.messages[ind]["widget"] === "getArrivalIntoUS"
           ? ((botMessage = createChatBotMessage("Date and city of last entry / arrival into the U.S.", {
-              widget: "getFearReason",
+              widget: "getI94CardNumber",
             }), console.log('get security number :', prev.messages[lastInd].message)),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
               getSecurityNumber: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getI94CardNumber"
+          ? ((botMessage = createChatBotMessage("I-94 Card Number", {
+              widget: "getCardCurrentStatus",
+            }), console.log('Last Arrival in US :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              arrivalIntoUS: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getCardCurrentStatus"
+          ? ((botMessage = createChatBotMessage("Current status", {
+              widget: "getCardExpirationDate",
+            }), console.log('I-94 card number :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              i94CardNumber: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getCardExpirationDate"
+          ? ((botMessage = createChatBotMessage("Expiration date of current status", {
+              widget: "getCtStateCountryOfBirth",
+            }), console.log('current status :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              cardCurrentStatus: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getCtStateCountryOfBirth"
+          ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+              &&
+              (prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("City, State, and Country of Birth", {
+                widget: "getPassportNumOnArrival",
+              }), console.log('Card Expiration Date : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                cardExpirationDate: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                widget: "getCtStateCountryOfBirth",
+              }), console.log('Card Expiration Date : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                cardExpirationDate: prev.messages[lastInd].message,
+              })
+            )
+          : prev.messages[ind]["widget"] === "getPassportNumOnArrival"
+          ? ((botMessage = createChatBotMessage("Passport Number Used at Last Arrival", {
+              widget: "getPassportExpirationDate",
+            }), console.log('City State and Country of Birth :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              ctStateCountryOfBirth: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getPassportExpirationDate"
+          ? ((botMessage = createChatBotMessage("Passport expiration date", {
+              widget: "getCountryThatIssuedPassport",
+            }), console.log('Passport Number on Last Arrival :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              passportNumOnArrival: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getCountryThatIssuedPassport"
+          ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+              &&
+              (prev.messages[lastInd].message.length != 0))
+            ? ((botMessage = createChatBotMessage("Country that issued your passport", {
+                widget: "getMotherCompleteName",
+              }), console.log('Passport Expiration Date : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                passportExpirationDate: prev.messages[lastInd].message,
+              })
+            : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                widget: "getCountryThatIssuedPassport",
+              }), console.log('Passport Expiration Date : ', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                passportExpirationDate: prev.messages[lastInd].message,
+              })
+            )
+          : prev.messages[ind]["widget"] === "getMotherCompleteName"
+          ? ((botMessage = createChatBotMessage("Mother’s complete name, City and country of birth, City and country of residence (if living)", {
+              widget: "getFearReason",
+            }), console.log('Country That Issued Passport :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              countryThatIssuedPassport: prev.messages[lastInd].message,
             })
           : prev.messages[ind]["widget"] === "getFearReason"
           ? ((botMessage = createChatBotMessage(
@@ -776,11 +884,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 widget: "getBenefitStatus",
               },
               disableOption('idBkdM', 'fearStatus')
-            ), console.log('Last Arrival in US : ', prev.messages[lastInd].message)),
+            ), console.log('Mother complete name : ', prev.messages[lastInd].message)),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
-              arrivalIntoUS: prev.messages[lastInd].message,
+              motherCompleteName: prev.messages[lastInd].message,
               // completeLegalName: prev.messages[lastInd].message,
             })
           : ((botMessage = createChatBotMessage(
