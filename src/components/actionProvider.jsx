@@ -398,6 +398,36 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
   };
 
+  const handleAppliedForPermenantResident = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      appliedForPermenantResident: value.target.name,
+    }), console.log('if applied for permanent resident : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("please indicate the date of the application", {
+        widget: "getPermenantResidentStatus",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
+        widget: "getBenefitStatus",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
   const handleImmigrationPaperwork = (value) => {
     const message = createClientMessage(value.target.name);
 
@@ -912,30 +942,103 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             )
           : prev.messages[ind]["widget"] === "getMotherCompleteName"
           ? ((botMessage = createChatBotMessage("Mother’s complete name, City and country of birth, City and country of residence (if living)", {
-              widget: "getFatherCompleteName",
+              widget: "getMotherCity",
             }), console.log('Country That Issued Passport :', prev.messages[lastInd].message)),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
               countryThatIssuedPassport: prev.messages[lastInd].message,
             })
-          : prev.messages[ind]["widget"] === "getFatherCompleteName"
-          ? ((botMessage = createChatBotMessage("Father’s complete name, City and country of birth, City and country of residence (if living)", {
-              widget: "getInspectedImmigrationOficial",
+          : prev.messages[ind]["widget"] === "getMotherCity"
+          ? ((botMessage = createChatBotMessage("Mother’s City name", {
+              widget: "getMotherCountryOfBirth",
             }), console.log('Mother complete name :', prev.messages[lastInd].message)),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
+              // countryThatIssuedPassport: prev.messages[lastInd].message,
               motherCompleteName: prev.messages[lastInd].message,
             })
-          : prev.messages[ind]["widget"] === "getInspectedImmigrationOficial"
-          ? ((botMessage = createChatBotMessage("Were you inspected and admitted by an immigration oficial?", {
-              widget: "getNonimmigrantVisaNumber",
+          : prev.messages[ind]["widget"] === "getMotherCountryOfBirth"
+          ? ((botMessage = createChatBotMessage("Mother’s Country of birth", {
+              widget: "getMotherResidenceCity",
+            }), console.log('Mother City name :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              motherCity: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getMotherResidenceCity"
+          ? ((botMessage = createChatBotMessage("Mother’s Residence City", {
+              widget: "getMotherResidenceCountry",
+            }), console.log('Mother country of birth :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              motherCountryOfBirth: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getMotherResidenceCountry"
+          ? ((botMessage = createChatBotMessage("Mother’s Residence Country", {
+              widget: "getFatherCompleteName",
+            }), console.log('Mother Residence city :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              motherResidenceCity: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getFatherCompleteName"
+          ? ((botMessage = createChatBotMessage("Father’s complete name, City and country of birth, City and country of residence (if living)", {
+              widget: "getFatherCity",
+            }), console.log('Mother Residence country :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              motherResidenceCountry: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getFatherCity"
+          ? ((botMessage = createChatBotMessage("Father’s City name", {
+              widget: "getFatherCountryOfBirth",
             }), console.log('Father complete name :', prev.messages[lastInd].message)),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
               fatherCompleteName: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getFatherCountryOfBirth"
+          ? ((botMessage = createChatBotMessage("Father’s Country of birth", {
+              widget: "getFatherResidenceCity",
+            }), console.log('Father City name :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              fatherCity: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getFatherResidenceCity"
+          ? ((botMessage = createChatBotMessage("Father’s Residence City", {
+              widget: "getFatherResidenceCountry",
+            }), console.log('Father country of birth :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              fatherCountryOfBirth: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getFatherResidenceCountry"
+          ? ((botMessage = createChatBotMessage("Father’s Residence Country", {
+              widget: "getInspectedImmigrationOficial",
+            }), console.log('Father Residence city :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              fatherResidenceCity: prev.messages[lastInd].message,
+            })
+          : prev.messages[ind]["widget"] === "getInspectedImmigrationOficial"
+          ? ((botMessage = createChatBotMessage("Were you inspected and admitted by an immigration oficial?", {
+              widget: "getNonimmigrantVisaNumber",
+            }), console.log('Father Residence country :', prev.messages[lastInd].message)),
+            {
+              ...prev,
+              messages: [...prev.messages, botMessage],
+              fatherResidenceCountry: prev.messages[lastInd].message,
             })
           : prev.messages[ind]["widget"] === "getNonimmigrantVisaNumber"
           ? ((botMessage = createChatBotMessage("Non-immigrant visa number (if any)", {
@@ -974,13 +1077,256 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getTotalMarriages"
-            ? ((botMessage = createChatBotMessage("next question", {
-                widget: "getFearReason",
+            ? ((botMessage = createChatBotMessage("Current spouse’s full name", {
+                widget: "getCurrentSpouseFullname",
               }), console.log('Total marriages :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
                 totalMarriages: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getCurrentSpouseFullname"
+            ? ((botMessage = createChatBotMessage("Current spouse’s Alien Number", {
+                widget: "getCurrentSpouseAlienNum",
+              }), console.log('Current Spouse fullname :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                currentSpouseFullname: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getCurrentSpouseAlienNum"
+            ? ((botMessage = createChatBotMessage("Current spouse’s Date Of Birth", {
+                widget: "getCurrentSpouseDOB",
+              }), console.log('Current Spouse Alien Number :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                currentSpouseAlienNum: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getCurrentSpouseDOB"
+            ? ((botMessage = createChatBotMessage("Current spouse’s Date Of Marriage", {
+                widget: "getCurrentSpouseDOMrg",
+              }), console.log('Current Spouse Date Of Birth :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                currentSpouseDOB: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getCurrentSpouseDOMrg"
+            ? ((botMessage = createChatBotMessage("Current spouse’s City", {
+                widget: "getCurrentSpouseCity",
+              }), console.log('Current Spouse Date Of Marriage :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                currentSpouseDOMrg: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getCurrentSpouseCity"
+            ? ((botMessage = createChatBotMessage("Current spouse’s State", {
+                widget: "getCurrentSpouseState",
+              }), console.log('Current Spouse City :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                currentSpouseCity: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getCurrentSpouseState"
+            ? ((botMessage = createChatBotMessage("Current spouse’s Country Of Birth", {
+                widget: "getCurrentSpouseCountryOfBirth",
+              }), console.log('Current Spouse State :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                currentSpouseState: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getCurrentSpouseCountryOfBirth"
+            ? ((botMessage = createChatBotMessage("Prior spouse 1’s full name", {
+                widget: "getPriorSpouse1Fullname",
+              }), console.log('Current Spouse Country Of Birth :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                currentSpouseCountryOfBirth: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1Fullname"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Alien Number", {
+                widget: "getPriorSpouse1AlienNum",
+              }), console.log('spouse 1’s fullname :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1Fullname: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1AlienNum"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Of Birth", {
+                widget: "getPriorSpouse1DOB",
+              }), console.log('spouse 1’s Alien Number :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1AlienNum: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1DOB"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Of Marriage", {
+                widget: "getPriorSpouse1DOMrg",
+              }), console.log('spouse 1’s Date Of Birth :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1DOB: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1DOMrg"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s City", {
+                widget: "getPriorSpouse1City",
+              }), console.log('spouse 1’s Date Of Marriage :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1DOMrg: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1City"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s State", {
+                widget: "getPriorSpouse1State",
+              }), console.log('spouse 1’s City :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1City: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1State"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Country Of Birth", {
+                widget: "getPriorSpouse1CountryOfBirth",
+              }), console.log('spouse 1’s State :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1State: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1CountryOfBirth"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Marriage Ended", {
+                widget: "getPriorSpouse1DateMrgEnded",
+              }), console.log('spouse 1’s Country Of Birth :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1CountryOfBirth: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse1DateMrgEnded"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Fullname", {
+                widget: "getPriorSpouse2Fullname",
+              }), console.log('spouse 1’s Date Marriage Ended :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse1DateMrgEnded: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2Fullname"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Alien Number", {
+                widget: "getPriorSpouse2AlienNum",
+              }), console.log('spouse 2’s fullname :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2Fullname: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2AlienNum"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Of Birth", {
+                widget: "getPriorSpouse2DOB",
+              }), console.log('spouse 2’s Alien Number :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2AlienNum: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2DOB"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Of Marriage", {
+                widget: "getPriorSpouse2DOMrg",
+              }), console.log('spouse 2’s Date Of Birth :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2DOB: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2DOMrg"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s City", {
+                widget: "getPriorSpouse2City",
+              }), console.log('spouse 2’s Date Of Marriage :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2DOMrg: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2City"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s State", {
+                widget: "getPriorSpouse2State",
+              }), console.log('spouse 2’s City :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2City: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2State"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Country Of Birth", {
+                widget: "getPriorSpouse2CountryOfBirth",
+              }), console.log('spouse 2’s State :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2State: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2CountryOfBirth"
+            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Marriage Ended", {
+                widget: "getPriorSpouse2DateMrgEnded",
+              }), console.log('spouse 2’s Country Of Birth :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2CountryOfBirth: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPriorSpouse2DateMrgEnded"
+            ? ((botMessage = createChatBotMessage("Have you applied for permanent resident status in the past?", {
+                widget: "getAppliedForPermenantResident",
+              }), console.log('spouse 2’s Date Marriage Ended :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                priorSpouse2DateMrgEnded: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPermenantResidentStatus"
+            ? ((botMessage = createChatBotMessage("Permenant Resident Location", {
+                widget: "getPermenantResidentLocation",
+              }), console.log('Permenant Resident Status :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                permenantResidentStatus: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getPermenantResidentLocation"
+            ? ((botMessage = createChatBotMessage("result of the application", {
+                widget: "getApplicationResult",
+              }), console.log('Permenant Resident Location :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                permenantResidentLocation: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getApplicationResult"
+            ? ((botMessage = createChatBotMessage("Ethnicity (Hispanic or Latino or NOT Hispanic or Latino)", {
+                widget: "getEthnicity",
+              }), console.log('Result of Application :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                applicationResult: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getEthnicity"
+            ? ((botMessage = createChatBotMessage("next", {
+                widget: "getFearReason",
+              }), console.log('Ethnicity :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                ethnicity: prev.messages[lastInd].message,
               })
           : prev.messages[ind]["widget"] === "getFearReason"
           ? ((botMessage = createChatBotMessage(
@@ -1034,6 +1380,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleHadSecurityNumber,
             handleSxStatus,
             handleMaritalStatus,
+            handleAppliedForPermenantResident
           },
         });
       })}

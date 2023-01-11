@@ -28,7 +28,7 @@ const config = {
       {
         delay: 1000,
         // widget: "getClientType",
-        widget: "getMotherCompleteName",
+        widget: "getPriorSpouse2State",
         // widget: "getZip",
       }
     ),
@@ -105,7 +105,15 @@ const config = {
     passportExpirationDate: '',
     countryThatIssuedPassport: '',
     motherCompleteName: '',
+    motherCity: '',
+    motherCountryOfBirth: '',
+    motherResidenceCity: '',
+    motherResidenceCountry: '',
     fatherCompleteName: '',
+    fatherCity: '',
+    fatherCountryOfBirth: '',
+    fatherResidenceCity: '',
+    fatherResidenceCountry: '',
     inspectedImmigrationOficial: '',
     nonimmigrantVisaNumber: '',
     nameOnNonimmigrantVisa: '',
@@ -113,6 +121,34 @@ const config = {
     sxStatus: '',
     maritalStatus: '',
     totalMarriages: '',
+    currentSpouseFullname: '',
+    currentSpouseAlienNum: '',
+    currentSpouseDOB: '',
+    currentSpouseDOMrg: '',
+    currentSpouseCity: '',
+    currentSpouseState: '',
+    currentSpouseCountryOfBirth: '',
+    priorSpouse1Fullname: '',
+    priorSpouse1AlienNum: '',
+    priorSpouse1DOB: '',
+    priorSpouse1DOMrg: '',
+    priorSpouse1City: '',
+    priorSpouse1State: '',
+    priorSpouse1CountryOfBirth: '',
+    priorSpouse1DateMrgEnded: '',
+    priorSpouse2Fullname: '',
+    priorSpouse2AlienNum: '',
+    priorSpouse2DOB: '',
+    priorSpouse2DOMrg: '',
+    priorSpouse2City: '',
+    priorSpouse2State: '',
+    priorSpouse2CountryOfBirth: '',
+    priorSpouse2DateMrgEnded: '',
+    appliedForPermenantResident: '',
+    permenantResidentStatus: '',
+    permenantResidentLocation: '',
+    applicationResult: '',
+    ethnicity: '',
 
   },
   widgets: [
@@ -933,11 +969,67 @@ const config = {
       mapStateToProps: ["motherCompleteName"],
     },
     {
+      widgetName: "getMotherCity",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["motherCity"],
+    },
+    {
+      widgetName: "getMotherCountryOfBirth",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["motherCountryOfBirth"],
+    },
+    {
+      widgetName: "getMotherResidenceCity",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["motherResidenceCity"],
+    },
+    {
+      widgetName: "getMotherResidenceCountry",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["motherResidenceCountry"],
+    },
+    {
       widgetName: "getFatherCompleteName",
       widgetFunc: (props) => {        
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["fatherCompleteName"],
+    },
+    {
+      widgetName: "getFatherCity",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["fatherCity"],
+    },
+    {
+      widgetName: "getFatherCountryOfBirth",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["fatherCountryOfBirth"],
+    },
+    {
+      widgetName: "getFatherResidenceCity",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["fatherResidenceCity"],
+    },
+    {
+      widgetName: "getFatherResidenceCountry",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["fatherResidenceCountry"],
     },
     {
       widgetName: "getInspectedImmigrationOficial",
@@ -1020,12 +1112,28 @@ const config = {
             id: 'marriedStatus',
           },
           {
-            text: "Unmarried",
+            text: "Single",
             handler: (e) => {
               props.actionProvider.handleMaritalStatus(e);
             },
-            id: 'unmarried',
-            value: "no",
+            id: 'marriedStatus',
+            value: "single",
+          },
+          {
+            text: "Divorced",
+            handler: (e) => {
+              props.actionProvider.handleMaritalStatus(e);
+            },
+            id: 'marriedStatus',
+            value: "divorced",
+          },
+          {
+            text: "Widowed",
+            handler: (e) => {
+              props.actionProvider.handleMaritalStatus(e);
+            },
+            id: 'marriedStatus',
+            value: "widowed",
           },
         ];
         const optionsMarkup = options.map((option, index) => (
@@ -1053,6 +1161,235 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["totalMarriages"],
+    },
+    {
+      widgetName: "getCurrentSpouseFullname",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentSpouseFullname"],
+    },
+    {
+      widgetName: "getCurrentSpouseAlienNum",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentSpouseAlienNum"],
+    },
+    {
+      widgetName: "getCurrentSpouseDOB",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentSpouseDOB"],
+    },
+    {
+      widgetName: "getCurrentSpouseDOMrg",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentSpouseDOMrg"],
+    },
+    {
+      widgetName: "getCurrentSpouseCity",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentSpouseCity"],
+    },
+    {
+      widgetName: "getCurrentSpouseState",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentSpouseState"],
+    },
+    {
+      widgetName: "getCurrentSpouseCountryOfBirth",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["currentSpouseCountryOfBirth"],
+    },
+    {
+      widgetName: "getPriorSpouse1Fullname",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1Fullname"],
+    },
+    {
+      widgetName: "getPriorSpouse1AlienNum",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1AlienNum"],
+    },
+    {
+      widgetName: "getPriorSpouse1DOB",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1DOB"],
+    },
+    {
+      widgetName: "getPriorSpouse1DOMrg",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1DOMrg"],
+    },
+    {
+      widgetName: "getPriorSpouse1City",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1State"],
+    },
+    {
+      widgetName: "getPriorSpouse1State",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1State"],
+    },
+    {
+      widgetName: "getPriorSpouse1CountryOfBirth",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1CountryOfBirth"],
+    },
+    {
+      widgetName: "getPriorSpouse1DateMrgEnded",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse1DateMrgEnded"],
+    },
+    {
+      widgetName: "getPriorSpouse2Fullname",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2Fullname"],
+    },
+    {
+      widgetName: "getPriorSpouse2AlienNum",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2AlienNum"],
+    },
+    {
+      widgetName: "getPriorSpouse2DOB",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2DOB"],
+    },
+    {
+      widgetName: "getPriorSpouse2DOMrg",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2DOMrg"],
+    },
+    {
+      widgetName: "getPriorSpouse2City",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2State"],
+    },
+    {
+      widgetName: "getPriorSpouse2State",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2State"],
+    },
+    {
+      widgetName: "getPriorSpouse2CountryOfBirth",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2CountryOfBirth"],
+    },
+    {
+      widgetName: "getPriorSpouse2DateMrgEnded",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["priorSpouse2DateMrgEnded"],
+    },
+    {
+      widgetName: "getAppliedForPermenantResident",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAppliedForPermenantResident(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAppliedForPermenantResident(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getPermenantResidentStatus",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["permenantResidentStatus"],
+    },
+    {
+      widgetName: "getPermenantResidentLocation",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["permenantResidentLocation"],
+    },
+    {
+      widgetName: "getApplicationResult",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["applicationResult"],
+    },
+    {
+      widgetName: "getEthnicity",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["ethnicity"],
     },
     {
       widgetName: "end-message",
