@@ -428,6 +428,118 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
   };
 
+  const handleRace = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    disableOption('idBkdM', 'victimOfCrime');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      race: value.target.name
+    }), console.log('Race : ', value.target.name));
+    const botMessage = createChatBotMessage(
+      "Height",
+      {
+        widget: "getYourHeight",
+      }
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  const handleToAddYourSpouseList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      spouseList: value.target.name,
+    }), console.log('if add spouse list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Spouse Fullname", {
+        widget: "getSpouseFullnameInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
+        widget: "getBenefitStatus",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleSpouseAppliyingForUInList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      spouseAppliyingForUInList: value.target.name,
+    }), console.log('if Appliying spouse list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Want to Add More ?", {
+        widget: "getSpouseAddMoreInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
+        widget: "getBenefitStatus",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleSpouseAddMoreInList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      spouseAddMoreInList: value.target.name,
+    }), console.log('if add more in spouse list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("repeat", {
+        widget: "getFearReason",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
+        widget: "getBenefitStatus",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
   const handleImmigrationPaperwork = (value) => {
     const message = createClientMessage(value.target.name);
 
@@ -1068,14 +1180,26 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 nameOnNonimmigrantVisa: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getNextSxStatus"
-            ? ((botMessage = createChatBotMessage("Sex status", {
-                widget: "getSxStatus",
-              }), console.log('Approval date :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Sex status", {
+                  widget: "getSxStatus",
+                }), console.log('Approval date : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getNextSxStatus",
+                }), console.log('Approval date : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getTotalMarriages"
             ? ((botMessage = createChatBotMessage("Current spouse’s full name", {
                 widget: "getCurrentSpouseFullname",
@@ -1104,23 +1228,47 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 currentSpouseAlienNum: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getCurrentSpouseDOB"
-            ? ((botMessage = createChatBotMessage("Current spouse’s Date Of Marriage", {
-                widget: "getCurrentSpouseDOMrg",
-              }), console.log('Current Spouse Date Of Birth :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                currentSpouseDOB: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Current spouse’s Date Of Marriage", {
+                  widget: "getCurrentSpouseDOMrg",
+                }), console.log('Current Spouse Date Of Birth : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  currentSpouseDOB: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getCurrentSpouseDOB",
+                }), console.log('Current Spouse Date Of Birth : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  currentSpouseDOB: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getCurrentSpouseDOMrg"
-            ? ((botMessage = createChatBotMessage("Current spouse’s City", {
-                widget: "getCurrentSpouseCity",
-              }), console.log('Current Spouse Date Of Marriage :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                currentSpouseDOMrg: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Current spouse’s City", {
+                  widget: "getCurrentSpouseCity",
+                }), console.log('Current Spouse Date Of Marriage : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  currentSpouseDOMrg: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getCurrentSpouseDOMrg",
+                }), console.log('Current Spouse Date Of Marriage : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  currentSpouseDOMrg: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getCurrentSpouseCity"
             ? ((botMessage = createChatBotMessage("Current spouse’s State", {
                 widget: "getCurrentSpouseState",
@@ -1167,23 +1315,47 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 priorSpouse1AlienNum: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getPriorSpouse1DOB"
-            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Of Marriage", {
-                widget: "getPriorSpouse1DOMrg",
-              }), console.log('spouse 1’s Date Of Birth :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                priorSpouse1DOB: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Of Marriage", {
+                  widget: "getPriorSpouse1DOMrg",
+                }), console.log('spouse 1’s Date Of Birth : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse1DOB: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getPriorSpouse1DOB",
+                }), console.log('spouse 1’s Date Of Birth : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse1DOB: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getPriorSpouse1DOMrg"
-            ? ((botMessage = createChatBotMessage("Prior Spouse 1’s City", {
-                widget: "getPriorSpouse1City",
-              }), console.log('spouse 1’s Date Of Marriage :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                priorSpouse1DOMrg: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Prior Spouse 1’s City", {
+                  widget: "getPriorSpouse1City",
+                }), console.log('spouse 1’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse1DOMrg: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getPriorSpouse1DOMrg",
+                }), console.log('spouse 1’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse1DOMrg: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getPriorSpouse1City"
             ? ((botMessage = createChatBotMessage("Prior Spouse 1’s State", {
                 widget: "getPriorSpouse1State",
@@ -1212,14 +1384,26 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 priorSpouse1CountryOfBirth: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getPriorSpouse1DateMrgEnded"
-            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Fullname", {
-                widget: "getPriorSpouse2Fullname",
-              }), console.log('spouse 1’s Date Marriage Ended :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                priorSpouse1DateMrgEnded: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Fullname", {
+                  widget: "getPriorSpouse2Fullname",
+                }), console.log('spouse 1’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse1DateMrgEnded: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getPriorSpouse1DateMrgEnded",
+                }), console.log('spouse 1’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse1DateMrgEnded: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getPriorSpouse2Fullname"
             ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Alien Number", {
                 widget: "getPriorSpouse2AlienNum",
@@ -1239,23 +1423,47 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 priorSpouse2AlienNum: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getPriorSpouse2DOB"
-            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Of Marriage", {
-                widget: "getPriorSpouse2DOMrg",
-              }), console.log('spouse 2’s Date Of Birth :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                priorSpouse2DOB: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Of Marriage", {
+                  widget: "getPriorSpouse2DOMrg",
+                }), console.log('spouse 2’s Date Of Birth : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse2DOB: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getPriorSpouse2DOB",
+                }), console.log('spouse 2’s Date Of Birth : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse2DOB: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getPriorSpouse2DOMrg"
-            ? ((botMessage = createChatBotMessage("Prior Spouse 2’s City", {
-                widget: "getPriorSpouse2City",
-              }), console.log('spouse 2’s Date Of Marriage :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                priorSpouse2DOMrg: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Prior Spouse 2’s City", {
+                  widget: "getPriorSpouse2City",
+                }), console.log('spouse 2’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse2DOMrg: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getPriorSpouse2DOMrg",
+                }), console.log('spouse 2’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse2DOMrg: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getPriorSpouse2City"
             ? ((botMessage = createChatBotMessage("Prior Spouse 2’s State", {
                 widget: "getPriorSpouse2State",
@@ -1284,14 +1492,26 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 priorSpouse2CountryOfBirth: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getPriorSpouse2DateMrgEnded"
-            ? ((botMessage = createChatBotMessage("Have you applied for permanent resident status in the past?", {
-                widget: "getAppliedForPermenantResident",
-              }), console.log('spouse 2’s Date Marriage Ended :', prev.messages[lastInd].message)),
-              {
-                ...prev,
-                messages: [...prev.messages, botMessage],
-                priorSpouse2DateMrgEnded: prev.messages[lastInd].message,
-              })
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Have you applied for permanent resident status in the past?", {
+                  widget: "getAppliedForPermenantResident",
+                }), console.log('spouse 2’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse2DateMrgEnded: prev.messages[lastInd].message,
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getPriorSpouse2DateMrgEnded",
+                }), console.log('spouse 2’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  priorSpouse2DateMrgEnded: prev.messages[lastInd].message,
+                })
+              )
             : prev.messages[ind]["widget"] === "getPermenantResidentStatus"
             ? ((botMessage = createChatBotMessage("Permenant Resident Location", {
                 widget: "getPermenantResidentLocation",
@@ -1320,13 +1540,108 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 applicationResult: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getEthnicity"
-            ? ((botMessage = createChatBotMessage("next", {
-                widget: "getFearReason",
+            ? ((botMessage = createChatBotMessage("Race", {
+                widget: "getRace",
               }), console.log('Ethnicity :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
                 ethnicity: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getYourHeight"
+            ? ((botMessage = createChatBotMessage("Weight", {
+                widget: "getYourWeight",
+              }), console.log('Your Height :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                yourHeight: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getYourWeight"
+            ? ((botMessage = createChatBotMessage("Eye Color", {
+                widget: "getEyeColor",
+              }), console.log('Your Weight :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                yourWeight: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getEyeColor"
+            ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
+                widget: "getSpouseList",
+              }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                eyeColor: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getSpouseFullnameInList"
+            ? ((botMessage = createChatBotMessage("Spouse Date Of Birth", {
+                widget: "getSpouseDOBInList",
+              }), console.log('Spouse Fullname in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                // spouseFullnameInList: prev.messages[lastInd].message,
+                addInSpouseList: [prev.messages[lastInd].message],
+              })
+            : prev.messages[ind]["widget"] === "getSpouseDOBInList"
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Spouse Country Of Origin", {
+                  widget: "getSpouseCOOrignInList",
+                }), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  // spouseDOBInList: prev.messages[lastInd].message,
+                  addInSpouseList: [prev.messages[lastInd].message],
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getSpouseDOBInList",
+                }), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                  spouseDOBInList: prev.messages[lastInd].message,
+                })
+              )
+            : prev.messages[ind]["widget"] === "getSpouseCOOrignInList"
+            ? ((botMessage = createChatBotMessage("Relation to you", {
+                widget: "getSpouseRelationToUInList",
+              }), console.log('Spouse COOg in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                spouseCOOrignInList: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getSpouseRelationToUInList"
+            ? ((botMessage = createChatBotMessage("Alien number", {
+                widget: "getSpouseAlienNumberInList",
+              }), console.log('Spouse Relation in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                spouseRelationToUInList: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getSpouseAlienNumberInList"
+            ? ((botMessage = createChatBotMessage("Is this person applying with you or following to join?", {
+                widget: "getSpouseAppliyingForUInList",
+              }), console.log('Spouse Alien Number in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                spouseAlienNumberInList: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getSpouseAddMoreInList"
+            ? ((botMessage = createChatBotMessage("next", {
+                widget: "getFearReason",
+              }), console.log('Spouse Alien Number in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                spouseAlienNumberInList: prev.messages[lastInd].message,
               })
           : prev.messages[ind]["widget"] === "getFearReason"
           ? ((botMessage = createChatBotMessage(
@@ -1380,7 +1695,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleHadSecurityNumber,
             handleSxStatus,
             handleMaritalStatus,
-            handleAppliedForPermenantResident
+            handleAppliedForPermenantResident,
+            handleRace,
+            handleToAddYourSpouseList,
+            handleSpouseAppliyingForUInList,
+            handleSpouseAddMoreInList,
           },
         });
       })}

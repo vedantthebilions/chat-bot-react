@@ -28,7 +28,7 @@ const config = {
       {
         delay: 1000,
         // widget: "getClientType",
-        widget: "getPriorSpouse2State",
+        widget: "getEyeColor",
         // widget: "getZip",
       }
     ),
@@ -149,6 +149,19 @@ const config = {
     permenantResidentLocation: '',
     applicationResult: '',
     ethnicity: '',
+    race: '',
+    yourHeight: '',
+    yourWeight: '',
+    eyeColor: '',
+    spouseList: '',
+    spouseFullnameInList: '',
+    spouseDOBInList: '',
+    spouseCOOrignInList: '',
+    spouseRelationToUInList: '',
+    spouseAlienNumberInList: '',
+    spouseAppliyingForUInList: '',
+    spouseAddMoreInList: '',
+    addInSpouseList: [],
 
   },
   widgets: [
@@ -1390,6 +1403,270 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["ethnicity"],
+    },
+    {
+      widgetName: "getRace",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "White",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            value: "white",
+            id: 'inUSA',
+          },
+          {
+            text: "Asian",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            id: 'inUSA',
+            value: "asian",
+          },
+          {
+            text: "Black",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            value: "black",
+            id: 'inUSA',
+          },
+          {
+            text: "African American",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            id: 'inUSA',
+            value: "africanAmerican",
+          },
+          {
+            text: "American Indian",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            value: "americanIndian",
+            id: 'inUSA',
+          },
+          {
+            text: "Alaskan Native",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            id: 'inUSA',
+            value: "alaskanNative",
+          },
+          {
+            text: "Native Hawaiian",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            value: "nativeHawaiian",
+            id: 'inUSA',
+          },
+          {
+            text: "Other Pacific Islander",
+            handler: (e) => {
+              props.actionProvider.handleRace(e);
+            },
+            id: 'inUSA',
+            value: "otherPacificIslander",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getYourHeight",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["yourHeight"],
+    },
+    {
+      widgetName: "getYourWeight",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["yourWeight"],
+    },
+    {
+      widgetName: "getEyeColor",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["eyeColor"],
+    },
+    {
+      widgetName: "getSpouseList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleToAddYourSpouseList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleToAddYourSpouseList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getSpouseFullnameInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getSpouseDOBInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseDOBInList"],
+    },
+    {
+      widgetName: "getSpouseCOOrignInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseCOOrignInList"],
+    },
+    {
+      widgetName: "getSpouseRelationToUInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseRelationToUInList"],
+    },
+    {
+      widgetName: "getSpouseAlienNumberInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseAlienNumberInList"],
+    },
+    {
+      widgetName: "getSpouseAppliyingForUInList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleSpouseAppliyingForUInList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleSpouseAppliyingForUInList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getSpouseAddMoreInList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleSpouseAddMoreInList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleSpouseAddMoreInList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
     },
     {
       widgetName: "end-message",
