@@ -2,6 +2,9 @@ import React from "react";
 import { createClientMessage } from "react-chatbot-kit";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
+
+  let list = [];
+
   const handleHello = () => {
     const botMessage = createChatBotMessage("Hello. Nice to meet you.");
 
@@ -325,7 +328,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }));
     } else {
       const botMessage = createChatBotMessage("5.	Do you have any reason to fear going back to your country?", {
-        widget: "getFearStatus",
+        widget: "getLegalName",
       });
       setState((prev) => ({
         ...prev,
@@ -387,8 +390,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages, botMessage],
       }));
     } else {
-      const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
-        widget: "getBenefitStatus",
+      const botMessage = createChatBotMessage("Date and city of last entry / arrival into the U.S.", {
+        widget: "getArrivalIntoUS",
       });
       setState((prev) => ({
         ...prev,
@@ -559,6 +562,81 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       messages: [...prev.messages, botMessage],
       // marriedStatus: value.target.value,
     }));
+  };
+
+  const handleSituationsThatDetainingPersons = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      situationsThatDetainingPersons: value.target.name,
+    }), console.log('Situations : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain Why", {
+        widget: "getExpSituationsThatDetainingPersons",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("37.	Have you EVER been a member of, assisted, or participated in any group, unit, or organization of any kind in which you or other persons used any type of weapon against any person or threatened to do so?", {
+        widget: "getThreatendedAnyPerson",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const handleThreatendedAnyPerson = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      threatendedAnyPerson: value.target.name,
+    }), console.log('Threatended : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain Why", {
+        widget: "getExpThreatendedAnyPerson",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("38.	Have you EVER served in, been a member of, assisted, or participated in any military unit, paramilitary unit, police unit, self-defense unit, vigilante unit, rebel group, guerilla group, militia, insurgent organization, or any other armed group?", {
+        widget: "getAnyArmedGroup",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const addSpouseList = (value) => {
+
+    console.log('value in list ', value)
+
+    list.push([...list, value]);
+    console.log('list : ', list);
+    
+    setState((prev) => ({
+      ...prev,
+      addInSpouseList: [list],
+      
+      
+    }));
+
+    console.log('list after : ', list);
   };
 
   const setMessage = (widgetName, message, prev) => {
@@ -831,7 +909,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           ? ((botMessage = createChatBotMessage(
               "5.	Do you have any reason to fear going back to your country?",
               {
-                widget: "getFearStatus",
+                widget: "getLegalName",
               },
               disableOption('idBkdM', 'policeContact')
             ), console.log('contact reason', prev.messages[lastInd].message)),
@@ -1566,19 +1644,47 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 messages: [...prev.messages, botMessage],
                 yourWeight: prev.messages[lastInd].message,
               })
+              //// Flow will continue from here
+            // : prev.messages[ind]["widget"] === "getEyeColor"
+            // ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
+            //     widget: "getSpouseList",
+            //   }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
+            //   {
+            //     ...prev,
+            //     messages: [...prev.messages, botMessage],
+            //     eyeColor: prev.messages[lastInd].message,
+            //   })
             : prev.messages[ind]["widget"] === "getEyeColor"
-            ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
-                widget: "getSpouseList",
+            ? ((botMessage = createChatBotMessage("36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?", {
+                widget: "getSituationsThatDetainingPersons",
               }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
                 eyeColor: prev.messages[lastInd].message,
               })
+            : prev.messages[ind]["widget"] === "getExpSituationsThatDetainingPersons"
+            ? ((botMessage = createChatBotMessage("37.	Have you EVER been a member of, assisted, or participated in any group, unit, or organization of any kind in which you or other persons used any type of weapon against any person or threatened to do so?", {
+                widget: "getThreatendedAnyPerson",
+              }), console.log('Explain Detaining :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expSituationsThatDetainingPersons: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getAnyArmedGroup"
+            ? ((botMessage = createChatBotMessage("38.	Have you EVER served in, been a member of, assisted, or participated in any military unit, paramilitary unit, police unit, self-defense unit, vigilante unit, rebel group, guerilla group, militia, insurgent organization, or any other armed group?", {
+                widget: "getFearReason",
+              }), console.log('Explain Threatended :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expThreatendedAnyPerson: prev.messages[lastInd].message,
+              })
             : prev.messages[ind]["widget"] === "getSpouseFullnameInList"
             ? ((botMessage = createChatBotMessage("Spouse Date Of Birth", {
                 widget: "getSpouseDOBInList",
-              }), console.log('Spouse Fullname in List :', prev.messages[lastInd].message)),
+              }), addSpouseList(prev.messages[lastInd].message), console.log('Spouse Fullname in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -1591,7 +1697,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Spouse Country Of Origin", {
                   widget: "getSpouseCOOrignInList",
-                }), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
+                }), addSpouseList(prev.messages[lastInd].message), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -1700,6 +1806,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleToAddYourSpouseList,
             handleSpouseAppliyingForUInList,
             handleSpouseAddMoreInList,
+            handleSituationsThatDetainingPersons,
+            handleThreatendedAnyPerson,
           },
         });
       })}
