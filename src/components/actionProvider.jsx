@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { createClientMessage } from "react-chatbot-kit";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   let list = [];
+  
+  const getSpouseDetail = () => {
+    let spouseDetail = localStorage.getItem('spouseDetail');
+    if (!spouseDetail || spouseDetail.length <= 0) {
+      spouseDetail = resetSpouseDetail();
+    }
+    return JSON.parse(spouseDetail);
+  }
+
+  const setSpouseDetail = (details) => {
+    localStorage.setItem('spouseDetail', JSON.stringify(details));
+  }
+
+  const resetSpouseDetail = () => {
+    //console.log('resetSpouseDetail');
+    let spouseDetails = {name: '', dob: '', country: '', relation: '', number: '', isPerson: ''};
+    setSpouseDetail(spouseDetails);
+    return spouseDetails;
+  }
+
+  let spouseDetail = getSpouseDetail();
 
   const handleHello = () => {
     const botMessage = createChatBotMessage("Hello. Nice to meet you.");
@@ -492,7 +513,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       spouseAppliyingForUInList: value.target.name,
-    }), console.log('if Appliying spouse list : ', value.target.name));
+    }), updateSpouseDetail('isPerson', value.target.name), console.log('if Appliying spouse list : ', value.target.name));
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Want to Add More ?", {
         widget: "getSpouseAddMoreInList",
@@ -524,8 +545,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       spouseAddMoreInList: value.target.name,
     }), console.log('if add more in spouse list : ', value.target.name));
     if (value.target.name === "Yes") {
-      const botMessage = createChatBotMessage("repeat", {
-        widget: "getFearReason",
+      const botMessage = createChatBotMessage("Spouse Fullname", {
+        widget: "getSpouseFullnameInList",
       });
       setState((prev) => ({
         ...prev,
@@ -613,7 +634,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }));
     } else {
       const botMessage = createChatBotMessage("38.	Have you EVER served in, been a member of, assisted, or participated in any military unit, paramilitary unit, police unit, self-defense unit, vigilante unit, rebel group, guerilla group, militia, insurgent organization, or any other armed group?", {
-        widget: "getAnyArmedGroup",
+        widget: "getFearReason",
       });
       setState((prev) => ({
         ...prev,
@@ -624,20 +645,40 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const addSpouseList = (value) => {
 
-    console.log('value in list ', value)
+    console.log('list befoer: ', list);
 
-    list.push([...list, value]);
-    console.log('list : ', list);
+    console.log('value in list ', value);
+
+    let spList = [];
+    
+    spList.push([value]);
+    console.log('list : ', spList);
     
     setState((prev) => ({
       ...prev,
-      addInSpouseList: [list],
-      
-      
+      addInSpouseList: [spList],
     }));
 
-    console.log('list after : ', list);
+    console.log('list after : ', spList);
   };
+
+  const updateSpouseDetail = (key, value) => {
+    //console.log(key, value, spouseDetail);
+    Object.keys(spouseDetail).forEach((item) => {
+      if(item == key) {
+        spouseDetail[item] = value
+      }
+    })
+    setSpouseDetail(spouseDetail);
+    if (key == 'isPerson') {
+      // add in array
+      list.push(spouseDetail);
+      console.log('list=>', list);
+      //reset
+      spouseDetail = resetSpouseDetail();
+    }
+    console.log('spouse detail : ', spouseDetail);
+  }
 
   const setMessage = (widgetName, message, prev) => {
     console.log('set msg..', widgetName, '   msg...', message, '   prev value...', prev);
@@ -1645,24 +1686,24 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 yourWeight: prev.messages[lastInd].message,
               })
               //// Flow will continue from here
-            // : prev.messages[ind]["widget"] === "getEyeColor"
-            // ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
-            //     widget: "getSpouseList",
-            //   }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
-            //   {
-            //     ...prev,
-            //     messages: [...prev.messages, botMessage],
-            //     eyeColor: prev.messages[lastInd].message,
-            //   })
             : prev.messages[ind]["widget"] === "getEyeColor"
-            ? ((botMessage = createChatBotMessage("36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?", {
-                widget: "getSituationsThatDetainingPersons",
+            ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
+                widget: "getSpouseList",
               }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
                 eyeColor: prev.messages[lastInd].message,
               })
+            // : prev.messages[ind]["widget"] === "getEyeColor"
+            // ? ((botMessage = createChatBotMessage("36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?", {
+            //     widget: "getSituationsThatDetainingPersons",
+            //   }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
+            //   {
+            //     ...prev,
+            //     messages: [...prev.messages, botMessage],
+            //     eyeColor: prev.messages[lastInd].message,
+            //   })
             : prev.messages[ind]["widget"] === "getExpSituationsThatDetainingPersons"
             ? ((botMessage = createChatBotMessage("37.	Have you EVER been a member of, assisted, or participated in any group, unit, or organization of any kind in which you or other persons used any type of weapon against any person or threatened to do so?", {
                 widget: "getThreatendedAnyPerson",
@@ -1684,7 +1725,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseFullnameInList"
             ? ((botMessage = createChatBotMessage("Spouse Date Of Birth", {
                 widget: "getSpouseDOBInList",
-              }), addSpouseList(prev.messages[lastInd].message), console.log('Spouse Fullname in List :', prev.messages[lastInd].message)),
+              }), addSpouseList(prev.messages[lastInd].message), updateSpouseDetail('name', prev.messages[lastInd].message), console.log('Spouse Fullname in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -1697,7 +1738,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Spouse Country Of Origin", {
                   widget: "getSpouseCOOrignInList",
-                }), addSpouseList(prev.messages[lastInd].message), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
+                }), addSpouseList(prev.messages[lastInd].message), updateSpouseDetail('dob', prev.messages[lastInd].message), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -1706,7 +1747,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getSpouseDOBInList",
-                }), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
+                }), addSpouseList(prev.messages[lastInd].message), updateSpouseDetail('dob', prev.messages[lastInd].message), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -1716,7 +1757,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseCOOrignInList"
             ? ((botMessage = createChatBotMessage("Relation to you", {
                 widget: "getSpouseRelationToUInList",
-              }), console.log('Spouse COOg in List :', prev.messages[lastInd].message)),
+              }), updateSpouseDetail('country', prev.messages[lastInd].message), console.log('Spouse COOg in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -1725,7 +1766,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseRelationToUInList"
             ? ((botMessage = createChatBotMessage("Alien number", {
                 widget: "getSpouseAlienNumberInList",
-              }), console.log('Spouse Relation in List :', prev.messages[lastInd].message)),
+              }), updateSpouseDetail('relation', prev.messages[lastInd].message), console.log('Spouse Relation in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -1734,7 +1775,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseAlienNumberInList"
             ? ((botMessage = createChatBotMessage("Is this person applying with you or following to join?", {
                 widget: "getSpouseAppliyingForUInList",
-              }), console.log('Spouse Alien Number in List :', prev.messages[lastInd].message)),
+              }), updateSpouseDetail('number', prev.messages[lastInd].message), console.log('Spouse Alien Number in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -1808,6 +1849,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleSpouseAddMoreInList,
             handleSituationsThatDetainingPersons,
             handleThreatendedAnyPerson,
+            // handleAnyOtherTotalitarian,
           },
         });
       })}

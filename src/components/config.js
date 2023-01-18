@@ -28,7 +28,7 @@ const config = {
       {
         delay: 1000,
         // widget: "getClientType",
-        widget: "getYourWeight",
+        widget: "getEyeColor",
         // widget: "getZip",
       }
     ),
@@ -169,6 +169,8 @@ const config = {
     expThreatendedAnyPerson: '',
     anyArmedGroup: '',
     expAnyArmedGroup: '',
+    anyOtherTotalitarian: '',
+    expAnyOtherTotalitarian: '',
 
   },
   widgets: [
@@ -1815,6 +1817,53 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["expAnyArmedGroup"],
+    },
+    {
+      widgetName: "getAnyOtherTotalitarian",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAnyOtherTotalitarian(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAnyOtherTotalitarian(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpAnyOtherTotalitarian",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expAnyOtherTotalitarian"],
     },
     {
       widgetName: "end-message",
