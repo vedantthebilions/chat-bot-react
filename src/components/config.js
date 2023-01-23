@@ -28,7 +28,7 @@ const config = {
       {
         delay: 1000,
         // widget: "getClientType",
-        widget: "getRemovedFromTheUS",
+        widget: "getYourWeight",
         // widget: "getZip",
       }
     ),
@@ -162,6 +162,8 @@ const config = {
     spouseAppliyingForUInList: '',
     spouseAddMoreInList: '',
     addInSpouseList: [],
+    orgsniationsList: '',
+    addMoreInOrganizationList: '',
     //// Page 7
     situationsThatDetainingPersons: '',
     expSituationsThatDetainingPersons: '',
@@ -1585,6 +1587,7 @@ const config = {
       },
       mapStateToProps: ["eyeColor"],
     },
+    // // Spouse List
     {
       widgetName: "getSpouseList",
       widgetFunc: (props) => {
@@ -1676,6 +1679,115 @@ const config = {
             text: "No",
             handler: (e) => {
               props.actionProvider.handleSpouseAppliyingForUInList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    // // Organizations List
+    {
+      widgetName: "getOrgsniationsList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleToAddYourOrgsniationsList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleToAddYourOrgsniationsList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getNameInOrgList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getLocationAndPurposeInOrgList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getFromInOrgList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getToInOrgList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getAddMoreInOrganizationList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreInOrganizationList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreInOrganizationList(e);
             },
             id: 'inUSA',
             value: "no",
