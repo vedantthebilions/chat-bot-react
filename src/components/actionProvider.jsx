@@ -21,6 +21,30 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     return JSON.parse(organizationsDetail);
   }
 
+  const getArrestsDetail = () => {
+    let arrestsDetail = localStorage.getItem('arrestsDetail');
+    if (!arrestsDetail || arrestsDetail.length <= 0) {
+      arrestsDetail = resetArrestsDetail();
+    }
+    return JSON.parse(arrestsDetail);
+  }
+
+  const getOutAddressDetail = () => {
+    let outAddressDetail = localStorage.getItem('outAddressDetail');
+    if (!outAddressDetail || outAddressDetail.length <= 0) {
+      outAddressDetail = resetOutAddressDetail();
+    }
+    return JSON.parse(outAddressDetail);
+  }
+
+  const getInAddressDetail = () => {
+    let inAddressDetail = localStorage.getItem('inAddressDetail');
+    if (!inAddressDetail || inAddressDetail.length <= 0) {
+      inAddressDetail = resetInAddressDetail();
+    }
+    return JSON.parse(inAddressDetail);
+  }
+
   const getSpouseDetailList = () => {
     let spouseDetailList = localStorage.getItem('spouseDetailList');
     
@@ -47,12 +71,63 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     return organizationDetailList;
   }
 
+  const getArrestDetailList = () => {
+    let arrestDetailList = localStorage.getItem('arrestDetailList');
+    
+    if (!arrestDetailList || arrestDetailList.length <= 0) {
+      arrestDetailList = [];
+    }
+    else
+    {
+      arrestDetailList = JSON.parse(arrestDetailList);
+    }
+    return arrestDetailList;
+  }
+
+  const getOutAddressDetailList = () => {
+    let outAddressDetailList = localStorage.getItem('outAddressDetailList');
+    
+    if (!outAddressDetailList || outAddressDetailList.length <= 0) {
+      outAddressDetailList = [];
+    }
+    else
+    {
+      outAddressDetailList = JSON.parse(outAddressDetailList);
+    }
+    return outAddressDetailList;
+  }
+
+  const getInAddressDetailList = () => {
+    let inAddressDetailList = localStorage.getItem('inAddressDetailList');
+    
+    if (!inAddressDetailList || inAddressDetailList.length <= 0) {
+      inAddressDetailList = [];
+    }
+    else
+    {
+      inAddressDetailList = JSON.parse(inAddressDetailList);
+    }
+    return inAddressDetailList;
+  }
+
   const setSpouseDetail = (details) => {
     localStorage.setItem('spouseDetail', JSON.stringify(details));
   }
 
   const setOrganizationsDetail = (details) => {
     localStorage.setItem('organizationsDetail', JSON.stringify(details));
+  }
+
+  const setArrestsDetail = (details) => {
+    localStorage.setItem('arrestsDetail', JSON.stringify(details));
+  }
+
+  const setOutAddressDetail = (details) => {
+    localStorage.setItem('outAddressDetail', JSON.stringify(details));
+  }
+
+  const setInAddressDetail = (details) => {
+    localStorage.setItem('inAddressDetail', JSON.stringify(details));
   }
 
   const setSpouseDetailList = (details) => {
@@ -63,6 +138,18 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     localStorage.setItem('organizationDetailList', JSON.stringify(details));
   }
 
+  const setArrestDetailList = (details) => {
+    localStorage.setItem('arrestDetailList', JSON.stringify(details));
+  }
+
+  const setOutAddressDetailList = (details) => {
+    localStorage.setItem('outAddressDetailList', JSON.stringify(details));
+  }
+
+  const setInAddressDetailList = (details) => {
+    localStorage.setItem('inAddressDetailList', JSON.stringify(details));
+  }
+
   const resetSpouseDetail = () => {
     //console.log('resetSpouseDetail');
     let spouseDetails = {name: '', dob: '', country: '', relation: '', number: '', isPerson: ''};
@@ -71,10 +158,31 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   }
 
   const resetOrganizationsDetail = () => {
-    //console.log('resetSpouseDetail');
+    //console.log('resetOrganizationsDetail');
     let organizationsDetails = {name: '', locationAndPurpose: '', from: '', to: ''};
     setOrganizationsDetail(organizationsDetails);
     return organizationsDetails;
+  }
+
+  const resetArrestsDetail = () => {
+    //console.log('resetArrestsDetail');
+    let arrestsDetail = {date: '', location: '', reason: '', result: ''};
+    setArrestsDetail(arrestsDetail);
+    return arrestsDetail;
+  }
+
+  const resetOutAddressDetail = () => {
+    //console.log('resetArrestsDetail');
+    let outAddressDetail = {date: '', place: ''};
+    setOutAddressDetail(outAddressDetail);
+    return outAddressDetail;
+  }
+
+  const resetInAddressDetail = () => {
+    //console.log('resetArrestsDetail');
+    let inAddressDetail = {date: '', place: ''};
+    setInAddressDetail(inAddressDetail);
+    return inAddressDetail;
   }
 
   let spouseDetail = getSpouseDetail();
@@ -82,6 +190,15 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   let organizationsDetail = getOrganizationsDetail();
   let organizationDetailList = getOrganizationDetailList();
+
+  let arrestsDetail = getArrestsDetail();
+  let arrestDetailList = getArrestDetailList();
+
+  let outAddressDetail = getOutAddressDetail();
+  let outAddressDetailList = getOutAddressDetailList();
+
+  let inAddressDetail = getInAddressDetail();
+  let inAddressDetailList = getInAddressDetailList();
 
   const handleHello = () => {
     const botMessage = createChatBotMessage("Hello. Nice to meet you.");
@@ -561,6 +678,35 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
   };
 
+  const handleToAddYourEmployementList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      employementList: value.target.name,
+    }), console.log('if add Employement list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Employee Name", {
+        widget: "getEmployeeNameInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Next Question", {
+        widget: "getFearReason",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
   const handleSpouseAppliyingForUInList = (value) => {
 
     // disableOption('idBkdM', 'policeContact');
@@ -625,6 +771,35 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
   };
 
+  const handleEmployemnetAddMoreInList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      employementAddMoreInList: value.target.name,
+    }), console.log('if add more in Employement list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Employee Name", {
+        widget: "getEmployeeNameInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Next Q", {
+        widget: "getFearReason",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
   const handleAddMoreInOrganizationList = (value) => {
     const message = createClientMessage(value.target.name);
 
@@ -673,8 +848,182 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages, botMessage],
       }));
     } else {
-      const botMessage = createChatBotMessage("Next", {
-        widget: "getFearReason",
+      const botMessage = createChatBotMessage("Do you want to add your Arrests List ?", {
+        widget: "getArrestsList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const handleArrestsList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      arrestsList: value.target.name,
+    }), console.log('if add Arrests list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Date", {
+        widget: "getDateInArrestsList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Do you want to add your Addresses Oustside US List ?", {
+        widget: "getAddressListOutsideUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const handleAddMoreInArrestsList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      addMoreInArrestsList: value.target.name,
+    }), console.log('if add more in Arrests list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Date", {
+        widget: "getDateInArrestsList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Do you want to add your Addresses Oustside US List ?", {
+        widget: "getAddressListOutsideUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const handleAddressListOutsideUS = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      addressListOutsideUS: value.target.name,
+    }), console.log('if add Outside of US Address list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Date", {
+        widget: "getOutsideAddressDateInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Do you want to add your Addresses Inside US List ?", {
+        widget: "getAddressListInsideUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const handleAddressListInsideUS = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      addressListInsideUS: value.target.name,
+    }), console.log('if add Inside of US Address list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Date", {
+        widget: "getInsideAddressDateInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Do you want to add your Employement List ?", {
+        widget: "getEmployementList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const handleAddMoreOustsideAddressInList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      addMoreOustsideAddressInList: value.target.name,
+    }), console.log('if add more Outside Address list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Date", {
+        widget: "getOutsideAddressDateInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Do you want to add your Addresses Inside US List ?", {
+        widget: "getAddressListInsideUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    }
+  };
+
+  const handleAddMoreInsideAddressInList = (value) => {
+    const message = createClientMessage(value.target.name);
+
+    // disableOption('idBkdM', 'policeContact');
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      addMoreInsideAddressInList: value.target.name,
+    }), console.log('if add more Inside Address list : ', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Date", {
+        widget: "getInsideAddressDateInList",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("Do you want to add your Employement List ?", {
+        widget: "getEmployementList",
       });
       setState((prev) => ({
         ...prev,
@@ -1807,6 +2156,66 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     console.log('Organizations detail : ', organizationsDetail);
   }
 
+  const updateArrestDetail = (key, value) => {
+    //console.log(key, value, arrestsDetail);
+    Object.keys(arrestsDetail).forEach((item) => {
+      if(item == key) {
+        arrestsDetail[item] = value
+      }
+    })
+    setArrestsDetail(arrestsDetail);
+    console.log('arrestsDetail.... ', arrestsDetail);
+    if (key == 'result') {
+      // add in array
+      arrestDetailList.push(arrestsDetail);
+      setArrestDetailList(arrestDetailList);
+      console.log('list=>', arrestDetailList);
+      //reset
+      arrestsDetail = resetArrestsDetail();
+    }
+    console.log('Arrests detail : ', arrestsDetail);
+  }
+
+  const updateOutsideAddressDetail = (key, value) => {
+    //console.log(key, value, outAddressDetail);
+    Object.keys(outAddressDetail).forEach((item) => {
+      if(item == key) {
+        outAddressDetail[item] = value
+      }
+    })
+    setOutAddressDetail(outAddressDetail);
+    console.log('outAddressDetail.... ', outAddressDetail);
+    if (key == 'place') {
+      // add in array
+      outAddressDetailList.push(outAddressDetail);
+      setOutAddressDetailList(outAddressDetailList);
+      console.log('list=>', outAddressDetailList);
+      //reset
+      outAddressDetail = resetOutAddressDetail();
+    }
+    console.log('Outside Address detail : ', outAddressDetail);
+  }
+
+  const updateInsideAddressDetail = (key, value) => {
+    //console.log(key, value, inAddressDetail);
+    Object.keys(inAddressDetail).forEach((item) => {
+      if(item == key) {
+        inAddressDetail[item] = value
+      }
+    })
+    setInAddressDetail(inAddressDetail);
+    console.log('inAddressDetail.... ', inAddressDetail);
+    if (key == 'place') {
+      // add in array
+      inAddressDetailList.push(inAddressDetail);
+      setInAddressDetailList(inAddressDetailList);
+      console.log('list=>', inAddressDetailList);
+      //reset
+      inAddressDetail = resetInAddressDetail();
+    }
+    console.log('Inside Address detail : ', inAddressDetail);
+  }
+
   const setMessage = (widgetName, message, prev) => {
     console.log('set msg..', widgetName, '   msg...', message, '   prev value...', prev);
 
@@ -2931,6 +3340,146 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 ...prev,
                 messages: [...prev.messages, botMessage],
               })
+            : prev.messages[ind]["widget"] === "getDateInArrestsList"
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Location", {
+                  widget: "getLocationInArrestsList",
+                }), updateArrestDetail('date', prev.messages[lastInd].message), console.log('Date in Arrests List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getDateInArrestsList",
+                }), updateArrestDetail('date', prev.messages[lastInd].message), console.log('Date in Arrests List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              )
+            : prev.messages[ind]["widget"] === "getLocationInArrestsList"
+            ? ((botMessage = createChatBotMessage("Reason", {
+                widget: "getReasonInArrestsList",
+              }), updateArrestDetail('location', prev.messages[lastInd].message) , console.log('Location :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getReasonInArrestsList"
+            ? ((botMessage = createChatBotMessage("Result", {
+                widget: "getResultInArrestsList",
+              }), updateArrestDetail('reason', prev.messages[lastInd].message) , console.log('Reason :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getResultInArrestsList"
+            ? ((botMessage = createChatBotMessage("Want to Add More ?", {
+                widget: "getAddMoreInArrestsList",
+              }), updateArrestDetail('result', prev.messages[lastInd].message) , console.log('Result :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getOutsideAddressDateInList"
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Place", {
+                  widget: "getOutsideAddressPlaceInList",
+                }), updateOutsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Outside Address List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getOutsideAddressDateInList",
+                }), updateOutsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Outside Address List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              )
+            : prev.messages[ind]["widget"] === "getOutsideAddressPlaceInList"
+            ? ((botMessage = createChatBotMessage("Want to Add More ?", {
+                widget: "getAddMoreOustsideAddressInList",
+              }), updateOutsideAddressDetail('place', prev.messages[lastInd].message) , console.log('Place in Outside Address List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getInsideAddressDateInList"
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Place", {
+                  widget: "getInsideAddressPlaceInList",
+                }), updateInsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Inside Address List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getInsideAddressDateInList",
+                }), updateInsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Inside Address List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              )
+            : prev.messages[ind]["widget"] === "getInsideAddressPlaceInList"
+            ? ((botMessage = createChatBotMessage("Want to Add More ?", {
+                widget: "getAddMoreInsideAddressInList",
+              }), updateInsideAddressDetail('place', prev.messages[lastInd].message) , console.log('Place in Inside Address List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getEmployeeNameInList"
+            ? ((botMessage = createChatBotMessage("Job Location", {
+                widget: "getJobLocationInList",
+              }), /* updateSpouseDetail('name', prev.messages[lastInd].message), */ console.log('Employee Name in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getJobLocationInList"
+            ? ((botMessage = createChatBotMessage("Job Title", {
+                widget: "getJobTitleInList",
+              }), /* updateSpouseDetail('name', prev.messages[lastInd].message), */ console.log('Employee Job Location in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getJobTitleInList"
+            ? ((botMessage = createChatBotMessage("Date", {
+                widget: "getDateInList",
+              }), /* updateSpouseDetail('name', prev.messages[lastInd].message), */ console.log('Employee Job Title in List :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+              })
+            : prev.messages[ind]["widget"] === "getDateInList"
+            ? (((/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(prev.messages[lastInd].message))
+                &&
+                (prev.messages[lastInd].message.length != 0))
+              ? ((botMessage = createChatBotMessage("Want to Add More ?", {
+                  widget: "getEmployemnetAddMoreInList",
+                }), /* updateInsideAddressDetail('date', prev.messages[lastInd].message), */ console.log('Date Employement List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
+                  widget: "getDateInList",
+                }), /* updateInsideAddressDetail('date', prev.messages[lastInd].message), */ console.log('Date Employement List : ', prev.messages[lastInd].message)),
+                {
+                  ...prev,
+                  messages: [...prev.messages, botMessage],
+                })
+              )
             : prev.messages[ind]["widget"] === "getExpSituationsThatDetainingPersons"
             ? ((botMessage = createChatBotMessage("37.	Have you EVER been a member of, assisted, or participated in any group, unit, or organization of any kind in which you or other persons used any type of weapon against any person or threatened to do so?", {
                 widget: "getThreatendedAnyPerson",
@@ -3350,6 +3899,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleLeftOrRemainedOutsideTheUS,
             handleToAddYourOrgsniationsList,
             handleAddMoreInOrganizationList,
+            handleArrestsList,
+            handleAddMoreInArrestsList,
+            handleAddressListOutsideUS,
+            handleAddMoreOustsideAddressInList,
+            handleAddressListInsideUS,
+            handleAddMoreInsideAddressInList,
+            handleToAddYourEmployementList,
+            handleEmployemnetAddMoreInList,
           },
         });
       })}

@@ -28,8 +28,8 @@ const config = {
       {
         delay: 1000,
         // widget: "getClientType",
-        widget: "getYourWeight",
-        // widget: "getZip",
+        // widget: "getYourWeight",
+        widget: "getAddressListInsideUS",
       }
     ),
   ],
@@ -164,6 +164,14 @@ const config = {
     addInSpouseList: [],
     orgsniationsList: '',
     addMoreInOrganizationList: '',
+    arrestsList: '',
+    addMoreInArrestsList: '',
+    addressListOutsideUS: '',
+    addMoreOustsideAddressInList: '',
+    addressListInsideUS: '',
+    addMoreInsideAddressInList: '',
+    employementList: '',
+    employementAddMoreInList: '',
     //// Page 7
     situationsThatDetainingPersons: '',
     expSituationsThatDetainingPersons: '',
@@ -1703,6 +1711,46 @@ const config = {
         );
       },
     },
+    {
+      widgetName: "getSpouseAddMoreInList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleSpouseAddMoreInList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleSpouseAddMoreInList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
     // // Organizations List
     {
       widgetName: "getOrgsniationsList",
@@ -1812,14 +1860,15 @@ const config = {
         );
       },
     },
+    // // Arrests List
     {
-      widgetName: "getSpouseAddMoreInList",
+      widgetName: "getArrestsList",
       widgetFunc: (props) => {
         const options = [
           {
             text: "Yes",
             handler: (e) => {
-              props.actionProvider.handleSpouseAddMoreInList(e);
+              props.actionProvider.handleArrestsList(e);
             },
             value: "yes",
             id: 'inUSA',
@@ -1827,7 +1876,374 @@ const config = {
           {
             text: "No",
             handler: (e) => {
-              props.actionProvider.handleSpouseAddMoreInList(e);
+              props.actionProvider.handleArrestsList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getDateInArrestsList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getLocationInArrestsList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getReasonInArrestsList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getResultInArrestsList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getAddMoreInArrestsList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreInArrestsList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreInArrestsList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    // // Address List Outside US
+    {
+      widgetName: "getAddressListOutsideUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAddressListOutsideUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAddressListOutsideUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getOutsideAddressDateInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getOutsideAddressPlaceInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getAddMoreOustsideAddressInList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreOustsideAddressInList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreOustsideAddressInList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    // // Address List Inside US
+    {
+      widgetName: "getAddressListInsideUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAddressListInsideUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAddressListInsideUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getInsideAddressDateInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getInsideAddressPlaceInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getAddMoreInsideAddressInList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreInsideAddressInList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAddMoreInsideAddressInList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    // // Employement List
+    {
+      widgetName: "getEmployementList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleToAddYourEmployementList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleToAddYourEmployementList(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getEmployeeNameInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getJobLocationInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getJobTitleInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getDateInList",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["spouseFullnameInList"],
+    },
+    {
+      widgetName: "getEmployemnetAddMoreInList",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleEmployemnetAddMoreInList(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleEmployemnetAddMoreInList(e);
             },
             id: 'inUSA',
             value: "no",
