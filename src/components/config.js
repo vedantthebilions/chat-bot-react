@@ -29,7 +29,7 @@ const config = {
         delay: 1000,
         // widget: "getClientType",
         // widget: "getYourWeight",
-        widget: "getAddressListInsideUS",
+        widget: "getContactReason",
       }
     ),
   ],

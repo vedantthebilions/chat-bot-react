@@ -36,6 +36,37 @@ function TableView(props) {
   const fearReason = props.state?.fearReason;
   const appiledImmigration = props.state?.appiledImmigration;
 
+  // // page 1
+
+  const completeLegalName = props.state?.completeLegalName;
+  const otherNameUsed = props.state?.otherNameUsed;
+  const currentMailingAddress = props.state?.currentMailingAddress;
+  const currentAddressYouLive = props.state?.currentAddressYouLive;
+  const countryOfOrigin = props.state?.countryOfOrigin;
+  const birthDate = props.state?.birthDate;
+  const socialSecurityNumber = props.state?.socialSecurityNumber;
+  const alienNumber = props.state?.alienNumber;
+  const hadSecurityNumber = props.state?.hadSecurityNumber;
+  const getSecurityNumber = props.state?.getSecurityNumber;
+  const arrivalIntoUS = props.state?.arrivalIntoUS;
+  const i94CardNumber = props.state?.i94CardNumber;
+  const cardCurrentStatus = props.state?.cardCurrentStatus;
+  const cardExpirationDate = props.state?.cardExpirationDate;
+  const ctStateCountryOfBirth = props.state?.ctStateCountryOfBirth;
+  const passportNumOnArrival = props.state?.passportNumOnArrival;
+  const passportExpirationDate = props.state?.passportExpirationDate;
+  const countryThatIssuedPassport = props.state?.countryThatIssuedPassport;
+  const motherCompleteName = props.state?.motherCompleteName;
+  const motherCity = props.state?.motherCity;
+  const motherCountryOfBirth = props.state?.motherCountryOfBirth;
+  const motherResidenceCity = props.state?.motherResidenceCity;
+  const motherResidenceCountry = props.state?.motherResidenceCountry;
+  const fatherCompleteName = props.state?.fatherCompleteName;
+  const fatherCity = props.state?.fatherCity;
+  const fatherCountryOfBirth = props.state?.fatherCountryOfBirth;
+  const fatherResidenceCity = props.state?.fatherResidenceCity;
+  const fatherResidenceCountry = props.state?.fatherResidenceCountry;
+
   return (
     <div>
       <div class="row">
@@ -291,6 +322,200 @@ function TableView(props) {
                     </u>
                   </li>
                 </ol>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Complete legal name of the applicant &nbsp;&nbsp; (if married, married name): &nbsp;&nbsp;
+                {completeLegalName
+                  ? completeLegalName
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) All other names used: &nbsp;&nbsp;
+                {otherNameUsed
+                  ? otherNameUsed
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Current Mailing address: &nbsp;&nbsp;
+                {currentMailingAddress
+                  ? currentMailingAddress
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Current Address where you live & how long you have lived there.: &nbsp;&nbsp;
+                {currentAddressYouLive
+                  ? currentAddressYouLive
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) Country of Origin: &nbsp;&nbsp;
+                {countryOfOrigin
+                  ? countryOfOrigin
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Birth date: &nbsp;&nbsp;
+                {birthDate
+                  ? birthDate
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Social Security Number (if any): &nbsp;&nbsp;
+                {socialSecurityNumber
+                  ? socialSecurityNumber
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Alien Number (if any): &nbsp;&nbsp;
+                {alienNumber
+                  ? alienNumber
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+              (4) Have you ever had a social security number? if so, what was the number.:
+                <br />
+                {hadSecurityNumber
+                  ? hadSecurityNumber + " " +
+                  getSecurityNumber
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Date and city of last entry / arrival into the U.S.: &nbsp;&nbsp;
+                {arrivalIntoUS
+                  ? arrivalIntoUS
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) I-94 Card Number: &nbsp;&nbsp;
+                {i94CardNumber
+                  ? i94CardNumber
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Current status: &nbsp;&nbsp;
+                {cardCurrentStatus
+                  ? cardCurrentStatus
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Expiration date of current status: &nbsp;&nbsp;
+                {cardExpirationDate
+                  ? cardExpirationDate
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) City, State, and Country of Birth: &nbsp;&nbsp;
+                {ctStateCountryOfBirth
+                  ? ctStateCountryOfBirth
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) Passport Number Used at Last Arrival: &nbsp;&nbsp;
+                {passportNumOnArrival
+                  ? passportNumOnArrival
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Passport expiration date: &nbsp;&nbsp;
+                {passportExpirationDate
+                  ? passportExpirationDate
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Country that issued your passport.: &nbsp;&nbsp;
+                {countryThatIssuedPassport
+                  ? countryThatIssuedPassport
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={2} className='section'>
+                (4) Mother’s complete name: &nbsp;&nbsp;
+                {motherCompleteName
+                  ? motherCompleteName
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Mother’s city of birth: &nbsp;&nbsp;
+                {motherCity
+                  ? motherCity
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) Mother’s country of birth: &nbsp;&nbsp;
+                {motherCountryOfBirth
+                  ? motherCountryOfBirth
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Mother’s city of residence: &nbsp;&nbsp;
+                {motherResidenceCity
+                  ? motherResidenceCity
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Mother’s country of residence: &nbsp;&nbsp;
+                {motherResidenceCountry
+                  ? motherResidenceCountry
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={2} className='section'>
+                (4) Father’s complete name: &nbsp;&nbsp;
+                {fatherCompleteName
+                  ? fatherCompleteName
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Father’s city of birth: &nbsp;&nbsp;
+                {fatherCity
+                  ? fatherCity
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) Father’s country of birth: &nbsp;&nbsp;
+                {fatherCountryOfBirth
+                  ? fatherCountryOfBirth
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Father’s city of residence: &nbsp;&nbsp;
+                {fatherResidenceCity
+                  ? fatherResidenceCity
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Father’s country of residence: &nbsp;&nbsp;
+                {fatherResidenceCountry
+                  ? fatherResidenceCountry
+                  : "NA"}
               </td>
             </tr>
             <tr>

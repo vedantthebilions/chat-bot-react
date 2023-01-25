@@ -45,6 +45,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     return JSON.parse(inAddressDetail);
   }
 
+  const getEmployeeDetail = () => {
+    let employeeDetail = localStorage.getItem('employeeDetail');
+    if (!employeeDetail || employeeDetail.length <= 0) {
+      employeeDetail = resetEmployeeDetail();
+    }
+    return JSON.parse(employeeDetail);
+  }
+
   const getSpouseDetailList = () => {
     let spouseDetailList = localStorage.getItem('spouseDetailList');
     
@@ -110,6 +118,19 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     return inAddressDetailList;
   }
 
+  const getEmployeeDetailList = () => {
+    let employeeDetailList = localStorage.getItem('employeeDetailList');
+    
+    if (!employeeDetailList || employeeDetailList.length <= 0) {
+      employeeDetailList = [];
+    }
+    else
+    {
+      employeeDetailList = JSON.parse(employeeDetailList);
+    }
+    return employeeDetailList;
+  }
+
   const setSpouseDetail = (details) => {
     localStorage.setItem('spouseDetail', JSON.stringify(details));
   }
@@ -128,6 +149,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const setInAddressDetail = (details) => {
     localStorage.setItem('inAddressDetail', JSON.stringify(details));
+  }
+  
+  const setEmployeeDetail = (details) => {
+    localStorage.setItem('employeeDetail', JSON.stringify(details));
   }
 
   const setSpouseDetailList = (details) => {
@@ -148,6 +173,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const setInAddressDetailList = (details) => {
     localStorage.setItem('inAddressDetailList', JSON.stringify(details));
+  }
+
+  const setEmployeeDetailList = (details) => {
+    localStorage.setItem('employeeDetailList', JSON.stringify(details));
   }
 
   const resetSpouseDetail = () => {
@@ -185,6 +214,13 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     return inAddressDetail;
   }
 
+  const resetEmployeeDetail = () => {
+    //console.log('resetEmployeeDetail');
+    let employeeDetail = {employeeName: '', jobLocation: '', jobTitle: '', date: ''};
+    setEmployeeDetail(employeeDetail);
+    return employeeDetail;
+  }
+
   let spouseDetail = getSpouseDetail();
   let spouseDetailList = getSpouseDetailList();
 
@@ -199,6 +235,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   let inAddressDetail = getInAddressDetail();
   let inAddressDetailList = getInAddressDetailList();
+
+  let employeeDetail = getEmployeeDetail();
+  let employeeDetailList = getEmployeeDetailList();
 
   const handleHello = () => {
     const botMessage = createChatBotMessage("Hello. Nice to meet you.");
@@ -586,7 +625,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }));
     } else {
       const botMessage = createChatBotMessage("Date and city of last entry / arrival into the U.S.", {
-        widget: "getArrivalIntoUS",
+        widget: "getI94CardNumber",
       });
       setState((prev) => ({
         ...prev,
@@ -2216,6 +2255,26 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     console.log('Inside Address detail : ', inAddressDetail);
   }
 
+  const updateEmployeeDetail = (key, value) => {
+    //console.log(key, value, employeeDetail);
+    Object.keys(employeeDetail).forEach((item) => {
+      if(item == key) {
+        employeeDetail[item] = value
+      }
+    })
+    setEmployeeDetail(employeeDetail);
+    console.log('employeeDetail.... ', employeeDetail);
+    if (key == 'date') {
+      // add in array
+      employeeDetailList.push(employeeDetail);
+      setEmployeeDetailList(employeeDetailList);
+      console.log('list=>', employeeDetailList);
+      //reset
+      employeeDetail = resetEmployeeDetail();
+    }
+    console.log('Employee detail : ', employeeDetail);
+  }
+
   const setMessage = (widgetName, message, prev) => {
     console.log('set msg..', widgetName, '   msg...', message, '   prev value...', prev);
 
@@ -2538,7 +2597,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             })
           : prev.messages[ind]["widget"] === "getCurrentMailingAddress"
           ? ((botMessage = createChatBotMessage("Current Mailing address", {
-              widget: "getAddressYouLive",
+              // widget: "getAddressYouLive",
+              widget: "getFearReason",
             }), console.log('other names :', prev.messages[lastInd].message)),
             {
               ...prev,
@@ -2708,7 +2768,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             )
           : prev.messages[ind]["widget"] === "getMotherCompleteName"
-          ? ((botMessage = createChatBotMessage("Mother’s complete name, City and country of birth, City and country of residence (if living)", {
+          ? ((botMessage = createChatBotMessage("Mother’s complete name", {
               widget: "getMotherCity",
             }), console.log('Country That Issued Passport :', prev.messages[lastInd].message)),
             {
@@ -3440,7 +3500,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getEmployeeNameInList"
             ? ((botMessage = createChatBotMessage("Job Location", {
                 widget: "getJobLocationInList",
-              }), /* updateSpouseDetail('name', prev.messages[lastInd].message), */ console.log('Employee Name in List :', prev.messages[lastInd].message)),
+              }), updateEmployeeDetail('employeeName', prev.messages[lastInd].message), console.log('Employee Name in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3448,7 +3508,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getJobLocationInList"
             ? ((botMessage = createChatBotMessage("Job Title", {
                 widget: "getJobTitleInList",
-              }), /* updateSpouseDetail('name', prev.messages[lastInd].message), */ console.log('Employee Job Location in List :', prev.messages[lastInd].message)),
+              }), updateEmployeeDetail('jobLocation', prev.messages[lastInd].message), console.log('Employee Job Location in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3456,7 +3516,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getJobTitleInList"
             ? ((botMessage = createChatBotMessage("Date", {
                 widget: "getDateInList",
-              }), /* updateSpouseDetail('name', prev.messages[lastInd].message), */ console.log('Employee Job Title in List :', prev.messages[lastInd].message)),
+              }), updateEmployeeDetail('jobTitle', prev.messages[lastInd].message), console.log('Employee Job Title in List :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3467,14 +3527,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Want to Add More ?", {
                   widget: "getEmployemnetAddMoreInList",
-                }), /* updateInsideAddressDetail('date', prev.messages[lastInd].message), */ console.log('Date Employement List : ', prev.messages[lastInd].message)),
+                }), updateEmployeeDetail('date', prev.messages[lastInd].message), console.log('Date Employement List : ', prev.messages[lastInd].message)),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getDateInList",
-                }), /* updateInsideAddressDetail('date', prev.messages[lastInd].message), */ console.log('Date Employement List : ', prev.messages[lastInd].message)),
+                }), updateEmployeeDetail('date', prev.messages[lastInd].message), console.log('Date Employement List : ', prev.messages[lastInd].message)),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
