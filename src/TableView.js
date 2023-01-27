@@ -66,7 +66,67 @@ function TableView(props) {
   const fatherCountryOfBirth = props.state?.fatherCountryOfBirth;
   const fatherResidenceCity = props.state?.fatherResidenceCity;
   const fatherResidenceCountry = props.state?.fatherResidenceCountry;
-
+  const inspectedImmigrationOficial = props.state?.inspectedImmigrationOficial;
+  const nonimmigrantVisaNumber = props.state?.nonimmigrantVisaNumber;
+  const nameOnNonimmigrantVisa = props.state?.nameOnNonimmigrantVisa;
+  const dateOfApprovalNonImmigrant = props.state?.dateOfApprovalNonImmigrant;
+  const sxStatus = props.state?.sxStatus;
+  const maritalStatus = props.state?.maritalStatus;
+  const totalMarriages = props.state?.totalMarriages;
+  const currentSpouseFullname = props.state?.currentSpouseFullname;
+  const currentSpouseAlienNum = props.state?.currentSpouseAlienNum;
+  const currentSpouseDOB = props.state?.currentSpouseDOB;
+  const currentSpouseDOMrg = props.state?.currentSpouseDOMrg;
+  const currentSpouseCity = props.state?.currentSpouseCity;
+  const currentSpouseState = props.state?.currentSpouseState;
+  const currentSpouseCountryOfBirth = props.state?.currentSpouseCountryOfBirth;
+  const priorSpouse1Fullname = props.state?.priorSpouse1Fullname;
+  const priorSpouse1AlienNum = props.state?.priorSpouse1AlienNum;
+  const priorSpouse1DOB = props.state?.priorSpouse1DOB;
+  const priorSpouse1DOMrg = props.state?.priorSpouse1DOMrg;
+  const priorSpouse1City = props.state?.priorSpouse1City;
+  const priorSpouse1State = props.state?.priorSpouse1State;
+  const priorSpouse1CountryOfBirth = props.state?.priorSpouse1CountryOfBirth;
+  const priorSpouse1DateMrgEnded = props.state?.priorSpouse1DateMrgEnded;
+  const priorSpouse2Fullname = props.state?.priorSpouse2Fullname;
+  const priorSpouse2AlienNum = props.state?.priorSpouse2AlienNum;
+  const priorSpouse2DOB = props.state?.priorSpouse2DOB;
+  const priorSpouse2DOMrg = props.state?.priorSpouse2DOMrg;
+  const priorSpouse2City = props.state?.priorSpouse2City;
+  const priorSpouse2State = props.state?.priorSpouse2State;
+  const priorSpouse2CountryOfBirth = props.state?.priorSpouse2CountryOfBirth;
+  const priorSpouse2DateMrgEnded = props.state?.priorSpouse2DateMrgEnded;
+  const appliedForPermenantResident = props.state?.appliedForPermenantResident;
+  const permenantResidentStatus = props.state?.permenantResidentStatus;
+  const permenantResidentLocation = props.state?.permenantResidentLocation;
+  const applicationResult = props.state?.applicationResult;
+  // // Page 7
+  const situationsThatDetainingPersons = props.state?.situationsThatDetainingPersons;
+  const expSituationsThatDetainingPersons = props.state?.expSituationsThatDetainingPersons;
+  const threatendedAnyPerson = props.state?.threatendedAnyPerson;
+  const expThreatendedAnyPerson = props.state?.expThreatendedAnyPerson;
+  const anyArmedGroup = props.state?.anyArmedGroup;
+  const expAnyArmedGroup = props.state?.expAnyArmedGroup;
+  const anyOtherTotalitarian = props.state?.anyOtherTotalitarian;
+  const expAnyOtherTotalitarian = props.state?.expAnyOtherTotalitarian;
+  const naziGovOfGermany = props.state?.naziGovOfGermany;
+  const expNaziGovOfGermany = props.state?.expNaziGovOfGermany;
+  const tortureOrGenocide = props.state?.tortureOrGenocide;
+  const expTortureOrGenocide = props.state?.expTortureOrGenocide;
+  const killingAnyPerson = props.state?.killingAnyPerson;
+  const expKillingAnyPerson = props.state?.expKillingAnyPerson;
+  const intentionallyInjuredPerson = props.state?.intentionallyInjuredPerson;
+  const expIntentionallyInjuredPerson = props.state?.expIntentionallyInjuredPerson;
+  const beingForced = props.state?.beingForced;
+  const expBeingForced = props.state?.expBeingForced;
+  const religiousBeliefs = props.state?.religiousBeliefs;
+  const expReligiousBeliefs = props.state?.expReligiousBeliefs;
+  const armedForce = props.state?.armedForce;
+  const expArmedForce = props.state?.expArmedForce;
+  const peopleInCombat = props.state?.peopleInCombat;
+  const expPeopleInCombat = props.state?.expPeopleInCombat;
+  
+  
   return (
     <div>
       <div class="row">
@@ -515,6 +575,360 @@ function TableView(props) {
                 (4) Father’s country of residence: &nbsp;&nbsp;
                 {fatherResidenceCountry
                   ? fatherResidenceCountry
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Were you inspected and admitted by an immigration oficial?: &nbsp;&nbsp;
+                {inspectedImmigrationOficial
+                  ? inspectedImmigrationOficial
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Non-immigrant visa number (if any): &nbsp;&nbsp;
+                {nonimmigrantVisaNumber
+                  ? nonimmigrantVisaNumber
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Name and location of consult that issued your non-immigrant visa : &nbsp;&nbsp;
+                {nameOnNonimmigrantVisa
+                  ? nameOnNonimmigrantVisa
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={2} className='section'>
+                (4) Date of approval for non-immigrant visa : &nbsp;&nbsp;
+                {dateOfApprovalNonImmigrant
+                  ? dateOfApprovalNonImmigrant
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) Sex : &nbsp;&nbsp;
+                {sxStatus
+                  ? sxStatus
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) marital status : &nbsp;&nbsp;
+                {maritalStatus
+                  ? maritalStatus
+                  : "NA"}
+              </td>
+              <td colSpan={2} className='section'>
+                (4) Total number of marriages : &nbsp;&nbsp;
+                {totalMarriages
+                  ? totalMarriages
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={2} className='section'>
+                (4) Current spouse’s full name: &nbsp;&nbsp;
+                {currentSpouseFullname
+                  ? currentSpouseFullname
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) alien number: &nbsp;&nbsp;
+                {currentSpouseAlienNum
+                  ? currentSpouseAlienNum
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) date of birth: &nbsp;&nbsp;
+                {currentSpouseDOB
+                  ? currentSpouseDOB
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) date of marriage: &nbsp;&nbsp;
+                {currentSpouseDOMrg
+                  ? currentSpouseDOMrg
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) city: &nbsp;&nbsp;
+                {currentSpouseCity
+                  ? currentSpouseCity
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) state: &nbsp;&nbsp;
+                {currentSpouseState
+                  ? currentSpouseState
+                  : "NA"}
+              </td>
+              <td colSpan={2} className='section'>
+                (4) country of birth: &nbsp;&nbsp;
+                {currentSpouseCountryOfBirth
+                  ? currentSpouseCountryOfBirth
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={2} className='section'>
+                (4) Prior spouse 1’s full name: &nbsp;&nbsp;
+                {priorSpouse1Fullname
+                  ? priorSpouse1Fullname
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) alien number: &nbsp;&nbsp;
+                {priorSpouse1AlienNum
+                  ? priorSpouse1AlienNum
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) date of birth: &nbsp;&nbsp;
+                {priorSpouse1DOB
+                  ? priorSpouse1DOB
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) date of marriage: &nbsp;&nbsp;
+                {priorSpouse1DOMrg
+                  ? priorSpouse1DOMrg
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) city: &nbsp;&nbsp;
+                {priorSpouse1City
+                  ? priorSpouse1City
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) state: &nbsp;&nbsp;
+                {priorSpouse1State
+                  ? priorSpouse1State
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) country of birth: &nbsp;&nbsp;
+                {priorSpouse1CountryOfBirth
+                  ? priorSpouse1CountryOfBirth
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) date marriage ended: &nbsp;&nbsp;
+                {priorSpouse1DateMrgEnded
+                  ? priorSpouse1DateMrgEnded
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={2} className='section'>
+                (4) Prior spouse 2’s full name: &nbsp;&nbsp;
+                {priorSpouse2Fullname
+                  ? priorSpouse2Fullname
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) alien number: &nbsp;&nbsp;
+                {priorSpouse2AlienNum
+                  ? priorSpouse2AlienNum
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) date of birth: &nbsp;&nbsp;
+                {priorSpouse2DOB
+                  ? priorSpouse2DOB
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) date of marriage: &nbsp;&nbsp;
+                {priorSpouse2DOMrg
+                  ? priorSpouse2DOMrg
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) city: &nbsp;&nbsp;
+                {priorSpouse2City
+                  ? priorSpouse2City
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                (4) state: &nbsp;&nbsp;
+                {priorSpouse2State
+                  ? priorSpouse2State
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) country of birth: &nbsp;&nbsp;
+                {priorSpouse2CountryOfBirth
+                  ? priorSpouse2CountryOfBirth
+                  : "NA"}
+              </td>
+              <td className='section'>
+                (4) date marriage ended: &nbsp;&nbsp;
+                {priorSpouse2DateMrgEnded
+                  ? priorSpouse2DateMrgEnded
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+              (4) Have you applied for permanent resident status in the past?:
+                <br />
+                {appliedForPermenantResident
+                  ? appliedForPermenantResident + " " +
+                  permenantResidentStatus
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+              (4) Permenant resident location:
+                <br />
+                {permenantResidentLocation
+                  ? permenantResidentLocation
+                  : "NA"}
+              </td>
+              <td colSpan={2} className='section'>
+              (4) Result of the application:
+                <br />
+                {applicationResult
+                  ? applicationResult
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?:
+                <br />
+                {situationsThatDetainingPersons
+                  ? situationsThatDetainingPersons + " " +
+                  expSituationsThatDetainingPersons
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                37.	Have you EVER been a member of, assisted, or participated in any group, unit, or organization of any kind in which you or other persons used any type of weapon against any person or threatened to do so?:
+                <br />
+                {threatendedAnyPerson
+                  ? threatendedAnyPerson + " " +
+                  expThreatendedAnyPerson
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                38.	Have you EVER served in, been a member of, assisted, or participated in any military unit, paramilitary unit, police unit, self-defense unit, vigilante unit, rebel group, guerilla group, militia, insurgent organization, or any other armed group?:
+                <br />
+                {anyArmedGroup
+                  ? anyArmedGroup + " " +
+                  expAnyArmedGroup
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                39.	Have you EVER been a member of, or in any way affiliated with, the Communist Party or any other totalitarian party (in the United States or abroad)?:
+                <br />
+                {anyOtherTotalitarian
+                  ? anyOtherTotalitarian + " " +
+                  expAnyOtherTotalitarian
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                40.	During the period from March 23, 1933 to May 8, 1945, did you ever order, incite, assist, or otherwise participate in the persecution of any person because of race, religion, national origin, or political opinion, in association with either the Nazi government of Germany or any organization or government associated or allied with the Nazi government of Germany?:
+                <br />
+                {naziGovOfGermany
+                  ? naziGovOfGermany + " " +
+                  expNaziGovOfGermany
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                41.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Acts involving torture or genocide?:
+                <br />
+                {tortureOrGenocide
+                  ? tortureOrGenocide + " " +
+                  expTortureOrGenocide
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                42.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Killing any person?:
+                <br />
+                {killingAnyPerson
+                  ? killingAnyPerson + " " +
+                  expKillingAnyPerson
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                43.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Intentionally and severely injuring any person?:
+                <br />
+                {intentionallyInjuredPerson
+                  ? intentionallyInjuredPerson + " " +
+                  expIntentionallyInjuredPerson
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                44.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Engaging in any kind of sexual contact or relations with any person who did not consent or was unable to consent, or was being forced or threatened?:
+                <br />
+                {beingForced
+                  ? beingForced + " " +
+                  expBeingForced
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                45.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in . Limiting or denying any person's ability to exercise religious beliefs?:
+                <br />
+                {religiousBeliefs
+                  ? religiousBeliefs + " " +
+                  expReligiousBeliefs
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                46.	Have you EVER recruited, enlisted, conscripted, or used any person under 15 years of age to serve in or help an armed force or group?:
+                <br />
+                {armedForce
+                  ? armedForce + " " +
+                  expArmedForce
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                47.	Have you EVER used any person under 15 years of age to take part in hostilities, or to help or provide services to people in combat?:
+                <br />
+                {peopleInCombat
+                  ? peopleInCombat + " " +
+                  expPeopleInCombat
                   : "NA"}
               </td>
             </tr>
