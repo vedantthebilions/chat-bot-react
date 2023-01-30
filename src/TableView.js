@@ -61,6 +61,9 @@ function TableView(props) {
   const motherCountryOfBirth = props.state?.motherCountryOfBirth;
   const motherResidenceCity = props.state?.motherResidenceCity;
   const motherResidenceCountry = props.state?.motherResidenceCountry;
+
+  // // page 2
+
   const fatherCompleteName = props.state?.fatherCompleteName;
   const fatherCity = props.state?.fatherCity;
   const fatherCountryOfBirth = props.state?.fatherCountryOfBirth;
@@ -100,6 +103,19 @@ function TableView(props) {
   const permenantResidentStatus = props.state?.permenantResidentStatus;
   const permenantResidentLocation = props.state?.permenantResidentLocation;
   const applicationResult = props.state?.applicationResult;
+
+  // // page 3
+
+  const ethnicity = props.state?.ethnicity;
+  const race = props.state?.race;
+  const yourHeight = props.state?.yourHeight;
+  const yourWeight = props.state?.yourWeight;
+  const eyeColor = props.state?.eyeColor;
+  const hairColor = props.state?.hairColor;
+  let employeeDetailList = localStorage.getItem('employeeDetailList');
+  console.log('employee Detail List value : ', employeeDetailList);
+
+  
   // // Page 7
   const situationsThatDetainingPersons = props.state?.situationsThatDetainingPersons;
   const expSituationsThatDetainingPersons = props.state?.expSituationsThatDetainingPersons;
@@ -125,6 +141,54 @@ function TableView(props) {
   const expArmedForce = props.state?.expArmedForce;
   const peopleInCombat = props.state?.peopleInCombat;
   const expPeopleInCombat = props.state?.expPeopleInCombat;
+  const haveYouReceivedPublicAssistance = props.state?.haveYouReceivedPublicAssistance;
+  const expHaveYouReceivedPublicAssistance = props.state?.expHaveYouReceivedPublicAssistance;
+  const areYouReceivePublicAssistance = props.state?.areYouReceivePublicAssistance;
+  const expAreYouReceivePublicAssistance = props.state?.expAreYouReceivePublicAssistance;
+  const removalProceedingFiledAgainstU = props.state?.removalProceedingFiledAgainstU;
+  const expRemovalProceedingFiledAgainstU = props.state?.expRemovalProceedingFiledAgainstU;
+  const everSubmittedFraudulent = props.state?.everSubmittedFraudulent;
+  const expEverSubmittedFraudulent = props.state?.expEverSubmittedFraudulent;
+  const liedAboutMisrepresented = props.state?.liedAboutMisrepresented;
+  const expLiedAboutMisrepresented = props.state?.expLiedAboutMisrepresented;
+  const falselyClaimedToBeUS = props.state?.falselyClaimedToBeUS;
+  const expFalselyClaimedToBeUS = props.state?.expFalselyClaimedToBeUS;
+  const beenAStowaway = props.state?.beenAStowaway;
+  const expBeenAStowaway = props.state?.expBeenAStowaway;
+  const alienSmuggling = props.state?.alienSmuggling;
+  const expAlienSmuggling = props.state?.expAlienSmuggling;
+  const fraudulentDocuments = props.state?.fraudulentDocuments;
+  const expFraudulentDocuments = props.state?.expFraudulentDocuments;
+  const removedFromTheUS = props.state?.removedFromTheUS;
+  const expRemovedFromTheUS = props.state?.expRemovedFromTheUS;
+  const beingAdmittedOrParoled = props.state?.beingAdmittedOrParoled;
+  const expBeingAdmittedOrParoled = props.state?.expBeingAdmittedOrParoled;
+  const beenUnlawfullyPresentInUS = props.state?.beenUnlawfullyPresentInUS;
+  const expBeenUnlawfullyPresentInUS = props.state?.expBeenUnlawfullyPresentInUS;
+  const beenUnlawfullyPresentYearInUS = props.state?.beenUnlawfullyPresentYearInUS;
+  const expBeenUnlawfullyPresentYearInUS = props.state?.expBeenUnlawfullyPresentYearInUS;
+  const reenteredInUSInAggregate = props.state?.reenteredInUSInAggregate;
+  const expReenteredInUSInAggregate = props.state?.expReenteredInUSInAggregate;
+  const removedFromUSBeforeReentered = props.state?.removedFromUSBeforeReentered;
+  const expRemovedFromUSBeforeReentered = props.state?.expRemovedFromUSBeforeReentered;
+  const practicePolygamyInUS = props.state?.practicePolygamyInUS;
+  const expPracticePolygamyInUS = props.state?.expPracticePolygamyInUS;
+  const iNASection232C = props.state?.iNASection232C;
+  const expINASection232C = props.state?.expINASection232C;
+  const grantedCustodyOfChild = props.state?.grantedCustodyOfChild;
+  const expGrantedCustodyOfChild = props.state?.expGrantedCustodyOfChild;
+  const violationOfAnyFederal = props.state?.violationOfAnyFederal;
+  const expViolationOfAnyFederal = props.state?.expViolationOfAnyFederal;
+  const renouncedUSCitizenship = props.state?.renouncedUSCitizenship;
+  const expRenouncedUSCitizenship = props.state?.expRenouncedUSCitizenship;
+  const nationalSecurityTrainingCorps = props.state?.nationalSecurityTrainingCorps;
+  const expNationalSecurityTrainingCorps = props.state?.expNationalSecurityTrainingCorps;
+  const dischargedFromSuchTraining = props.state?.dischargedFromSuchTraining;
+  const expDischargedFromSuchTraining = props.state?.expDischargedFromSuchTraining;
+  const convictedOfDesertion = props.state?.convictedOfDesertion;
+  const expConvictedOfDesertion = props.state?.expConvictedOfDesertion;
+  const leftOrRemainedOutsideTheUS = props.state?.leftOrRemainedOutsideTheUS;
+  const expLeftOrRemainedOutsideTheUS = props.state?.expLeftOrRemainedOutsideTheUS;
   
   
   return (
@@ -384,6 +448,7 @@ function TableView(props) {
                 </ol>
               </td>
             </tr>
+            {/* Page 1 */}
             <tr>
               <td colSpan={3} className='section'>
                 (4) Complete legal name of the applicant &nbsp;&nbsp; (if married, married name): &nbsp;&nbsp;
@@ -544,6 +609,7 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* Page 2 */}
             <tr>
               <td colSpan={2} className='section'>
                 (4) Father’s complete name: &nbsp;&nbsp;
@@ -812,6 +878,304 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* Page 3 */}
+            <tr>
+              <td colSpan={3} className='section'>
+              (3) Ethnicity (Hispanic or Latino or NOT Hispanic or Latino):
+                <br />
+                {ethnicity
+                  ? ethnicity
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+              (3) Race (please circle):
+                <br />
+                {race
+                  ? race
+                  : "NA"}
+              </td>
+              <td className='section'>
+              (3) Height:
+                <br />
+                {yourHeight
+                  ? yourHeight
+                  : "NA"}
+              </td>
+              <td className='section'>
+              (3) Weight:
+                <br />
+                {yourWeight
+                  ? yourWeight
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+              (3) Eye Color:
+                <br />
+                {eyeColor
+                  ? eyeColor
+                  : "NA"}
+              </td>
+              <td colSpan={2} className='section'>
+              (3) Hair color:
+                <br />
+                {hairColor
+                  ? hairColor
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                Please list your spouse and all children, living or deceased, that you have in the world.
+              </td>
+              <td colSpan={2}>
+                <table>
+                  <thead>
+                    <tr>
+                      <td className='section'>Full name</td>
+                      <td className='section'>Date of birth</td>
+                      <td className='section'>Country of origin</td>
+                      <td className='section'>Relation to you</td>
+                      <td className='section'>Alien number</td>
+                      <td className='section'>Is this person applying with you or following to join?</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                      <td className='section'>123456</td>
+                      <td className='section'>Yes</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>xyz</td>
+                      <td className='section'>2/2/2222</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                      <td className='section'>654123</td>
+                      <td className='section'>Yes</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                      <td className='section'>123456</td>
+                      <td className='section'>Yes</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                      <td className='section'>123456</td>
+                      <td className='section'>Yes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                Please list all organizations, clubs, associations, or other groups of which you were a member starting with your 16th birthday through the present.
+              </td>
+              <td colSpan={2}>
+                <table>
+                  <thead>
+                    <tr>
+                      <td className='section'>Name</td>
+                      <td className='section'>Location and Purpose</td>
+                      <td className='section'>From</td>
+                      <td className='section'>To</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>xyz</td>
+                      <td className='section'>2/2/2222</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                Please list all arrests, criminal convictions, tickets, or citations you have received.  convicciones.
+              </td>
+              <td colSpan={2}>
+                <table>
+                  <thead>
+                    <tr>
+                      <td className='section'>Date</td>
+                      <td className='section'>Location</td>
+                      <td className='section'>Reason</td>
+                      <td className='section'>Result</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>xyz</td>
+                      <td className='section'>2/2/2222</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Relation</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                Please list your last address outside of the US along with the dates you resided there.
+              </td>
+              <td colSpan={2}>
+                <table>
+                  <thead>
+                    <tr>
+                      <td className='section'>Date</td>
+                      <td className='section'>Place</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>place 1</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>2/2/2222</td>
+                      <td className='section'>place 2</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>place 3</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>2/2/2222</td>
+                      <td className='section'>place 4</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                Please list all of your addresses where you have lived since entering the United States, along with the dates.
+              </td>
+              <td colSpan={2}>
+                <table>
+                  <thead>
+                    <tr>
+                      <td className='section'>Date</td>
+                      <td className='section'>Place</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>place 1</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>2/2/2222</td>
+                      <td className='section'>place 2</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>1/1/1111</td>
+                      <td className='section'>place 3</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>2/2/2222</td>
+                      <td className='section'>place 4</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td className='section'>
+                Please list all employment you have had for the last five years insde the United States along with the name of the employer, location, job title, and dates.
+              </td>
+              <td colSpan={2}>
+                <table>
+                  <thead>
+                    <tr>
+                      <td className='section'>Name</td>
+                      <td className='section'>Location</td>
+                      <td className='section'>Title</td>
+                      <td className='section'>Date</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Title 1</td>
+                      <td className='section'>1/1/1111</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>xyz</td>
+                      <td className='section'>India</td>
+                      <td className='section'>Title 2</td>
+                      <td className='section'>2/2/2222</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>India</td>
+                      <td className='section'>title 3</td>
+                      <td className='section'>1/1/1111</td>
+                    </tr>
+                    <tr>
+                      <td className='section'>Abc</td>
+                      <td className='section'>India</td>
+                      <td className='section'>tilte 4</td>
+                      <td className='section'>1/1/1111</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            {/* Page 7 */}
             <tr>
               <td className='section' colSpan={3}>
                 36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?:
@@ -929,6 +1293,248 @@ function TableView(props) {
                 {peopleInCombat
                   ? peopleInCombat + " " +
                   expPeopleInCombat
+                  : "NA"}
+              </td>
+            </tr>
+            {/* Page 8 */}
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you received public assistance in the United States from any source, including the U.S. Government or any state, county, city, or municipality (other than emergency medical treatment)?:
+                <br />
+                {haveYouReceivedPublicAssistance
+                  ? haveYouReceivedPublicAssistance + " " +
+                  expHaveYouReceivedPublicAssistance
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Are you likely to receive public assistance in the future in the United States from any source,including the U.S. Government or any state, county, city, or municipality (other than emergency medical treatment)?:
+                <br />
+                {areYouReceivePublicAssistance
+                  ? areYouReceivePublicAssistance + " " +
+                  expAreYouReceivePublicAssistance
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER failed or refused to attend or to remain in attendance at any removal proceeding filed against you on or after April 1, 1997?:
+                <br />
+                {removalProceedingFiledAgainstU
+                  ? removalProceedingFiledAgainstU + " " +
+                  expRemovalProceedingFiledAgainstU
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER submitted fraudulent or counterfeit documentation to any U.S. Government official to obtain or attempt to obtain any immigration benefit, including a visa or entry into the United States?:
+                <br />
+                {everSubmittedFraudulent
+                  ? everSubmittedFraudulent + " " +
+                  expEverSubmittedFraudulent
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER lied about, concealed, or misrepresented any information on an application or petition to obtain a visa, other documentation required for entry into the United States, admission to the United States, or any other kind of immigration benefit?:
+                <br />
+                {liedAboutMisrepresented
+                  ? liedAboutMisrepresented + " " +
+                  expLiedAboutMisrepresented
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER falsely claimed to be a U.S. citizen (in writing or any other way)?:
+                <br />
+                {falselyClaimedToBeUS
+                  ? falselyClaimedToBeUS + " " +
+                  expFalselyClaimedToBeUS
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER been a stowaway on a vessel or aircraft arriving in the United States?:
+                <br />
+                {beenAStowaway
+                  ? beenAStowaway + " " +
+                  expBeenAStowaway
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER knowingly encouraged, induced, assisted, abetted, or aided any foreign national to enter or to try to enter the United States illegally (alien smuggling)?:
+                <br />
+                {alienSmuggling
+                  ? alienSmuggling + " " +
+                  expAlienSmuggling
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Are you under a final order of civil penalty for violating INA section 274C for use of fraudulent documents?:
+                <br />
+                {fraudulentDocuments
+                  ? fraudulentDocuments + " " +
+                  expFraudulentDocuments
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER been excluded, deported, or removed from the United States or have you ever departed the United States on your own after having been ordered excluded, deported, or removed from the United States?:
+                <br />
+                {removedFromTheUS
+                  ? removedFromTheUS + " " +
+                  expRemovedFromTheUS
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER entered the United States without being inspected and admitted or paroled?:
+                <br />
+                {beingAdmittedOrParoled
+                  ? beingAdmittedOrParoled + " " +
+                  expBeingAdmittedOrParoled
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Since April 1, 1997, have you been unlawfully present in the United States For more than 180 days but less than a year, and then departed the United States?:
+                <br />
+                {beenUnlawfullyPresentInUS
+                  ? beenUnlawfullyPresentInUS + " " +
+                  expBeenUnlawfullyPresentInUS
+                  : "NA"}
+              </td>
+            </tr>
+            {/* Page 9 */}
+            <tr>
+              <td className='section' colSpan={3}>
+                Since April 1, 1997, have you been unlawfully present in the United States For one year or more and then departed the United States?:
+                <br />
+                {beenUnlawfullyPresentYearInUS
+                  ? beenUnlawfullyPresentYearInUS + " " +
+                  expBeenUnlawfullyPresentYearInUS
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Since April 1, 1997, have you EVER reentered or attempted to reenter the United States without being inspected and admitted or paroled after Having been unlawfully present in the United States for more than one year in the aggregate?:
+                <br />
+                {reenteredInUSInAggregate
+                  ? reenteredInUSInAggregate + " " +
+                  expReenteredInUSInAggregate
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Since April 1, 1997, have you EVER reentered or attempted to reenter the United States without being inspected and admitted or paroled after Having been deported, excluded, or removed from the United States?:
+                <br />
+                {removedFromUSBeforeReentered
+                  ? removedFromUSBeforeReentered + " " +
+                  expRemovedFromUSBeforeReentered
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Do you plan to practice polygamy in the United States?:
+                <br />
+                {practicePolygamyInUS
+                  ? practicePolygamyInUS + " " +
+                  expPracticePolygamyInUS
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Are you accompanying another foreign national who requires your protection or guardianship but who is inadmissible after being certified by a medical officer as being helpless from sickness, physical or mental disability, or infancy, as described in INA section 232(c)?:
+                <br />
+                {iNASection232C
+                  ? iNASection232C + " " +
+                  expINASection232C
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER assisted in detaining, retaining, or withholding custody of a U.S. citizen child outside the United States from a U.S. citizen who has been granted custody of the child?:
+                <br />
+                {grantedCustodyOfChild
+                  ? grantedCustodyOfChild + " " +
+                  expGrantedCustodyOfChild
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER voted in violation of any Federal, state, or local constitutional provision, statute, ordinance, or regulation in the United States?:
+                <br />
+                {violationOfAnyFederal
+                  ? violationOfAnyFederal + " " +
+                  expViolationOfAnyFederal
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you EVER renounced U.S. citizenship to avoid being taxed by the United States?:
+                <br />
+                {renouncedUSCitizenship
+                  ? renouncedUSCitizenship + " " +
+                  expRenouncedUSCitizenship
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you ever Applied for exemption or discharge from training or service in the U.S. armed forces or in the U.S. National Security Training Corps on the ground that you are a foreign national?:
+                <br />
+                {nationalSecurityTrainingCorps
+                  ? nationalSecurityTrainingCorps + " " +
+                  expNationalSecurityTrainingCorps
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you ever Been relieved or discharged from such training or service on the ground that you are a foreign national?:
+                <br />
+                {dischargedFromSuchTraining
+                  ? dischargedFromSuchTraining + " " +
+                  expDischargedFromSuchTraining
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you ever Been convicted of desertion from the U.S. armed forces?:
+                <br />
+                {convictedOfDesertion
+                  ? convictedOfDesertion + " " +
+                  expConvictedOfDesertion
+                  : "NA"}
+              </td>
+            </tr>
+            <tr>
+              <td className='section' colSpan={3}>
+                Have you ever Have you EVER left or remained outside the United States to avoid or evade training or service in the U.S. armed forces in time of war or a period declared by the President to be a national emergency? if yes, what was your nationality or immigration status immediately before you left:
+                <br />
+                {leftOrRemainedOutsideTheUS
+                  ? leftOrRemainedOutsideTheUS + " " +
+                  expLeftOrRemainedOutsideTheUS
                   : "NA"}
               </td>
             </tr>

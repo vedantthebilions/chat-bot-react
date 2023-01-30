@@ -29,7 +29,7 @@ const config = {
         delay: 1000,
         // widget: "getClientType",
         // widget: "getYourWeight",
-        widget: "getContactReason",
+        widget: "getFearReason",
       }
     ),
   ],
@@ -153,6 +153,7 @@ const config = {
     yourHeight: '',
     yourWeight: '',
     eyeColor: '',
+    hairColor: '',
     spouseList: '',
     spouseFullnameInList: '',
     spouseDOBInList: '',
@@ -197,6 +198,7 @@ const config = {
     expArmedForce: '',
     peopleInCombat: '',
     expPeopleInCombat: '',
+    // // Page 8
     haveYouReceivedPublicAssistance: '',
     expHaveYouReceivedPublicAssistance: '',
     areYouReceivePublicAssistance: '',
@@ -221,6 +223,7 @@ const config = {
     expBeingAdmittedOrParoled: '',
     beenUnlawfullyPresentInUS: '',
     expBeenUnlawfullyPresentInUS: '',
+    // // Page 9
     beenUnlawfullyPresentYearInUS: '',
     expBeenUnlawfullyPresentYearInUS: '',
     reenteredInUSInAggregate: '',
@@ -897,6 +900,7 @@ const config = {
       },
       mapStateToProps: ["BenefitStatus"],
     },
+    // // Page 1
     {
       widgetName: "getLegalName",
       widgetFunc: (props) => {        
@@ -1091,6 +1095,7 @@ const config = {
       },
       mapStateToProps: ["motherResidenceCountry"],
     },
+    // // Page 2
     {
       widgetName: "getFatherCompleteName",
       widgetFunc: (props) => {        
@@ -1479,6 +1484,7 @@ const config = {
       },
       mapStateToProps: ["applicationResult"],
     },
+    // // Page 3
     {
       widgetName: "getEthnicity",
       widgetFunc: (props) => {        
@@ -1594,6 +1600,13 @@ const config = {
         return <div className="learning-options-container"></div>;
       },
       mapStateToProps: ["eyeColor"],
+    },
+    {
+      widgetName: "getHairColor",
+      widgetFunc: (props) => {        
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["hairColor"],
     },
     // // Spouse List
     {

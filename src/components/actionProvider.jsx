@@ -3283,13 +3283,22 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
               //// Flow will continue from here
             : prev.messages[ind]["widget"] === "getEyeColor"
-            ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
-                widget: "getSpouseList",
+            ? ((botMessage = createChatBotMessage("Hair Color", {
+                widget: "getHairColor",
               }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
                 eyeColor: prev.messages[lastInd].message,
+              })
+            : prev.messages[ind]["widget"] === "getHairColor"
+            ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
+                widget: "getSpouseList",
+              }), console.log('Your Hair Color :', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                hairColor: prev.messages[lastInd].message,
               })
             // : prev.messages[ind]["widget"] === "getEyeColor"
             // ? ((botMessage = createChatBotMessage("36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?", {
