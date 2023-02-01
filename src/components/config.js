@@ -29,7 +29,7 @@ const config = {
         delay: 1000,
         // widget: "getClientType",
         // widget: "getYourWeight",
-        widget: "getFearReason",
+        widget: "getPeopleInCombat",
       }
     ),
   ],
@@ -86,6 +86,7 @@ const config = {
     appiledImmigration:"",
     benefitStatus:"",
     isInValid : false,
+    // // Page 1
     completeLegalName: '',
     otherNameUsed: '',
     currentMailingAddress: '',
@@ -109,6 +110,7 @@ const config = {
     motherCountryOfBirth: '',
     motherResidenceCity: '',
     motherResidenceCountry: '',
+    // // Page 2
     fatherCompleteName: '',
     fatherCity: '',
     fatherCountryOfBirth: '',
@@ -148,6 +150,7 @@ const config = {
     permenantResidentStatus: '',
     permenantResidentLocation: '',
     applicationResult: '',
+    // // Page 3
     ethnicity: '',
     race: '',
     yourHeight: '',
@@ -173,6 +176,86 @@ const config = {
     addMoreInsideAddressInList: '',
     employementList: '',
     employementAddMoreInList: '',
+    
+    // // Page 4
+
+    deniedAdmissionToUS: '',
+    expDeniedAdmissionToUS: '',
+    deniedVisaToUS: '',
+    expDeniedVisaToUS: '',
+    workInUSwithoutAuthorization: '',
+    expWorkInUSwithoutAuthorization: '',
+    violatTermOfNonimmigrantStatus: '',
+    expViolatTermOfNonimmigrantStatus: '',
+    presentlyRemovalExclusionProceed: '',
+    expPresentlyRemovalExclusionProceed: '',
+    issueFinalOrderExclusionRemoval: '',
+    expIssueFinalOrderExclusionRemoval: '',
+    lawfulPermResidentStatuslatRescind: '',
+    expLawfulPermResidentStatuslatRescind: '',
+    voluntlyByImmigrationOfficerFailToDepart: '',
+    expVoluntlyByImmigrationOfficerFailToDepart: '',
+    appliedForReliefFromRemovalDeportation: '',
+    expAppliedForReliefFromRemovalDeportation: '',
+    jNonimmigrantVisitSubjectTwoYear: '',
+    expJNonimmigrantVisitSubjectTwoYear: '',
+    compliedWithForeignResidReq: '',
+    expCompliedWithForeignResidReq: '',
+    
+    // // Page 5
+
+    grantWaiverRecommendLetter: '',
+    expGrantWaiverRecommendLetter: '',
+    arrestedAnyReasonByLaw: '',
+    expArrestedAnyReasonByLaw: '',
+    committedACrimeOfAnyKind: '',
+    expCommittedACrimeOfAnyKind: '',
+    convictedOfCrimeActOfClemency: '',
+    expConvictedOfCrimeActOfClemency: '',
+    orderedPunishedByJudge: '',
+    expOrderedPunishedByJudge: '',
+    defendInCriminalProceeding: '',
+    expDefendInCriminalProceeding: '',
+    violatSubstanceLawForeigncountry: '',
+    expViolatSubstanceLawForeigncountry: '',
+    exercisedImmunityOffenseInUS: '',
+    expExercisedImmunityOffenseInUS: '',
+    servingAsForeignGovernment: '',
+    expServingAsForeignGovernment: '',
+    forceTraffickingSexActs: '',
+    expForceTraffickingSexActs: '',
+    traffickPersonCoercion: '',
+    expTraffickPersonCoercion: '',
+    
+    // // Page 6
+
+    knowinglyAidedSlavery: '',
+    expKnowinglyAidedSlavery: '',
+    spouseSonOfForeignNational:'',
+    expSpouseSonOfForeignNational:'',
+    engageInMoneyLaunderActivity:'',
+    expEngageInMoneyLaunderActivity:'',
+    intendActivityViolatesInUS:'',
+    expIntendActivityViolatesInUS:'',
+    engageInUSProhibitingExport:'',
+    expEngageInUSProhibitingExport:'',
+    intendEngageOpposeInUS:'',
+    expIntendEngageOpposeInUS:'',
+    intendEngageEndangerInUS:'',
+    expIntendEngageEndangerInUS:'',
+    engageInUnlawActivity:'',
+    expEngageInUnlawActivity:'',
+    engagedInSeriousForeignInUS:'',
+    expEngagedInSeriousForeignInUS:'',
+    commitThreatToCommit:'',
+    expCommitThreatToCommit:'',
+    receivedAnyTypeMilitary:'',
+    expReceivedAnyTypeMilitary:'',
+    spouseCommitSubstantialDamage:'',
+    expSpouseCommitSubstantialDamage:'',
+    transportingWeaponsToAnyPerson:'',
+    expTransportingWeaponsToAnyPerson:'',
+
     //// Page 7
     situationsThatDetainingPersons: '',
     expSituationsThatDetainingPersons: '',
@@ -2281,6 +2364,1701 @@ const config = {
         );
       },
     },
+    // // Page 4
+    {
+      widgetName: "getDeniedAdmissionToUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleDeniedAdmissionToUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleDeniedAdmissionToUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExDeniedAdmissionToUS",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expDeniedAdmissionToUS"],
+    },
+    {
+      widgetName: "getDeniedVisaToUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleDeniedVisaToUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleDeniedVisaToUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpDeniedVisaToUS",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expDeniedVisaToUS"],
+    },
+    {
+      widgetName: "getWorkInUSwithoutAuthorization",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleWorkInUSwithoutAuthorization(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleWorkInUSwithoutAuthorization(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpWorkInUSwithoutAuthorization",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expWorkInUSwithoutAuthorization"],
+    },
+    {
+      widgetName: "getViolatTermOfNonimmigrantStatus",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleViolatTermOfNonimmigrantStatus(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleViolatTermOfNonimmigrantStatus(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpViolatTermOfNonimmigrantStatus",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expViolatTermOfNonimmigrantStatus"],
+    },
+    {
+      widgetName: "getPresentlyRemovalExclusionProceed",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handlePresentlyRemovalExclusionProceed(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handlePresentlyRemovalExclusionProceed(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpPresentlyRemovalExclusionProceed",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expPresentlyRemovalExclusionProceed"],
+    },
+    {
+      widgetName: "getIssueFinalOrderExclusionRemoval",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleIssueFinalOrderExclusionRemoval(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleIssueFinalOrderExclusionRemoval(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpIssueFinalOrderExclusionRemoval",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expIssueFinalOrderExclusionRemoval"],
+    },
+    {
+      widgetName: "getLawfulPermResidentStatuslatRescind",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleLawfulPermResidentStatuslatRescind(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleLawfulPermResidentStatuslatRescind(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpLawfulPermResidentStatuslatRescind",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expLawfulPermResidentStatuslatRescind"],
+    },
+    {
+      widgetName: "getVoluntlyByImmigrationOfficerFailToDepart",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleVoluntlyByImmigrationOfficerFailToDepart(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleVoluntlyByImmigrationOfficerFailToDepart(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpVoluntlyByImmigrationOfficerFailToDepart",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expVoluntlyByImmigrationOfficerFailToDepart"],
+    },
+    {
+      widgetName: "getAppliedForReliefFromRemovalDeportation",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleAppliedForReliefFromRemovalDeportation(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleAppliedForReliefFromRemovalDeportation(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpAppliedForReliefFromRemovalDeportation",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expAppliedForReliefFromRemovalDeportation"],
+    },
+    {
+      widgetName: "getJNonimmigrantVisitSubjectTwoYear",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleJNonimmigrantVisitSubjectTwoYear(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleJNonimmigrantVisitSubjectTwoYear(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpJNonimmigrantVisitSubjectTwoYear",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expJNonimmigrantVisitSubjectTwoYear"],
+    },
+
+    {
+      widgetName: "getCompliedWithForeignResidReq",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleCompliedWithForeignResidReq(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleCompliedWithForeignResidReq(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpCompliedWithForeignResidReq",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expCompliedWithForeignResidReq"],
+    },
+    {
+      widgetName: "getSituationsThatDetainingPersons",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleSituationsThatDetainingPersons(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleSituationsThatDetainingPersons(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    // // Page 5
+
+    {
+      widgetName: "getGrantWaiverRecommendLetter",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleGrantWaiverRecommendLetter(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleGrantWaiverRecommendLetter(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpGrantWaiverRecommendLetter",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expGrantWaiverRecommendLetter"],
+    },
+    {
+      widgetName: "getArrestedAnyReasonByLaw",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleArrestedAnyReasonByLaw(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleArrestedAnyReasonByLaw(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpArrestedAnyReasonByLaw",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expArrestedAnyReasonByLaw"],
+    },
+
+    {
+      widgetName: "getCommittedACrimeOfAnyKind",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleCommittedACrimeOfAnyKind(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleCommittedACrimeOfAnyKind(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpCommittedACrimeOfAnyKind",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expCommittedACrimeOfAnyKind"],
+    },
+    {
+      widgetName: "getConvictedOfCrimeActOfClemency",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleConvictedOfCrimeActOfClemency(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleConvictedOfCrimeActOfClemency(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpConvictedOfCrimeActOfClemency",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expConvictedOfCrimeActOfClemency"],
+    },
+    {
+      widgetName: "getOrderedPunishedByJudge",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleOrderedPunishedByJudge(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleOrderedPunishedByJudge(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpOrderedPunishedByJudge",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expOrderedPunishedByJudge"],
+    },
+    {
+      widgetName: "getDefendInCriminalProceeding",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleDefendInCriminalProceeding(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleDefendInCriminalProceeding(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpDefendInCriminalProceeding",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expDefendInCriminalProceeding"],
+    },                 
+    {
+      widgetName: "getViolatSubstanceLawForeigncountry",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleViolatSubstanceLawForeigncountry(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleViolatSubstanceLawForeigncountry(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpViolatSubstanceLawForeigncountry",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expViolatSubstanceLawForeigncountry"],
+    },
+    {
+      widgetName: "getExercisedImmunityOffenseInUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleExercisedImmunityOffenseInUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleExercisedImmunityOffenseInUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpExercisedImmunityOffenseInUS",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expExercisedImmunityOffenseInUS"],
+    },                
+    {
+      widgetName: "getServingAsForeignGovernment",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleServingAsForeignGovernment(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleServingAsForeignGovernment(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpServingAsForeignGovernment",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expServingAsForeignGovernment"],
+    },                 
+    {
+      widgetName: "getForceTraffickingSexActs",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleForceTraffickingSexActs(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleForceTraffickingSexActs(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpForceTraffickingSexActs",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expForceTraffickingSexActs"],
+    },                 
+    {
+      widgetName: "getTraffickPersonCoercion",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleTraffickPersonCoercion(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleTraffickPersonCoercion(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpTraffickPersonCoercion",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expKnowinglyAidedSlavery"],
+    },
+
+    // // Page 6
+    {
+      widgetName: "getKnowinglyAidedSlavery",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleKnowinglyAidedSlavery(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleKnowinglyAidedSlavery(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpKnowinglyAidedSlavery",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expTraffickPersonCoercion"],
+    },                 
+    {
+      widgetName: "getSpouseSonOfForeignNational",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleSpouseSonOfForeignNational(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleSpouseSonOfForeignNational(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpSpouseSonOfForeignNational",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expSpouseSonOfForeignNational"],
+    },                
+    {
+      widgetName: "getEngageInMoneyLaunderActivity",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleEngageInMoneyLaunderActivity(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleEngageInMoneyLaunderActivity(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpEngageInMoneyLaunderActivity",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expEngageInMoneyLaunderActivity"],
+    },                 
+    {
+      widgetName: "getIntendActivityViolatesInUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleIntendActivityViolatesInUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleIntendActivityViolatesInUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpIntendActivityViolatesInUS",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expIntendActivityViolatesInUS"],
+    },                
+    {
+      widgetName: "getEngageInUSProhibitingExport",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleEngageInUSProhibitingExport(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleEngageInUSProhibitingExport(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpEngageInUSProhibitingExport",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expEngageInUSProhibitingExport"],
+    },                 
+    {
+      widgetName: "getIntendEngageOpposeInUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleIntendEngageOpposeInUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleIntendEngageOpposeInUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpIntendEngageOpposeInUS",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expIntendEngageOpposeInUS"],
+    },                 
+    {
+      widgetName: "getIntendEngageEndangerInUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleIntendEngageEndangerInUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleIntendEngageEndangerInUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpIntendEngageEndangerInUS",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expIntendEngageEndangerInUS"],
+    },                
+    {
+      widgetName: "getEngageInUnlawActivity",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleEngageInUnlawActivity(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleEngageInUnlawActivity(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpEngageInUnlawActivity",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expEngageInUnlawActivity"],
+    },               
+    {
+      widgetName: "getEngagedInSeriousForeignInUS",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleEngagedInSeriousForeignInUS(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleEngagedInSeriousForeignInUS(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpEngagedInSeriousForeignInUS",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expEngagedInSeriousForeignInUS"],
+    },                 
+    {
+      widgetName: "getCommitThreatToCommit",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleCommitThreatToCommit(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleCommitThreatToCommit(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpCommitThreatToCommit",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expCommitThreatToCommit"],
+    },                 
+    {
+      widgetName: "getReceivedAnyTypeMilitary",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleReceivedAnyTypeMilitary(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleReceivedAnyTypeMilitary(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpReceivedAnyTypeMilitary",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expReceivedAnyTypeMilitary"],
+    },                 
+    {
+      widgetName: "getSpouseCommitSubstantialDamage",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleSpouseCommitSubstantialDamage(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleSpouseCommitSubstantialDamage(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpSpouseCommitSubstantialDamage",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expSpouseCommitSubstantialDamage"],
+    },
+    {
+      widgetName: "getTransportingWeaponsToAnyPerson",
+      widgetFunc: (props) => {
+        const options = [
+          {
+            text: "Yes",
+            handler: (e) => {
+              props.actionProvider.handleTransportingWeaponsToAnyPerson(e);
+            },
+            value: "yes",
+            id: 'inUSA',
+          },
+          {
+            text: "No",
+            handler: (e) => {
+              props.actionProvider.handleTransportingWeaponsToAnyPerson(e);
+            },
+            id: 'inUSA',
+            value: "no",
+          },
+        ];
+        const optionsMarkup = options.map((option, index) => (
+          <button
+            className="idBkdM"
+            onClick={(e) => {
+              option.handler(e);
+            }}
+            key={index}
+            value={option.value}
+            id={option.id}
+            name={option.text}
+          >
+            {option.text}
+          </button>
+        ));
+        return (
+          <div className="learning-options-container">{optionsMarkup}</div>
+        );
+      },
+    },
+    {
+      widgetName: "getExpTransportingWeaponsToAnyPerson",
+      widgetFunc: (props) => {
+        return <div className="learning-options-container"></div>;
+      },
+      mapStateToProps: ["expTransportingWeaponsToAnyPerson"],
+    },
+
+    // // Page 7
+
     {
       widgetName: "getSituationsThatDetainingPersons",
       widgetFunc: (props) => {

@@ -115,6 +115,84 @@ function TableView(props) {
   let employeeDetailList = localStorage.getItem('employeeDetailList');
   console.log('employee Detail List value : ', employeeDetailList);
 
+  // // page 4
+
+  const deniedAdmissionToUS = props.state?.deniedAdmissionToUS;
+  const expDeniedAdmissionToUS = props.state?.expDeniedAdmissionToUS;
+  const deniedVisaToUS = props.state?.deniedVisaToUS;
+  const expDeniedVisaToUS = props.state?.expDeniedVisaToUS;
+  const workInUSwithoutAuthorization = props.state?.workInUSwithoutAuthorization;
+  const expWorkInUSwithoutAuthorization = props.state?.expWorkInUSwithoutAuthorization;
+  const violatTermOfNonimmigrantStatus = props.state?.violatTermOfNonimmigrantStatus;
+  const expViolatTermOfNonimmigrantStatus = props.state?.expViolatTermOfNonimmigrantStatus;
+  const presentlyRemovalExclusionProceed = props.state?.presentlyRemovalExclusionProceed;
+  const expPresentlyRemovalExclusionProceed = props.state?.expPresentlyRemovalExclusionProceed;
+  const issueFinalOrderExclusionRemoval = props.state?.issueFinalOrderExclusionRemoval;
+  const expIssueFinalOrderExclusionRemoval = props.state?.expIssueFinalOrderExclusionRemoval;
+  const lawfulPermResidentStatuslatRescind = props.state?.lawfulPermResidentStatuslatRescind;
+  const expLawfulPermResidentStatuslatRescind = props.state?.expLawfulPermResidentStatuslatRescind;
+  const voluntlyByImmigrationOfficerFailToDepart = props.state?.voluntlyByImmigrationOfficerFailToDepart;
+  const expVoluntlyByImmigrationOfficerFailToDepart = props.state?.expVoluntlyByImmigrationOfficerFailToDepart;
+  const appliedForReliefFromRemovalDeportation = props.state?.appliedForReliefFromRemovalDeportation;
+  const expAppliedForReliefFromRemovalDeportation = props.state?.expAppliedForReliefFromRemovalDeportation;
+  const jNonimmigrantVisitSubjectTwoYear = props.state?.jNonimmigrantVisitSubjectTwoYear;
+  const expJNonimmigrantVisitSubjectTwoYear = props.state?.expJNonimmigrantVisitSubjectTwoYear;
+  const compliedWithForeignResidReq = props.state?.compliedWithForeignResidReq;
+  const expCompliedWithForeignResidReq = props.state?.expCompliedWithForeignResidReq;
+
+  // // page 5
+
+  const grantWaiverRecommendLetter = props.state?.grantWaiverRecommendLetter;
+  const expGrantWaiverRecommendLetter = props.state?.expGrantWaiverRecommendLetter;
+  const arrestedAnyReasonByLaw = props.state?.arrestedAnyReasonByLaw;
+  const expArrestedAnyReasonByLaw = props.state?.expArrestedAnyReasonByLaw;
+  const committedACrimeOfAnyKind = props.state?.committedACrimeOfAnyKind;
+  const expCommittedACrimeOfAnyKind = props.state?.expCommittedACrimeOfAnyKind;
+  const convictedOfCrimeActOfClemency = props.state?.convictedOfCrimeActOfClemency;
+  const expConvictedOfCrimeActOfClemency = props.state?.expConvictedOfCrimeActOfClemency;
+  const orderedPunishedByJudge = props.state?.orderedPunishedByJudge;
+  const expOrderedPunishedByJudge = props.state?.expOrderedPunishedByJudge;
+  const defendInCriminalProceeding = props.state?.defendInCriminalProceeding;
+  const expDefendInCriminalProceeding = props.state?.expDefendInCriminalProceeding;
+  const violatSubstanceLawForeigncountry = props.state?.violatSubstanceLawForeigncountry;
+  const expViolatSubstanceLawForeigncountry = props.state?.expViolatSubstanceLawForeigncountry;
+  const exercisedImmunityOffenseInUS = props.state?.exercisedImmunityOffenseInUS;
+  const expExercisedImmunityOffenseInUS = props.state?.expExercisedImmunityOffenseInUS;
+  const servingAsForeignGovernment = props.state?.servingAsForeignGovernment;
+  const expServingAsForeignGovernment = props.state?.expServingAsForeignGovernment;
+  const forceTraffickingSexActs = props.state?.forceTraffickingSexActs;
+  const expForceTraffickingSexActs = props.state?.expForceTraffickingSexActs;
+  const traffickPersonCoercion = props.state?.traffickPersonCoercion;
+  const expTraffickPersonCoercion = props.state?.expTraffickPersonCoercion;
+
+  // // page 6
+  const knowinglyAidedSlavery = props.state?.knowinglyAidedSlavery;
+  const expKnowinglyAidedSlavery = props.state?.expKnowinglyAidedSlavery;
+  const spouseSonOfForeignNational = props.state?.spouseSonOfForeignNational;
+  const expSpouseSonOfForeignNational = props.state?.expSpouseSonOfForeignNational;
+  const engageInMoneyLaunderActivity = props.state?.engageInMoneyLaunderActivity;
+  const expEngageInMoneyLaunderActivity = props.state?.expEngageInMoneyLaunderActivity;
+  const intendActivityViolatesInUS = props.state?.intendActivityViolatesInUS;
+  const expIntendActivityViolatesInUS = props.state?.expIntendActivityViolatesInUS;
+  const engageInUSProhibitingExport = props.state?.engageInUSProhibitingExport;
+  const expEngageInUSProhibitingExport = props.state?.expEngageInUSProhibitingExport;
+  const intendEngageOpposeInUS = props.state?.intendEngageOpposeInUS;
+  const expIntendEngageOpposeInUS = props.state?.expIntendEngageOpposeInUS;
+  const intendEngageEndangerInUS = props.state?.intendEngageEndangerInUS;
+  const expIntendEngageEndangerInUS = props.state?.expIntendEngageEndangerInUS;
+  const engageInUnlawActivity = props.state?.engageInUnlawActivity;
+  const expEngageInUnlawActivity = props.state?.expEngageInUnlawActivity;
+  const engagedInSeriousForeignInUS = props.state?.engagedInSeriousForeignInUS;
+  const expEngagedInSeriousForeignInUS = props.state?.expEngagedInSeriousForeignInUS;
+  const commitThreatToCommit = props.state?.commitThreatToCommit;
+  const expCommitThreatToCommit = props.state?.expCommitThreatToCommit;
+  const receivedAnyTypeMilitary = props.state?.receivedAnyTypeMilitary;
+  const expReceivedAnyTypeMilitary = props.state?.expReceivedAnyTypeMilitary;
+  const spouseCommitSubstantialDamage = props.state?.spouseCommitSubstantialDamage;
+  const expSpouseCommitSubstantialDamage = props.state?.expSpouseCommitSubstantialDamage;
+  const transportingWeaponsToAnyPerson = props.state?.transportingWeaponsToAnyPerson;
+  const expTransportingWeaponsToAnyPerson = props.state?.expTransportingWeaponsToAnyPerson;
+  
   
   // // Page 7
   const situationsThatDetainingPersons = props.state?.situationsThatDetainingPersons;
@@ -1175,6 +1253,291 @@ function TableView(props) {
                 </table>
               </td>
             </tr>
+            {/* Page 4 */}
+            <tr>
+              <td colSpan={3} className='section'>
+                (1)	Have you ever been denied admission to the U.S.?
+                <br />
+                <u> {deniedAdmissionToUS ? deniedAdmissionToUS : 'NA'} </u>
+                <br />
+                {expDeniedAdmissionToUS && `Explain: ${expDeniedAdmissionToUS && expDeniedAdmissionToUS}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (2)	Have you ever been denied a visa to the U.S.? <br />
+                <u> {deniedVisaToUS ? deniedVisaToUS : 'NA'} </u>
+                <br />
+                {expDeniedVisaToUS && `Explain: ${expDeniedVisaToUS && expDeniedVisaToUS}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (3) Have you ever worked in the U.S. without authorization? <br />
+                <u> {workInUSwithoutAuthorization ? workInUSwithoutAuthorization : 'NA'} </u>
+                <br />
+                {expWorkInUSwithoutAuthorization && `Explain: ${expWorkInUSwithoutAuthorization && expWorkInUSwithoutAuthorization}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (4) Have you ever violated the terms or conditions of your nonimmigrant status?<br />
+                <u> {violatTermOfNonimmigrantStatus ? violatTermOfNonimmigrantStatus : 'NA'} </u>
+                <br />
+                {expViolatTermOfNonimmigrantStatus && `Explain: ${expViolatTermOfNonimmigrantStatus && expViolatTermOfNonimmigrantStatus}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (5) Are you presently or have you ever been in removal, exclusion, rescission, or deportation proceedings?<br />
+                <u> {presentlyRemovalExclusionProceed ? presentlyRemovalExclusionProceed : 'NA'} </u>
+                <br />
+                {expPresentlyRemovalExclusionProceed && `Explain: ${expPresentlyRemovalExclusionProceed && expPresentlyRemovalExclusionProceed}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (6) Have you ever been issued a final order of exclusion, deportation, or removal?<br />
+                <u> {issueFinalOrderExclusionRemoval ? issueFinalOrderExclusionRemoval : 'NA'} </u>
+                <br />
+                {expIssueFinalOrderExclusionRemoval && `Explain: ${expIssueFinalOrderExclusionRemoval && expIssueFinalOrderExclusionRemoval}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (7) Have you ever held lawful permanent resident status which was later rescinded?<br />
+                <u> {lawfulPermResidentStatuslatRescind ? lawfulPermResidentStatuslatRescind : 'NA'} </u>
+                <br />
+                {expLawfulPermResidentStatuslatRescind && `Explain: ${expLawfulPermResidentStatuslatRescind && expLawfulPermResidentStatuslatRescind}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (8) Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time?<br />
+                <u> {voluntlyByImmigrationOfficerFailToDepart ? voluntlyByImmigrationOfficerFailToDepart : 'NA'} </u>
+                <br />
+                {expVoluntlyByImmigrationOfficerFailToDepart && `Explain: ${expVoluntlyByImmigrationOfficerFailToDepart && expVoluntlyByImmigrationOfficerFailToDepart}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (9) Have you ever applied for any kind of relief or protection from removal, exclusion, or deportation? <br />
+                <u> {appliedForReliefFromRemovalDeportation ? appliedForReliefFromRemovalDeportation : 'NA'} </u>
+                <br />
+                {expAppliedForReliefFromRemovalDeportation && `Explain: ${expAppliedForReliefFromRemovalDeportation && expAppliedForReliefFromRemovalDeportation}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (10) Have you ever been a J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement? <br />
+                <u> {jNonimmigrantVisitSubjectTwoYear ? jNonimmigrantVisitSubjectTwoYear : 'NA'} </u>
+                <br />
+                {expJNonimmigrantVisitSubjectTwoYear && `Explain: ${expJNonimmigrantVisitSubjectTwoYear && expJNonimmigrantVisitSubjectTwoYear}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (11) Have you complied with the foreign residence requirement?<br />
+                <u> {compliedWithForeignResidReq ? compliedWithForeignResidReq : 'NA'}  </u>
+                <br />
+                {expCompliedWithForeignResidReq && `Explain: ${expCompliedWithForeignResidReq && expCompliedWithForeignResidReq}`}
+              </td>
+            </tr>
+            {/* Page 5 */}
+            <tr>
+              <td colSpan={3} className='section'>
+                (12) Have you been granted a waiver or has the Department of State issued a favorable waiver recommendation letter for you?<br />
+                <u> {grantWaiverRecommendLetter ? grantWaiverRecommendLetter : 'NA'} </u>
+                <br />
+                {expGrantWaiverRecommendLetter && `Explain: ${expGrantWaiverRecommendLetter && expGrantWaiverRecommendLetter}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (13) Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official?<br />
+                <u> {arrestedAnyReasonByLaw ? arrestedAnyReasonByLaw : 'NA'} </u>
+                <br />
+                {expArrestedAnyReasonByLaw && `Explain: ${expArrestedAnyReasonByLaw && expArrestedAnyReasonByLaw}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (14) Have you ever committed a crime of any kind (even if you were not arrested, cited, charged, or tried for that crime)? <br />
+                <u> {committedACrimeOfAnyKind ? committedACrimeOfAnyKind : 'NA'} </u>
+                <br />
+                {expCommittedACrimeOfAnyKind && `Explain: ${expCommittedACrimeOfAnyKind && expCommittedACrimeOfAnyKind}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (15) Have you ever plead guilty to or been convicted of a crime or offense (even if the violation was subsequently expunged or sealed by a court, or if you were granted a pardon, amnesty, a rehabilitation decree, or other act of clemency? <br />
+                <u> {convictedOfCrimeActOfClemency ? convictedOfCrimeActOfClemency : 'NA'} </u>
+                <br />
+                {expConvictedOfCrimeActOfClemency && `Explain: ${expConvictedOfCrimeActOfClemency && expConvictedOfCrimeActOfClemency}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (16) Have you ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty (such as a prison sentence, suspended sentence, house arrest, parole, alternative sentencing, drug or alcohol treatment, rehabilitative programs or classes, probation, or community service)? <br />
+                <u> {orderedPunishedByJudge ? orderedPunishedByJudge : 'NA'} </u>
+                <br />
+                {expOrderedPunishedByJudge && `Explain: ${expOrderedPunishedByJudge && expOrderedPunishedByJudge}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (17) Have you ever been a defendant or the accused in a criminal proceeding (including pre-trial diversion, deferred prosecution, deferred adjudication, or any withheld adjudication)? <br />
+                <u> {defendInCriminalProceeding ? defendInCriminalProceeding : 'NA'} </u>
+                <br />
+                {expDefendInCriminalProceeding && `Explain: ${expDefendInCriminalProceeding && expDefendInCriminalProceeding}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (18) Have you ever violated (or attempted or conspired to violate) any controlled substance law or regulation of state, the United States, or a foreign country?<br />
+                <u> {violatSubstanceLawForeigncountry ? violatSubstanceLawForeigncountry : 'NA'} </u>
+                <br />
+                {expViolatSubstanceLawForeigncountry && `Explain: ${expViolatSubstanceLawForeigncountry && expViolatSubstanceLawForeigncountry}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (19) Have you ever exercised immunity (diplomatic or otherwise) to avoid being prosecuted for a criminal offense in the United States?<br />
+                <u> {exercisedImmunityOffenseInUS ? exercisedImmunityOffenseInUS : 'NA'} </u>
+                <br />
+                {expExercisedImmunityOffenseInUS && `Explain: ${expExercisedImmunityOffenseInUS && expExercisedImmunityOffenseInUS}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (20) Have you ever, while serving as a foreign government official, been responsible for or directly carried out violations of religious freedoms?<br />
+                <u> {servingAsForeignGovernment ? servingAsForeignGovernment : 'NA'} </u>
+                <br />
+                {expServingAsForeignGovernment && `Explain: ${expServingAsForeignGovernment && expServingAsForeignGovernment}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (21) Have you ever induced by force, fraud, or coercion (or otherwise been involved in) the trafficking of persons for commercial sex acts?<br />
+                <u> {forceTraffickingSexActs ? forceTraffickingSexActs : 'NA'} </u>
+                <br />
+                {expForceTraffickingSexActs && `Explain: ${expForceTraffickingSexActs && expForceTraffickingSexActs}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (22) Have you ever trafficked a person into involuntary servitude, peonage, debt bondage, or slavery? Trafficking includes recruiting, harboring, transporting, providing, or obtaining a person for labor or services through the use of force, fraud, or coercion.<br />
+                <u> {traffickPersonCoercion ? traffickPersonCoercion : 'NA'} </u>
+                <br />
+                {expTraffickPersonCoercion && `Explain: ${expTraffickPersonCoercion && expTraffickPersonCoercion}`}
+              </td>
+            </tr>
+            {/* Page 6 */}
+            <tr>
+              <td colSpan={3} className='section'>
+                (23) Have you ever knowingly aided, abetted, assisted, conspired, or colluded with others in trafficking persons for commercial sex acts or involuntary servitude, peonage, debt bondage, or slavery?<br />
+                <u> {knowinglyAidedSlavery ? knowinglyAidedSlavery : 'NA'} </u>
+                <br />
+                {expKnowinglyAidedSlavery && `Explain: ${expKnowinglyAidedSlavery && expKnowinglyAidedSlavery}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (24) Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons and have received or obtained, within the last five years, any financial or other benefits from the illicit activity of your spouse or your parent, although you knew or reasonably should have known that this benefit resulted from the illicit activity of your spouse or parent?<br />
+                <u> {spouseSonOfForeignNational ? spouseSonOfForeignNational : 'NA'} </u>
+                <br />
+                {expSpouseSonOfForeignNational && `Explain: ${expSpouseSonOfForeignNational && expSpouseSonOfForeignNational}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (25) Have you ever engaged in money laundering or have you ever knowingly aided, assisted, conspired, or colluded with others in money laundering or do you seek to enter the United States to engage in such activity?<br />
+                <u> {engageInMoneyLaunderActivity ? engageInMoneyLaunderActivity : 'NA'} </u>
+                <br />
+                {expEngageInMoneyLaunderActivity && `Explain: ${expEngageInMoneyLaunderActivity && expEngageInMoneyLaunderActivity}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (26) Do you intend to engage in any activity that violates or evades any law relating to espionage (including spying) or sabotage in the United States?<br />
+                <u> {intendActivityViolatesInUS ? intendActivityViolatesInUS : 'NA'} </u>
+                <br />
+                {expIntendActivityViolatesInUS && `Explain: ${expIntendActivityViolatesInUS && expIntendActivityViolatesInUS}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (27) Do you intend to engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods, technology, or sensitive information? <br />
+                <u> {engageInUSProhibitingExport ? engageInUSProhibitingExport : 'NA'} </u>
+                <br />
+                {expEngageInUSProhibitingExport && `Explain: ${expEngageInUSProhibitingExport && expEngageInUSProhibitingExport}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (28) Do you intend to engage in any activity whose purpose includes opposing, controlling, or overthrowing the U.S. Government by force, violence, or other unlawful means while in the United States? <br />
+                <u> {intendEngageOpposeInUS ? intendEngageOpposeInUS : 'NA'} </u>
+                <br />
+                {expIntendEngageOpposeInUS && `Explain: ${expIntendEngageOpposeInUS && expIntendEngageOpposeInUS}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (29) Do you intend to engage in any activity that could endanger the welfare, safety, or security of the United States?<br />
+                <u> {intendEngageEndangerInUS ? intendEngageEndangerInUS : 'NA'} </u>
+                <br />
+                {expIntendEngageEndangerInUS && `Explain: ${expIntendEngageEndangerInUS && expIntendEngageEndangerInUS}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (30) Do you intend to engage in any other unlawful activity?<br />
+                <u> {engageInUnlawActivity ? engageInUnlawActivity : 'NA'} </u>
+                <br />
+                {expEngageInUnlawActivity && `Explain: ${expEngageInUnlawActivity && expEngageInUnlawActivity}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (31) Are you engaged in or, upon your entry into the United States, do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States?<br />
+                <u> {engagedInSeriousForeignInUS ? engagedInSeriousForeignInUS : 'NA'} </u>
+                <br />
+                {expEngagedInSeriousForeignInUS && `Explain: ${expEngagedInSeriousForeignInUS && expEngagedInSeriousForeignInUS}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (32) Committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?<br />
+                <u> {commitThreatToCommit ? commitThreatToCommit : 'NA'} </u>
+                <br />
+                {expCommitThreatToCommit && `Explain: ${expCommitThreatToCommit && expCommitThreatToCommit}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (33) Have you ever received any type of military, paramilitary, or weapons training?<br />
+                <u> {receivedAnyTypeMilitary ? receivedAnyTypeMilitary : 'NA'} </u>
+                <br />
+                {expReceivedAnyTypeMilitary && `Explain: ${expReceivedAnyTypeMilitary && expReceivedAnyTypeMilitary}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (34) Are you the spouse or child of an individual who ever committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property? <br />
+                <u> {spouseCommitSubstantialDamage ? spouseCommitSubstantialDamage : 'NA'} </u>
+                <br />
+                {expSpouseCommitSubstantialDamage && `Explain: ${expSpouseCommitSubstantialDamage && expSpouseCommitSubstantialDamage}`}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                35.	Have you EVER assisted or participated in selling, providing, or transporting weapons to any person who, to your knowledge, used them against another person? <br />
+                <u> {transportingWeaponsToAnyPerson ? transportingWeaponsToAnyPerson : 'NA'} </u>
+                <br />
+                {expTransportingWeaponsToAnyPerson && `Explain: ${expTransportingWeaponsToAnyPerson && expTransportingWeaponsToAnyPerson}`}
+              </td>
+            </tr>
+
             {/* Page 7 */}
             <tr>
               <td className='section' colSpan={3}>

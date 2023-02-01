@@ -654,8 +654,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages, botMessage],
       }));
     } else {
-      const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
-        widget: "getBenefitStatus",
+      const botMessage = createChatBotMessage("Ethnicity (Hispanic or Latino or NOT Hispanic or Latino)", {
+        widget: "getEthnicity",
       });
       setState((prev) => ({
         ...prev,
@@ -736,8 +736,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages, botMessage],
       }));
     } else {
-      const botMessage = createChatBotMessage("Next Question", {
-        widget: "getFearReason",
+      const botMessage = createChatBotMessage("1.	Have you ever been denied admission to the U.S.?", {
+        widget: "getDeniedAdmissionToUS",
       });
       setState((prev) => ({
         ...prev,
@@ -829,8 +829,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages, botMessage],
       }));
     } else {
-      const botMessage = createChatBotMessage("Next Q", {
-        widget: "getFearReason",
+      const botMessage = createChatBotMessage("1.	Have you ever been denied admission to the U.S.?", {
+        widget: "getDeniedAdmissionToUS",
       });
       setState((prev) => ({
         ...prev,
@@ -858,8 +858,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages, botMessage],
       }));
     } else {
-      const botMessage = createChatBotMessage("Next Question", {
-        widget: "getFearReason",
+      const botMessage = createChatBotMessage("Do you want to add your Arrests List ?", {
+        widget: "getArrestsList",
       });
       setState((prev) => ({
         ...prev,
@@ -2126,7 +2126,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages, botMessage],
       }));
     } else {
-      const botMessage = createChatBotMessage("next question", {
+      const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
         widget: "getFearReason",
       });
       setState((prev) => ({
@@ -2254,6 +2254,989 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }
     console.log('Inside Address detail : ', inAddressDetail);
   }
+
+  // // Page 4
+
+  const handleDeniedAdmissionToUS = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      deniedAdmissionToUS: value.target.name,
+    }), console.log('1 Have you ever been denied admission to the U.S.=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExDeniedAdmissionToUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("2.	Have you ever been denied a visa to the U.S.?", {
+        widget: "getDeniedVisaToUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleDeniedVisaToUS = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      deniedVisaToUS: value.target.name,
+    }), console.log('2 Have you ever been denied a visa to the U.S.=', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpDeniedVisaToUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("3.	Have you ever worked in the U.S. without authorization?", {
+        widget: "getWorkInUSwithoutAuthorization",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleWorkInUSwithoutAuthorization = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      workInUSwithoutAuthorization: value.target.name,
+    }), console.log('3 Have you ever worked in the U.S. without authorization=', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpWorkInUSwithoutAuthorization",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("4.	Have you ever violated the terms or conditions of your nonimmigrant status?", {
+        widget: "getViolatTermOfNonimmigrantStatus",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };    
+
+  const handleViolatTermOfNonimmigrantStatus = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      violatTermOfNonimmigrantStatus: value.target.name,
+    }), console.log('4 Have you ever violated the terms or conditions of your nonimmigrant status=', value.target.name));
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpViolatTermOfNonimmigrantStatus",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("5.	Are you presently or have you ever been in removal, exclusion, rescission, or deportation proceedings?", {
+        widget: "getPresentlyRemovalExclusionProceed",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handlePresentlyRemovalExclusionProceed = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      presentlyRemovalExclusionProceed: value.target.name,
+    }), console.log('5 Are you presently or have you ever been in removal, exclusion, rescission, or deportation proceedings=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpPresentlyRemovalExclusionProceed",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("6.	Have you ever been issued a final order of exclusion, deportation or removal?", {
+        widget: "getIssueFinalOrderExclusionRemoval",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+  
+  const handleIssueFinalOrderExclusionRemoval = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      issueFinalOrderExclusionRemoval: value.target.name,
+    }), console.log('6 Have you ever been issued a final order of exclusion, deportation or removal=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpIssueFinalOrderExclusionRemoval",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("7.	Have you ever held lawful permanent resident status which was later rescinded?", {
+        widget: "getLawfulPermResidentStatuslatRescind",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleLawfulPermResidentStatuslatRescind = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      lawfulPermResidentStatuslatRescind: value.target.name,
+    }), console.log('7 Have you ever held lawful permanent resident status which was later rescinded=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpLawfulPermResidentStatuslatRescind",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("8.	Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time?", {
+        widget: "getVoluntlyByImmigrationOfficerFailToDepart",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+  
+  const handleVoluntlyByImmigrationOfficerFailToDepart = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      voluntlyByImmigrationOfficerFailToDepart: value.target.name,
+    }), console.log('8 Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpVoluntlyByImmigrationOfficerFailToDepart",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("9.	Have you ever applied for any kind of relief or protection from removal, exclusion, or deportation?", {
+        widget: "getAppliedForReliefFromRemovalDeportation",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+  
+  const handleAppliedForReliefFromRemovalDeportation = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      appliedForReliefFromRemovalDeportation: value.target.name,
+    }), console.log('9 Have you ever applied for any kind of relief or protection from removal, exclusion, or deportation=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpAppliedForReliefFromRemovalDeportation",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage(" 10.	Have you ever been a J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement?", {
+        widget: "getJNonimmigrantVisitSubjectTwoYear",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleJNonimmigrantVisitSubjectTwoYear = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      jNonimmigrantVisitSubjectTwoYear: value.target.name,
+    }), console.log('10 Have you ever been a J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpJNonimmigrantVisitSubjectTwoYear",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage(" 11.	Have you complied with the foreign residence requirement?", {
+        widget: "getCompliedWithForeignResidReq",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleCompliedWithForeignResidReq = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      compliedWithForeignResidReq: value.target.name,
+    }), console.log('11 Have you complied with the foreign residence requirement=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpCompliedWithForeignResidReq",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("12.	Have you been granted a waiver or has the Department of State issued a favorable waiver recommendation letter for you?", {
+        widget: "getGrantWaiverRecommendLetter",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  // // Page 5
+
+  const handleGrantWaiverRecommendLetter = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      grantWaiverRecommendLetter: value.target.name,
+    }), console.log('12 Have you been granted a waiver or has the Department of State issued a favorable waiver recommendation letter for you=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpGrantWaiverRecommendLetter",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("13. Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official?", {
+        widget: "getArrestedAnyReasonByLaw",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };                                                                             
+
+  const handleArrestedAnyReasonByLaw = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      arrestedAnyReasonByLaw: value.target.name,
+    }), console.log('13 Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpArrestedAnyReasonByLaw",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("14. Have you ever committed a crime of any kind (even if you were not arrested, cited, charged, or tried for that crime)?", {
+        widget: "getCommittedACrimeOfAnyKind",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleCommittedACrimeOfAnyKind = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      committedACrimeOfAnyKind: value.target.name,
+    }), console.log('14 Have you ever committed a crime of any kind (even if you were not arrested, cited, charged, or tried for that crime)=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpCommittedACrimeOfAnyKind",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("15.	Have you ever plead guilty to or been convicted of a crime or offense (even if the violation was subsequently expunged or sealed by a court, or if you were granted a pardon, amnesty, a rehabilitation decree, or other act of clemency?", {
+        widget: "getConvictedOfCrimeActOfClemency",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };  
+
+  const handleConvictedOfCrimeActOfClemency = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      convictedOfCrimeActOfClemency: value.target.name,
+    }), console.log('15 Have you ever plead guilty to or been convicted of a crime or other act of clemency?=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpConvictedOfCrimeActOfClemency",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("16.	Have you ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty (such as a prison sentence, suspended sentence, house arrest, parole, alternative sentencing, drug or alcohol treatment, rehabilitative programs or classes, probation, or community service)?", {
+        widget: "getOrderedPunishedByJudge",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleOrderedPunishedByJudge = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      orderedPunishedByJudge: value.target.name,
+    }), console.log('16 Have you ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty?=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpOrderedPunishedByJudge",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("17.	Have you ever been a defendant or the accused in a criminal proceeding (including pre-trial diversion, deferred prosecution, deferred adjudication, or any withheld adjudication)?", {
+        widget: "getDefendInCriminalProceeding",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleDefendInCriminalProceeding = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      defendInCriminalProceeding: value.target.name,
+    }), console.log('17 Have you ever been a defendant or the accused in a criminal proceeding?=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpDefendInCriminalProceeding",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("18. Have you ever violated (or attempted or conspired to violate) any controlled substance law or regulation of state, the United States, or a foreign country?", {
+        widget: "getViolatSubstanceLawForeigncountry",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleViolatSubstanceLawForeigncountry = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      violatSubstanceLawForeigncountry: value.target.name,
+    }), console.log('18 Have ever violated any controlled substance law or regulation of state, the United States, or a foreign country?=', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpViolatSubstanceLawForeigncountry",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("19. Have you ever exercised immunity (diplomatic or otherwise) to avoid being prosecuted for a criminal offense in the United States?", {
+        widget: "getExercisedImmunityOffenseInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleExercisedImmunityOffenseInUS = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      exercisedImmunityOffenseInUS: value.target.name,
+    }), console.log('19 Have you ever exercised immunity to avoid being prosecuted for a criminal offense in the United States?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpExercisedImmunityOffenseInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("20. Have you ever, while serving as a foreign government official, been responsible for or directly carried out violations of religious freedoms?", {
+        widget: "getServingAsForeignGovernment",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleServingAsForeignGovernment = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      servingAsForeignGovernment: value.target.name,
+    }), console.log('20 while serving as a foreign government official,violations of religious freedoms?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpServingAsForeignGovernment",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("21. Have you ever induced by force, fraud, or coercion (or otherwise been involved in) the trafficking of persons for commercial sex acts?", {
+        widget: "getForceTraffickingSexActs",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleForceTraffickingSexActs = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      forceTraffickingSexActs: value.target.name,
+    }), console.log('21 Have you ever induced by force, fraud, or coercion the trafficking of persons for commercial sex acts?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpForceTraffickingSexActs",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("22. Have you ever trafficked a person into involuntary servitude, peonage, debt bondage, or slavery? Trafficking includes recruiting, harboring, transporting, providing, or obtaining a person for labor or services through the use of force, fraud, or coercion.", {
+        widget: "getTraffickPersonCoercion",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleTraffickPersonCoercion = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      traffickPersonCoercion: value.target.name,
+    }), console.log('22 Have you ever trafficked a person into involuntary servitude services through the use of force, fraud, or coercion?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpTraffickPersonCoercion",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("23. Have you ever knowingly aided, abetted, assisted, conspired, or colluded with others in trafficking persons for commercial sex acts or involuntary servitude, peonage, debt bondage, or slavery?", {
+        widget: "getKnowinglyAidedSlavery",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  // // Page 6
+
+  const handleKnowinglyAidedSlavery = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      knowinglyAidedSlavery: value.target.name,
+    }), console.log('23 Have ever knowingly aided, or involuntary servitude, peonage, debt bondage, or slavery?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpKnowinglyAidedSlavery",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("24. Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons and have received or obtained, within the last five years, any financial or other benefits from the illicit activity of your spouse or your parent, although you knew or reasonably should have known that this benefit resulted from the illicit activity of your spouse or parent?", {
+        widget: "getSpouseSonOfForeignNational",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleSpouseSonOfForeignNational = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      spouseSonOfForeignNational: value.target.name,
+    }), console.log('24 Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpSpouseSonOfForeignNational",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("25. Have you ever engaged in money laundering or have you ever knowingly aided, assisted, conspired, or colluded with others in money laundering or do you seek to enter the United States to engage in such activity?", {
+        widget: "getEngageInMoneyLaunderActivity",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleEngageInMoneyLaunderActivity = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      engageInMoneyLaunderActivity: value.target.name,
+    }), console.log('25 Have you ever engaged in money laundering in such activity?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpEngageInMoneyLaunderActivity",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("26. Do you intend to engage in any activity that violates or evades any law relating to espionage (including spying) or sabotage in the United States?", {
+        widget: "getIntendActivityViolatesInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleIntendActivityViolatesInUS = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      intendActivityViolatesInUS: value.target.name,
+    }), console.log('26 Do you intend to engage in any activity that violates or sabotage in the United States?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpIntendActivityViolatesInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("27. Do you intend to engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods, technology, or sensitive information?", {
+        widget: "getEngageInUSProhibitingExport",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleEngageInUSProhibitingExport = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      engageInUSProhibitingExport: value.target.name,
+    }), console.log('27 engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods, technology, or sensitive information?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpEngageInUSProhibitingExport",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("28. Do you intend to engage in any activity whose purpose includes opposing, controlling, or overthrowing the U.S. Government by force, violence, or other unlawful means while in the United States?", {
+        widget: "getIntendEngageOpposeInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleIntendEngageOpposeInUS = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      intendEngageOpposeInUS: value.target.name,
+    }), console.log('28 intend to engage in any activity whose purpose includes opposing or other unlawful means while in the United States?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpIntendEngageOpposeInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("29. Do you intend to engage in any activity that could endanger the welfare, safety, or security of the United States?", {
+        widget: "getIntendEngageEndangerInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleIntendEngageEndangerInUS = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      intendEngageEndangerInUS: value.target.name,
+    }), console.log('29 intend to engage in any activity that could endanger the welfare, safety, or security of the United States?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpIntendEngageEndangerInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("30 Do you intend to engage in any other unlawful activity?", {
+        widget: "getEngageInUnlawActivity",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleEngageInUnlawActivity = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      engageInUnlawActivity: value.target.name,
+    }), console.log('30 intend to engage in any other unlawful activity?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpEngageInUnlawActivity",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("31 Are you engaged in or, upon your entry into the United States, do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States?", {
+        widget: "getEngagedInSeriousForeignInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleEngagedInSeriousForeignInUS = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      engagedInSeriousForeignInUS: value.target.name,
+    }), console.log('31 engaged in or do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpEngagedInSeriousForeignInUS",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("32 Committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?", {
+        widget: "getCommitThreatToCommit",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleCommitThreatToCommit = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      commitThreatToCommit: value.target.name,
+    }), console.log('32 Committed, threatened to commit, attempted to commit, conspired to commit?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpCommitThreatToCommit",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("33. Have you ever received any type of military, paramilitary, or weapons training?", {
+        widget: "getReceivedAnyTypeMilitary",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleReceivedAnyTypeMilitary = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      receivedAnyTypeMilitary: value.target.name,
+    }), console.log('33 received any type of military, paramilitary, or weapons training?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpReceivedAnyTypeMilitary",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("34. Are you the spouse or child of an individual who ever committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property? ", {
+        widget: "getSpouseCommitSubstantialDamage",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  }; 
+
+  const handleSpouseCommitSubstantialDamage = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      spouseCommitSubstantialDamage: value.target.name,
+    }), console.log('34 spouse or child who ever committed political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpSpouseCommitSubstantialDamage",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("35. Have you ever assisted or participated in selling, providing, or transporting weapons to any person who, to your knowledge, used them against another person? ", {
+        widget: "getTransportingWeaponsToAnyPerson",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
+
+  const handleTransportingWeaponsToAnyPerson = (value) => {
+    const message = createClientMessage(value.target.name);
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+      transportingWeaponsToAnyPerson: value.target.name,
+    }), console.log('35 Transporting Weapons To Any Person', value.target.name));
+    
+    if (value.target.name === "Yes") {
+      const botMessage = createChatBotMessage("Explain", {
+        widget: "getExpTransportingWeaponsToAnyPerson",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      const botMessage = createChatBotMessage("36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons? ", {
+        widget: "getSituationsThatDetainingPersons",
+      });
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+        // clientName: value.target.name,
+      }), /* console.log('client name fear else.. ', value.target.name) */);
+    }
+  };
 
   const updateEmployeeDetail = (key, value) => {
     //console.log(key, value, employeeDetail);
@@ -2597,8 +3580,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             })
           : prev.messages[ind]["widget"] === "getCurrentMailingAddress"
           ? ((botMessage = createChatBotMessage("Current Mailing address", {
-              // widget: "getAddressYouLive",
-              widget: "getFearReason",
+              widget: "getAddressYouLive",
+              // widget: "getFearReason",
             }), console.log('other names :', prev.messages[lastInd].message)),
             {
               ...prev,
@@ -3549,6 +4532,363 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                   messages: [...prev.messages, botMessage],
                 })
               )
+
+            // // Page 4
+            : prev.messages[ind]["widget"] === "getExDeniedAdmissionToUS"
+            ? ((botMessage = createChatBotMessage("2.	Have you ever been denied a visa to the U.S.?", {
+                widget: "getDeniedVisaToUS",
+              }), console.log('1 Explain denied admission to the U.S:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expDeniedAdmissionToUS: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpDeniedVisaToUS"
+            ? ((botMessage = createChatBotMessage("3.	Have you ever worked in the U.S. without authorization?", {
+                widget: "getWorkInUSwithoutAuthorization",
+              }), console.log('2 Explain denied a visa to the U.S:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expDeniedVisaToUS: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpWorkInUSwithoutAuthorization"
+            ? ((botMessage = createChatBotMessage("4.	Have you ever violated the terms or conditions of your nonimmigrant status?", {
+                widget: "getViolatTermOfNonimmigrantStatus",
+              }), console.log('3 Explain worked in the U.S. without authorization:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expWorkInUSwithoutAuthorization: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpViolatTermOfNonimmigrantStatus"
+            ? ((botMessage = createChatBotMessage("5.	Are you presently or have you ever been in removal, exclusion, rescission, or deportation proceedings?", {
+                widget: "getPresentlyRemovalExclusionProceed",
+              }), console.log('4 Explain violated the terms of nonimmigrant:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expViolatTermOfNonimmigrantStatus: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpPresentlyRemovalExclusionProceed"
+            ? ((botMessage = createChatBotMessage("6.	Have you ever been issued a final order of exclusion, deportation, or removal?", {
+                widget: "getIssueFinalOrderExclusionRemoval",
+              }), console.log('5 Explain presently in removal,deportation proceedings:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expPresentlyRemovalExclusionProceed: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpIssueFinalOrderExclusionRemoval"
+            ? ((botMessage = createChatBotMessage("7.	Have you ever held lawful permanent resident status which was later rescinded?", {
+                widget: "getLawfulPermResidentStatuslatRescind",
+              }), console.log('6 Explain issued a final order of exclusion, removal:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expIssueFinalOrderExclusionRemoval: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpLawfulPermResidentStatuslatRescind"
+            ? ((botMessage = createChatBotMessage("8.	Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time?", {
+                widget: "getVoluntlyByImmigrationOfficerFailToDepart",
+              }), console.log('7 Explain lawful permanent which was later rescinded:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expLawfulPermResidentStatuslatRescind: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpVoluntlyByImmigrationOfficerFailToDepart"
+            ? ((botMessage = createChatBotMessage("9.	Have you ever applied for any kind of relief or protection from removal, exclusion, or deportation?", {
+                widget: "getAppliedForReliefFromRemovalDeportation",
+              }), console.log('8 Explain ever granted voluntary or an immigration judge, but failed to depart within the allotted time:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expVoluntlyByImmigrationOfficerFailToDepart: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpAppliedForReliefFromRemovalDeportation"
+            ? ((botMessage = createChatBotMessage("10. Have you ever been a J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement?", {
+                widget: "getJNonimmigrantVisitSubjectTwoYear",
+              }), console.log('9 Explain applied for any kind of relief or protection from removal or deportation:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expAppliedForReliefFromRemovalDeportation: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpJNonimmigrantVisitSubjectTwoYear"
+            ? ((botMessage = createChatBotMessage("11. Have you complied with the foreign residence requirement?", {
+                widget: "getCompliedWithForeignResidReq",
+              }), console.log('10 Explain J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expJNonimmigrantVisitSubjectTwoYear: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpCompliedWithForeignResidReq"
+            ? ((botMessage = createChatBotMessage("12.	Have you been granted a waiver or has the Department of State issued a favorable waiver recommendation letter for you?", {
+                widget: "getGrantWaiverRecommendLetter",
+              }), console.log('11 Explain complied with the foreign residence requirement:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expCompliedWithForeignResidReq: prev.messages[lastInd].message,
+              })
+
+              // // Page 5
+
+              : prev.messages[ind]["widget"] === "getExpGrantWaiverRecommendLetter"
+            ? ((botMessage = createChatBotMessage("13.	Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official?", {
+                widget: "getArrestedAnyReasonByLaw",
+              }), console.log('12 Explain granted a waiver or recommendation letter for you:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expGrantWaiverRecommendLetter: prev.messages[lastInd].message,
+              }) 
+               
+              : prev.messages[ind]["widget"] === "getExpArrestedAnyReasonByLaw"
+            ? ((botMessage = createChatBotMessage("14.	Have you ever committed a crime of any kind (even if you were not arrested, cited, charged, or tried for that crime)?", {
+                widget: "getCommittedACrimeOfAnyKind",
+              }), console.log('13 Explain arrested, cited,any law enforcement official:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expArrestedAnyReasonByLaw: prev.messages[lastInd].message,
+              }) 
+
+              : prev.messages[ind]["widget"] === "getExpCommittedACrimeOfAnyKind"
+            ? ((botMessage = createChatBotMessage("15.	Have you ever plead guilty to or been convicted of a crime or offense (even if the violation was subsequently expunged or sealed by a court, or if you were granted a pardon, amnesty, a rehabilitation decree, or other act of clemency?", {
+                widget: "getConvictedOfCrimeActOfClemency",
+              }), console.log('14 Explain committed a crime of any kind (tried for that crime):', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expCommittedACrimeOfAnyKind: prev.messages[lastInd].message,
+              })          
+               
+              : prev.messages[ind]["widget"] === "getExpConvictedOfCrimeActOfClemency"
+            ? ((botMessage = createChatBotMessage("16.	Have you ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty (such as a prison sentence, suspended sentence, house arrest, parole, alternative sentencing, drug or alcohol treatment, rehabilitative programs or classes, probation, or community service)?", {
+                widget: "getOrderedPunishedByJudge",
+              }), console.log('15 Explain have you ever plead guilty to or been convicted of a crime or other act of clemency:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expConvictedOfCrimeActOfClemency: prev.messages[lastInd].message,
+              })
+               
+              : prev.messages[ind]["widget"] === "getExpOrderedPunishedByJudge"
+            ? ((botMessage = createChatBotMessage("17.	Have you ever been a defendant or the accused in a criminal proceeding (including pre-trial diversion, deferred prosecution, deferred adjudication, or any withheld adjudication)?", {
+                widget: "getDefendInCriminalProceeding",
+              }), console.log('Explain 16 ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expOrderedPunishedByJudge: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpDefendInCriminalProceeding"
+            ? ((botMessage = createChatBotMessage("18. Have you ever violated (or attempted or conspired to violate) any controlled substance law or regulation of state, the United States, or a foreign country?", {
+                widget: "getViolatSubstanceLawForeigncountry",
+              }), console.log('Explain 17 defendant or the accused in a criminal proceeding:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expDefendInCriminalProceeding: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpViolatSubstanceLawForeigncountry"
+            ? ((botMessage = createChatBotMessage("19. Have you ever exercised immunity (diplomatic or otherwise) to avoid being prosecuted for a criminal offense in the United States?", {
+                widget: "getExercisedImmunityOffenseInUS",
+              }), console.log('Explain 18 ever violated controlled substance law, the United States, or a foreign country:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expViolatSubstanceLawForeigncountry: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpExercisedImmunityOffenseInUS"
+            ? ((botMessage = createChatBotMessage("20. Have you ever, while serving as a foreign government official, been responsible for or directly carried out violations of religious freedoms?", {
+                widget: "getServingAsForeignGovernment",
+              }), console.log('Explain 19 exercised immunity to avoid being prosecuted for a criminal offense in the United States:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expExercisedImmunityOffenseInUS: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpServingAsForeignGovernment"
+            ? ((botMessage = createChatBotMessage("21. Have you ever induced by force, fraud, or coercion (or otherwise been involved in) the trafficking of persons for commercial sex acts?", {
+                widget: "getForceTraffickingSexActs",
+              }), console.log('Explain 20 while serving as a foreign government official,violations of religious freedoms:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expServingAsForeignGovernment: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpForceTraffickingSexActs"
+            ? ((botMessage = createChatBotMessage("22. Have you ever trafficked a person into involuntary servitude, peonage, debt bondage, or slavery? Trafficking includes recruiting, harboring, transporting, providing, or obtaining a person for labor or services through the use of force, fraud, or coercion.", {
+                widget: "getTraffickPersonCoercion",
+              }), console.log('Explain 21 induced by force, fraud, or coercion the trafficking of persons for commercial sex acts:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expForceTraffickingSexActs: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpTraffickPersonCoercion"
+            ? ((botMessage = createChatBotMessage("23. Have you ever knowingly aided, abetted, assisted, conspired, or colluded with others in trafficking persons for commercial sex acts or involuntary servitude, peonage, debt bondage, or slavery?", {
+                widget: "getKnowinglyAidedSlavery",
+              }), console.log('Explain 22 Have you ever trafficked a person into involuntary servitude services through the use of force, fraud, or coercion:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expTraffickPersonCoercion: prev.messages[lastInd].message,
+              })
+
+              // // Page 6
+
+              : prev.messages[ind]["widget"] === "getExpKnowinglyAidedSlavery"
+            ? ((botMessage = createChatBotMessage("24. Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons and have received or obtained, within the last five years, any financial or other benefits from the illicit activity of your spouse or your parent, although you knew or reasonably should have known that this benefit resulted from the illicit activity of your spouse or parent?", {
+                widget: "getSpouseSonOfForeignNational",
+              }), console.log('Explain 23 Have ever knowingly aided, or involuntary servitude, peonage, debt bondage, or slavery:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expKnowinglyAidedSlavery: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpSpouseSonOfForeignNational"
+            ? ((botMessage = createChatBotMessage("25 Have you ever engaged in money laundering or have you ever knowingly aided, assisted, conspired, or colluded with others in money laundering or do you seek to enter the United States to engage in such activity?", {
+                widget: "getEngageInMoneyLaunderActivity",
+              }), console.log('Explain 24 Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expSpouseSonOfForeignNational: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpEngageInMoneyLaunderActivity"
+            ? ((botMessage = createChatBotMessage("26. Do you intend to engage in any activity that violates or evades any law relating to espionage (including spying) or sabotage in the United States?", {
+                widget: "getIntendActivityViolatesInUS",
+              }), console.log('Explain 25 Have you ever engaged in money laundering in such activity:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expEngageInMoneyLaunderActivity: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpIntendActivityViolatesInUS"
+            ? ((botMessage = createChatBotMessage("27. Do you intend to engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods, technology, or sensitive information?", {
+                widget: "getEngageInUSProhibitingExport",
+              }), console.log('Explain 26 do you intend to engage in any activity that violates or sabotage in the United States:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expIntendActivityViolatesInUS: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpEngageInUSProhibitingExport"
+            ? ((botMessage = createChatBotMessage("28. Do you intend to engage in any activity whose purpose includes opposing, controlling, or overthrowing the U.S. Government by force, violence, or other unlawful means while in the United States?", {
+                widget: "getIntendEngageOpposeInUS",
+              }), console.log('Explain 27 engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expEngageInUSProhibitingExport: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpIntendEngageOpposeInUS"
+            ? ((botMessage = createChatBotMessage("29. Do you intend to engage in any activity that could endanger the welfare, safety, or security of the United States?", {
+                widget: "getIntendEngageEndangerInUS",
+              }), console.log('Explain 28 intend to engage in any activity whose opposing, controlling, other unlawful means while in the United States:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expIntendEngageOpposeInUS: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpIntendEngageEndangerInUS"
+            ? ((botMessage = createChatBotMessage("30. Do you intend to engage in any other unlawful activity?", {
+                widget: "getEngageInUnlawActivity",
+              }), console.log('Explain 29 intend to engage in any activity that could endanger the welfare, safety, or security of the United States:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expIntendEngageEndangerInUS: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpEngageInUnlawActivity"
+            ? ((botMessage = createChatBotMessage("31. Are you engaged in or, upon your entry into the United States, do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States?", {
+                widget: "getEngagedInSeriousForeignInUS",
+              }), console.log('Explain 30 intend to engage in any activity that could endanger the welfare, safety, or security of the United States:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expEngageInUnlawActivity: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpEngagedInSeriousForeignInUS"
+            ? ((botMessage = createChatBotMessage("32. Committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?", {
+                widget: "getCommitThreatToCommit",
+              }), console.log('Explain 31 engaged in or do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expEngagedInSeriousForeignInUS: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpCommitThreatToCommit"
+            ? ((botMessage = createChatBotMessage("33. Have you ever received any type of military, paramilitary, or weapons training?", {
+                widget: "getReceivedAnyTypeMilitary",
+              }), console.log('Explain 32 Committed, threatened to commit, attempted to commit, conspired to commit:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expCommitThreatToCommit: prev.messages[lastInd].message,
+              })
+               
+              : prev.messages[ind]["widget"] === "getExpReceivedAnyTypeMilitary"
+            ? ((botMessage = createChatBotMessage("34. Are you the spouse or child of an individual who ever committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property? ", {
+                widget: "getSpouseCommitSubstantialDamage",
+              }), console.log('Explain 33 received any type of military, paramilitary, or weapons training:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expReceivedAnyTypeMilitary: prev.messages[lastInd].message,
+              })
+               
+              : prev.messages[ind]["widget"] === "getExpSpouseCommitSubstantialDamage"
+            ? ((botMessage = createChatBotMessage("35. Have you ever assisted or participated in selling, providing, or transporting weapons to any person who, to your knowledge, used them against another person?", {
+                widget: "getTransportingWeaponsToAnyPerson",
+              }), console.log('Explain 34 spouse or child who ever committed political assassination or cause substantial damage to property:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expSpouseCommitSubstantialDamage: prev.messages[lastInd].message,
+              })
+
+              : prev.messages[ind]["widget"] === "getExpTransportingWeaponsToAnyPerson"
+            ? ((botMessage = createChatBotMessage("36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?", {
+                widget: "getSituationsThatDetainingPersons",
+              }), console.log('Explain 35:', prev.messages[lastInd].message)),
+              {
+                ...prev,
+                messages: [...prev.messages, botMessage],
+                expTransportingWeaponsToAnyPerson: prev.messages[lastInd].message,
+              })
+
+
             : prev.messages[ind]["widget"] === "getExpSituationsThatDetainingPersons"
             ? ((botMessage = createChatBotMessage("37.	Have you EVER been a member of, assisted, or participated in any group, unit, or organization of any kind in which you or other persons used any type of weapon against any person or threatened to do so?", {
                 widget: "getThreatendedAnyPerson",
@@ -3865,8 +5205,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 expConvictedOfDesertion: prev.messages[lastInd].message,
               })
             : prev.messages[ind]["widget"] === "getExpLeftOrRemainedOutsideTheUS"
-            ? ((botMessage = createChatBotMessage("next user input", {
-                widget: "getFearReason",
+            ? ((botMessage = createChatBotMessage("Thank you for you response", {
+                widget: "getBenefitStatus",
               }), console.log('Explain Outside The US :', prev.messages[lastInd].message)),
               {
                 ...prev,
@@ -3880,11 +5220,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 widget: "getBenefitStatus",
               },
               disableOption('idBkdM', 'fearStatus')
-            ), console.log('Date of approval of your non immigrant visa : ', prev.messages[lastInd].message)),
+            )),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
-              dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
+              //dateOfApprovalNonImmigrant: prev.messages[lastInd].message,
               // completeLegalName: prev.messages[lastInd].message,
             })
           : ((botMessage = createChatBotMessage(
@@ -3976,6 +5316,44 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleAddMoreInsideAddressInList,
             handleToAddYourEmployementList,
             handleEmployemnetAddMoreInList,
+            // // Page 4
+            handleDeniedAdmissionToUS,
+            handleDeniedVisaToUS,
+            handleWorkInUSwithoutAuthorization,
+            handleViolatTermOfNonimmigrantStatus,
+            handlePresentlyRemovalExclusionProceed,
+            handleIssueFinalOrderExclusionRemoval,
+            handleLawfulPermResidentStatuslatRescind,
+            handleVoluntlyByImmigrationOfficerFailToDepart,
+            handleAppliedForReliefFromRemovalDeportation,
+            handleJNonimmigrantVisitSubjectTwoYear,
+            handleCompliedWithForeignResidReq,
+            // // Page 5
+            handleGrantWaiverRecommendLetter,
+            handleArrestedAnyReasonByLaw,
+            handleCommittedACrimeOfAnyKind,
+            handleConvictedOfCrimeActOfClemency,
+            handleOrderedPunishedByJudge,
+            handleDefendInCriminalProceeding,
+            handleViolatSubstanceLawForeigncountry,
+            handleExercisedImmunityOffenseInUS,
+            handleServingAsForeignGovernment,
+            handleForceTraffickingSexActs,
+            handleTraffickPersonCoercion,
+            // // Page 6
+            handleKnowinglyAidedSlavery,
+            handleSpouseSonOfForeignNational,
+            handleEngageInMoneyLaunderActivity,
+            handleIntendActivityViolatesInUS,
+            handleEngageInUSProhibitingExport,
+            handleIntendEngageOpposeInUS,
+            handleIntendEngageEndangerInUS,
+            handleEngageInUnlawActivity,
+            handleEngagedInSeriousForeignInUS,
+            handleCommitThreatToCommit,
+            handleReceivedAnyTypeMilitary,
+            handleSpouseCommitSubstantialDamage,
+            handleTransportingWeaponsToAnyPerson,
           },
         });
       })}
