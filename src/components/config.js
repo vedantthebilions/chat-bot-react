@@ -9,9 +9,9 @@ const botName = "Contreras & Metelska,PA";
 
 
 function disableOption(id) {
-  console.log('id is : ', id);
+  // console.log('id is : ', id);
   if( document.getElementById('clientType').value.length > 0 ) {
-    console.log('here..');
+    // console.log('here..');
     // document.getElementById('clientType').disabled = true;
   }
 }
@@ -27,9 +27,9 @@ const config = {
       `Are you a New Client, Former Client, or Current client?`,
       {
         delay: 1000,
-        // widget: "getClientType",
+        widget: "getClientType",
         // widget: "getYourWeight",
-        widget: "getPeopleInCombat",
+        // widget: "getPeopleInCombat",
       }
     ),
   ],

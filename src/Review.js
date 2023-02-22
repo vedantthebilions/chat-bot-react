@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Pdf from "react-to-pdf";
 import { pdfFromReact } from "generate-pdf-from-react-html";
+import { PDFExport } from '@progress/kendo-react-pdf';
 import TableView from "./TableView";
 import "./App.css";
 
@@ -111,11 +112,12 @@ class Review extends Component {
   }
 
   activateLasers() {
-    console.log("clicked");
+    // console.log("clicked");
   }
   render() {
     const ref = React.createRef();
-    console.log('in review : ', this.state);
+    // console.log('in review : ', this.state);
+    const pdfExportComponent = React.createRef(null);
     return (
       <>
         {/* <div ref={ref}>
@@ -133,13 +135,16 @@ class Review extends Component {
           </div>
         </div> */}
         <div className="d-block">
-          <div className="element-to-print">
+          {/* <div className="element-to-print">
             <TableView state={this.state} />
-          </div>
+          </div> */}
+          <PDFExport paperSize="A4" margin="0.5cm" ref={pdfExportComponent}>
+            <TableView state={this.state} />
+          </PDFExport>
           <div className="btn-div">
             <button
               class="btn"
-              onClick={
+              /* onClick={
                 () =>
                   pdfFromReact(
                     ".element-to-print",
@@ -148,7 +153,12 @@ class Review extends Component {
                     true,
                     false
                   ) //resize true
-              }
+              } */
+              onClick={() => {
+                if (pdfExportComponent.current) {
+                  pdfExportComponent.current.save();
+                }
+              }}
             >
               Download as Pdf
             </button>

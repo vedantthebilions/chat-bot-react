@@ -9,7 +9,7 @@ import { ReactComponent as ButtonIcon } from "./image/robot.svg";
 import validateInput from './components/validateInput';
 
 const saveMessages = (messages, HTMLString) => {
-  console.log('in')
+  //console.log('in')
   // localStorage.setItem('chat_messages', JSON.stringify(messages));
 };
 

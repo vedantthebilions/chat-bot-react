@@ -113,7 +113,7 @@ function TableView(props) {
   const eyeColor = props.state?.eyeColor;
   const hairColor = props.state?.hairColor;
   let employeeDetailList = localStorage.getItem('employeeDetailList');
-  console.log('employee Detail List value : ', employeeDetailList);
+  //console.log('employee Detail List value : ', employeeDetailList);
 
   // // page 4
 
@@ -282,11 +282,11 @@ function TableView(props) {
           {clientType} {clientName}{" "}
           {caseType}
         </h4>
-      </center>
+      </center> */}
 
       <center>
-        <h4>{clientName}</h4>
-      </center> */}
+        <h6>{clientName}</h6>
+      </center>
 
       <div className="margin-2">
         <table>
@@ -526,10 +526,25 @@ function TableView(props) {
                 </ol>
               </td>
             </tr>
+            <tr>
+              <td colSpan={3} className='section'>
+                (17) Have you ever applied for any immigration benefit? (Examples:
+                Permanent residency, asylum, amnesty, TPS, cancellation,
+                suspension, Family Unity, DACA, visa petition, U visa, T visa,
+                Special Immigrant Juvenile Status, or any other immigration
+                benefit). If so, please tell me what type of benefit and when did
+                you apply <br />
+                <u>
+                  {appiledImmigration
+                    ? appiledImmigration
+                    : "NA"}
+                </u>
+              </td>
+            </tr> &nbsp;
             {/* Page 1 */}
             <tr>
               <td colSpan={3} className='section'>
-                (4) Complete legal name of the applicant &nbsp;&nbsp; (if married, married name): &nbsp;&nbsp;
+                Complete legal name of the applicant &nbsp;&nbsp; (if married, married name): &nbsp;&nbsp;
                 {completeLegalName
                   ? completeLegalName
                   : "NA"}
@@ -537,7 +552,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) All other names used: &nbsp;&nbsp;
+                All other names used: &nbsp;&nbsp;
                 {otherNameUsed
                   ? otherNameUsed
                   : "NA"}
@@ -545,7 +560,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) Current Mailing address: &nbsp;&nbsp;
+                Current Mailing address: &nbsp;&nbsp;
                 {currentMailingAddress
                   ? currentMailingAddress
                   : "NA"}
@@ -553,7 +568,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) Current Address where you live & how long you have lived there.: &nbsp;&nbsp;
+                Current Address where you live & how long you have lived there.: &nbsp;&nbsp;
                 {currentAddressYouLive
                   ? currentAddressYouLive
                   : "NA"}
@@ -561,19 +576,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) Country of Origin: &nbsp;&nbsp;
+                Country of Origin: &nbsp;&nbsp;
                 {countryOfOrigin
                   ? countryOfOrigin
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Birth date: &nbsp;&nbsp;
+                Birth date: &nbsp;&nbsp;
                 {birthDate
                   ? birthDate
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Social Security Number (if any): &nbsp;&nbsp;
+                Social Security Number (if any): &nbsp;&nbsp;
                 {socialSecurityNumber
                   ? socialSecurityNumber
                   : "NA"}
@@ -581,7 +596,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) Alien Number (if any): &nbsp;&nbsp;
+                Alien Number (if any): &nbsp;&nbsp;
                 {alienNumber
                   ? alienNumber
                   : "NA"}
@@ -589,7 +604,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section' colSpan={3}>
-              (4) Have you ever had a social security number? if so, what was the number.:
+              Have you ever had a social security number? if so, what was the number.:
                 <br />
                 {hadSecurityNumber
                   ? hadSecurityNumber + " " +
@@ -599,7 +614,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) Date and city of last entry / arrival into the U.S.: &nbsp;&nbsp;
+                Date and city of last entry / arrival into the U.S.: &nbsp;&nbsp;
                 {arrivalIntoUS
                   ? arrivalIntoUS
                   : "NA"}
@@ -607,19 +622,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) I-94 Card Number: &nbsp;&nbsp;
+                I-94 Card Number: &nbsp;&nbsp;
                 {i94CardNumber
                   ? i94CardNumber
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Current status: &nbsp;&nbsp;
+                Current status: &nbsp;&nbsp;
                 {cardCurrentStatus
                   ? cardCurrentStatus
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Expiration date of current status: &nbsp;&nbsp;
+                Expiration date of current status: &nbsp;&nbsp;
                 {cardExpirationDate
                   ? cardExpirationDate
                   : "NA"}
@@ -627,7 +642,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) City, State, and Country of Birth: &nbsp;&nbsp;
+                City, State, and Country of Birth: &nbsp;&nbsp;
                 {ctStateCountryOfBirth
                   ? ctStateCountryOfBirth
                   : "NA"}
@@ -635,19 +650,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) Passport Number Used at Last Arrival: &nbsp;&nbsp;
+                Passport Number Used at Last Arrival: &nbsp;&nbsp;
                 {passportNumOnArrival
                   ? passportNumOnArrival
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Passport expiration date: &nbsp;&nbsp;
+                Passport expiration date: &nbsp;&nbsp;
                 {passportExpirationDate
                   ? passportExpirationDate
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Country that issued your passport.: &nbsp;&nbsp;
+                Country that issued your passport.: &nbsp;&nbsp;
                 {countryThatIssuedPassport
                   ? countryThatIssuedPassport
                   : "NA"}
@@ -655,13 +670,13 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={2} className='section'>
-                (4) Mother’s complete name: &nbsp;&nbsp;
+                Mother’s complete name: &nbsp;&nbsp;
                 {motherCompleteName
                   ? motherCompleteName
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Mother’s city of birth: &nbsp;&nbsp;
+                Mother’s city of birth: &nbsp;&nbsp;
                 {motherCity
                   ? motherCity
                   : "NA"}
@@ -669,19 +684,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) Mother’s country of birth: &nbsp;&nbsp;
+                Mother’s country of birth: &nbsp;&nbsp;
                 {motherCountryOfBirth
                   ? motherCountryOfBirth
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Mother’s city of residence: &nbsp;&nbsp;
+                Mother’s city of residence: &nbsp;&nbsp;
                 {motherResidenceCity
                   ? motherResidenceCity
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Mother’s country of residence: &nbsp;&nbsp;
+                Mother’s country of residence: &nbsp;&nbsp;
                 {motherResidenceCountry
                   ? motherResidenceCountry
                   : "NA"}
@@ -690,13 +705,13 @@ function TableView(props) {
             {/* Page 2 */}
             <tr>
               <td colSpan={2} className='section'>
-                (4) Father’s complete name: &nbsp;&nbsp;
+                Father’s complete name: &nbsp;&nbsp;
                 {fatherCompleteName
                   ? fatherCompleteName
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Father’s city of birth: &nbsp;&nbsp;
+                Father’s city of birth: &nbsp;&nbsp;
                 {fatherCity
                   ? fatherCity
                   : "NA"}
@@ -704,19 +719,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) Father’s country of birth: &nbsp;&nbsp;
+                Father’s country of birth: &nbsp;&nbsp;
                 {fatherCountryOfBirth
                   ? fatherCountryOfBirth
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Father’s city of residence: &nbsp;&nbsp;
+                Father’s city of residence: &nbsp;&nbsp;
                 {fatherResidenceCity
                   ? fatherResidenceCity
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Father’s country of residence: &nbsp;&nbsp;
+                Father’s country of residence: &nbsp;&nbsp;
                 {fatherResidenceCountry
                   ? fatherResidenceCountry
                   : "NA"}
@@ -724,7 +739,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) Were you inspected and admitted by an immigration oficial?: &nbsp;&nbsp;
+                Were you inspected and admitted by an immigration oficial?: &nbsp;&nbsp;
                 {inspectedImmigrationOficial
                   ? inspectedImmigrationOficial
                   : "NA"}
@@ -732,7 +747,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) Non-immigrant visa number (if any): &nbsp;&nbsp;
+                Non-immigrant visa number (if any): &nbsp;&nbsp;
                 {nonimmigrantVisaNumber
                   ? nonimmigrantVisaNumber
                   : "NA"}
@@ -740,7 +755,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={3} className='section'>
-                (4) Name and location of consult that issued your non-immigrant visa : &nbsp;&nbsp;
+                Name and location of consult that issued your non-immigrant visa : &nbsp;&nbsp;
                 {nameOnNonimmigrantVisa
                   ? nameOnNonimmigrantVisa
                   : "NA"}
@@ -748,13 +763,13 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={2} className='section'>
-                (4) Date of approval for non-immigrant visa : &nbsp;&nbsp;
+                Date of approval for non-immigrant visa : &nbsp;&nbsp;
                 {dateOfApprovalNonImmigrant
                   ? dateOfApprovalNonImmigrant
                   : "NA"}
               </td>
               <td className='section'>
-                (4) Sex : &nbsp;&nbsp;
+                Sex : &nbsp;&nbsp;
                 {sxStatus
                   ? sxStatus
                   : "NA"}
@@ -762,13 +777,13 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) marital status : &nbsp;&nbsp;
+                marital status : &nbsp;&nbsp;
                 {maritalStatus
                   ? maritalStatus
                   : "NA"}
               </td>
               <td colSpan={2} className='section'>
-                (4) Total number of marriages : &nbsp;&nbsp;
+                Total number of marriages : &nbsp;&nbsp;
                 {totalMarriages
                   ? totalMarriages
                   : "NA"}
@@ -776,13 +791,13 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={2} className='section'>
-                (4) Current spouse’s full name: &nbsp;&nbsp;
+                Current spouse’s full name: &nbsp;&nbsp;
                 {currentSpouseFullname
                   ? currentSpouseFullname
                   : "NA"}
               </td>
               <td className='section'>
-                (4) alien number: &nbsp;&nbsp;
+                alien number: &nbsp;&nbsp;
                 {currentSpouseAlienNum
                   ? currentSpouseAlienNum
                   : "NA"}
@@ -790,19 +805,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) date of birth: &nbsp;&nbsp;
+                date of birth: &nbsp;&nbsp;
                 {currentSpouseDOB
                   ? currentSpouseDOB
                   : "NA"}
               </td>
               <td className='section'>
-                (4) date of marriage: &nbsp;&nbsp;
+                date of marriage: &nbsp;&nbsp;
                 {currentSpouseDOMrg
                   ? currentSpouseDOMrg
                   : "NA"}
               </td>
               <td className='section'>
-                (4) city: &nbsp;&nbsp;
+                city: &nbsp;&nbsp;
                 {currentSpouseCity
                   ? currentSpouseCity
                   : "NA"}
@@ -810,13 +825,13 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) state: &nbsp;&nbsp;
+                state: &nbsp;&nbsp;
                 {currentSpouseState
                   ? currentSpouseState
                   : "NA"}
               </td>
               <td colSpan={2} className='section'>
-                (4) country of birth: &nbsp;&nbsp;
+                country of birth: &nbsp;&nbsp;
                 {currentSpouseCountryOfBirth
                   ? currentSpouseCountryOfBirth
                   : "NA"}
@@ -824,13 +839,13 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={2} className='section'>
-                (4) Prior spouse 1’s full name: &nbsp;&nbsp;
+                Prior spouse 1’s full name: &nbsp;&nbsp;
                 {priorSpouse1Fullname
                   ? priorSpouse1Fullname
                   : "NA"}
               </td>
               <td className='section'>
-                (4) alien number: &nbsp;&nbsp;
+                alien number: &nbsp;&nbsp;
                 {priorSpouse1AlienNum
                   ? priorSpouse1AlienNum
                   : "NA"}
@@ -838,19 +853,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) date of birth: &nbsp;&nbsp;
+                date of birth: &nbsp;&nbsp;
                 {priorSpouse1DOB
                   ? priorSpouse1DOB
                   : "NA"}
               </td>
               <td className='section'>
-                (4) date of marriage: &nbsp;&nbsp;
+                date of marriage: &nbsp;&nbsp;
                 {priorSpouse1DOMrg
                   ? priorSpouse1DOMrg
                   : "NA"}
               </td>
               <td className='section'>
-                (4) city: &nbsp;&nbsp;
+                city: &nbsp;&nbsp;
                 {priorSpouse1City
                   ? priorSpouse1City
                   : "NA"}
@@ -858,19 +873,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) state: &nbsp;&nbsp;
+                state: &nbsp;&nbsp;
                 {priorSpouse1State
                   ? priorSpouse1State
                   : "NA"}
               </td>
               <td className='section'>
-                (4) country of birth: &nbsp;&nbsp;
+                country of birth: &nbsp;&nbsp;
                 {priorSpouse1CountryOfBirth
                   ? priorSpouse1CountryOfBirth
                   : "NA"}
               </td>
               <td className='section'>
-                (4) date marriage ended: &nbsp;&nbsp;
+                date marriage ended: &nbsp;&nbsp;
                 {priorSpouse1DateMrgEnded
                   ? priorSpouse1DateMrgEnded
                   : "NA"}
@@ -878,13 +893,13 @@ function TableView(props) {
             </tr>
             <tr>
               <td colSpan={2} className='section'>
-                (4) Prior spouse 2’s full name: &nbsp;&nbsp;
+                Prior spouse 2’s full name: &nbsp;&nbsp;
                 {priorSpouse2Fullname
                   ? priorSpouse2Fullname
                   : "NA"}
               </td>
               <td className='section'>
-                (4) alien number: &nbsp;&nbsp;
+                alien number: &nbsp;&nbsp;
                 {priorSpouse2AlienNum
                   ? priorSpouse2AlienNum
                   : "NA"}
@@ -892,19 +907,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) date of birth: &nbsp;&nbsp;
+                date of birth: &nbsp;&nbsp;
                 {priorSpouse2DOB
                   ? priorSpouse2DOB
                   : "NA"}
               </td>
               <td className='section'>
-                (4) date of marriage: &nbsp;&nbsp;
+                date of marriage: &nbsp;&nbsp;
                 {priorSpouse2DOMrg
                   ? priorSpouse2DOMrg
                   : "NA"}
               </td>
               <td className='section'>
-                (4) city: &nbsp;&nbsp;
+                city: &nbsp;&nbsp;
                 {priorSpouse2City
                   ? priorSpouse2City
                   : "NA"}
@@ -912,19 +927,19 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-                (4) state: &nbsp;&nbsp;
+                state: &nbsp;&nbsp;
                 {priorSpouse2State
                   ? priorSpouse2State
                   : "NA"}
               </td>
               <td className='section'>
-                (4) country of birth: &nbsp;&nbsp;
+                country of birth: &nbsp;&nbsp;
                 {priorSpouse2CountryOfBirth
                   ? priorSpouse2CountryOfBirth
                   : "NA"}
               </td>
               <td className='section'>
-                (4) date marriage ended: &nbsp;&nbsp;
+                date marriage ended: &nbsp;&nbsp;
                 {priorSpouse2DateMrgEnded
                   ? priorSpouse2DateMrgEnded
                   : "NA"}
@@ -932,7 +947,7 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section' colSpan={3}>
-              (4) Have you applied for permanent resident status in the past?:
+              Have you applied for permanent resident status in the past?:
                 <br />
                 {appliedForPermenantResident
                   ? appliedForPermenantResident + " " +
@@ -942,14 +957,14 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-              (4) Permenant resident location:
+              Permenant resident location:
                 <br />
                 {permenantResidentLocation
                   ? permenantResidentLocation
                   : "NA"}
               </td>
               <td colSpan={2} className='section'>
-              (4) Result of the application:
+              Result of the application:
                 <br />
                 {applicationResult
                   ? applicationResult
@@ -959,7 +974,7 @@ function TableView(props) {
             {/* Page 3 */}
             <tr>
               <td colSpan={3} className='section'>
-              (3) Ethnicity (Hispanic or Latino or NOT Hispanic or Latino):
+              Ethnicity (Hispanic or Latino or NOT Hispanic or Latino):
                 <br />
                 {ethnicity
                   ? ethnicity
@@ -968,21 +983,21 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-              (3) Race (please circle):
+              Race (please circle):
                 <br />
                 {race
                   ? race
                   : "NA"}
               </td>
               <td className='section'>
-              (3) Height:
+              Height:
                 <br />
                 {yourHeight
                   ? yourHeight
                   : "NA"}
               </td>
               <td className='section'>
-              (3) Weight:
+              Weight:
                 <br />
                 {yourWeight
                   ? yourWeight
@@ -991,14 +1006,14 @@ function TableView(props) {
             </tr>
             <tr>
               <td className='section'>
-              (3) Eye Color:
+              Eye Color:
                 <br />
                 {eyeColor
                   ? eyeColor
                   : "NA"}
               </td>
               <td colSpan={2} className='section'>
-              (3) Hair color:
+              Hair color:
                 <br />
                 {hairColor
                   ? hairColor
@@ -1901,21 +1916,7 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
-            <tr>
-              <td colSpan={3} className='section'>
-                (17) Have you ever applied for any immigration benefit? (Examples:
-                Permanent residency, asylum, amnesty, TPS, cancellation,
-                suspension, Family Unity, DACA, visa petition, U visa, T visa,
-                Special Immigrant Juvenile Status, or any other immigration
-                benefit). If so, please tell me what type of benefit and when did
-                you apply <br />
-                <u>
-                  {appiledImmigration
-                    ? appiledImmigration
-                    : "NA"}
-                </u>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
       </div>

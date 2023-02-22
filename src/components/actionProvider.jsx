@@ -268,7 +268,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       clientType: value.target.name,
-    }), console.log('client type ', value.target.name));
+    }), /* console.log('client type ', value.target.name) */);
 
     const botMessage = createChatBotMessage("Okay, what is your case type?", {
       widget: "getCaseType",
@@ -302,7 +302,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       caseType: value.target.name,
-    }), console.log('case type ', value.target.name));
+    }), /* console.log('case type ', value.target.name) */);
 
     const botMessage = createChatBotMessage(
       "Are you currently outside the US?",
@@ -319,7 +319,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleLocation = (value) => {
     const message = createClientMessage(value.target.name);
-    console.log('get in usa : ', value.target.name);
+    // console.log('get in usa : ', value.target.name);
 
     disableOption('idBkdM', 'caseType');
 
@@ -358,7 +358,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       marriedStatus: value.target.name,
-    }), console.log('married status ', value.target.name));
+    }), /* console.log('married status ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage(
         "Immigration Status of spouse ?",
@@ -403,7 +403,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       immigrationStatus: value.target.name,
-    }), console.log('immigrationStatus : ', value.target.name));
+    }), /* console.log('immigrationStatus : ', value.target.name) */);
 
     const botMessage = createChatBotMessage(
       "Briefly describe your legal problem or tell me why you need a lawyer?",
@@ -426,7 +426,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       hearingType: value.target.name,
-    }), console.log('hearing type : ', value.target.name));
+    }), /* console.log('hearing type : ', value.target.name) */);
 
     const botMessage = createChatBotMessage(
       "c.	Were you given immigration paperwork?",
@@ -449,7 +449,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       sxStatus: value.target.name,
-    }), console.log('Sex status ', value.target.name));
+    }), /* console.log('Sex status ', value.target.name) */);
 
     const botMessage = createChatBotMessage("Marital Status", {
       widget: "getMaritalStatus",
@@ -470,7 +470,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       maritalStatus: value.target.name,
-    }), console.log('Marital status ', value.target.name));
+    }), /* console.log('Marital status ', value.target.name) */);
 
     const botMessage = createChatBotMessage("Total number of marriages", {
       widget: "getTotalMarriages",
@@ -526,7 +526,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     //   policeReport: value.target.name,
     // }), console.log('police report ', value.target.name));
     victimOfCrime: value.target.name
-    }), console.log('victim of crime ', value.target.name));
+    }), /* console.log('victim of crime ', value.target.name) */);
     const botMessage = createChatBotMessage(
       "4.	Have you ever had contact with the police for any reason at all in the US?",
       {
@@ -548,7 +548,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       contactWithPolice: value.target.name,
-    }), console.log(' contact with police ', value.target.name));
+    }), /* console.log(' contact with police ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage(
         "Please describe why you had contact",
@@ -581,7 +581,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       fearStatus: value.target.name,
-    }), console.log('reason to fear ', value.target.name));
+    }), /* console.log('reason to fear ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("a.	What do you fear and why", {
         // widget: "getFearReason",
@@ -613,7 +613,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       messages: [...prev.messages, message],
       // fearStatus: value.target.name,
       hadSecurityNumber: value.target.name,
-    }), console.log('if you had number : ', value.target.name));
+    }), /* console.log('if you had number : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("a.	What was the number", {
         // widget: "getFearReason",
@@ -644,7 +644,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       appliedForPermenantResident: value.target.name,
-    }), console.log('if applied for permanent resident : ', value.target.name));
+    }), /* console.log('if applied for permanent resident : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("please indicate the date of the application", {
         widget: "getPermenantResidentStatus",
@@ -674,7 +674,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       race: value.target.name
-    }), console.log('Race : ', value.target.name));
+    }), /* console.log('Race : ', value.target.name) */);
     const botMessage = createChatBotMessage(
       "Height",
       {
@@ -696,7 +696,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       spouseList: value.target.name,
-    }), console.log('if add spouse list : ', value.target.name));
+    }), /* console.log('if add spouse list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Spouse Fullname", {
         widget: "getSpouseFullnameInList",
@@ -726,7 +726,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       employementList: value.target.name,
-    }), console.log('if add Employement list : ', value.target.name));
+    }), /* console.log('if add Employement list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Employee Name", {
         widget: "getEmployeeNameInList",
@@ -757,7 +757,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, botMessage],
       spouseAppliyingForUInList: value.target.name,
-    }), updateSpouseDetail('isPerson', value.target.name), console.log('if Appliying spouse list : ', value.target.name));    
+    }), updateSpouseDetail('isPerson', value.target.name), /* console.log('if Appliying spouse list : ', value.target.name) */);    
 
 
     /* if (value.target.name === "Yes") {
@@ -789,7 +789,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       spouseAddMoreInList: value.target.name,
-    }), console.log('if add more in spouse list : ', value.target.name));
+    }), /* console.log('if add more in spouse list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Spouse Fullname", {
         widget: "getSpouseFullnameInList",
@@ -819,7 +819,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       employementAddMoreInList: value.target.name,
-    }), console.log('if add more in Employement list : ', value.target.name));
+    }), /* console.log('if add more in Employement list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Employee Name", {
         widget: "getEmployeeNameInList",
@@ -848,7 +848,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       addMoreInOrganizationList: value.target.name,
-    }), console.log('if add more in Organization list : ', value.target.name));
+    }), /* console.log('if add more in Organization list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Name", {
         widget: "getNameInOrgList",
@@ -877,7 +877,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       orgsniationsList: value.target.name,
-    }), console.log('if add Organizations list : ', value.target.name));
+    }), /* console.log('if add Organizations list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Name", {
         widget: "getNameInOrgList",
@@ -906,7 +906,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       arrestsList: value.target.name,
-    }), console.log('if add Arrests list : ', value.target.name));
+    }), /* console.log('if add Arrests list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Date", {
         widget: "getDateInArrestsList",
@@ -935,7 +935,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       addMoreInArrestsList: value.target.name,
-    }), console.log('if add more in Arrests list : ', value.target.name));
+    }), /* console.log('if add more in Arrests list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Date", {
         widget: "getDateInArrestsList",
@@ -964,7 +964,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       addressListOutsideUS: value.target.name,
-    }), console.log('if add Outside of US Address list : ', value.target.name));
+    }), /* console.log('if add Outside of US Address list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Date", {
         widget: "getOutsideAddressDateInList",
@@ -993,7 +993,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       addressListInsideUS: value.target.name,
-    }), console.log('if add Inside of US Address list : ', value.target.name));
+    }), /* console.log('if add Inside of US Address list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Date", {
         widget: "getInsideAddressDateInList",
@@ -1022,7 +1022,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       addMoreOustsideAddressInList: value.target.name,
-    }), console.log('if add more Outside Address list : ', value.target.name));
+    }), /* console.log('if add more Outside Address list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Date", {
         widget: "getOutsideAddressDateInList",
@@ -1051,7 +1051,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       addMoreInsideAddressInList: value.target.name,
-    }), console.log('if add more Inside Address list : ', value.target.name));
+    }), /* console.log('if add more Inside Address list : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Date", {
         widget: "getInsideAddressDateInList",
@@ -1080,7 +1080,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       immigrationPaperwork: value.target.name,
-    }), console.log('immigration paperwork ', value.target.name));
+    }), /* console.log('immigration paperwork ', value.target.name) */);
 
     const botMessage = createChatBotMessage("2	Are you married ?", {
       widget: "getMarriedStatus",
@@ -1101,7 +1101,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       situationsThatDetainingPersons: value.target.name,
-    }), console.log('Situations : ', value.target.name));
+    }), /* console.log('Situations : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpSituationsThatDetainingPersons",
@@ -1130,7 +1130,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       threatendedAnyPerson: value.target.name,
-    }), console.log('Threatended : ', value.target.name));
+    }), /* console.log('Threatended : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpThreatendedAnyPerson",
@@ -1159,7 +1159,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       anyArmedGroup: value.target.name,
-    }), console.log('Armed Group : ', value.target.name));
+    }), /* console.log('Armed Group : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpAnyArmedGroup",
@@ -1188,7 +1188,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       anyOtherTotalitarian: value.target.name,
-    }), console.log('Other Total Itarian : ', value.target.name));
+    }), /* console.log('Other Total Itarian : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpAnyOtherTotalitarian",
@@ -1217,7 +1217,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       naziGovOfGermany: value.target.name,
-    }), console.log('Nazi Gov Of Germany : ', value.target.name));
+    }), /* console.log('Nazi Gov Of Germany : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpNaziGovOfGermany",
@@ -1246,7 +1246,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       tortureOrGenocide: value.target.name,
-    }), console.log('Torture Or Genocide : ', value.target.name));
+    }), /* console.log('Torture Or Genocide : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpTortureOrGenocide",
@@ -1275,7 +1275,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       killingAnyPerson: value.target.name,
-    }), console.log('Killing Any Person : ', value.target.name));
+    }), /* console.log('Killing Any Person : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpKillingAnyPerson",
@@ -1304,7 +1304,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       intentionallyInjuredPerson: value.target.name,
-    }), console.log('Intentionally Injured Person : ', value.target.name));
+    }), /* console.log('Intentionally Injured Person : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpIntentionallyInjuredPerson",
@@ -1333,7 +1333,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       beingForced: value.target.name,
-    }), console.log('Being Forced : ', value.target.name));
+    }), /* console.log('Being Forced : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpBeingForced",
@@ -1362,7 +1362,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       religiousBeliefs: value.target.name,
-    }), console.log('Religious Beliefs : ', value.target.name));
+    }), /* console.log('Religious Beliefs : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpReligiousBeliefs",
@@ -1391,7 +1391,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       armedForce: value.target.name,
-    }), console.log('Armed Force : ', value.target.name));
+    }), /* console.log('Armed Force : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpArmedForce",
@@ -1420,7 +1420,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       peopleInCombat: value.target.name,
-    }), console.log('People In Combat : ', value.target.name));
+    }), /* console.log('People In Combat : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpPeopleInCombat",
@@ -1449,7 +1449,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       haveYouReceivedPublicAssistance: value.target.name,
-    }), console.log('Have You Recieved : ', value.target.name));
+    }), /* console.log('Have You Recieved : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpHaveYouReceivedPublicAssistance",
@@ -1478,7 +1478,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       areYouReceivePublicAssistance: value.target.name,
-    }), console.log('Are You Recieve : ', value.target.name));
+    }), /* console.log('Are You Recieve : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpAreYouReceivePublicAssistance",
@@ -1507,7 +1507,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       removalProceedingFiledAgainstU: value.target.name,
-    }), console.log('Removal Proceeding Filed : ', value.target.name));
+    }), /* console.log('Removal Proceeding Filed : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpRemovalProceedingFiledAgainstU",
@@ -1536,7 +1536,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       everSubmittedFraudulent: value.target.name,
-    }), console.log('Ever Submitted Fraudulent : ', value.target.name));
+    }), /* console.log('Ever Submitted Fraudulent : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpEverSubmittedFraudulent",
@@ -1565,7 +1565,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       liedAboutMisrepresented: value.target.name,
-    }), console.log('Lied About Misrepresented : ', value.target.name));
+    }), /* console.log('Lied About Misrepresented : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpLiedAboutMisrepresented",
@@ -1594,7 +1594,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       falselyClaimedToBeUS: value.target.name,
-    }), console.log('Falsely Claimed To Be US : ', value.target.name));
+    }), /* console.log('Falsely Claimed To Be US : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpFalselyClaimedToBeUS",
@@ -1623,7 +1623,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       beenAStowaway: value.target.name,
-    }), console.log('Been A Stowaway : ', value.target.name));
+    }), /* console.log('Been A Stowaway : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpBeenAStowaway",
@@ -1652,7 +1652,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       alienSmuggling: value.target.name,
-    }), console.log('Alien Smuggling : ', value.target.name));
+    }), /* console.log('Alien Smuggling : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpAlienSmuggling",
@@ -1681,7 +1681,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       fraudulentDocuments: value.target.name,
-    }), console.log('Fraudulent Documents : ', value.target.name));
+    }), /* console.log('Fraudulent Documents : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpFraudulentDocuments",
@@ -1710,7 +1710,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       removedFromTheUS: value.target.name,
-    }), console.log('Removed From The US : ', value.target.name));
+    }), /* console.log('Removed From The US : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpRemovedFromTheUS",
@@ -1739,7 +1739,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       beingAdmittedOrParoled: value.target.name,
-    }), console.log('Being Admitted Or Paroled : ', value.target.name));
+    }), /* console.log('Being Admitted Or Paroled : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpBeingAdmittedOrParoled",
@@ -1768,7 +1768,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       beenUnlawfullyPresentInUS: value.target.name,
-    }), console.log('Been Present Days In US : ', value.target.name));
+    }), /* console.log('Been Present Days In US : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpBeenUnlawfullyPresentInUS",
@@ -1797,7 +1797,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       beenUnlawfullyPresentYearInUS: value.target.name,
-    }), console.log('Been Present a Year In US : ', value.target.name));
+    }), /* console.log('Been Present a Year In US : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpBeenUnlawfullyPresentYearInUS",
@@ -1826,7 +1826,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       reenteredInUSInAggregate: value.target.name,
-    }), console.log('Reentered In US In Aggregate : ', value.target.name));
+    }), /* console.log('Reentered In US In Aggregate : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpReenteredInUSInAggregate",
@@ -1855,7 +1855,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       removedFromUSBeforeReentered: value.target.name,
-    }), console.log('Removed From US Before Reentered : ', value.target.name));
+    }), /* console.log('Removed From US Before Reentered : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpRemovedFromUSBeforeReentered",
@@ -1884,7 +1884,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       practicePolygamyInUS: value.target.name,
-    }), console.log('Practice Polygamy In US : ', value.target.name));
+    }), /* console.log('Practice Polygamy In US : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpPracticePolygamyInUS",
@@ -1913,7 +1913,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       iNASection232C: value.target.name,
-    }), console.log('INA Section 232c : ', value.target.name));
+    }), /* console.log('INA Section 232c : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpINASection232C",
@@ -1942,7 +1942,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       grantedCustodyOfChild: value.target.name,
-    }), console.log('Granted Custody Of Child : ', value.target.name));
+    }), /* console.log('Granted Custody Of Child : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpGrantedCustodyOfChild",
@@ -1971,7 +1971,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       violationOfAnyFederal: value.target.name,
-    }), console.log('Violation Of Any Federal : ', value.target.name));
+    }), /* console.log('Violation Of Any Federal : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpViolationOfAnyFederal",
@@ -2000,7 +2000,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       renouncedUSCitizenship: value.target.name,
-    }), console.log('Renounced US Citizenship : ', value.target.name));
+    }), /* console.log('Renounced US Citizenship : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpRenouncedUSCitizenship",
@@ -2029,7 +2029,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       expNationalSecurityTrainingCorps: value.target.name,
-    }), console.log('National Security Training : ', value.target.name));
+    }), /* console.log('National Security Training : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpNationalSecurityTrainingCorps",
@@ -2058,7 +2058,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       dischargedFromSuchTraining: value.target.name,
-    }), console.log('Discharged From Such Training : ', value.target.name));
+    }), /* console.log('Discharged From Such Training : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpDischargedFromSuchTraining",
@@ -2087,7 +2087,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       convictedOfDesertion: value.target.name,
-    }), console.log('Convicted Of Desertion : ', value.target.name));
+    }), /* console.log('Convicted Of Desertion : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpConvictedOfDesertion",
@@ -2116,7 +2116,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       leftOrRemainedOutsideTheUS: value.target.name,
-    }), console.log('Outside The US : ', value.target.name));
+    }), /* console.log('Outside The US : ', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain Why", {
         widget: "getExpLeftOrRemainedOutsideTheUS",
@@ -2127,7 +2127,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }));
     } else {
       const botMessage = createChatBotMessage("6.	Have you ever applied for any immigration benefit? (Examples: Permanent residency, asylum, amnesty, TPS, cancellation, suspension, Family Unity, DACA, visa petition, U visa, T visa, Special Immigrant Juvenile Status, or any other immigration benefit). If so, please tell me what type of benefit and when did you apply:", {
-        widget: "getFearReason",
+        widget: "getBenefitStatus",
       });
       setState((prev) => ({
         ...prev,
@@ -2138,21 +2138,21 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const addSpouseList = (value) => {
 
-    console.log('list befoer: ', list);
+    // console.log('list befoer: ', list);
 
-    console.log('value in list ', value);
+    // console.log('value in list ', value);
 
     let spList = [];
     
     spList.push([value]);
-    console.log('list : ', spList);
+    // console.log('list : ', spList);
     
     setState((prev) => ({
       ...prev,
       addInSpouseList: [spList],
     }));
 
-    console.log('list after : ', spList);
+    // console.log('list after : ', spList);
   };
 
   const updateSpouseDetail = (key, value) => {
@@ -2168,11 +2168,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       // list.push(spouseDetail);
       spouseDetailList.push(spouseDetail);
       setSpouseDetailList(spouseDetailList);
-      console.log('list=>', spouseDetailList);
+      // console.log('list=>', spouseDetailList);
       //reset
       spouseDetail = resetSpouseDetail();
     }
-    console.log('spouse detail : ', spouseDetail);
+    // console.log('spouse detail : ', spouseDetail);
   }
 
   const updateOrganizationDetail = (key, value) => {
@@ -2183,16 +2183,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }
     })
     setOrganizationsDetail(organizationsDetail);
-    console.log('organizationsDetail.... ', organizationsDetail);
+    // console.log('organizationsDetail.... ', organizationsDetail);
     if (key == 'to') {
       // add in array
       organizationDetailList.push(organizationsDetail);
       setOrganizationDetailList(organizationDetailList);
-      console.log('list=>', organizationDetailList);
+      // console.log('list=>', organizationDetailList);
       //reset
       organizationsDetail = resetSpouseDetail();
     }
-    console.log('Organizations detail : ', organizationsDetail);
+    // console.log('Organizations detail : ', organizationsDetail);
   }
 
   const updateArrestDetail = (key, value) => {
@@ -2203,16 +2203,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }
     })
     setArrestsDetail(arrestsDetail);
-    console.log('arrestsDetail.... ', arrestsDetail);
+    // console.log('arrestsDetail.... ', arrestsDetail);
     if (key == 'result') {
       // add in array
       arrestDetailList.push(arrestsDetail);
       setArrestDetailList(arrestDetailList);
-      console.log('list=>', arrestDetailList);
+      // console.log('list=>', arrestDetailList);
       //reset
       arrestsDetail = resetArrestsDetail();
     }
-    console.log('Arrests detail : ', arrestsDetail);
+    // console.log('Arrests detail : ', arrestsDetail);
   }
 
   const updateOutsideAddressDetail = (key, value) => {
@@ -2223,16 +2223,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }
     })
     setOutAddressDetail(outAddressDetail);
-    console.log('outAddressDetail.... ', outAddressDetail);
+    // console.log('outAddressDetail.... ', outAddressDetail);
     if (key == 'place') {
       // add in array
       outAddressDetailList.push(outAddressDetail);
       setOutAddressDetailList(outAddressDetailList);
-      console.log('list=>', outAddressDetailList);
+      // console.log('list=>', outAddressDetailList);
       //reset
       outAddressDetail = resetOutAddressDetail();
     }
-    console.log('Outside Address detail : ', outAddressDetail);
+    // console.log('Outside Address detail : ', outAddressDetail);
   }
 
   const updateInsideAddressDetail = (key, value) => {
@@ -2243,16 +2243,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }
     })
     setInAddressDetail(inAddressDetail);
-    console.log('inAddressDetail.... ', inAddressDetail);
+    // console.log('inAddressDetail.... ', inAddressDetail);
     if (key == 'place') {
       // add in array
       inAddressDetailList.push(inAddressDetail);
       setInAddressDetailList(inAddressDetailList);
-      console.log('list=>', inAddressDetailList);
+      // console.log('list=>', inAddressDetailList);
       //reset
       inAddressDetail = resetInAddressDetail();
     }
-    console.log('Inside Address detail : ', inAddressDetail);
+    // console.log('Inside Address detail : ', inAddressDetail);
   }
 
   // // Page 4
@@ -2263,7 +2263,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       deniedAdmissionToUS: value.target.name,
-    }), console.log('1 Have you ever been denied admission to the U.S.=', value.target.name));
+    }), /* console.log('1 Have you ever been denied admission to the U.S.=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2291,7 +2291,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       deniedVisaToUS: value.target.name,
-    }), console.log('2 Have you ever been denied a visa to the U.S.=', value.target.name));
+    }), /* console.log('2 Have you ever been denied a visa to the U.S.=', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
         widget: "getExpDeniedVisaToUS",
@@ -2318,7 +2318,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       workInUSwithoutAuthorization: value.target.name,
-    }), console.log('3 Have you ever worked in the U.S. without authorization=', value.target.name));
+    }), /* console.log('3 Have you ever worked in the U.S. without authorization=', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
         widget: "getExpWorkInUSwithoutAuthorization",
@@ -2345,7 +2345,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       violatTermOfNonimmigrantStatus: value.target.name,
-    }), console.log('4 Have you ever violated the terms or conditions of your nonimmigrant status=', value.target.name));
+    }), /* console.log('4 Have you ever violated the terms or conditions of your nonimmigrant status=', value.target.name) */);
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
         widget: "getExpViolatTermOfNonimmigrantStatus",
@@ -2372,7 +2372,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       presentlyRemovalExclusionProceed: value.target.name,
-    }), console.log('5 Are you presently or have you ever been in removal, exclusion, rescission, or deportation proceedings=', value.target.name));
+    }), /* console.log('5 Are you presently or have you ever been in removal, exclusion, rescission, or deportation proceedings=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2400,7 +2400,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       issueFinalOrderExclusionRemoval: value.target.name,
-    }), console.log('6 Have you ever been issued a final order of exclusion, deportation or removal=', value.target.name));
+    }), /* console.log('6 Have you ever been issued a final order of exclusion, deportation or removal=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2428,7 +2428,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       lawfulPermResidentStatuslatRescind: value.target.name,
-    }), console.log('7 Have you ever held lawful permanent resident status which was later rescinded=', value.target.name));
+    }), /* console.log('7 Have you ever held lawful permanent resident status which was later rescinded=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2456,7 +2456,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       voluntlyByImmigrationOfficerFailToDepart: value.target.name,
-    }), console.log('8 Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time=', value.target.name));
+    }), /* console.log('8 Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2484,7 +2484,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       appliedForReliefFromRemovalDeportation: value.target.name,
-    }), console.log('9 Have you ever applied for any kind of relief or protection from removal, exclusion, or deportation=', value.target.name));
+    }), /* console.log('9 Have you ever applied for any kind of relief or protection from removal, exclusion, or deportation=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2512,7 +2512,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       jNonimmigrantVisitSubjectTwoYear: value.target.name,
-    }), console.log('10 Have you ever been a J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement=', value.target.name));
+    }), /* console.log('10 Have you ever been a J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2540,7 +2540,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       compliedWithForeignResidReq: value.target.name,
-    }), console.log('11 Have you complied with the foreign residence requirement=', value.target.name));
+    }), /* console.log('11 Have you complied with the foreign residence requirement=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2570,7 +2570,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       grantWaiverRecommendLetter: value.target.name,
-    }), console.log('12 Have you been granted a waiver or has the Department of State issued a favorable waiver recommendation letter for you=', value.target.name));
+    }), /* console.log('12 Have you been granted a waiver or has the Department of State issued a favorable waiver recommendation letter for you=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2598,7 +2598,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       arrestedAnyReasonByLaw: value.target.name,
-    }), console.log('13 Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official=', value.target.name));
+    }), /* console.log('13 Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2626,7 +2626,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       committedACrimeOfAnyKind: value.target.name,
-    }), console.log('14 Have you ever committed a crime of any kind (even if you were not arrested, cited, charged, or tried for that crime)=', value.target.name));
+    }), /* console.log('14 Have you ever committed a crime of any kind (even if you were not arrested, cited, charged, or tried for that crime)=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2654,7 +2654,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       convictedOfCrimeActOfClemency: value.target.name,
-    }), console.log('15 Have you ever plead guilty to or been convicted of a crime or other act of clemency?=', value.target.name));
+    }), /* console.log('15 Have you ever plead guilty to or been convicted of a crime or other act of clemency?=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2682,7 +2682,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       orderedPunishedByJudge: value.target.name,
-    }), console.log('16 Have you ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty?=', value.target.name));
+    }), /* console.log('16 Have you ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty?=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2710,7 +2710,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       defendInCriminalProceeding: value.target.name,
-    }), console.log('17 Have you ever been a defendant or the accused in a criminal proceeding?=', value.target.name));
+    }), /* console.log('17 Have you ever been a defendant or the accused in a criminal proceeding?=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2738,7 +2738,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       violatSubstanceLawForeigncountry: value.target.name,
-    }), console.log('18 Have ever violated any controlled substance law or regulation of state, the United States, or a foreign country?=', value.target.name));
+    }), /* console.log('18 Have ever violated any controlled substance law or regulation of state, the United States, or a foreign country?=', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2766,7 +2766,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       exercisedImmunityOffenseInUS: value.target.name,
-    }), console.log('19 Have you ever exercised immunity to avoid being prosecuted for a criminal offense in the United States?', value.target.name));
+    }), /* console.log('19 Have you ever exercised immunity to avoid being prosecuted for a criminal offense in the United States?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2794,7 +2794,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       servingAsForeignGovernment: value.target.name,
-    }), console.log('20 while serving as a foreign government official,violations of religious freedoms?', value.target.name));
+    }), /* console.log('20 while serving as a foreign government official,violations of religious freedoms?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2822,7 +2822,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       forceTraffickingSexActs: value.target.name,
-    }), console.log('21 Have you ever induced by force, fraud, or coercion the trafficking of persons for commercial sex acts?', value.target.name));
+    }), /* console.log('21 Have you ever induced by force, fraud, or coercion the trafficking of persons for commercial sex acts?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2850,7 +2850,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       traffickPersonCoercion: value.target.name,
-    }), console.log('22 Have you ever trafficked a person into involuntary servitude services through the use of force, fraud, or coercion?', value.target.name));
+    }), /* console.log('22 Have you ever trafficked a person into involuntary servitude services through the use of force, fraud, or coercion?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2880,7 +2880,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       knowinglyAidedSlavery: value.target.name,
-    }), console.log('23 Have ever knowingly aided, or involuntary servitude, peonage, debt bondage, or slavery?', value.target.name));
+    }), /* console.log('23 Have ever knowingly aided, or involuntary servitude, peonage, debt bondage, or slavery?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2908,7 +2908,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       spouseSonOfForeignNational: value.target.name,
-    }), console.log('24 Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons?', value.target.name));
+    }), /* console.log('24 Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2936,7 +2936,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       engageInMoneyLaunderActivity: value.target.name,
-    }), console.log('25 Have you ever engaged in money laundering in such activity?', value.target.name));
+    }), /* console.log('25 Have you ever engaged in money laundering in such activity?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2964,7 +2964,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       intendActivityViolatesInUS: value.target.name,
-    }), console.log('26 Do you intend to engage in any activity that violates or sabotage in the United States?', value.target.name));
+    }), /* console.log('26 Do you intend to engage in any activity that violates or sabotage in the United States?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -2992,7 +2992,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       engageInUSProhibitingExport: value.target.name,
-    }), console.log('27 engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods, technology, or sensitive information?', value.target.name));
+    }), /* console.log('27 engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods, technology, or sensitive information?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3020,7 +3020,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       intendEngageOpposeInUS: value.target.name,
-    }), console.log('28 intend to engage in any activity whose purpose includes opposing or other unlawful means while in the United States?', value.target.name));
+    }), /* console.log('28 intend to engage in any activity whose purpose includes opposing or other unlawful means while in the United States?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3048,7 +3048,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       intendEngageEndangerInUS: value.target.name,
-    }), console.log('29 intend to engage in any activity that could endanger the welfare, safety, or security of the United States?', value.target.name));
+    }), /* console.log('29 intend to engage in any activity that could endanger the welfare, safety, or security of the United States?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3076,7 +3076,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       engageInUnlawActivity: value.target.name,
-    }), console.log('30 intend to engage in any other unlawful activity?', value.target.name));
+    }), /* console.log('30 intend to engage in any other unlawful activity?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3104,7 +3104,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       engagedInSeriousForeignInUS: value.target.name,
-    }), console.log('31 engaged in or do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States?', value.target.name));
+    }), /* console.log('31 engaged in or do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3132,7 +3132,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       commitThreatToCommit: value.target.name,
-    }), console.log('32 Committed, threatened to commit, attempted to commit, conspired to commit?', value.target.name));
+    }), /* console.log('32 Committed, threatened to commit, attempted to commit, conspired to commit?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3160,7 +3160,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       receivedAnyTypeMilitary: value.target.name,
-    }), console.log('33 received any type of military, paramilitary, or weapons training?', value.target.name));
+    }), /* console.log('33 received any type of military, paramilitary, or weapons training?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3188,7 +3188,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       spouseCommitSubstantialDamage: value.target.name,
-    }), console.log('34 spouse or child who ever committed political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?', value.target.name));
+    }), /* console.log('34 spouse or child who ever committed political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3216,7 +3216,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       ...prev,
       messages: [...prev.messages, message],
       transportingWeaponsToAnyPerson: value.target.name,
-    }), console.log('35 Transporting Weapons To Any Person', value.target.name));
+    }), /* console.log('35 Transporting Weapons To Any Person', value.target.name) */);
     
     if (value.target.name === "Yes") {
       const botMessage = createChatBotMessage("Explain", {
@@ -3246,7 +3246,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       }
     })
     setEmployeeDetail(employeeDetail);
-    console.log('employeeDetail.... ', employeeDetail);
+    // console.log('employeeDetail.... ', employeeDetail);
     if (key == 'date') {
       // add in array
       employeeDetailList.push(employeeDetail);
@@ -3255,11 +3255,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       //reset
       employeeDetail = resetEmployeeDetail();
     }
-    console.log('Employee detail : ', employeeDetail);
+    // console.log('Employee detail : ', employeeDetail);
   }
 
   const setMessage = (widgetName, message, prev) => {
-    console.log('set msg..', widgetName, '   msg...', message, '   prev value...', prev);
+    // console.log('set msg..', widgetName, '   msg...', message, '   prev value...', prev);
 
     let botMessage = createChatBotMessage(
       message, 
@@ -3289,7 +3289,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         prev.messages[ind]["widget"] === "getInUSALocation"
           ? ((botMessage = createChatBotMessage("Client’s Name", {
               widget: "getClientName",
-            }), console.log('in us location : ', prev.messages[lastInd].message)),
+            })/* , console.log('in us location : ', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3302,7 +3302,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               (prev.messages[lastInd].message.length != 3 || prev.messages[lastInd].message.length != 0))
             ? ((botMessage = createChatBotMessage("Date of Birth", {
                 widget: "getClientDOB",
-              }), console.log('client name if.. ', prev.messages[lastInd].message)),
+              })/* , console.log('client name if.. ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3310,7 +3310,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("Please enter valid name", {
                 widget: "getClientName",
-              }), console.log('client name else.. ', prev.messages[lastInd].message)),
+              })/* , console.log('client name else.. ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3323,7 +3323,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               (prev.messages[lastInd].message.length != 0))
             ? ((botMessage = createChatBotMessage("A-File", {
                 widget: "getAfile",
-              }), console.log('clientDob : ', prev.messages[lastInd].message)),
+              })/* , console.log('clientDob : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3331,7 +3331,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                 widget: "getClientDOB",
-              }), console.log('clientDob : ', prev.messages[lastInd].message)),
+              })/* , console.log('clientDob : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3341,7 +3341,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getAfile"
           ? ((botMessage = createChatBotMessage("Country of Birth", {
               widget: "getCountryOfBirth",
-            }), console.log('a file : ', prev.messages[lastInd].message)),
+            })/* , console.log('a file : ', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3351,7 +3351,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getCountryOfBirth"
           ? ((botMessage = createChatBotMessage("Street Address (within US)", {
               widget: "getStreetAddress",
-            }), console.log('country of birth : ', prev.messages[lastInd].message)),
+            })/* , console.log('country of birth : ', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3361,7 +3361,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getStreetAddress"
           ? ((botMessage = createChatBotMessage("City", {
               widget: "getCity",
-            }), console.log('Street Address : ', prev.messages[lastInd].message)),
+            })/* , console.log('Street Address : ', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3371,7 +3371,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getCity"
           ? ((botMessage = createChatBotMessage("State", {
               widget: "getState",
-            }), console.log('City : ', prev.messages[lastInd].message)),
+            })/* , console.log('City : ', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3380,7 +3380,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getState"
           ? ((botMessage = createChatBotMessage("Zip", {
               widget: "getZip",
-            }), console.log('state : ', prev.messages[lastInd].message)),
+            })/* , console.log('state : ', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3392,7 +3392,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             (prev.messages[lastInd].message.length == 6 && prev.messages[lastInd].message.length != 0))
             ? ((botMessage = createChatBotMessage("Phone", {
                 widget: "getPhone",
-              }), console.log('zip : ', prev.messages[lastInd].message)),
+              })/* , console.log('zip : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3400,7 +3400,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("enter valid zip code", {
                 widget: "getZip",
-              }), console.log('zip : ', prev.messages[lastInd].message)),
+              })/* , console.log('zip : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3413,7 +3413,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               (prev.messages[lastInd].message.length >= 10 && prev.messages[lastInd].message.length != 0))
             ? ((botMessage = createChatBotMessage("Current immigration status", {
                 widget: "getImmigrationStatus",
-              }), console.log('phone : ', prev.messages[lastInd].message)),
+              })/* , console.log('phone : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3421,7 +3421,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("phone error", {
                 widget: "getPhone",
-              }), console.log('phone : ', prev.messages[lastInd].message)),
+              })/* , console.log('phone : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3444,7 +3444,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 widget: "getHearingLocation",
               },
               disableOption('idBkdM', 'immigrationStatus')
-            ), console.log('legal problem : ', prev.messages[lastInd].message)),
+            )/* , console.log('legal problem : ', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3454,7 +3454,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getHearingLocation"
           ? ((botMessage = createChatBotMessage("Upcoming Hearing location", {
               widget: "getNextHearingType",
-            }), console.log('Hearing date', prev.messages[lastInd].message)),
+            })/* , console.log('Hearing date', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3463,7 +3463,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getNextHearingType"
           ? ((botMessage = createChatBotMessage("b.	Type of hearing", {
               widget: "getHearingType",
-            }), console.log('hearing location', prev.messages[lastInd].message)),
+            })/* , console.log('hearing location', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3473,7 +3473,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           ? ((botMessage = createChatBotMessage("Spouse Name", {
               widget: "getSpouseDOB",
             },
-            disableOption('idBkdM', 'marriedStatus')), console.log('immigration status of spouse', prev.messages[lastInd].message)),
+            disableOption('idBkdM', 'marriedStatus'))/* , console.log('immigration status of spouse', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3482,7 +3482,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getSpouseDOB"
           ? ((botMessage = createChatBotMessage("Spouse date of birth", {
               widget: "getnextVictim",
-            }), console.log('Spouse Name', prev.messages[lastInd].message)),
+            })/* , console.log('Spouse Name', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3495,7 +3495,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             ? ((botMessage = createChatBotMessage("3.	Have you ever been the victim of a crime",
             {
               widget: "getVictimOfCrime",
-            }), console.log('spouseDOB : ', prev.messages[lastInd].message)),
+            })/* , console.log('spouseDOB : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3503,7 +3503,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                 widget: "getnextVictim",
-              }), console.log('spouseDOB : ', prev.messages[lastInd].message)),
+              })/* , console.log('spouseDOB : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3517,7 +3517,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 widget: "getPoliceReport",
               },
               disableOption('idBkdM', 'victimOfCrime')
-            ), console.log('Victim Crime Location', prev.messages[lastInd].message)),
+            )/* , console.log('Victim Crime Location', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3531,7 +3531,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 widget: "getLegalName",
               },
               disableOption('idBkdM', 'policeContact')
-            ), console.log('contact reason', prev.messages[lastInd].message)),
+            )/* , console.log('contact reason', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3563,7 +3563,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getLegalName"
           ? ((botMessage = createChatBotMessage("Complete legal name of the applicant (if married, married name)", {
               widget: "getOtherNameUsed",
-            }), console.log('why to fear :', prev.messages[lastInd].message)),
+            })/* , console.log('why to fear :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3572,7 +3572,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getOtherNameUsed"
           ? ((botMessage = createChatBotMessage("All other names used", {
               widget: "getCurrentMailingAddress",
-            }), console.log('Legal name :', prev.messages[lastInd].message)),
+            })/* , console.log('Legal name :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3582,7 +3582,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           ? ((botMessage = createChatBotMessage("Current Mailing address", {
               widget: "getAddressYouLive",
               // widget: "getFearReason",
-            }), console.log('other names :', prev.messages[lastInd].message)),
+            })/* , console.log('other names :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3591,7 +3591,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getAddressYouLive"
           ? ((botMessage = createChatBotMessage("Current Address where you live & how long you have lived there. ", {
               widget: "getCountryOfOrigin",
-            }), console.log('Current Mail Address :', prev.messages[lastInd].message)),
+            })/* , console.log('Current Mail Address :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3600,7 +3600,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getCountryOfOrigin"
           ? ((botMessage = createChatBotMessage("Country of Origin", {
               widget: "getBirthDate",
-            }), console.log('Current Address You Live :', prev.messages[lastInd].message)),
+            })/* , console.log('Current Address You Live :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3609,7 +3609,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getBirthDate"
           ? ((botMessage = createChatBotMessage("Birth date", {
               widget: "getSocialSecurityNumber",
-            }), console.log('Country of origin :', prev.messages[lastInd].message)),
+            })/* , console.log('Country of origin :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3621,7 +3621,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               (prev.messages[lastInd].message.length != 0))
             ? ((botMessage = createChatBotMessage("Social Security Number (if any)", {
                 widget: "getAlienNumber",
-              }), console.log('Birth Date : ', prev.messages[lastInd].message)),
+              })/* , console.log('Birth Date : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3629,7 +3629,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                 widget: "getSocialSecurityNumber",
-              }), console.log('Birth Date : ', prev.messages[lastInd].message)),
+              })/* , console.log('Birth Date : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3639,7 +3639,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getAlienNumber"
           ? ((botMessage = createChatBotMessage("Alien Number (if any)", {
               widget: "getNextHadSecurityNumber",
-            }), console.log('Social security Number :', prev.messages[lastInd].message)),
+            })/* , console.log('Social security Number :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3648,7 +3648,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getNextHadSecurityNumber"
           ? ((botMessage = createChatBotMessage("Have you ever had a social security number?", {
               widget: "getHadSecurityNumber",
-            }), console.log('Alien Number :', prev.messages[lastInd].message)),
+            })/* , console.log('Alien Number :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3657,7 +3657,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getArrivalIntoUS"
           ? ((botMessage = createChatBotMessage("Date and city of last entry / arrival into the U.S.", {
               widget: "getI94CardNumber",
-            }), console.log('get security number :', prev.messages[lastInd].message)),
+            })/* , console.log('get security number :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3666,7 +3666,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getI94CardNumber"
           ? ((botMessage = createChatBotMessage("I-94 Card Number", {
               widget: "getCardCurrentStatus",
-            }), console.log('Last Arrival in US :', prev.messages[lastInd].message)),
+            })/* , console.log('Last Arrival in US :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3675,7 +3675,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getCardCurrentStatus"
           ? ((botMessage = createChatBotMessage("Current status", {
               widget: "getCardExpirationDate",
-            }), console.log('I-94 card number :', prev.messages[lastInd].message)),
+            })/* , console.log('I-94 card number :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3684,7 +3684,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getCardExpirationDate"
           ? ((botMessage = createChatBotMessage("Expiration date of current status", {
               widget: "getCtStateCountryOfBirth",
-            }), console.log('current status :', prev.messages[lastInd].message)),
+            })/* , console.log('current status :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3696,7 +3696,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               (prev.messages[lastInd].message.length != 0))
             ? ((botMessage = createChatBotMessage("City, State, and Country of Birth", {
                 widget: "getPassportNumOnArrival",
-              }), console.log('Card Expiration Date : ', prev.messages[lastInd].message)),
+              })/* , console.log('Card Expiration Date : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3704,7 +3704,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                 widget: "getCtStateCountryOfBirth",
-              }), console.log('Card Expiration Date : ', prev.messages[lastInd].message)),
+              })/* , console.log('Card Expiration Date : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3714,7 +3714,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getPassportNumOnArrival"
           ? ((botMessage = createChatBotMessage("Passport Number Used at Last Arrival", {
               widget: "getPassportExpirationDate",
-            }), console.log('City State and Country of Birth :', prev.messages[lastInd].message)),
+            })/* , console.log('City State and Country of Birth :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3723,7 +3723,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getPassportExpirationDate"
           ? ((botMessage = createChatBotMessage("Passport expiration date", {
               widget: "getCountryThatIssuedPassport",
-            }), console.log('Passport Number on Last Arrival :', prev.messages[lastInd].message)),
+            })/* , console.log('Passport Number on Last Arrival :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3735,7 +3735,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               (prev.messages[lastInd].message.length != 0))
             ? ((botMessage = createChatBotMessage("Country that issued your passport", {
                 widget: "getMotherCompleteName",
-              }), console.log('Passport Expiration Date : ', prev.messages[lastInd].message)),
+              })/* , console.log('Passport Expiration Date : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3743,7 +3743,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               })
             : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                 widget: "getCountryThatIssuedPassport",
-              }), console.log('Passport Expiration Date : ', prev.messages[lastInd].message)),
+              })/* , console.log('Passport Expiration Date : ', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3753,7 +3753,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getMotherCompleteName"
           ? ((botMessage = createChatBotMessage("Mother’s complete name", {
               widget: "getMotherCity",
-            }), console.log('Country That Issued Passport :', prev.messages[lastInd].message)),
+            })/* , console.log('Country That Issued Passport :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3762,7 +3762,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getMotherCity"
           ? ((botMessage = createChatBotMessage("Mother’s City name", {
               widget: "getMotherCountryOfBirth",
-            }), console.log('Mother complete name :', prev.messages[lastInd].message)),
+            })/* , console.log('Mother complete name :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3772,7 +3772,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getMotherCountryOfBirth"
           ? ((botMessage = createChatBotMessage("Mother’s Country of birth", {
               widget: "getMotherResidenceCity",
-            }), console.log('Mother City name :', prev.messages[lastInd].message)),
+            })/* , console.log('Mother City name :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3781,7 +3781,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getMotherResidenceCity"
           ? ((botMessage = createChatBotMessage("Mother’s Residence City", {
               widget: "getMotherResidenceCountry",
-            }), console.log('Mother country of birth :', prev.messages[lastInd].message)),
+            })/* , console.log('Mother country of birth :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3790,7 +3790,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getMotherResidenceCountry"
           ? ((botMessage = createChatBotMessage("Mother’s Residence Country", {
               widget: "getFatherCompleteName",
-            }), console.log('Mother Residence city :', prev.messages[lastInd].message)),
+            })/* , console.log('Mother Residence city :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3799,7 +3799,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getFatherCompleteName"
           ? ((botMessage = createChatBotMessage("Father’s complete name, City and country of birth, City and country of residence (if living)", {
               widget: "getFatherCity",
-            }), console.log('Mother Residence country :', prev.messages[lastInd].message)),
+            })/* , console.log('Mother Residence country :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3808,7 +3808,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getFatherCity"
           ? ((botMessage = createChatBotMessage("Father’s City name", {
               widget: "getFatherCountryOfBirth",
-            }), console.log('Father complete name :', prev.messages[lastInd].message)),
+            })/* , console.log('Father complete name :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3817,7 +3817,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getFatherCountryOfBirth"
           ? ((botMessage = createChatBotMessage("Father’s Country of birth", {
               widget: "getFatherResidenceCity",
-            }), console.log('Father City name :', prev.messages[lastInd].message)),
+            })/* , console.log('Father City name :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3826,7 +3826,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getFatherResidenceCity"
           ? ((botMessage = createChatBotMessage("Father’s Residence City", {
               widget: "getFatherResidenceCountry",
-            }), console.log('Father country of birth :', prev.messages[lastInd].message)),
+            })/* , console.log('Father country of birth :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3835,7 +3835,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getFatherResidenceCountry"
           ? ((botMessage = createChatBotMessage("Father’s Residence Country", {
               widget: "getInspectedImmigrationOficial",
-            }), console.log('Father Residence city :', prev.messages[lastInd].message)),
+            })/* , console.log('Father Residence city :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3844,7 +3844,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getInspectedImmigrationOficial"
           ? ((botMessage = createChatBotMessage("Were you inspected and admitted by an immigration oficial?", {
               widget: "getNonimmigrantVisaNumber",
-            }), console.log('Father Residence country :', prev.messages[lastInd].message)),
+            })/* , console.log('Father Residence country :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3853,7 +3853,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getNonimmigrantVisaNumber"
           ? ((botMessage = createChatBotMessage("Non-immigrant visa number (if any)", {
               widget: "getNameOnNonimmigrantVisa",
-            }), console.log('Inspected immigration oficial :', prev.messages[lastInd].message)),
+            })/* , console.log('Inspected immigration oficial :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3862,7 +3862,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           : prev.messages[ind]["widget"] === "getNameOnNonimmigrantVisa"
           ? ((botMessage = createChatBotMessage("Name and location of consult that issued your non-immigrant visa", {
               widget: "getDateOfApprovalNonImmigrant",
-            }), console.log('Non-immigrant Visa Number :', prev.messages[lastInd].message)),
+            })/* , console.log('Non-immigrant Visa Number :', prev.messages[lastInd].message) */),
             {
               ...prev,
               messages: [...prev.messages, botMessage],
@@ -3871,7 +3871,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getDateOfApprovalNonImmigrant"
             ? ((botMessage = createChatBotMessage("Date of approval for non-immigrant visa", {
                 widget: "getNextSxStatus",
-              }), console.log('Name of your non-immigrant visa :', prev.messages[lastInd].message)),
+              })/* , console.log('Name of your non-immigrant visa :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3883,7 +3883,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Sex status", {
                   widget: "getSxStatus",
-                }), console.log('Approval date : ', prev.messages[lastInd].message)),
+                })/* , console.log('Approval date : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -3891,7 +3891,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getNextSxStatus",
-                }), console.log('Approval date : ', prev.messages[lastInd].message)),
+                })/* , console.log('Approval date : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -3901,7 +3901,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getTotalMarriages"
             ? ((botMessage = createChatBotMessage("Current spouse’s full name", {
                 widget: "getCurrentSpouseFullname",
-              }), console.log('Total marriages :', prev.messages[lastInd].message)),
+              })/* , console.log('Total marriages :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3910,7 +3910,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getCurrentSpouseFullname"
             ? ((botMessage = createChatBotMessage("Current spouse’s Alien Number", {
                 widget: "getCurrentSpouseAlienNum",
-              }), console.log('Current Spouse fullname :', prev.messages[lastInd].message)),
+              })/* , console.log('Current Spouse fullname :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3919,7 +3919,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getCurrentSpouseAlienNum"
             ? ((botMessage = createChatBotMessage("Current spouse’s Date Of Birth", {
                 widget: "getCurrentSpouseDOB",
-              }), console.log('Current Spouse Alien Number :', prev.messages[lastInd].message)),
+              })/* , console.log('Current Spouse Alien Number :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3931,7 +3931,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Current spouse’s Date Of Marriage", {
                   widget: "getCurrentSpouseDOMrg",
-                }), console.log('Current Spouse Date Of Birth : ', prev.messages[lastInd].message)),
+                })/* , console.log('Current Spouse Date Of Birth : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -3939,7 +3939,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getCurrentSpouseDOB",
-                }), console.log('Current Spouse Date Of Birth : ', prev.messages[lastInd].message)),
+                })/* , console.log('Current Spouse Date Of Birth : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -3952,7 +3952,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Current spouse’s City", {
                   widget: "getCurrentSpouseCity",
-                }), console.log('Current Spouse Date Of Marriage : ', prev.messages[lastInd].message)),
+                })/* , console.log('Current Spouse Date Of Marriage : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -3960,7 +3960,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getCurrentSpouseDOMrg",
-                }), console.log('Current Spouse Date Of Marriage : ', prev.messages[lastInd].message)),
+                })/* , console.log('Current Spouse Date Of Marriage : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -3970,7 +3970,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getCurrentSpouseCity"
             ? ((botMessage = createChatBotMessage("Current spouse’s State", {
                 widget: "getCurrentSpouseState",
-              }), console.log('Current Spouse City :', prev.messages[lastInd].message)),
+              })/* , console.log('Current Spouse City :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3979,7 +3979,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getCurrentSpouseState"
             ? ((botMessage = createChatBotMessage("Current spouse’s Country Of Birth", {
                 widget: "getCurrentSpouseCountryOfBirth",
-              }), console.log('Current Spouse State :', prev.messages[lastInd].message)),
+              })/* , console.log('Current Spouse State :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3988,7 +3988,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getCurrentSpouseCountryOfBirth"
             ? ((botMessage = createChatBotMessage("Prior spouse 1’s full name", {
                 widget: "getPriorSpouse1Fullname",
-              }), console.log('Current Spouse Country Of Birth :', prev.messages[lastInd].message)),
+              })/* , console.log('Current Spouse Country Of Birth :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -3997,7 +3997,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse1Fullname"
             ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Alien Number", {
                 widget: "getPriorSpouse1AlienNum",
-              }), console.log('spouse 1’s fullname :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 1’s fullname :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4006,7 +4006,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse1AlienNum"
             ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Of Birth", {
                 widget: "getPriorSpouse1DOB",
-              }), console.log('spouse 1’s Alien Number :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 1’s Alien Number :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4018,7 +4018,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Of Marriage", {
                   widget: "getPriorSpouse1DOMrg",
-                }), console.log('spouse 1’s Date Of Birth : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 1’s Date Of Birth : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4026,7 +4026,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getPriorSpouse1DOB",
-                }), console.log('spouse 1’s Date Of Birth : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 1’s Date Of Birth : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4039,7 +4039,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Prior Spouse 1’s City", {
                   widget: "getPriorSpouse1City",
-                }), console.log('spouse 1’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 1’s Date Of Marriage : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4047,7 +4047,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getPriorSpouse1DOMrg",
-                }), console.log('spouse 1’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 1’s Date Of Marriage : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4057,7 +4057,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse1City"
             ? ((botMessage = createChatBotMessage("Prior Spouse 1’s State", {
                 widget: "getPriorSpouse1State",
-              }), console.log('spouse 1’s City :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 1’s City :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4066,7 +4066,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse1State"
             ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Country Of Birth", {
                 widget: "getPriorSpouse1CountryOfBirth",
-              }), console.log('spouse 1’s State :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 1’s State :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4075,7 +4075,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse1CountryOfBirth"
             ? ((botMessage = createChatBotMessage("Prior Spouse 1’s Date Marriage Ended", {
                 widget: "getPriorSpouse1DateMrgEnded",
-              }), console.log('spouse 1’s Country Of Birth :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 1’s Country Of Birth :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4087,7 +4087,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Fullname", {
                   widget: "getPriorSpouse2Fullname",
-                }), console.log('spouse 1’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 1’s Date Marriage Ended : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4095,7 +4095,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getPriorSpouse1DateMrgEnded",
-                }), console.log('spouse 1’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 1’s Date Marriage Ended : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4105,7 +4105,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse2Fullname"
             ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Alien Number", {
                 widget: "getPriorSpouse2AlienNum",
-              }), console.log('spouse 2’s fullname :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 2’s fullname :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4114,7 +4114,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse2AlienNum"
             ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Of Birth", {
                 widget: "getPriorSpouse2DOB",
-              }), console.log('spouse 2’s Alien Number :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 2’s Alien Number :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4126,7 +4126,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Of Marriage", {
                   widget: "getPriorSpouse2DOMrg",
-                }), console.log('spouse 2’s Date Of Birth : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 2’s Date Of Birth : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4134,7 +4134,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getPriorSpouse2DOB",
-                }), console.log('spouse 2’s Date Of Birth : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 2’s Date Of Birth : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4147,7 +4147,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Prior Spouse 2’s City", {
                   widget: "getPriorSpouse2City",
-                }), console.log('spouse 2’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 2’s Date Of Marriage : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4155,7 +4155,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getPriorSpouse2DOMrg",
-                }), console.log('spouse 2’s Date Of Marriage : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 2’s Date Of Marriage : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4165,7 +4165,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse2City"
             ? ((botMessage = createChatBotMessage("Prior Spouse 2’s State", {
                 widget: "getPriorSpouse2State",
-              }), console.log('spouse 2’s City :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 2’s City :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4174,7 +4174,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse2State"
             ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Country Of Birth", {
                 widget: "getPriorSpouse2CountryOfBirth",
-              }), console.log('spouse 2’s State :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 2’s State :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4183,7 +4183,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPriorSpouse2CountryOfBirth"
             ? ((botMessage = createChatBotMessage("Prior Spouse 2’s Date Marriage Ended", {
                 widget: "getPriorSpouse2DateMrgEnded",
-              }), console.log('spouse 2’s Country Of Birth :', prev.messages[lastInd].message)),
+              })/* , console.log('spouse 2’s Country Of Birth :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4195,7 +4195,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Have you applied for permanent resident status in the past?", {
                   widget: "getAppliedForPermenantResident",
-                }), console.log('spouse 2’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 2’s Date Marriage Ended : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4203,7 +4203,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getPriorSpouse2DateMrgEnded",
-                }), console.log('spouse 2’s Date Marriage Ended : ', prev.messages[lastInd].message)),
+                })/* , console.log('spouse 2’s Date Marriage Ended : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4213,7 +4213,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPermenantResidentStatus"
             ? ((botMessage = createChatBotMessage("Permenant Resident Location", {
                 widget: "getPermenantResidentLocation",
-              }), console.log('Permenant Resident Status :', prev.messages[lastInd].message)),
+              })/* , console.log('Permenant Resident Status :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4222,7 +4222,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getPermenantResidentLocation"
             ? ((botMessage = createChatBotMessage("result of the application", {
                 widget: "getApplicationResult",
-              }), console.log('Permenant Resident Location :', prev.messages[lastInd].message)),
+              })/* , console.log('Permenant Resident Location :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4231,7 +4231,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getApplicationResult"
             ? ((botMessage = createChatBotMessage("Ethnicity (Hispanic or Latino or NOT Hispanic or Latino)", {
                 widget: "getEthnicity",
-              }), console.log('Result of Application :', prev.messages[lastInd].message)),
+              })/* , console.log('Result of Application :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4240,7 +4240,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getEthnicity"
             ? ((botMessage = createChatBotMessage("Race", {
                 widget: "getRace",
-              }), console.log('Ethnicity :', prev.messages[lastInd].message)),
+              })/* , console.log('Ethnicity :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4249,7 +4249,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getYourHeight"
             ? ((botMessage = createChatBotMessage("Weight", {
                 widget: "getYourWeight",
-              }), console.log('Your Height :', prev.messages[lastInd].message)),
+              })/* , console.log('Your Height :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4258,7 +4258,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getYourWeight"
             ? ((botMessage = createChatBotMessage("Eye Color", {
                 widget: "getEyeColor",
-              }), console.log('Your Weight :', prev.messages[lastInd].message)),
+              })/* , console.log('Your Weight :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4268,7 +4268,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getEyeColor"
             ? ((botMessage = createChatBotMessage("Hair Color", {
                 widget: "getHairColor",
-              }), console.log('Your Eye Color :', prev.messages[lastInd].message)),
+              })/* , console.log('Your Eye Color :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4277,7 +4277,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getHairColor"
             ? ((botMessage = createChatBotMessage("Do you want to add your Spouse List ?", {
                 widget: "getSpouseList",
-              }), console.log('Your Hair Color :', prev.messages[lastInd].message)),
+              })/* , console.log('Your Hair Color :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4295,7 +4295,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseFullnameInList"
             ? ((botMessage = createChatBotMessage("Spouse Date Of Birth", {
                 widget: "getSpouseDOBInList",
-              }), updateSpouseDetail('name', prev.messages[lastInd].message), console.log('Spouse Fullname in List :', prev.messages[lastInd].message)),
+              }), updateSpouseDetail('name', prev.messages[lastInd].message)/* , console.log('Spouse Fullname in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4308,7 +4308,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Spouse Country Of Origin", {
                   widget: "getSpouseCOOrignInList",
-                }), updateSpouseDetail('dob', prev.messages[lastInd].message), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
+                }), updateSpouseDetail('dob', prev.messages[lastInd].message)/* , console.log('Spouse DOB in List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4317,7 +4317,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getSpouseDOBInList",
-                }), updateSpouseDetail('dob', prev.messages[lastInd].message), console.log('Spouse DOB in List : ', prev.messages[lastInd].message)),
+                }), updateSpouseDetail('dob', prev.messages[lastInd].message)/* , console.log('Spouse DOB in List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4327,7 +4327,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseCOOrignInList"
             ? ((botMessage = createChatBotMessage("Relation to you", {
                 widget: "getSpouseRelationToUInList",
-              }), updateSpouseDetail('country', prev.messages[lastInd].message), console.log('Spouse COOg in List :', prev.messages[lastInd].message)),
+              }), updateSpouseDetail('country', prev.messages[lastInd].message)/* , console.log('Spouse COOg in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4336,7 +4336,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseRelationToUInList"
             ? ((botMessage = createChatBotMessage("Alien number", {
                 widget: "getSpouseAlienNumberInList",
-              }), updateSpouseDetail('relation', prev.messages[lastInd].message), console.log('Spouse Relation in List :', prev.messages[lastInd].message)),
+              }), updateSpouseDetail('relation', prev.messages[lastInd].message)/* , console.log('Spouse Relation in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4345,7 +4345,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseAlienNumberInList"
             ? ((botMessage = createChatBotMessage("Is this person applying with you or following to join?", {
                 widget: "getSpouseAppliyingForUInList",
-              }), updateSpouseDetail('number', prev.messages[lastInd].message), console.log('Spouse Alien Number in List :', prev.messages[lastInd].message)),
+              }), updateSpouseDetail('number', prev.messages[lastInd].message)/* , console.log('Spouse Alien Number in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4354,7 +4354,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getSpouseAddMoreInList"
             ? ((botMessage = createChatBotMessage("next", {
                 widget: "getFearReason",
-              }), console.log('Spouse Alien Number in List :', prev.messages[lastInd].message)),
+              })/* , console.log('Spouse Alien Number in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4363,7 +4363,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getNameInOrgList"
             ? ((botMessage = createChatBotMessage("Location and Purpose", {
                 widget: "getLocationAndPurposeInOrgList",
-              }), updateOrganizationDetail('name', prev.messages[lastInd].message) , console.log('Name :', prev.messages[lastInd].message)),
+              }), updateOrganizationDetail('name', prev.messages[lastInd].message) /* , console.log('Name :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4371,7 +4371,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getLocationAndPurposeInOrgList"
             ? ((botMessage = createChatBotMessage("From", {
                 widget: "getFromInOrgList",
-              }), updateOrganizationDetail('locationAndPurpose', prev.messages[lastInd].message) , console.log('Location And Purpose :', prev.messages[lastInd].message)),
+              }), updateOrganizationDetail('locationAndPurpose', prev.messages[lastInd].message) /* , console.log('Location And Purpose :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4379,7 +4379,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getFromInOrgList"
             ? ((botMessage = createChatBotMessage("To", {
                 widget: "getToInOrgList",
-              }), updateOrganizationDetail('from', prev.messages[lastInd].message) , console.log('From :', prev.messages[lastInd].message)),
+              }), updateOrganizationDetail('from', prev.messages[lastInd].message) /* , console.log('From :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4387,7 +4387,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getToInOrgList"
             ? ((botMessage = createChatBotMessage("Want to Add More ?", {
                 widget: "getAddMoreInOrganizationList",
-              }), updateOrganizationDetail('to', prev.messages[lastInd].message) , console.log('To :', prev.messages[lastInd].message)),
+              }), updateOrganizationDetail('to', prev.messages[lastInd].message) /* , console.log('To :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4398,14 +4398,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Location", {
                   widget: "getLocationInArrestsList",
-                }), updateArrestDetail('date', prev.messages[lastInd].message), console.log('Date in Arrests List : ', prev.messages[lastInd].message)),
+                }), updateArrestDetail('date', prev.messages[lastInd].message)/* , console.log('Date in Arrests List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getDateInArrestsList",
-                }), updateArrestDetail('date', prev.messages[lastInd].message), console.log('Date in Arrests List : ', prev.messages[lastInd].message)),
+                }), updateArrestDetail('date', prev.messages[lastInd].message)/* , console.log('Date in Arrests List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4414,7 +4414,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getLocationInArrestsList"
             ? ((botMessage = createChatBotMessage("Reason", {
                 widget: "getReasonInArrestsList",
-              }), updateArrestDetail('location', prev.messages[lastInd].message) , console.log('Location :', prev.messages[lastInd].message)),
+              }), updateArrestDetail('location', prev.messages[lastInd].message) /* , console.log('Location :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4422,7 +4422,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getReasonInArrestsList"
             ? ((botMessage = createChatBotMessage("Result", {
                 widget: "getResultInArrestsList",
-              }), updateArrestDetail('reason', prev.messages[lastInd].message) , console.log('Reason :', prev.messages[lastInd].message)),
+              }), updateArrestDetail('reason', prev.messages[lastInd].message) /* , console.log('Reason :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4430,7 +4430,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getResultInArrestsList"
             ? ((botMessage = createChatBotMessage("Want to Add More ?", {
                 widget: "getAddMoreInArrestsList",
-              }), updateArrestDetail('result', prev.messages[lastInd].message) , console.log('Result :', prev.messages[lastInd].message)),
+              }), updateArrestDetail('result', prev.messages[lastInd].message) /* , console.log('Result :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4441,14 +4441,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Place", {
                   widget: "getOutsideAddressPlaceInList",
-                }), updateOutsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Outside Address List : ', prev.messages[lastInd].message)),
+                }), updateOutsideAddressDetail('date', prev.messages[lastInd].message)/* , console.log('Date in Outside Address List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getOutsideAddressDateInList",
-                }), updateOutsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Outside Address List : ', prev.messages[lastInd].message)),
+                }), updateOutsideAddressDetail('date', prev.messages[lastInd].message)/* , console.log('Date in Outside Address List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4457,7 +4457,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getOutsideAddressPlaceInList"
             ? ((botMessage = createChatBotMessage("Want to Add More ?", {
                 widget: "getAddMoreOustsideAddressInList",
-              }), updateOutsideAddressDetail('place', prev.messages[lastInd].message) , console.log('Place in Outside Address List :', prev.messages[lastInd].message)),
+              }), updateOutsideAddressDetail('place', prev.messages[lastInd].message) /* , console.log('Place in Outside Address List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4468,14 +4468,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Place", {
                   widget: "getInsideAddressPlaceInList",
-                }), updateInsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Inside Address List : ', prev.messages[lastInd].message)),
+                }), updateInsideAddressDetail('date', prev.messages[lastInd].message)/* , console.log('Date in Inside Address List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getInsideAddressDateInList",
-                }), updateInsideAddressDetail('date', prev.messages[lastInd].message), console.log('Date in Inside Address List : ', prev.messages[lastInd].message)),
+                }), updateInsideAddressDetail('date', prev.messages[lastInd].message)/* , console.log('Date in Inside Address List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4484,7 +4484,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getInsideAddressPlaceInList"
             ? ((botMessage = createChatBotMessage("Want to Add More ?", {
                 widget: "getAddMoreInsideAddressInList",
-              }), updateInsideAddressDetail('place', prev.messages[lastInd].message) , console.log('Place in Inside Address List :', prev.messages[lastInd].message)),
+              }), updateInsideAddressDetail('place', prev.messages[lastInd].message) /* , console.log('Place in Inside Address List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4492,7 +4492,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getEmployeeNameInList"
             ? ((botMessage = createChatBotMessage("Job Location", {
                 widget: "getJobLocationInList",
-              }), updateEmployeeDetail('employeeName', prev.messages[lastInd].message), console.log('Employee Name in List :', prev.messages[lastInd].message)),
+              }), updateEmployeeDetail('employeeName', prev.messages[lastInd].message)/* , console.log('Employee Name in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4500,7 +4500,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getJobLocationInList"
             ? ((botMessage = createChatBotMessage("Job Title", {
                 widget: "getJobTitleInList",
-              }), updateEmployeeDetail('jobLocation', prev.messages[lastInd].message), console.log('Employee Job Location in List :', prev.messages[lastInd].message)),
+              }), updateEmployeeDetail('jobLocation', prev.messages[lastInd].message)/* , console.log('Employee Job Location in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4508,7 +4508,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getJobTitleInList"
             ? ((botMessage = createChatBotMessage("Date", {
                 widget: "getDateInList",
-              }), updateEmployeeDetail('jobTitle', prev.messages[lastInd].message), console.log('Employee Job Title in List :', prev.messages[lastInd].message)),
+              }), updateEmployeeDetail('jobTitle', prev.messages[lastInd].message)/* , console.log('Employee Job Title in List :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4519,14 +4519,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 (prev.messages[lastInd].message.length != 0))
               ? ((botMessage = createChatBotMessage("Want to Add More ?", {
                   widget: "getEmployemnetAddMoreInList",
-                }), updateEmployeeDetail('date', prev.messages[lastInd].message), console.log('Date Employement List : ', prev.messages[lastInd].message)),
+                }), updateEmployeeDetail('date', prev.messages[lastInd].message)/* , console.log('Date Employement List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
                 })
               : ((botMessage = createChatBotMessage("Please enter valid date format DD/MM/YYYY", {
                   widget: "getDateInList",
-                }), updateEmployeeDetail('date', prev.messages[lastInd].message), console.log('Date Employement List : ', prev.messages[lastInd].message)),
+                }), updateEmployeeDetail('date', prev.messages[lastInd].message)/* , console.log('Date Employement List : ', prev.messages[lastInd].message) */),
                 {
                   ...prev,
                   messages: [...prev.messages, botMessage],
@@ -4537,7 +4537,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExDeniedAdmissionToUS"
             ? ((botMessage = createChatBotMessage("2.	Have you ever been denied a visa to the U.S.?", {
                 widget: "getDeniedVisaToUS",
-              }), console.log('1 Explain denied admission to the U.S:', prev.messages[lastInd].message)),
+              })/* , console.log('1 Explain denied admission to the U.S:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4547,7 +4547,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpDeniedVisaToUS"
             ? ((botMessage = createChatBotMessage("3.	Have you ever worked in the U.S. without authorization?", {
                 widget: "getWorkInUSwithoutAuthorization",
-              }), console.log('2 Explain denied a visa to the U.S:', prev.messages[lastInd].message)),
+              })/* , console.log('2 Explain denied a visa to the U.S:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4557,7 +4557,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpWorkInUSwithoutAuthorization"
             ? ((botMessage = createChatBotMessage("4.	Have you ever violated the terms or conditions of your nonimmigrant status?", {
                 widget: "getViolatTermOfNonimmigrantStatus",
-              }), console.log('3 Explain worked in the U.S. without authorization:', prev.messages[lastInd].message)),
+              })/* , console.log('3 Explain worked in the U.S. without authorization:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4567,7 +4567,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpViolatTermOfNonimmigrantStatus"
             ? ((botMessage = createChatBotMessage("5.	Are you presently or have you ever been in removal, exclusion, rescission, or deportation proceedings?", {
                 widget: "getPresentlyRemovalExclusionProceed",
-              }), console.log('4 Explain violated the terms of nonimmigrant:', prev.messages[lastInd].message)),
+              })/* , console.log('4 Explain violated the terms of nonimmigrant:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4577,7 +4577,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpPresentlyRemovalExclusionProceed"
             ? ((botMessage = createChatBotMessage("6.	Have you ever been issued a final order of exclusion, deportation, or removal?", {
                 widget: "getIssueFinalOrderExclusionRemoval",
-              }), console.log('5 Explain presently in removal,deportation proceedings:', prev.messages[lastInd].message)),
+              })/* , console.log('5 Explain presently in removal,deportation proceedings:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4587,7 +4587,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpIssueFinalOrderExclusionRemoval"
             ? ((botMessage = createChatBotMessage("7.	Have you ever held lawful permanent resident status which was later rescinded?", {
                 widget: "getLawfulPermResidentStatuslatRescind",
-              }), console.log('6 Explain issued a final order of exclusion, removal:', prev.messages[lastInd].message)),
+              })/* , console.log('6 Explain issued a final order of exclusion, removal:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4597,7 +4597,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpLawfulPermResidentStatuslatRescind"
             ? ((botMessage = createChatBotMessage("8.	Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time?", {
                 widget: "getVoluntlyByImmigrationOfficerFailToDepart",
-              }), console.log('7 Explain lawful permanent which was later rescinded:', prev.messages[lastInd].message)),
+              })/* , console.log('7 Explain lawful permanent which was later rescinded:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4607,7 +4607,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpVoluntlyByImmigrationOfficerFailToDepart"
             ? ((botMessage = createChatBotMessage("9.	Have you ever applied for any kind of relief or protection from removal, exclusion, or deportation?", {
                 widget: "getAppliedForReliefFromRemovalDeportation",
-              }), console.log('8 Explain ever granted voluntary or an immigration judge, but failed to depart within the allotted time:', prev.messages[lastInd].message)),
+              })/* , console.log('8 Explain ever granted voluntary or an immigration judge, but failed to depart within the allotted time:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4617,7 +4617,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpAppliedForReliefFromRemovalDeportation"
             ? ((botMessage = createChatBotMessage("10. Have you ever been a J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement?", {
                 widget: "getJNonimmigrantVisitSubjectTwoYear",
-              }), console.log('9 Explain applied for any kind of relief or protection from removal or deportation:', prev.messages[lastInd].message)),
+              })/* , console.log('9 Explain applied for any kind of relief or protection from removal or deportation:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4627,7 +4627,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpJNonimmigrantVisitSubjectTwoYear"
             ? ((botMessage = createChatBotMessage("11. Have you complied with the foreign residence requirement?", {
                 widget: "getCompliedWithForeignResidReq",
-              }), console.log('10 Explain J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement:', prev.messages[lastInd].message)),
+              })/* , console.log('10 Explain J nonimmigrant exchange visitor who was subject to the two-year foreign residence requirement:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4637,7 +4637,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpCompliedWithForeignResidReq"
             ? ((botMessage = createChatBotMessage("12.	Have you been granted a waiver or has the Department of State issued a favorable waiver recommendation letter for you?", {
                 widget: "getGrantWaiverRecommendLetter",
-              }), console.log('11 Explain complied with the foreign residence requirement:', prev.messages[lastInd].message)),
+              })/* , console.log('11 Explain complied with the foreign residence requirement:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4649,7 +4649,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpGrantWaiverRecommendLetter"
             ? ((botMessage = createChatBotMessage("13.	Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official?", {
                 widget: "getArrestedAnyReasonByLaw",
-              }), console.log('12 Explain granted a waiver or recommendation letter for you:', prev.messages[lastInd].message)),
+              })/* , console.log('12 Explain granted a waiver or recommendation letter for you:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4659,7 +4659,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpArrestedAnyReasonByLaw"
             ? ((botMessage = createChatBotMessage("14.	Have you ever committed a crime of any kind (even if you were not arrested, cited, charged, or tried for that crime)?", {
                 widget: "getCommittedACrimeOfAnyKind",
-              }), console.log('13 Explain arrested, cited,any law enforcement official:', prev.messages[lastInd].message)),
+              })/* , console.log('13 Explain arrested, cited,any law enforcement official:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4669,7 +4669,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpCommittedACrimeOfAnyKind"
             ? ((botMessage = createChatBotMessage("15.	Have you ever plead guilty to or been convicted of a crime or offense (even if the violation was subsequently expunged or sealed by a court, or if you were granted a pardon, amnesty, a rehabilitation decree, or other act of clemency?", {
                 widget: "getConvictedOfCrimeActOfClemency",
-              }), console.log('14 Explain committed a crime of any kind (tried for that crime):', prev.messages[lastInd].message)),
+              })/* , console.log('14 Explain committed a crime of any kind (tried for that crime):', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4679,7 +4679,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpConvictedOfCrimeActOfClemency"
             ? ((botMessage = createChatBotMessage("16.	Have you ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty (such as a prison sentence, suspended sentence, house arrest, parole, alternative sentencing, drug or alcohol treatment, rehabilitative programs or classes, probation, or community service)?", {
                 widget: "getOrderedPunishedByJudge",
-              }), console.log('15 Explain have you ever plead guilty to or been convicted of a crime or other act of clemency:', prev.messages[lastInd].message)),
+              })/* , console.log('15 Explain have you ever plead guilty to or been convicted of a crime or other act of clemency:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4689,7 +4689,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpOrderedPunishedByJudge"
             ? ((botMessage = createChatBotMessage("17.	Have you ever been a defendant or the accused in a criminal proceeding (including pre-trial diversion, deferred prosecution, deferred adjudication, or any withheld adjudication)?", {
                 widget: "getDefendInCriminalProceeding",
-              }), console.log('Explain 16 ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 16 ever been ordered punished by a judge or had conditions imposed on you that restrained your liberty:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4699,7 +4699,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpDefendInCriminalProceeding"
             ? ((botMessage = createChatBotMessage("18. Have you ever violated (or attempted or conspired to violate) any controlled substance law or regulation of state, the United States, or a foreign country?", {
                 widget: "getViolatSubstanceLawForeigncountry",
-              }), console.log('Explain 17 defendant or the accused in a criminal proceeding:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 17 defendant or the accused in a criminal proceeding:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4709,7 +4709,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpViolatSubstanceLawForeigncountry"
             ? ((botMessage = createChatBotMessage("19. Have you ever exercised immunity (diplomatic or otherwise) to avoid being prosecuted for a criminal offense in the United States?", {
                 widget: "getExercisedImmunityOffenseInUS",
-              }), console.log('Explain 18 ever violated controlled substance law, the United States, or a foreign country:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 18 ever violated controlled substance law, the United States, or a foreign country:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4719,7 +4719,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpExercisedImmunityOffenseInUS"
             ? ((botMessage = createChatBotMessage("20. Have you ever, while serving as a foreign government official, been responsible for or directly carried out violations of religious freedoms?", {
                 widget: "getServingAsForeignGovernment",
-              }), console.log('Explain 19 exercised immunity to avoid being prosecuted for a criminal offense in the United States:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 19 exercised immunity to avoid being prosecuted for a criminal offense in the United States:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4729,7 +4729,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpServingAsForeignGovernment"
             ? ((botMessage = createChatBotMessage("21. Have you ever induced by force, fraud, or coercion (or otherwise been involved in) the trafficking of persons for commercial sex acts?", {
                 widget: "getForceTraffickingSexActs",
-              }), console.log('Explain 20 while serving as a foreign government official,violations of religious freedoms:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 20 while serving as a foreign government official,violations of religious freedoms:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4739,7 +4739,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpForceTraffickingSexActs"
             ? ((botMessage = createChatBotMessage("22. Have you ever trafficked a person into involuntary servitude, peonage, debt bondage, or slavery? Trafficking includes recruiting, harboring, transporting, providing, or obtaining a person for labor or services through the use of force, fraud, or coercion.", {
                 widget: "getTraffickPersonCoercion",
-              }), console.log('Explain 21 induced by force, fraud, or coercion the trafficking of persons for commercial sex acts:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 21 induced by force, fraud, or coercion the trafficking of persons for commercial sex acts:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4749,7 +4749,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpTraffickPersonCoercion"
             ? ((botMessage = createChatBotMessage("23. Have you ever knowingly aided, abetted, assisted, conspired, or colluded with others in trafficking persons for commercial sex acts or involuntary servitude, peonage, debt bondage, or slavery?", {
                 widget: "getKnowinglyAidedSlavery",
-              }), console.log('Explain 22 Have you ever trafficked a person into involuntary servitude services through the use of force, fraud, or coercion:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 22 Have you ever trafficked a person into involuntary servitude services through the use of force, fraud, or coercion:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4761,7 +4761,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpKnowinglyAidedSlavery"
             ? ((botMessage = createChatBotMessage("24. Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons and have received or obtained, within the last five years, any financial or other benefits from the illicit activity of your spouse or your parent, although you knew or reasonably should have known that this benefit resulted from the illicit activity of your spouse or parent?", {
                 widget: "getSpouseSonOfForeignNational",
-              }), console.log('Explain 23 Have ever knowingly aided, or involuntary servitude, peonage, debt bondage, or slavery:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 23 Have ever knowingly aided, or involuntary servitude, peonage, debt bondage, or slavery:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4771,7 +4771,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpSpouseSonOfForeignNational"
             ? ((botMessage = createChatBotMessage("25 Have you ever engaged in money laundering or have you ever knowingly aided, assisted, conspired, or colluded with others in money laundering or do you seek to enter the United States to engage in such activity?", {
                 widget: "getEngageInMoneyLaunderActivity",
-              }), console.log('Explain 24 Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 24 Are you the spouse, son or daughter of a foreign national who engaged in the trafficking of persons:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4781,7 +4781,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpEngageInMoneyLaunderActivity"
             ? ((botMessage = createChatBotMessage("26. Do you intend to engage in any activity that violates or evades any law relating to espionage (including spying) or sabotage in the United States?", {
                 widget: "getIntendActivityViolatesInUS",
-              }), console.log('Explain 25 Have you ever engaged in money laundering in such activity:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 25 Have you ever engaged in money laundering in such activity:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4791,7 +4791,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpIntendActivityViolatesInUS"
             ? ((botMessage = createChatBotMessage("27. Do you intend to engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods, technology, or sensitive information?", {
                 widget: "getEngageInUSProhibitingExport",
-              }), console.log('Explain 26 do you intend to engage in any activity that violates or sabotage in the United States:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 26 do you intend to engage in any activity that violates or sabotage in the United States:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4801,7 +4801,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpEngageInUSProhibitingExport"
             ? ((botMessage = createChatBotMessage("28. Do you intend to engage in any activity whose purpose includes opposing, controlling, or overthrowing the U.S. Government by force, violence, or other unlawful means while in the United States?", {
                 widget: "getIntendEngageOpposeInUS",
-              }), console.log('Explain 27 engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 27 engage in any activity in the United States that violates or evades any law prohibiting the export from the United States of goods:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4811,7 +4811,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpIntendEngageOpposeInUS"
             ? ((botMessage = createChatBotMessage("29. Do you intend to engage in any activity that could endanger the welfare, safety, or security of the United States?", {
                 widget: "getIntendEngageEndangerInUS",
-              }), console.log('Explain 28 intend to engage in any activity whose opposing, controlling, other unlawful means while in the United States:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 28 intend to engage in any activity whose opposing, controlling, other unlawful means while in the United States:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4821,7 +4821,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpIntendEngageEndangerInUS"
             ? ((botMessage = createChatBotMessage("30. Do you intend to engage in any other unlawful activity?", {
                 widget: "getEngageInUnlawActivity",
-              }), console.log('Explain 29 intend to engage in any activity that could endanger the welfare, safety, or security of the United States:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 29 intend to engage in any activity that could endanger the welfare, safety, or security of the United States:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4831,7 +4831,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpEngageInUnlawActivity"
             ? ((botMessage = createChatBotMessage("31. Are you engaged in or, upon your entry into the United States, do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States?", {
                 widget: "getEngagedInSeriousForeignInUS",
-              }), console.log('Explain 30 intend to engage in any activity that could endanger the welfare, safety, or security of the United States:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 30 intend to engage in any activity that could endanger the welfare, safety, or security of the United States:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4841,7 +4841,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpEngagedInSeriousForeignInUS"
             ? ((botMessage = createChatBotMessage("32. Committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?", {
                 widget: "getCommitThreatToCommit",
-              }), console.log('Explain 31 engaged in or do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 31 engaged in or do you intend to engage in any activity that could have potentially serious adverse foreign policy consequences for the United States:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4851,7 +4851,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpCommitThreatToCommit"
             ? ((botMessage = createChatBotMessage("33. Have you ever received any type of military, paramilitary, or weapons training?", {
                 widget: "getReceivedAnyTypeMilitary",
-              }), console.log('Explain 32 Committed, threatened to commit, attempted to commit, conspired to commit:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 32 Committed, threatened to commit, attempted to commit, conspired to commit:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4861,7 +4861,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpReceivedAnyTypeMilitary"
             ? ((botMessage = createChatBotMessage("34. Are you the spouse or child of an individual who ever committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property? ", {
                 widget: "getSpouseCommitSubstantialDamage",
-              }), console.log('Explain 33 received any type of military, paramilitary, or weapons training:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 33 received any type of military, paramilitary, or weapons training:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4871,7 +4871,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpSpouseCommitSubstantialDamage"
             ? ((botMessage = createChatBotMessage("35. Have you ever assisted or participated in selling, providing, or transporting weapons to any person who, to your knowledge, used them against another person?", {
                 widget: "getTransportingWeaponsToAnyPerson",
-              }), console.log('Explain 34 spouse or child who ever committed political assassination or cause substantial damage to property:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 34 spouse or child who ever committed political assassination or cause substantial damage to property:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4881,7 +4881,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
               : prev.messages[ind]["widget"] === "getExpTransportingWeaponsToAnyPerson"
             ? ((botMessage = createChatBotMessage("36.	Have you EVER worked, volunteered, or otherwise served in any prison, jail, prison camp, detention facility, labor camp, or any other situation that involved detaining persons?", {
                 widget: "getSituationsThatDetainingPersons",
-              }), console.log('Explain 35:', prev.messages[lastInd].message)),
+              })/* , console.log('Explain 35:', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4892,7 +4892,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpSituationsThatDetainingPersons"
             ? ((botMessage = createChatBotMessage("37.	Have you EVER been a member of, assisted, or participated in any group, unit, or organization of any kind in which you or other persons used any type of weapon against any person or threatened to do so?", {
                 widget: "getThreatendedAnyPerson",
-              }), console.log('Explain Detaining :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Detaining :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4901,7 +4901,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpThreatendedAnyPerson"
             ? ((botMessage = createChatBotMessage("38.	Have you EVER served in, been a member of, assisted, or participated in any military unit, paramilitary unit, police unit, self-defense unit, vigilante unit, rebel group, guerilla group, militia, insurgent organization, or any other armed group?", {
                 widget: "getAnyArmedGroup",
-              }), console.log('Explain Threatended :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Threatended :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4910,7 +4910,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpAnyArmedGroup"
             ? ((botMessage = createChatBotMessage("39.	Have you EVER been a member of, or in any way affiliated with, the Communist Party or any other totalitarian party (in the United States or abroad)?", {
                 widget: "getAnyOtherTotalitarian",
-              }), console.log('Explain Armed Group :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Armed Group :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4919,7 +4919,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpAnyOtherTotalitarian"
             ? ((botMessage = createChatBotMessage("40.	During the period from March 23, 1933 to May 8, 1945, did you ever order, incite, assist, or otherwise participate in the persecution of any person because of race, religion, national origin, or political opinion, in association with either the Nazi government of Germany or any organization or government associated or allied with the Nazi government of Germany?", {
                 widget: "getNaziGovOfGermany",
-              }), console.log('Explain Other Total Itarian :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Other Total Itarian :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4928,7 +4928,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpNaziGovOfGermany"
             ? ((botMessage = createChatBotMessage("41.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Acts involving torture or genocide?", {
                 widget: "getTortureOrGenocide",
-              }), console.log('Explain Nazi Gov Of Germany :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Nazi Gov Of Germany :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4937,7 +4937,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpTortureOrGenocide"
             ? ((botMessage = createChatBotMessage("42.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Killing any person?", {
                 widget: "getKillingAnyPerson",
-              }), console.log('Explain Torture Or Genocide :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Torture Or Genocide :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4946,7 +4946,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpKillingAnyPerson"
             ? ((botMessage = createChatBotMessage("43.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Intentionally and severely injuring any person?", {
                 widget: "getIntentionallyInjuredPerson",
-              }), console.log('Explain Killing Any Person :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Killing Any Person :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4955,7 +4955,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpIntentionallyInjuredPerson"
             ? ((botMessage = createChatBotMessage("44.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Engaging in any kind of sexual contact or relations with any person who did not consent or was unable to consent, or was being forced or threatened?", {
                 widget: "getBeingForced",
-              }), console.log('Explain Intentionally Injured Person :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Intentionally Injured Person :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4964,7 +4964,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpBeingForced"
             ? ((botMessage = createChatBotMessage("45.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in . Limiting or denying any person's ability to exercise religious beliefs?", {
                 widget: "getReligiousBeliefs",
-              }), console.log('Explain Being Forced :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Being Forced :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4973,7 +4973,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpReligiousBeliefs"
             ? ((botMessage = createChatBotMessage("46.	Have you EVER recruited, enlisted, conscripted, or used any person under 15 years of age to serve in or help an armed force or group?", {
                 widget: "getArmedForce",
-              }), console.log('Explain Religious Beliefs :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Religious Beliefs :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4982,7 +4982,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpArmedForce"
             ? ((botMessage = createChatBotMessage("47.	Have you EVER used any person under 15 years of age to take part in hostilities, or to help or provide services to people in combat?", {
                 widget: "getPeopleInCombat",
-              }), console.log('Explain Armed Force :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Armed Force :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -4991,7 +4991,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpPeopleInCombat"
             ? ((botMessage = createChatBotMessage("Have you received public assistance in the United States from any source, including the U.S. Government or any state, county, city, or municipality (other than emergency medical treatment)?", {
                 widget: "getHaveYouReceivedPublicAssistance",
-              }), console.log('Explain People In Combat :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain People In Combat :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5000,7 +5000,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpHaveYouReceivedPublicAssistance"
             ? ((botMessage = createChatBotMessage("Are you likely to receive public assistance in the future in the United States from any source, including the U.S. Government or any state, county, city, or municipality (other than emergency medical treatment)?", {
                 widget: "getAreYouReceivePublicAssistance",
-              }), console.log('Explain Have You Received :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Have You Received :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5009,7 +5009,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpAreYouReceivePublicAssistance"
             ? ((botMessage = createChatBotMessage("Have you EVER failed or refused to attend or to remain in attendance at any removal proceeding filed against you on or after April 1, 1997?", {
                 widget: "getRemovalProceedingFiledAgainstU",
-              }), console.log('Explain Are You Receive :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Are You Receive :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5018,7 +5018,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpRemovalProceedingFiledAgainstU"
             ? ((botMessage = createChatBotMessage("Have you EVER submitted fraudulent or counterfeit documentation to any U.S. Government official to obtain or attempt to obtain any immigration benefit, including a visa or entry into the United States?", {
                 widget: "getEverSubmittedFraudulent",
-              }), console.log('Explain Removal Proceeding Filed :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Removal Proceeding Filed :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5027,7 +5027,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpEverSubmittedFraudulent"
             ? ((botMessage = createChatBotMessage("Have you EVER lied about, concealed, or misrepresented any information on an application or petition to obtain a visa, other documentation required for entry into the United States, admission to the United States, or any other kind of immigration benefit?", {
                 widget: "getLiedAboutMisrepresented",
-              }), console.log('Explain Ever Submitted Fraudulent :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Ever Submitted Fraudulent :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5036,7 +5036,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpLiedAboutMisrepresented"
             ? ((botMessage = createChatBotMessage("Have you EVER falsely claimed to be a U.S. citizen (in writing or any other way)?", {
                 widget: "getFalselyClaimedToBeUS",
-              }), console.log('Explain Lied About Misrepresented :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Lied About Misrepresented :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5045,7 +5045,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpFalselyClaimedToBeUS"
             ? ((botMessage = createChatBotMessage("Have you EVER been a stowaway on a vessel or aircraft arriving in the United States?", {
                 widget: "getBeenAStowaway",
-              }), console.log('Explain Falsely Claimed To Be US :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Falsely Claimed To Be US :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5054,7 +5054,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpBeenAStowaway"
             ? ((botMessage = createChatBotMessage("Have you EVER knowingly encouraged, induced, assisted, abetted, or aided any foreign national to enter or to try to enter the United States illegally (alien smuggling)?", {
                 widget: "getAlienSmuggling",
-              }), console.log('Explain Been A Stowaway :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Been A Stowaway :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5063,7 +5063,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpAlienSmuggling"
             ? ((botMessage = createChatBotMessage("Are you under a final order of civil penalty for violating INA section 274C for use of fraudulent documents?", {
                 widget: "getFraudulentDocuments",
-              }), console.log('Explain Alien Smuggling :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Alien Smuggling :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5072,7 +5072,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpFraudulentDocuments"
             ? ((botMessage = createChatBotMessage("Have you EVER been excluded, deported, or removed from the United States or have you ever departed the United States on your own after having been ordered excluded, deported, or removed from the United States?", {
                 widget: "getRemovedFromTheUS",
-              }), console.log('Explain Fraudulent Documents :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Fraudulent Documents :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5081,7 +5081,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpRemovedFromTheUS"
             ? ((botMessage = createChatBotMessage("Have you EVER entered the United States without being inspected and admitted or paroled?", {
                 widget: "getBeingAdmittedOrParoled",
-              }), console.log('Explain Removed From The US :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Removed From The US :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5090,7 +5090,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpBeingAdmittedOrParoled"
             ? ((botMessage = createChatBotMessage("Since April 1, 1997, have you been unlawfully present in the United States For more than 180 days but less than a year, and then departed the United States?", {
                 widget: "getBeenUnlawfullyPresentInUS",
-              }), console.log('Explain Being Admitted Or Paroled :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Being Admitted Or Paroled :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5099,7 +5099,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpBeenUnlawfullyPresentInUS"
             ? ((botMessage = createChatBotMessage("Since April 1, 1997, have you been unlawfully present in the United States For one year or more and then departed the United States?", {
                 widget: "getBeenUnlawfullyPresentYearInUS",
-              }), console.log('Explain Been Present Days In US :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Been Present Days In US :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5108,7 +5108,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpBeenUnlawfullyPresentYearInUS"
             ? ((botMessage = createChatBotMessage("Since April 1, 1997, have you EVER reentered or attempted to reenter the United States without being inspected and admitted or paroled after Having been unlawfully present in the United States for more than one year in the aggregate?", {
                 widget: "getReenteredInUSInAggregate",
-              }), console.log('Explain Been Present a Year In US :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Been Present a Year In US :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5117,7 +5117,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpReenteredInUSInAggregate"
             ? ((botMessage = createChatBotMessage("Since April 1, 1997, have you EVER reentered or attempted to reenter the United States without being inspected and admitted or paroled after Having been deported, excluded, or removed from the United States?", {
                 widget: "getRemovedFromUSBeforeReentered",
-              }), console.log('Explain Reentered In US In Aggregate :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Reentered In US In Aggregate :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5126,7 +5126,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpRemovedFromUSBeforeReentered"
             ? ((botMessage = createChatBotMessage("Do you plan to practice polygamy in the United States?", {
                 widget: "getPracticePolygamyInUS",
-              }), console.log('Explain Removed From US Before Reentered :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Removed From US Before Reentered :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5135,7 +5135,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpPracticePolygamyInUS"
             ? ((botMessage = createChatBotMessage("Are you accompanying another foreign national who requires your protection or guardianship but who is inadmissible after being certified by a medical officer as being helpless from sickness, physical or mental disability, or infancy, as described in INA section 232(c)?", {
                 widget: "getINASection232C",
-              }), console.log('Explain Practice Polygamy In US :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Practice Polygamy In US :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5144,7 +5144,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpINASection232C"
             ? ((botMessage = createChatBotMessage("Have you EVER assisted in detaining, retaining, or withholding custody of a U.S. citizen child outside the United States from a U.S. citizen who has been granted custody of the child?", {
                 widget: "getGrantedCustodyOfChild",
-              }), console.log('Explain INA Section 232C :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain INA Section 232C :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5153,7 +5153,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpGrantedCustodyOfChild"
             ? ((botMessage = createChatBotMessage("Have you EVER voted in violation of any Federal, state, or local constitutional provision, statute, ordinance, or regulation in the United States?", {
                 widget: "getViolationOfAnyFederal",
-              }), console.log('Explain Granted Custody Of Child :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Granted Custody Of Child :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5162,7 +5162,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpViolationOfAnyFederal"
             ? ((botMessage = createChatBotMessage("Have you EVER renounced U.S. citizenship to avoid being taxed by the United States?", {
                 widget: "getRenouncedUSCitizenship",
-              }), console.log('Explain Violation Of Any Federal :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Violation Of Any Federal :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5171,7 +5171,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpRenouncedUSCitizenship"
             ? ((botMessage = createChatBotMessage("Have you ever Applied for exemption or discharge from training or service in the U.S. armed forces or in the U.S. National Security Training Corps on the ground that you are a foreign national?", {
                 widget: "getNationalSecurityTrainingCorps",
-              }), console.log('Explain Renounced US Citizenship :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Renounced US Citizenship :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5180,7 +5180,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpNationalSecurityTrainingCorps"
             ? ((botMessage = createChatBotMessage("Have you ever Been relieved or discharged from such training or service on the ground that you are a foreign national?", {
                 widget: "getDischargedFromSuchTraining",
-              }), console.log('Explain National Security Training :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain National Security Training :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5189,7 +5189,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpDischargedFromSuchTraining"
             ? ((botMessage = createChatBotMessage("Have you ever Been convicted of desertion from the U.S. armed forces?", {
                 widget: "getConvictedOfDesertion",
-              }), console.log('Explain Discharged From Such Training :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Discharged From Such Training :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5198,7 +5198,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpConvictedOfDesertion"
             ? ((botMessage = createChatBotMessage("Have you ever Have you EVER left or remained outside the United States to avoid or evade training or service in the U.S. armed forces in time of war or a period declared by the President to be a national emergency?", {
                 widget: "getLeftOrRemainedOutsideTheUS",
-              }), console.log('Explain Convicted Of Desertion :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Convicted Of Desertion :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5207,7 +5207,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             : prev.messages[ind]["widget"] === "getExpLeftOrRemainedOutsideTheUS"
             ? ((botMessage = createChatBotMessage("Thank you for you response", {
                 widget: "getBenefitStatus",
-              }), console.log('Explain Outside The US :', prev.messages[lastInd].message)),
+              })/* , console.log('Explain Outside The US :', prev.messages[lastInd].message) */),
               {
                 ...prev,
                 messages: [...prev.messages, botMessage],
@@ -5232,7 +5232,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             {
               widget: "end-message",
             }
-          ), console.log('thank you ', prev.messages[lastInd].message)),{
+          )/* , console.log('thank you ', prev.messages[lastInd].message) */),{
             ...prev,
             messages: [...prev.messages, botMessage],
             appiledImmigration: prev.messages[lastInd].message,
