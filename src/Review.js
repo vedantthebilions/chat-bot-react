@@ -117,7 +117,7 @@ class Review extends Component {
   render() {
     const ref = React.createRef();
     // console.log('in review : ', this.state);
-    const pdfExportComponent = React.createRef(null);
+    // const pdfExportComponent = React.createRef(null);
     return (
       <>
         {/* <div ref={ref}>
@@ -135,16 +135,16 @@ class Review extends Component {
           </div>
         </div> */}
         <div className="d-block">
-          {/* <div className="element-to-print">
+          <div className="element-to-print">
             <TableView state={this.state} />
-          </div> */}
-          <PDFExport paperSize="A4" margin="0.5cm" ref={pdfExportComponent}>
+          </div>
+          {/* <PDFExport paperSize="A4" margin="0.5cm" ref={pdfExportComponent}>
             <TableView state={this.state} />
-          </PDFExport>
+          </PDFExport> */}
           <div className="btn-div">
             <button
               class="btn"
-              /* onClick={
+              onClick={
                 () =>
                   pdfFromReact(
                     ".element-to-print",
@@ -153,12 +153,12 @@ class Review extends Component {
                     true,
                     false
                   ) //resize true
-              } */
-              onClick={() => {
+              }
+              /* onClick={() => {
                 if (pdfExportComponent.current) {
                   pdfExportComponent.current.save();
                 }
-              }}
+              }} */
             >
               Download as Pdf
             </button>

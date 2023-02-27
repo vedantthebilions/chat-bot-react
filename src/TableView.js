@@ -540,10 +540,10 @@ function TableView(props) {
                     : "NA"}
                 </u>
               </td>
-            </tr> &nbsp;
+            </tr> {/* &nbsp; */}
             {/* Page 1 */}
             <tr>
-              <td colSpan={3} className='section'>
+              <td colSpan={3} className='section' style={{margin: 20}}>
                 Complete legal name of the applicant &nbsp;&nbsp; (if married, married name): &nbsp;&nbsp;
                 {completeLegalName
                   ? completeLegalName
@@ -736,7 +736,7 @@ function TableView(props) {
                   ? fatherResidenceCountry
                   : "NA"}
               </td>
-            </tr>
+            </tr> &nbsp;
             <tr>
               <td colSpan={3} className='section'>
                 Were you inspected and admitted by an immigration oficial?: &nbsp;&nbsp;
@@ -981,7 +981,8 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
-            <tr>
+            &nbsp;
+            <tr style={{backgroundColor: 'red'}}>
               <td className='section'>
               Race (please circle):
                 <br />

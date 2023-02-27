@@ -54,7 +54,11 @@ body {
 }
 
 .section{
-  padding: 1%;
+  padding: 2.04%;
+}
+
+.section2{
+  padding: 2.01%;
 }
 
 .btn {
@@ -112,16 +116,23 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  page-break-inside:auto
 }
 
 td, th {
   border: 1px solid #000;
   text-align: left;
-  padding: 8px;
+  padding: 80px;
+  /* display:table-header-group */
+}
+
+thead {
+  display:table-header-group;
 }
 
 tr:nth-child(even) {
   background-color: #fff;
+  page-break-inside:avoid; page-break-after:auto
 }
 
 .learning-options-container {
@@ -270,3 +281,12 @@ tr:nth-child(even) {
     transform: rotate(360deg);
   }
 }
+
+/* @media print
+{
+  table { page-break-after:auto }
+  tr    { page-break-inside:avoid; page-break-after:auto }
+  td    { page-break-inside:avoid; page-break-after:auto }
+  thead { display:table-header-group }
+  tfoot { display:table-footer-group }
+} */
