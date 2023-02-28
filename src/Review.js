@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Pdf from "react-to-pdf";
 import { pdfFromReact } from "generate-pdf-from-react-html";
-import { PDFExport } from '@progress/kendo-react-pdf';
+// import { PDFExport } from '@progress/kendo-react-pdf';
 import TableView from "./TableView";
 import "./App.css";
 

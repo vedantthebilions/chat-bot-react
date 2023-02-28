@@ -54,12 +54,12 @@ body {
 }
 
 .section{
-  padding: 2.04%;
+  padding: 2%;
 }
 
-.section2{
+/* .section2{
   padding: 2.01%;
-}
+} */
 
 .btn {
   background-color: DodgerBlue;

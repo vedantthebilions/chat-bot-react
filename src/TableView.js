@@ -283,12 +283,11 @@ function TableView(props) {
           {caseType}
         </h4>
       </center> */}
-
       <center>
         <h6>{clientName}</h6>
       </center>
 
-      <div className="margin-2">
+      <div className="margin-2" >
         <table>
           <tbody>
             <tr>
@@ -479,6 +478,11 @@ function TableView(props) {
                 </u>
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section' colSpan={3}>
                 <ol type="1">
@@ -541,6 +545,7 @@ function TableView(props) {
                 </u>
               </td>
             </tr> {/* &nbsp; */}
+            
             {/* Page 1 */}
             <tr>
               <td colSpan={3} className='section' style={{margin: 20}}>
@@ -682,6 +687,8 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section'>
                 Mother’s country of birth: &nbsp;&nbsp;
@@ -717,6 +724,9 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td className='section'>
                 Father’s country of birth: &nbsp;&nbsp;
@@ -736,7 +746,8 @@ function TableView(props) {
                   ? fatherResidenceCountry
                   : "NA"}
               </td>
-            </tr> &nbsp;
+            </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td colSpan={3} className='section'>
                 Were you inspected and admitted by an immigration oficial?: &nbsp;&nbsp;
@@ -945,6 +956,8 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section' colSpan={3}>
               Have you applied for permanent resident status in the past?:
@@ -971,6 +984,9 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             {/* Page 3 */}
             <tr>
               <td colSpan={3} className='section'>
@@ -981,8 +997,7 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
-            &nbsp;
-            <tr style={{backgroundColor: 'red'}}>
+            <tr>
               <td className='section'>
               Race (please circle):
                 <br />
@@ -1005,6 +1020,8 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td className='section'>
               Eye Color:
@@ -1025,7 +1042,7 @@ function TableView(props) {
               <td className='section'>
                 Please list your spouse and all children, living or deceased, that you have in the world.
               </td>
-              <td colSpan={2}>
+              <td className='section' colSpan={2}>
                 <table>
                   <thead>
                     <tr>
@@ -1078,7 +1095,7 @@ function TableView(props) {
               <td className='section'>
                 Please list all organizations, clubs, associations, or other groups of which you were a member starting with your 16th birthday through the present.
               </td>
-              <td colSpan={2}>
+              <td className='section' colSpan={2}>
                 <table>
                   <thead>
                     <tr>
@@ -1117,11 +1134,16 @@ function TableView(props) {
                 </table>
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section'>
                 Please list all arrests, criminal convictions, tickets, or citations you have received.  convicciones.
               </td>
-              <td colSpan={2}>
+              <td className='section' colSpan={2}>
                 <table>
                   <thead>
                     <tr>
@@ -1164,7 +1186,7 @@ function TableView(props) {
               <td className='section'>
                 Please list your last address outside of the US along with the dates you resided there.
               </td>
-              <td colSpan={2}>
+              <td className='section' colSpan={2}>
                 <table>
                   <thead>
                     <tr>
@@ -1193,11 +1215,12 @@ function TableView(props) {
                 </table>
               </td>
             </tr>
+            
             <tr>
               <td className='section'>
                 Please list all of your addresses where you have lived since entering the United States, along with the dates.
               </td>
-              <td colSpan={2}>
+              <td className='section' colSpan={2}>
                 <table>
                   <thead>
                     <tr>
@@ -1230,7 +1253,7 @@ function TableView(props) {
               <td className='section'>
                 Please list all employment you have had for the last five years insde the United States along with the name of the employer, location, job title, and dates.
               </td>
-              <td colSpan={2}>
+              <td className='section' colSpan={2}>
                 <table>
                   <thead>
                     <tr>
@@ -1279,6 +1302,9 @@ function TableView(props) {
                 {expDeniedAdmissionToUS && `Explain: ${expDeniedAdmissionToUS && expDeniedAdmissionToUS}`}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td colSpan={3} className='section'>
                 (2)	Have you ever been denied a visa to the U.S.? <br />
@@ -1327,6 +1353,9 @@ function TableView(props) {
                 {expLawfulPermResidentStatuslatRescind && `Explain: ${expLawfulPermResidentStatuslatRescind && expLawfulPermResidentStatuslatRescind}`}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td colSpan={3} className='section'>
                 (8) Have you ever been granted voluntary departure by an immigration officer or an immigration judge, but failed to depart within the allotted time?<br />
@@ -1368,6 +1397,10 @@ function TableView(props) {
                 {expGrantWaiverRecommendLetter && `Explain: ${expGrantWaiverRecommendLetter && expGrantWaiverRecommendLetter}`}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td colSpan={3} className='section'>
                 (13) Have you ever been arrested, cited, charged, or detained for any reason by any law enforcement official?<br />
@@ -1408,6 +1441,9 @@ function TableView(props) {
                 {expDefendInCriminalProceeding && `Explain: ${expDefendInCriminalProceeding && expDefendInCriminalProceeding}`}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td colSpan={3} className='section'>
                 (18) Have you ever violated (or attempted or conspired to violate) any controlled substance law or regulation of state, the United States, or a foreign country?<br />
@@ -1448,6 +1484,8 @@ function TableView(props) {
                 {expTraffickPersonCoercion && `Explain: ${expTraffickPersonCoercion && expTraffickPersonCoercion}`}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             {/* Page 6 */}
             <tr>
               <td colSpan={3} className='section'>
@@ -1489,6 +1527,7 @@ function TableView(props) {
                 {expEngageInUSProhibitingExport && `Explain: ${expEngageInUSProhibitingExport && expEngageInUSProhibitingExport}`}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td colSpan={3} className='section'>
                 (28) Do you intend to engage in any activity whose purpose includes opposing, controlling, or overthrowing the U.S. Government by force, violence, or other unlawful means while in the United States? <br />
@@ -1521,6 +1560,11 @@ function TableView(props) {
                 {expEngagedInSeriousForeignInUS && `Explain: ${expEngagedInSeriousForeignInUS && expEngagedInSeriousForeignInUS}`}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td colSpan={3} className='section'>
                 (32) Committed, threatened to commit, attempted to commit, conspired to commit, incited, endorsed, advocated, planned, or prepared any of the following: hijacking, sabotage, kidnapping, political assassination, or use of a weapon or explosive to harm another individual or cause substantial damage to property?<br />
@@ -1575,6 +1619,7 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td className='section' colSpan={3}>
                 38.	Have you EVER served in, been a member of, assisted, or participated in any military unit, paramilitary unit, police unit, self-defense unit, vigilante unit, rebel group, guerilla group, militia, insurgent organization, or any other armed group?:
@@ -1605,6 +1650,8 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section' colSpan={3}>
                 41.	Have you EVER ordered, incited, called for, committed, assisted, helped with, or otherwise participated in Acts involving torture or genocide?:
@@ -1675,6 +1722,8 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             {/* Page 8 */}
             <tr>
               <td className='section' colSpan={3}>
@@ -1706,6 +1755,9 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section' colSpan={3}>
                 Have you EVER submitted fraudulent or counterfeit documentation to any U.S. Government official to obtain or attempt to obtain any immigration benefit, including a visa or entry into the United States?:
@@ -1786,6 +1838,7 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td className='section' colSpan={3}>
                 Since April 1, 1997, have you been unlawfully present in the United States For more than 180 days but less than a year, and then departed the United States?:
@@ -1807,6 +1860,12 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section' colSpan={3}>
                 Since April 1, 1997, have you EVER reentered or attempted to reenter the United States without being inspected and admitted or paroled after Having been unlawfully present in the United States for more than one year in the aggregate?:
@@ -1887,6 +1946,9 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {/* {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>} */}
             <tr>
               <td className='section' colSpan={3}>
                 Have you ever Been relieved or discharged from such training or service on the ground that you are a foreign national?:
@@ -1907,6 +1969,9 @@ function TableView(props) {
                   : "NA"}
               </td>
             </tr>
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
+            {<div style={{ pageBreakBefore: "always"}}>&nbsp;</div>}
             <tr>
               <td className='section' colSpan={3}>
                 Have you ever Have you EVER left or remained outside the United States to avoid or evade training or service in the U.S. armed forces in time of war or a period declared by the President to be a national emergency? if yes, what was your nationality or immigration status immediately before you left:
